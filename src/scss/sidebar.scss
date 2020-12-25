@@ -1,0 +1,19 @@
+.c-sidebar {
+  font-size: medium;
+}
+
+.c-sidebar-nav-dropdown-toggle::after {
+  transform: scaleX(-1);
+}
+
+.c-sidebar-nav-link {
+  white-space: normal;
+}
+
+.c-sidebar .c-sidebar-nav-dropdown.c-show .c-sidebar-nav-dropdown-toggle {
+  background-color: $show;
+}
+
+.c-sidebar .c-sidebar-nav-link.c-active {
+  background-color: $active;
+}

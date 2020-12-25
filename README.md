@@ -6,6 +6,9 @@ Responsive website for the Alpha Observatory project
 
 Management system
 
+## Description
+Visit the website: https://managementsystemalpha.vercel.app/
+
 ## Cloning the Repository
 With Git and Node.js installed on your machine, choose location and clone repository, use this commands:
 

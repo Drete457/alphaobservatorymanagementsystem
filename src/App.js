@@ -2,6 +2,8 @@ import React, { lazy, useState } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { CFade } from '@coreui/react';
 import Loading from './containers/loading';
+
+import './i18n';
 import './scss/style.scss';
 
 // Containers

@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import { useRecoilState } from 'recoil';
 import {
   CHeader,
-  CHeaderBrand,
   CHeaderNav,
   CSubheader,
   CToggler,
@@ -45,9 +44,6 @@ const Header = () => {
         className="ml-3 d-md-down-none"
         onClick={toggleSidebar}
       />
-      <CHeaderBrand className="mx-auto d-lg-none" to="/">
-        <CIcon name="logo" height="48" alt="Logo" />
-      </CHeaderBrand>
 
       <CHeaderNav className="d-md-down-none ml-auto">
         <CToggler

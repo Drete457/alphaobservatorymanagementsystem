@@ -1,20 +1,15 @@
 import React, { Suspense, memo } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { CFade } from '@coreui/react';
+import Loading from '../../loading';
 
 // routes config
 import routes from '../../../routes';
 
-const loading = (
-  <div className="pt-3 text-center">
-    <div className="sk-spinner sk-spinner-pulse"></div>
-  </div>
-);
-
 const Content = () => {
   return (
     <main className="c-main">
-      <Suspense fallback={loading}>
+      <Suspense fallback={<Loading />}>
         <Switch>
           {routes.map((route, idx) => {
             return (

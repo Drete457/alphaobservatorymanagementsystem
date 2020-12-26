@@ -1,13 +1,8 @@
 import React, { lazy, useState } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { CFade } from '@coreui/react';
+import Loading from './containers/loading';
 import './scss/style.scss';
-
-const loading = (
-  <div className="pt-3 text-center">
-    <div className="sk-spinner sk-spinner-pulse"></div>
-  </div>
-);
 
 // Containers
 const Layout = lazy(() => import('./containers/layout'));
@@ -18,7 +13,7 @@ function App() {
 
   return (
     <HashRouter>
-      <React.Suspense fallback={loading}>
+      <React.Suspense fallback={<Loading />}>
         <Switch>
           <Route
             exact

@@ -1,8 +1,8 @@
 {
     "login": {
         "title": "Login",
-        "signin": "Sign In to your Google Account",
-        "google_button": "Login whit Google Account"
+        "signin": "Sign In with your Google Account",
+        "google_button": "Google Account"
     },
     "sidebar": {}
 }

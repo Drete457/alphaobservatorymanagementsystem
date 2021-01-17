@@ -15,6 +15,11 @@ const Login = ({ set }) => {
   const history = useHistory();
   const [t] = useTranslation();
 
+  const onSubmit = () => {
+    let provider = new fi();
+    return;
+  };
+
   return (
     <div className="c-app c-default-layout flex-row align-items-center">
       <CContainer>

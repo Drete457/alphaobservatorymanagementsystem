@@ -33,6 +33,7 @@ yarn start
 - eslint-react-hooks
 - React Select
 - React-Avatar
+- FireBase SDK
 
 ## License
 MIT License

@@ -8,7 +8,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <img src={isUser.photo} alt="user photo" />
+      <img src={isUser.photo} alt="user display" />
       <p>Name: {isUser.name}</p>
       <p>Email: {isUser.email}</p>
       <p>Create: {isUser.create}</p>

@@ -46,10 +46,15 @@ const Login = () => {
         history.push('/');
       })
       .catch((error) => {
-        /*  const errorCode = error.code;
+        const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.mail;
-        const credential = error.credential; */
+        const credential = error.credential;
+        console.log('error');
+        console.log(errorCode);
+        console.log(errorMessage);
+        console.log(email);
+        console.log(credential);
       });
   };
 

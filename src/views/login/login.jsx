@@ -38,10 +38,10 @@ const Login = () => {
         history.push('/');
       })
       .catch((error) => {
-        const errorCode = error.code;
+        /*  const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.mail;
-        const credential = error.credential;
+        const credential = error.credential; */
       });
   };
 

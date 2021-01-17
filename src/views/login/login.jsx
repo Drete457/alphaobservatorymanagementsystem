@@ -10,18 +10,40 @@ import {
 } from '@coreui/react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import fire from '../../api/';
+import { useSetRecoilState } from 'recoil';
+import { token, user } from '../../state/atoms';
+import { firebase } from '../../api/';
+import userConstrutor from '../../helpers/login';
 
-const Login = ({ set }) => {
+const Login = () => {
   const history = useHistory();
   const [t] = useTranslation();
 
-  console.log(fire);
+  const setToken = useSetRecoilState(token);
+  const setUser = useSetRecoilState(user);
 
-  /* const onSubmit = () => {
-    let provider = new fi();
-    return;
-  }; */
+  const onSubmit = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        const googleToken = result.credential.accessToken;
+        const googleUser = result.user;
+        const userInfo = userConstrutor(googleUser);
+
+        setToken(googleToken);
+        setUser(userInfo);
+
+        history.push('/');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.mail;
+        const credential = error.credential;
+      });
+  };
 
   return (
     <div className="c-app c-default-layout flex-row align-items-center">
@@ -41,8 +63,7 @@ const Login = ({ set }) => {
                         color="primary"
                         className="mt-4"
                         onClick={() => {
-                          history.push('/');
-                          set(true);
+                          onSubmit();
                         }}
                       >
                         {t('login.google_button')}

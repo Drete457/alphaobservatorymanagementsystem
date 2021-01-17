@@ -1,16 +1,16 @@
 import firebase from 'firebase';
 
 export const firebaseConfig = {
-  apiKey: 'AIzaSyAEoqqESKfj_RmCz89w5mzcnmFJ9RngoEM',
-  authDomain: 'teste-registroalpha.firebaseapp.com',
-  databaseURL: 'https://teste-registroalpha-default-rtdb.firebaseio.com',
-  projectId: 'teste-registroalpha',
-  storageBucket: 'teste-registroalpha.appspot.com',
-  messagingSenderId: '1022868169751',
-  appId: '1:1022868169751:web:071c9ce2cb49a9382ea852',
-  measurementId: 'G-8QSJM1F975',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATA_BASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-const fire = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-export default fire;
+export { firebase };

@@ -39,7 +39,7 @@ const Login = () => {
         const googleToken = result.credential.accessToken;
         const googleUser = result.user;
         const userInfo = userConstrutor(googleUser);
-
+        console.log('loginStart');
         setToken(googleToken);
         setUser(userInfo);
 

@@ -18,7 +18,12 @@ import userConstrutor from '../../helpers/login';
 const Login = () => {
   const history = useHistory();
   const [t] = useTranslation();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState({
+    code: '',
+    message: '',
+    email: '',
+    credential: '',
+  });
 
   const setToken = useSetRecoilState(token);
   const setUser = useSetRecoilState(user);
@@ -80,20 +85,20 @@ const Login = () => {
                   </CRow>
                 </CCardBody>
               </CCard>
-              {error && (
-                <CCard className="p-4">
-                  <CCardBody md="12" className="d-flex justify-content-center">
-                    <CCol>
-                      <h1>Error</h1>
-                      <p>Code: {error.code}</p>
-                      <p>Message: {error.message}</p>
-                      <p>User: {error.email}</p>
-                      <p>Credential: {error.credential}</p>
-                    </CCol>
-                  </CCardBody>
-                </CCard>
-              )}
             </CCardGroup>
+            {error.code && (
+              <CCard className="p-4">
+                <CCardBody md="12" className="d-flex justify-content-center">
+                  <CCol>
+                    <h1>Error</h1>
+                    <p>Code: {error.code}</p>
+                    <p>Message: {error.message}</p>
+                    <p>User: {error.email}</p>
+                    <p>Credential: {error.credential}</p>
+                  </CCol>
+                </CCardBody>
+              </CCard>
+            )}
           </CCol>
         </CRow>
       </CContainer>

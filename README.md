@@ -14,7 +14,7 @@ With Git and Node.js installed on your machine, choose location and clone reposi
 
 ```
 git clone https://github.com/Drete457/alphaobservatorymanagementsystem.git
-cd excelreaderaep
+cd alphaobservatorymanagementsystem
 yarn
 yarn start
 ```

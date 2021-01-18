@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CButton,
   CCard,
@@ -18,6 +18,7 @@ import userConstrutor from '../../helpers/login';
 const Login = () => {
   const history = useHistory();
   const [t] = useTranslation();
+  const [error, setError] = useState(null);
 
   const setToken = useSetRecoilState(token);
   const setUser = useSetRecoilState(user);
@@ -42,11 +43,13 @@ const Login = () => {
         const errorMessage = error.message;
         const email = error.mail;
         const credential = error.credential;
-        console.log('error');
-        console.log(errorCode);
-        console.log(errorMessage);
-        console.log(email);
-        console.log(credential);
+
+        setError({
+          code: errorCode,
+          message: errorMessage,
+          email: email,
+          credential: credential,
+        });
       });
   };
 
@@ -77,6 +80,19 @@ const Login = () => {
                   </CRow>
                 </CCardBody>
               </CCard>
+              {error && (
+                <CCard className="p-4">
+                  <CCardBody md="12" className="d-flex justify-content-center">
+                    <CCol>
+                      <h1>Error</h1>
+                      <p>Code: {error.code}</p>
+                      <p>Message: {error.message}</p>
+                      <p>User: {error.email}</p>
+                      <p>Credential: {error.credential}</p>
+                    </CCol>
+                  </CCardBody>
+                </CCard>
+              )}
             </CCardGroup>
           </CCol>
         </CRow>

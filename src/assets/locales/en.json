@@ -8,5 +8,14 @@
     "header": {
         "profile": "Profile",
         "logout": "Logout"
+    },
+    "pages":{
+        "myprofile": {
+            "title": "Profile Page",
+            "name": "Name",
+            "email": "Email",
+            "create": "Account Create",
+            "last": "Last Visited"
+        }
     }
 }

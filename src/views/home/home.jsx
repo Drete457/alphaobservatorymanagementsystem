@@ -6,7 +6,7 @@ const Home = () => {
   const isToken = useRecoilValue(token);
   const isUser = useRecoilValue(user);
   const comunication = useRecoilValue(api);
-  console.log(comunication);
+  console.log(isUser);
   return (
     <>
       <img src={isUser.photo} alt="user display" />

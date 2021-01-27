@@ -4,5 +4,9 @@
         "signin": "Sign In with your Google Account",
         "google_button": "Google Account"
     },
-    "sidebar": {}
+    "sidebar": {},
+    "header": {
+        "profile": "Profile",
+        "logout": "Logout"
+    }
 }

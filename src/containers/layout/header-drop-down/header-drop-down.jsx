@@ -9,13 +9,23 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from '@agney/react-avatar';
 import { useRecoilValue } from 'recoil';
-import { user } from '../../../state/atoms';
+import { user, api } from '../../../state/atoms';
 import CIcon from '@coreui/icons-react';
 
-const HeaderAccountDropdown = ({ logout, nameToDisplay }) => {
+const HeaderAccountDropdown = () => {
   const [t] = useTranslation();
   const history = useHistory();
   const isUser = useRecoilValue(user);
+  const comunication = useRecoilValue(api);
+
+  const logOut = () => {
+    comunication
+      .auth()
+      .signOut()
+      .then(() => {
+        window.location.reload();
+      });
+  };
 
   return (
     <CDropdown inNav className="c-header-nav-items mx-2" direction="down">
@@ -24,7 +34,7 @@ const HeaderAccountDropdown = ({ logout, nameToDisplay }) => {
           <Avatar
             src={isUser.photo}
             backgrounds={['#FFFFFF']}
-            htmlWidth="40px"
+            htmlWidth="35px"
             className="border border-primary"
           />
         </div>
@@ -34,7 +44,7 @@ const HeaderAccountDropdown = ({ logout, nameToDisplay }) => {
           <CIcon name="cil-user" className="mfe-2" />
           {t('header.profile')}
         </CDropdownItem>
-        <CDropdownItem onClick={logout}>
+        <CDropdownItem onClick={logOut}>
           <CIcon name="cil-account-logout" className="mfe-2" />
           {t('header.logout')}
         </CDropdownItem>

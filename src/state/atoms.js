@@ -19,3 +19,8 @@ export const user = atom({
   key: 'user',
   default: {},
 });
+
+export const api = atom({
+  key: 'api',
+  default: null,
+});

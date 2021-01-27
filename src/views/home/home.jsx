@@ -1,11 +1,12 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { user, token } from '../../state/atoms';
+import { user, token, api } from '../../state/atoms';
 
-const Dashboard = () => {
+const Home = () => {
   const isToken = useRecoilValue(token);
   const isUser = useRecoilValue(user);
-
+  const comunication = useRecoilValue(api);
+  console.log(comunication);
   return (
     <>
       <img src={isUser.photo} alt="user display" />
@@ -18,4 +19,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;

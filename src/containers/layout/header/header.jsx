@@ -7,6 +7,7 @@ import {
   CToggler,
   CBreadcrumbRouter,
 } from '@coreui/react';
+import HeaderAccountDropdown from '../header-drop-down';
 import CIcon from '@coreui/icons-react';
 
 import { sidebarShow, asideShow } from '../../../state/atoms';
@@ -53,6 +54,7 @@ const Header = () => {
         >
           <CIcon className="mr-2" size="lg" name="cil-applications-settings" />
         </CToggler>
+        <HeaderAccountDropdown />
       </CHeaderNav>
 
       <CSubheader className="px-3 justify-content-between">

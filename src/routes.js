@@ -1,10 +1,7 @@
 import { lazy } from 'react';
 
-const Dashboard = lazy(() => import('./views/dashboard/Dashboard'));
+const Home = lazy(() => import('./views/home'));
 
-const routes = [
-  { path: '/', exact: true, name: 'Home' },
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-];
+const routes = [{ path: '/', exact: true, name: 'Home', component: Home }];
 
 export default routes;

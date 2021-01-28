@@ -11,7 +11,7 @@ import {
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSetRecoilState } from 'recoil';
-import { token, user, api } from '../../state/atoms';
+import { user, api } from '../../state/atoms';
 import { firebase } from '../../api/';
 import userConstrutor from '../../helpers/login';
 
@@ -25,7 +25,6 @@ const Login = () => {
     credential: '',
   });
 
-  const setToken = useSetRecoilState(token);
   const setUser = useSetRecoilState(user);
   const setCommunicationSystem = useSetRecoilState(api);
 
@@ -35,11 +34,9 @@ const Login = () => {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        const googleToken = result.credential.accessToken;
         const googleUser = result.user;
         const userInfo = userConstrutor(googleUser);
 
-        setToken(googleToken);
         setUser(userInfo);
         setCommunicationSystem(firebase);
 

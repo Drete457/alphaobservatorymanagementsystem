@@ -2,14 +2,13 @@ const useNavigation = () => {
   const array = [
     {
       _tag: 'CSidebarNavDropdown',
-      name: 'Test1',
-      route: '/users',
+      name: 'Home',
       _children: [
         {
           _tag: 'CSidebarNavItem',
-          name: 'test1-children',
-          to: '/users/allusers',
-          icon: '',
+          name: 'Users',
+          to: '/',
+          icon: 'cil-group',
         },
       ],
     },

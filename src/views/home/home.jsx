@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { useGetUser, usePostUser } from '../../hooks/users';
+import { useGetUsers, usePostUser, useDeleteUser } from '../../hooks/users';
+import { CButton, CDataTable } from '@coreui/react';
+
+const fields = [
+  { key: 'name', label: 'Name' },
+  { key: 'email', label: 'Email' },
+  {
+    key: 'delete',
+    label: '',
+    _style: { width: '5%' },
+    sorter: false,
+    filter: false,
+  },
+];
 
 const Home = () => {
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({
-    username: '',
-    email: '',
-  });
-  const { data, execute } = useGetUser();
+  const [user, setUser] = useState({});
+  const { data, execute } = useGetUsers();
   const { execute: postExecute } = usePostUser();
+  const { execute: deleteExecute } = useDeleteUser();
 
   useEffect(() => {
     execute();
@@ -16,21 +27,23 @@ const Home = () => {
 
   useEffect(() => {
     if (data) {
-      setUsers([data]);
+      const arrayData = Object.values(data);
+
+      setUsers(arrayData);
     }
   }, [data]);
 
   return (
     <>
       <form className="ml-5">
-        <label htmlFor="username">Nome</label>
+        <label htmlFor="name">Nome</label>
         <input
           type="text"
-          id="username"
-          value={user.username}
+          id="name"
+          value={user.name}
           onChange={(event) =>
             setUser({
-              username: event.target.value,
+              name: event.target.value,
               email: user.email,
             })
           }
@@ -46,7 +59,7 @@ const Home = () => {
           value={user.email}
           onChange={(event) =>
             setUser({
-              username: user.username,
+              name: user.name,
               email: event.target.value,
             })
           }
@@ -59,21 +72,43 @@ const Home = () => {
             postExecute(user);
             execute();
             setUser({
-              username: '',
+              name: '',
               email: '',
             });
           }}
         />
       </form>
 
-      {users[0]?.map((user, index) => {
-        return (
-          <div key={index} className="ml-5">
-            <p key={index + user.username}>{user.username}</p>
-            <p key={index + user.email}>{user.email}</p>
-          </div>
-        );
-      })}
+      <CDataTable
+        addTableClasses="table-users"
+        items={users}
+        fields={fields}
+        hover
+        striped
+        sorter
+        size="sm"
+        responsive
+        scopedSlots={{
+          delete: (item) => {
+            return (
+              <td className="py-2">
+                <CButton
+                  className="d-flex justify-content-center"
+                  variant="ghost"
+                  color="primary"
+                  size="nm"
+                  onClick={() => {
+                    deleteExecute(item);
+                    execute();
+                  }}
+                >
+                  Delete
+                </CButton>
+              </td>
+            );
+          },
+        }}
+      />
     </>
   );
 };

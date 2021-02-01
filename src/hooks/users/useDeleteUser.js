@@ -2,22 +2,24 @@ import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
 
-export const deleteUsers = async (communication, data) => {
+export const deleteUsers = async (communication, user, setData) => {
   await communication
     .database()
-    .ref('/db/utilizadores/' + data.name)
-    .remove();
+    .ref('/db/utilizadores/' + user.name)
+    .remove()
+    .then(() => setData(true));
 };
 
 const useDeleteUsers = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
   const communication = useRecoilValue(api);
 
-  const execute = async (data) => {
+  const execute = async (user) => {
     try {
       setIsLoading(true);
-      deleteUsers(communication, data);
+      deleteUsers(communication, user, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);
@@ -28,6 +30,7 @@ const useDeleteUsers = () => {
   return {
     isLoading,
     error,
+    data,
     execute: useCallback(execute, [communication]),
   };
 };

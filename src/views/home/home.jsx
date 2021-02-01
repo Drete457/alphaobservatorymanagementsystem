@@ -18,7 +18,7 @@ const Home = () => {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
   const { data, execute } = useGetUsers();
-  const { execute: postExecute } = usePostUser();
+  const { data: postData, execute: postExecute } = usePostUser();
   const { execute: deleteExecute } = useDeleteUser();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Home = () => {
 
       setUsers(arrayData);
     }
-  }, [data]);
+  }, [data, postData]);
 
   return (
     <>

@@ -1,8 +1,36 @@
 {
+    "btn": {
+        "login":{
+            "google_button": "Google Account"
+        },
+        "view": "View"
+    },
+    "user": {
+        "fields":{
+            "name": "Full Name",
+            "followed": "Followed By",
+            "country": "Country",
+            "contacted": "Contacted By",
+            "training": "Training Date",
+            "second": "Second Survey",
+            "introduction": {
+                "otption": "Suitable Introductive Meeting",
+                "date": "Introductory Meeting Date"
+            },
+            "community": "Joined The Community",
+            "survey": {
+                "date": "Survey Activation",
+                "link": "Survey Link"
+            },
+            "ambit": {
+                "first": "Entry Into First Ambit",
+                "entry": "Entry Into Base Ambit"
+            }
+        }
+    },
     "login": {
         "title": "Login",
-        "signin": "Sign In with your Google Account",
-        "google_button": "Google Account"
+        "signin": "Sign In with your Google Account"
     },
     "sidebar": {},
     "header": {
@@ -16,6 +44,9 @@
             "email": "Email",
             "create": "Account Create",
             "last": "Last Visited"
+        },
+        "home": {
+            "title": "All Users"
         }
     }
 }

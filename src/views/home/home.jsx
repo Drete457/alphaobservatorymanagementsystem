@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { useGetUsers, usePostUser, useDeleteUser } from '../../hooks/users';
+import { useTranslation } from 'react-i18next';
+import { useGetUsers } from '../../hooks/users';
 import { CButton, CDataTable } from '@coreui/react';
 
-const fields = [
-  { key: 'name', label: 'Name' },
-  { key: 'email', label: 'Email' },
-  {
-    key: 'delete',
-    label: '',
-    _style: { width: '5%' },
-    sorter: false,
-    filter: false,
-  },
-];
+const fields = (t) => {
+  return [
+    { key: 'name', label: 'Name' },
+    { key: 'email', label: 'Email' },
+    {
+      key: 'view',
+      label: '',
+      _style: { width: '5%' },
+      sorter: false,
+      filter: false,
+    },
+  ];
+};
 
 const Home = () => {
+  const [t] = useTranslation();
+
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
-  const { data, execute } = useGetUsers();
-  const { data: postData, execute: postExecute } = usePostUser();
-  const { execute: deleteExecute } = useDeleteUser();
+  const { isLoading, error, data, execute } = useGetUsers();
 
   useEffect(() => {
     execute();
@@ -31,78 +33,33 @@ const Home = () => {
 
       setUsers(arrayData);
     }
-  }, [data, postData]);
+  }, [data]);
 
   return (
     <>
-      <form className="ml-5">
-        <label htmlFor="name">Nome</label>
-        <input
-          type="text"
-          id="name"
-          value={user.name}
-          onChange={(event) =>
-            setUser({
-              name: event.target.value,
-              email: user.email,
-            })
-          }
-          required
-        />
-
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          required
-          placeholder="seuemail@dominio.com"
-          value={user.email}
-          onChange={(event) =>
-            setUser({
-              name: user.name,
-              email: event.target.value,
-            })
-          }
-        />
-
-        <input
-          type="submit"
-          value="Enviar formulário"
-          onClick={() => {
-            postExecute(user);
-            execute();
-            setUser({
-              name: '',
-              email: '',
-            });
-          }}
-        />
-      </form>
+      <h1 className="home-title">{t('pages.home.title')}</h1>
 
       <CDataTable
         addTableClasses="table-users"
         items={users}
-        fields={fields}
+        fields={fields(t)}
         hover
         striped
         sorter
         size="sm"
         responsive
         scopedSlots={{
-          delete: (item) => {
+          view: (item) => {
             return (
-              <td className="py-2">
+              <td>
                 <CButton
-                  className="d-flex justify-content-center"
+                  className="home-button"
                   variant="ghost"
                   color="primary"
                   size="nm"
-                  onClick={() => {
-                    deleteExecute(item);
-                    execute();
-                  }}
+                  onClick={() => {}}
                 >
-                  Delete
+                  {t('btn.view')}
                 </CButton>
               </td>
             );

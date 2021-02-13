@@ -11,10 +11,14 @@
             "followed": "Followed By",
             "country": "Country",
             "contacted": "Contacted By",
+            "gender": "Gender",
+            "employment": "Employment",
+            "birthday": "BirthDay",
+            "age": "Age",
             "training": "Training Date",
             "second": "Second Survey",
             "introduction": {
-                "otption": "Suitable Introductive Meeting",
+                "option": "Suitable Introductive Meeting",
                 "date": "Introductory Meeting Date"
             },
             "community": "Joined The Community",

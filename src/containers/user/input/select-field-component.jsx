@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CLabel } from '@coreui/react';
+import { CLabel, CInvalidFeedback } from '@coreui/react';
 import Select from 'react-select';
 
 const SelectFieldComponent = ({
@@ -36,7 +36,7 @@ const SelectFieldComponent = ({
           onChange(event);
         }}
       />
-      {isError && <p className="invalid">{errorMsg}</p>}
+      <CInvalidFeedback>{errorMsg}</CInvalidFeedback>}
     </>
   );
 };

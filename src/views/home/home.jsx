@@ -48,6 +48,8 @@ const Home = () => {
     <>
       <h1 className="home-title">{t('pages.home.title')}</h1>
 
+      <CButton to="/user">user</CButton>
+
       <CDataTable
         addTableClasses="home-table"
         items={users}

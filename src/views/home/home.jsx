@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useGetUsers } from '../../hooks/users';
 import { CButton, CDataTable } from '@coreui/react';
+import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
+import { useGetUsers } from '../../hooks/users';
+
+import Button from '../../containers/button';
 
 const fields = (t) => {
   return [
@@ -28,6 +31,7 @@ const fields = (t) => {
 
 const Home = () => {
   const [t] = useTranslation();
+  const history = useHistory();
 
   const [users, setUsers] = useState([]);
   const { isLoading, error, data, execute } = useGetUsers();
@@ -46,38 +50,44 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="home-title">{t('pages.home.title')}</h1>
+      <header>
+        <h1 className="home-title">{t('pages.home.title')}</h1>
+      </header>
 
-      <CButton to="/user">user</CButton>
+      <main>
+        <nav className="home-nav">
+          <Button
+            name={t('btn.create.user')}
+            onClick={() => history.push(`/user/new_user`)}
+            className="home-button"
+          />
+        </nav>
 
-      <CDataTable
-        addTableClasses="home-table"
-        items={users}
-        fields={fields(t)}
-        hover
-        striped
-        sorter
-        size="sm"
-        responsive
-        isLoading={isLoading}
-        scopedSlots={{
-          view: (item) => {
-            return (
-              <td>
-                <CButton
-                  className="home-button"
-                  variant="ghost"
-                  color="primary"
-                  size="nm"
-                  onClick={() => {}}
-                >
-                  {t('btn.view')}
-                </CButton>
-              </td>
-            );
-          },
-        }}
-      />
+        <CDataTable
+          addTableClasses="home-table"
+          items={users}
+          fields={fields(t)}
+          hover
+          striped
+          sorter
+          size="sm"
+          responsive
+          isLoading={isLoading}
+          scopedSlots={{
+            view: (item) => {
+              return (
+                <td>
+                  <Button
+                    name={t('btn.view')}
+                    onClick={() => history.push(`/user/${item.id}`)}
+                    className="home-button"
+                  />
+                </td>
+              );
+            },
+          }}
+        />
+      </main>
     </>
   );
 };

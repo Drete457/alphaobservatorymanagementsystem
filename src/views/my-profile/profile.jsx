@@ -13,37 +13,39 @@ const MyProfile = () => {
 
   return (
     <>
-      <CRow className="ml-3">
-        <p className="h1 pl-3">{t('pages.myprofile.title')}</p>
-      </CRow>
+      <main>
+        <CRow className="ml-3">
+          <p className="h1 pl-3">{t('pages.myprofile.title')}</p>
+        </CRow>
 
-      <CRow className="ml-3 mt-3">
-        <CCol md="2">
-          <Avatar
-            src={isUser.photo}
-            backgrounds={['#FFFFFF']}
-            htmlWidth="150px"
-            className="border border-primary d-flex display-3"
-          />
-        </CCol>
-        <CCol md="8">
-          <InputDetailView
-            title1={t('pages.myprofile.name')}
-            value1={isUser.name}
-            title2={t('pages.myprofile.email')}
-            value2={isUser.email}
-            md="6"
-          />
+        <CRow className="ml-3 mt-3">
+          <CCol md="2">
+            <Avatar
+              src={isUser.photo}
+              backgrounds={['#FFFFFF']}
+              htmlWidth="150px"
+              className="border border-primary d-flex display-3"
+            />
+          </CCol>
+          <CCol md="8">
+            <InputDetailView
+              title1={t('pages.myprofile.name')}
+              value1={isUser.name}
+              title2={t('pages.myprofile.email')}
+              value2={isUser.email}
+              md="6"
+            />
 
-          <InputDetailView
-            title1={t('pages.myprofile.create')}
-            value1={isUser.create}
-            title2={t('pages.myprofile.last')}
-            value2={isUser.last}
-            md="6"
-          />
-        </CCol>
-      </CRow>
+            <InputDetailView
+              title1={t('pages.myprofile.create')}
+              value1={isUser.create}
+              title2={t('pages.myprofile.last')}
+              value2={isUser.last}
+              md="6"
+            />
+          </CCol>
+        </CRow>
+      </main>
     </>
   );
 };

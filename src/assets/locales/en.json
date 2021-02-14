@@ -3,7 +3,10 @@
         "login":{
             "google_button": "Google Account"
         },
-        "view": "View"
+        "view": "View",
+        "create":{
+            "user": "Create New User"
+        }
     },
     "user": {
         "fields":{

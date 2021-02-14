@@ -1,10 +1,10 @@
 import React from 'react';
 import { CButton } from '@coreui/react';
 
-const Button = ({ name, isDanger, onClick }) => {
+const Button = ({ name, isDanger, onClick, className }) => {
   return (
     <CButton
-      className="home-button"
+      className={className}
       variant="ghost"
       color={isDanger ? 'danger' : 'primary'}
       size="nm"

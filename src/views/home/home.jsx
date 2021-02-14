@@ -57,6 +57,7 @@ const Home = () => {
         sorter
         size="sm"
         responsive
+        isLoading={isLoading}
         scopedSlots={{
           view: (item) => {
             return (

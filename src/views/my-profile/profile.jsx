@@ -15,7 +15,7 @@ const MyProfile = () => {
     <>
       <main>
         <CRow className="ml-3">
-          <p className="h1 pl-3">{t('pages.myprofile.title')}</p>
+          <h1 className="title">{t('pages.myprofile.title')}</h1>
         </CRow>
 
         <CRow className="ml-3 mt-3">

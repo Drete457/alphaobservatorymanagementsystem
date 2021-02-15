@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CButton, CDataTable } from '@coreui/react';
+import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useGetUsers } from '../../hooks/users';
@@ -8,15 +8,18 @@ import Button from '../../containers/button';
 
 const fields = (t) => {
   return [
-    { key: 'name', label: t('user.fields.name') },
-    { key: 'followed', label: t('user.fields.followed') },
-    { key: 'country', label: t('user.fields.country') },
-    { key: 'contacted', label: t('user.fields.contacted') },
-    { key: 'training', label: t('user.fields.training') },
-    { key: 'second', label: t('user.fields.second') },
+    { key: 'name', label: t('user.fields.name.title') },
+    { key: 'followed', label: t('user.fields.followed.title') },
+    { key: 'country', label: t('user.fields.country.title') },
+    { key: 'contacted', label: t('user.fields.contacted.title') },
+    { key: 'training', label: t('user.fields.training.title') },
+    { key: 'second', label: t('user.fields.second.title') },
     { key: 'introductionOption', label: t('user.fields.introduction.option') },
-    { key: 'introductionDate', label: t('user.fields.introduction.date') },
-    { key: 'community', label: t('user.fields.community') },
+    {
+      key: 'introductionDate',
+      label: t('user.fields.introduction.date.title'),
+    },
+    { key: 'community', label: t('user.fields.community.title') },
     { key: 'surveyDate', label: t('user.fields.survey.date') },
     { key: 'ambitEntry', label: t('user.fields.ambit.entry') },
     {
@@ -51,7 +54,7 @@ const Home = () => {
   return (
     <>
       <header>
-        <h1 className="home-title">{t('pages.home.title')}</h1>
+        <h1 className="title">{t('pages.home.title')}</h1>
       </header>
 
       <main>

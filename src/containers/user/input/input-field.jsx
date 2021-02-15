@@ -2,14 +2,13 @@ import React from 'react';
 import { CLabel, CInput, CInvalidFeedback } from '@coreui/react';
 
 const InputField = ({
+  title,
   name,
   placeholder,
   type,
-  title,
   value,
   errorMsg,
   onChange,
-  isError,
 }) => {
   return (
     <>
@@ -20,8 +19,7 @@ const InputField = ({
         id={name}
         placeholder={placeholder}
         autoComplete="off"
-        invalid={isError}
-        required
+        invalid={errorMsg ? true : false}
         onChange={(event) => {
           onChange(event);
         }}

@@ -3,14 +3,13 @@ import { CLabel, CInvalidFeedback } from '@coreui/react';
 import Select from 'react-select';
 
 const SelectFieldComponent = ({
+  title,
   name,
   placeholder,
-  title,
   value,
   errorMsg,
   onChange,
   options,
-  isError,
 }) => {
   const [current, setCurrent] = useState('');
 
@@ -24,19 +23,17 @@ const SelectFieldComponent = ({
       <Select
         isClearable
         name={name}
-        id={name}
         placeholder={placeholder}
         value={current}
         options={options}
         autoComplete="off"
-        invalid={isError}
-        required
+        invalid={errorMsg ? true : false}
         onChange={(event) => {
           setCurrent(event);
           onChange(event);
         }}
       />
-      <CInvalidFeedback>{errorMsg}</CInvalidFeedback>}
+      <CInvalidFeedback>{errorMsg}</CInvalidFeedback>
     </>
   );
 };

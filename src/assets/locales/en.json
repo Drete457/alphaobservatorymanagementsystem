@@ -10,24 +10,65 @@
     },
     "user": {
         "fields":{
-            "name": "Full Name",
-            "followed": "Followed By",
-            "country": "Country",
-            "contacted": "Contacted By",
-            "gender": "Gender",
-            "employment": "Employment",
-            "birthday": "BirthDay",
-            "age": "Age",
-            "training": "Training Date",
-            "second": "Second Survey",
+            "name": {
+                "title": "Full Name",
+                "placeholder": "Enter The Full Name"
+            },
+            "followed": { 
+                "title": "Followed By",
+                "placeholder": "Choose The Person That Follow This User"
+            },
+            "country": {
+                "title": "Country",
+                "placeholder": "Choose The Country Of The User"
+            },
+            "contacted": {
+                "title": "Contacted By",
+                "placeholder": "Choose The Person That Contact This User"
+            },
+            "gender": {
+                "title": "Gender",
+                "placeholder": "Select The Gender Of The User"
+            },
+            "employment": {
+                "title": "employment",
+                "placeholder": "Choose One Of Status Of The User"
+            },
+            "birthday": {
+                "title": "Birthday",
+                "placeholder": "Write the Year The User Have Born"
+            },
+            "age": {
+                "title": "age"
+            },
+            "training": {
+                "title": "Training Date",
+                "placeholder": "Choose The Day Of The Training"
+            },
+            "second": {
+                "title": "Second Survey",
+                "placeholder": "Choose The Day Of The Second Training"
+            },
             "introduction": {
                 "option": "Suitable Introductive Meeting",
-                "date": "Introductory Meeting Date"
+                "date": {
+                    "title": "Introductory Meeting Date",
+                    "placeholder": "Choose The Day Of The Meeting Date"
+            }
             },
-            "community": "Joined The Community",
+            "community": {
+                "title": "Joined The Community",
+                "placeholder": "Choose The Day That The Enter In The Community"
+            },
             "survey": {
-                "date": "Survey Activation",
-                "link": "Survey Link"
+                "date": {
+                    "title": "Survey Activation",
+                    "placeholder": "Choose The Day That The First Survey Was Done"
+                },
+                "link": {
+                    "title": "Survey Link",
+                    "placeholder": "Write The Survey Link Of The User"
+                }
             },
             "ambit": {
                 "first": "Entry Into First Ambit",
@@ -45,6 +86,9 @@
         "logout": "Logout"
     },
     "pages":{
+        "home": {
+            "title": "All Users"
+        },
         "myprofile": {
             "title": "Profile Page",
             "name": "Name",
@@ -52,8 +96,8 @@
             "create": "Account Create",
             "last": "Last Visited"
         },
-        "home": {
-            "title": "All Users"
+        "user": {
+            "title": "User"
         }
     }
 }

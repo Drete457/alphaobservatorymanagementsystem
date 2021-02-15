@@ -21,6 +21,25 @@ button {
     font-size: small;
 }
 
+.input-style, select-style {
+    height: 2.45rem; 
+}
+
+.input-style {
+    border: 0.01rem solid $borderColor;
+}
+
+.input-style:hover {
+    border: 0.02rem solid $boderColorHover;
+}
+
+.input-style:focus {
+    border-color: 0 0 0 0.2rem rgba(0 , 0, 139, 1);
+    box-shadow: 0 0 0 0.2rem rgba(0 , 0, 139, 1);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(0 , 0, 139, 1);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0 , 0, 139, 1);
+}
+
 .registration-body {
     margin: 1rem;
 }
@@ -34,3 +53,4 @@ button {
     width: 45%;
     margin: 1rem;
 }
+

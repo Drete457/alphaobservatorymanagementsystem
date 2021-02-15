@@ -102,5 +102,9 @@
         "user": {
             "title": "User"
         }
+    },
+    "gender": {
+        "male": "Male",
+        "female": "Female"
     }
 }

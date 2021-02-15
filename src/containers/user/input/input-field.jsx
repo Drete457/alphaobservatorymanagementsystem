@@ -25,6 +25,7 @@ const InputField = ({
           onChange(event);
         }}
         value={value}
+        className="input-style"
       />
       <CInvalidFeedback>{errorMsg}</CInvalidFeedback>
     </div>

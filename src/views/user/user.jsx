@@ -3,13 +3,18 @@ import { CForm } from '@coreui/react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { SelectFieldComponent, InputField } from '../../containers/user/input';
+import userFormat, {
+  userInputHandler,
+  userSelectHandler,
+  gender,
+} from '../../helpers/user/';
 
 const UserDetail = ({ match }) => {
   const history = useHistory();
   const [t] = useTranslation();
 
-  const [user, setUser] = useState({});
-  const [errorMsg, setErrorMsg] = useState({});
+  const [user, setUser] = useState({ ...userFormat });
+  const [errorMsg, setErrorMsg] = useState({ ...userFormat });
 
   return (
     <>
@@ -27,7 +32,7 @@ const UserDetail = ({ match }) => {
               type="text"
               value={user?.name}
               errorMsg={errorMsg?.name}
-              onChange={() => {}}
+              onChange={(event) => userInputHandler(event, setUser, user)}
               className="user-input-format"
             />
 
@@ -74,8 +79,10 @@ const UserDetail = ({ match }) => {
               placeholder={t('user.fields.gender.placeholder')}
               value={user?.gender}
               errorMsg={errorMsg?.gender}
-              onChange={() => {}}
-              options=""
+              onChange={(value) =>
+                userSelectHandler('gender', value, setUser, user)
+              }
+              options={gender(t)}
               className="user-input-format"
             />
 
@@ -99,7 +106,7 @@ const UserDetail = ({ match }) => {
               type="number"
               value={user?.birthday}
               errorMsg={errorMsg?.birthday}
-              onChange={() => {}}
+              oonChange={(event) => userInputHandler(event, setUser, user)}
               className="user-input-format"
             />
 
@@ -110,7 +117,7 @@ const UserDetail = ({ match }) => {
               type="date"
               value={user?.training}
               errorMsg={errorMsg?.training}
-              onChange={() => {}}
+              onChange={(event) => userInputHandler(event, setUser, user)}
               className="user-input-format"
             />
           </div>
@@ -123,7 +130,7 @@ const UserDetail = ({ match }) => {
               type="date"
               value={user?.second}
               errorMsg={errorMsg?.second}
-              onChange={() => {}}
+              onChange={(event) => userInputHandler(event, setUser, user)}
               className="user-input-format"
             />
 
@@ -147,7 +154,7 @@ const UserDetail = ({ match }) => {
               type="date"
               value={user?.introductionDate}
               errorMsg={errorMsg?.introductionDate}
-              onChange={() => {}}
+              onChange={(event) => userInputHandler(event, setUser, user)}
               className="user-input-format"
             />
 
@@ -158,7 +165,7 @@ const UserDetail = ({ match }) => {
               type="date"
               value={user?.community}
               errorMsg={errorMsg?.introductionDate}
-              onChange={() => {}}
+              onChange={(event) => userInputHandler(event, setUser, user)}
               className="user-input-format"
             />
           </div>
@@ -171,7 +178,7 @@ const UserDetail = ({ match }) => {
               type="date"
               value={user?.surveyDate}
               errorMsg={errorMsg?.surveyDate}
-              onChange={() => {}}
+              onChange={(event) => userInputHandler(event, setUser, user)}
               className="user-input-format"
             />
 
@@ -182,7 +189,7 @@ const UserDetail = ({ match }) => {
               type="url"
               value={user?.surveyLink}
               errorMsg={errorMsg?.surveyLink}
-              onChange={() => {}}
+              onChange={(event) => userInputHandler(event, setUser, user)}
               className="user-input-format"
             />
           </div>

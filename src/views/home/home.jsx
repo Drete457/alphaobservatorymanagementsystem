@@ -14,13 +14,16 @@ const fields = (t) => {
     { key: 'contacted', label: t('user.fields.contacted.title') },
     { key: 'training', label: t('user.fields.training.title') },
     { key: 'second', label: t('user.fields.second.title') },
-    { key: 'introductionOption', label: t('user.fields.introduction.option') },
+    {
+      key: 'introductionOption',
+      label: t('user.fields.introduction.option.title'),
+    },
     {
       key: 'introductionDate',
       label: t('user.fields.introduction.date.title'),
     },
     { key: 'community', label: t('user.fields.community.title') },
-    { key: 'surveyDate', label: t('user.fields.survey.date') },
+    { key: 'surveyDate', label: t('user.fields.survey.date.title') },
     { key: 'ambitEntry', label: t('user.fields.ambit.entry') },
     {
       key: 'view',

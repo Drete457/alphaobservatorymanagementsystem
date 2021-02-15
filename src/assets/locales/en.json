@@ -31,7 +31,7 @@
                 "placeholder": "Select The Gender Of The User"
             },
             "employment": {
-                "title": "employment",
+                "title": "Employment",
                 "placeholder": "Choose One Of Status Of The User"
             },
             "birthday": {
@@ -50,7 +50,10 @@
                 "placeholder": "Choose The Day Of The Second Training"
             },
             "introduction": {
-                "option": "Suitable Introductive Meeting",
+                "option": {
+                    "title":"Suitable Introductive Meeting",
+                    "placeholder": "Choose If The User Is Suitable For Introductive Meeting"
+                },
                 "date": {
                     "title": "Introductory Meeting Date",
                     "placeholder": "Choose The Day Of The Meeting Date"

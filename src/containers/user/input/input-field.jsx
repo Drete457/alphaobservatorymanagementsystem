@@ -9,9 +9,10 @@ const InputField = ({
   value,
   errorMsg,
   onChange,
+  className,
 }) => {
   return (
-    <>
+    <div className={className}>
       <CLabel htmlFor={name}>{title}</CLabel>
       <CInput
         type={type}
@@ -26,7 +27,7 @@ const InputField = ({
         value={value}
       />
       <CInvalidFeedback>{errorMsg}</CInvalidFeedback>
-    </>
+    </div>
   );
 };
 

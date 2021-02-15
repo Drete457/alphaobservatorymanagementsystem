@@ -10,6 +10,7 @@ const SelectFieldComponent = ({
   errorMsg,
   onChange,
   options,
+  className,
 }) => {
   const [current, setCurrent] = useState('');
 
@@ -18,7 +19,7 @@ const SelectFieldComponent = ({
   }, [value]);
 
   return (
-    <>
+    <div className={className}>
       <CLabel htmlFor={name}>{title}</CLabel>
       <Select
         isClearable
@@ -34,7 +35,7 @@ const SelectFieldComponent = ({
         }}
       />
       <CInvalidFeedback>{errorMsg}</CInvalidFeedback>
-    </>
+    </div>
   );
 };
 

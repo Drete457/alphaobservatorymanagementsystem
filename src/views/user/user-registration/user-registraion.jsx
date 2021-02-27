@@ -154,8 +154,15 @@ const UserDetail = ({ match }) => {
               placeholder={t('user.fields.introduction.option.placeholder')}
               value={user?.introductionOption}
               errorMsg={errorMsg?.introductionOption}
-              onChange={() => {}}
-              options=""
+              onChange={(value) =>
+                userHandler.userSelectHandler(
+                  'introductionOption',
+                  value,
+                  setUser,
+                  user,
+                )
+              }
+              options={userHandler.option()}
               className="user-input-format"
             />
           </div>

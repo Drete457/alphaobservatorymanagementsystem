@@ -1,6 +1,1241 @@
 {
-    "gender":  ["Male" , "Female"],
-    "ocupation": ["Artisan", "Employed", "Enterpreneur", "Freelancer", "HouseKeeper", 
-        "Manager", "Merchant", "Self-Employed", "Student", "Unemployed", 
-        "Worker", "Other"]
+    "gender": [
+        "Male",
+        "Female"
+    ],
+    "ocupation": [
+        "Artisan",
+        "Employed",
+        "Enterpreneur",
+        "Freelancer",
+        "HouseKeeper",
+        "Manager",
+        "Merchant",
+        "Self-Employed",
+        "Student",
+        "Unemployed",
+        "Worker",
+        "Other"
+    ],
+    "option": [
+        "Yes",
+        "No"
+    ],
+    "country": [
+        {
+            "country": "Afghanistan",
+            "gmt": "+04:30"
+        },
+        {
+            "country": "Aland Islands (Finland)",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Albania",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Algeria",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "American Samoa (USA)",
+            "gmt": "−11:00"
+        },
+        {
+            "country": "Andorra",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Angola",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Anguilla (UK)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Antigua and Barbuda",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Argentina",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "Armenia",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "Aruba (Netherlands)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Ascension Island (UK)",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Australia, Western Australia (WA)",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Australia, South Australia (SA)",
+            "gmt": "+09:30"
+        },
+        {
+            "country": "Australia, Northern Territory (NT)",
+            "gmt": "+09:30"
+        },
+        {
+            "country": "Australia, New South Wales (NSW), Tasmania (TAS), Victoria (VIC), Australian Capital Territory (ACT) with Canberra capital city",
+            "gmt": "+10:00"
+        },
+        {
+            "country": "Australia, Queensland (QLD)",
+            "gmt": "+10:00"
+        },
+        {
+            "country": "Australia, Lord Howe Island (New South Wales)",
+            "gmt": "+10:30"
+        },
+        {
+            "country": "Australia, Macquarie Island (Tasmania)",
+            "gmt": "+11:00"
+        },
+        {
+            "country": "Austria",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Azerbaijan",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "Bahamas",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Bahrain",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Bangladesh",
+            "gmt": "+06:00"
+        },
+        {
+            "country": "Barbados",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Belarus",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Belgium",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Belize",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "Benin",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Bermuda (UK)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Bhutan",
+            "gmt": "+06:00"
+        },
+        {
+            "country": "Bolivia",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Bonaire (Netherlands)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Bosnia and Herzegovina",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Botswana",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Brazil, Acre, Southwest Amazonas",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Brazil, Most of Amazonas, Rondonia, Roraima",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Brazil, Mato Grosso do Sul, Mato Grosso",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Brazil, Alagoas, Amapa, Maranhao, Para, Piaui, Ceara, Sergipe, Paraiba, Pernambuco, Rio Grande do Norte, Bahia, Tocantins",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "Brazil, Distrito Federal, Espirito Santo, Goias, Minas Gerais, Parana, Rio de Janeiro, Rio Grande do Sul, Santa Catarina, Sao Paulo",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "Brazil, small islands in Atlantic (Fernando de Noronha, Trindade)",
+            "gmt": "−02:00"
+        },
+        {
+            "country": "British Indian Ocean Territory (UK)",
+            "gmt": "+06:00"
+        },
+        {
+            "country": "British Virgin Islands (UK)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Brunei",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Bulgaria",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Burkina Faso",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Burundi",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Cabo Verde",
+            "gmt": "−01:00"
+        },
+        {
+            "country": "Cambodia",
+            "gmt": "+07:00"
+        },
+        {
+            "country": "Cameroon",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Canada – 6 time zones"
+        },
+        {
+            "country": "Caribbean Netherlands (Netherlands)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Cayman Islands (UK)",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Central African Republic",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Chad",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Chatham Islands (New Zealand)",
+            "gmt": "+12:45"
+        },
+        {
+            "country": "Chile, main territory",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Chile, Magallanes Region",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "Chile, Easter Island",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "China",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Christmas Island (Australia)",
+            "gmt": "+07:00"
+        },
+        {
+            "country": "Cocos (Keeling) Islands (Australia)",
+            "gmt": "+06:30"
+        },
+        {
+            "country": "Colombia",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Comoros",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Congo, Republic of the",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Congo, Dem. Rep., western part",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Congo, Dem. Rep., eastern part",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Cook Islands (New Zealand)",
+            "gmt": "−10:00"
+        },
+        {
+            "country": "Costa Rica",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "Cote d'Ivoire",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Croatia",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Cuba",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Curacao (Netherlands)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Cyprus",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Czechia",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Denmark",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Djibouti",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Dominica",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Dominican Republic",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Ecuador, main territory",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Ecuador, Galapagos Province",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "Egypt",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "El Salvador",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "Equatorial Guinea",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Eritrea",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Estonia",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Eswatini (formerly Swaziland)",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Ethiopia",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Falkland Islands (UK)",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "Faroe Islands (Denmark)",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Fiji",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Finland",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "France",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "French Guiana (France)",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "French Polynesia, Tahiti Island (France)",
+            "gmt": "−10:00"
+        },
+        {
+            "country": "French Polynesia, Marquesas Islands (France)",
+            "gmt": "−09:30"
+        },
+        {
+            "country": "French Polynesia, Gambier Islands (France)",
+            "gmt": "−09:00"
+        },
+        {
+            "country": "Gabon",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Gambia",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Georgia",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "Germany",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Ghana",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Gibraltar (UK)",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Greece",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Greenland (Denmark), most of",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "Greenland (Denmark), Thule Air Base",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Greenland (Denmark), Ittoqqortoormiit",
+            "gmt": "−01:00"
+        },
+        {
+            "country": "Greenland (Denmark), Danmarkshavn, Station Nord",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Grenada",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Guadeloupe (France)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Guam (USA)",
+            "gmt": "+10:00"
+        },
+        {
+            "country": "Guatemala",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "Guernsey (UK)",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Guinea",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Guinea-Bissau",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Guyana",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Haiti",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Honduras",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "Hong Kong (China)",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Hungary",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Iceland",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "India",
+            "gmt": "+05:30"
+        },
+        {
+            "country": "Indonesia, Sumatra Island, Java Island, West Kalimantan, Central Kalimantan",
+            "gmt": "+07:00"
+        },
+        {
+            "country": "Indonesia, Sulawesi Island, Lesser Sunda Islands, North Kalimantan, East Kalimantan, South Kalimantan",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Indonesia, Maluku Islands, Papua, West Papua",
+            "gmt": "+09:00"
+        },
+        {
+            "country": "Iran",
+            "gmt": "+03:30"
+        },
+        {
+            "country": "Iraq",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Ireland",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Isle of Man (UK)",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Israel",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Italy",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Jamaica",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Japan",
+            "gmt": "+09:00"
+        },
+        {
+            "country": "Jersey (UK)",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Jordan",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Kazakhstan, western part",
+            "gmt": "+05:00"
+        },
+        {
+            "country": "Kazakhstan, eastern part",
+            "gmt": "+06:00"
+        },
+        {
+            "country": "Kenya",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Kerguelen Islands (France)",
+            "gmt": "+05:00"
+        },
+        {
+            "country": "Kiribati, Gilbert Islands",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Kiribati, Phoenix Islands",
+            "gmt": "+13:00"
+        },
+        {
+            "country": "Kiribati, Line Islands",
+            "gmt": "+14:00"
+        },
+        {
+            "country": "Kosovo",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Kuwait",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Kyrgyzstan",
+            "gmt": "+06:00"
+        },
+        {
+            "country": "Laos",
+            "gmt": "+07:00"
+        },
+        {
+            "country": "Latvia",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Lebanon",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Lesotho",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Liberia",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Libya",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Liechtenstein",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Lithuania",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Luxembourg",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Macau (China)",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Madagascar",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Malawi",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Malaysia",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Maldives",
+            "gmt": "+05:00"
+        },
+        {
+            "country": "Mali",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Malta",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Marshall Islands",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Martinique (France)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Mauritania",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Mauritius",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "Mayotte (France)",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Mexico, most of",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "Mexico, state of Quintana Roo",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Mexico, states of Baja California Sur, Chihuahua, Nayarit, Sinaloa",
+            "gmt": "−07:00"
+        },
+        {
+            "country": "Mexico, state of Sonora",
+            "gmt": "−07:00"
+        },
+        {
+            "country": "Mexico, state of Baja California",
+            "gmt": "−08:00"
+        },
+        {
+            "country": "Micronesia, states of Chuuk and Yap",
+            "gmt": "+10:00"
+        },
+        {
+            "country": "Micronesia, states of Kosrae and Pohnpei",
+            "gmt": "+11:00"
+        },
+        {
+            "country": "Moldova",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Monaco",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Mongolia, most of",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Mongolia, provinces of Khovd, Uvs, Bayan-Olgii",
+            "gmt": "+07:00"
+        },
+        {
+            "country": "Montenegro",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Montserrat (UK)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Morocco",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Mozambique",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Myanmar (formerly Burma)",
+            "gmt": "+06:30"
+        },
+        {
+            "country": "Namibia",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Nauru",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Nepal",
+            "gmt": "+05:45"
+        },
+        {
+            "country": "Netherlands",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "New Caledonia (France)",
+            "gmt": "+11:00"
+        },
+        {
+            "country": "New Zealand",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Nicaragua",
+            "gmt": "−06:00"
+        },
+        {
+            "country": "Niger",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Nigeria",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Niue (New Zealand)",
+            "gmt": "−11:00"
+        },
+        {
+            "country": "Norfolk Island (Australia)",
+            "gmt": "+11:00"
+        },
+        {
+            "country": "Northern Mariana Islands (USA)",
+            "gmt": "+10:00"
+        },
+        {
+            "country": "North Korea",
+            "gmt": "+09:00"
+        },
+        {
+            "country": "North Macedonia (formerly Macedonia)",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Norway",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Oman",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "Pakistan",
+            "gmt": "+05:00"
+        },
+        {
+            "country": "Palau",
+            "gmt": "+09:00"
+        },
+        {
+            "country": "Palestine",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Panama",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Papua New Guinea, most of",
+            "gmt": "+10:00"
+        },
+        {
+            "country": "Papua New Guinea, Bougainville Island",
+            "gmt": "+11:00"
+        },
+        {
+            "country": "Paraguay",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Peru",
+            "gmt": "−05:00"
+        },
+        {
+            "country": "Philippines",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Pitcairn Islands (UK)",
+            "gmt": "−08:00"
+        },
+        {
+            "country": "Poland",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Portugal, main territory",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Portugal, Azores",
+            "gmt": "−01:00"
+        },
+        {
+            "country": "Puerto Rico (USA)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Qatar",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Reunion (France)",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "Romania",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Russia - Irkutsk",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Russia - Kamchatka",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Russia - Krasnoyarsk",
+            "gmt": "+07:00"
+        },
+        {
+            "country": "Russia - Magadan",
+            "gmt": "+11:00"
+        },
+        {
+            "country": "Russia - Moscow",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Russia - Omsk",
+            "gmt": "+06:00"
+        },
+        {
+            "country": "Russia - Samara",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "Russia - Vladivostok",
+            "gmt": "+10:00"
+        },
+        {
+            "country": "Russia - Yakutsk",
+            "gmt": "+09:00"
+        },
+        {
+            "country": "Russia - Yekaterinburg",
+            "gmt": "+05:00"
+        },
+        {
+            "country": "Russia - Kaliningrad ",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Rwanda",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Saba (Netherlands)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Saint Barthelemy (France)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Saint Helena (UK)",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Saint Kitts and Nevis",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Saint Lucia",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Saint Martin (France)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Saint Pierre and Miquelon (France)",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "Saint Vincent and the Grenadines",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Samoa",
+            "gmt": "+13:00"
+        },
+        {
+            "country": "San Marino",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Sao Tome and Principe",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Saudi Arabia",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Senegal",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Serbia",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Seychelles",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "Sierra Leone",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Singapore",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Sint Eustatius (Netherlands)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Sint Maarten (Netherlands)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Slovakia",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Slovenia",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Solomon Islands",
+            "gmt": "+11:00"
+        },
+        {
+            "country": "Somalia",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "South Africa",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "South Georgia Island (UK)",
+            "gmt": "−02:00"
+        },
+        {
+            "country": "South Korea",
+            "gmt": "+09:00"
+        },
+        {
+            "country": "South Sudan",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Spain, main territory",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Spain, Canary Islands",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Sri Lanka",
+            "gmt": "+05:30"
+        },
+        {
+            "country": "Sudan",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Suriname",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "Svalbard and Jan Mayen (Norway)",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Sweden",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Switzerland",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Syria",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Taiwan",
+            "gmt": "+08:00"
+        },
+        {
+            "country": "Tajikistan",
+            "gmt": "+05:00"
+        },
+        {
+            "country": "Tanzania",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Thailand",
+            "gmt": "+07:00"
+        },
+        {
+            "country": "Timor-Leste",
+            "gmt": "+09:00"
+        },
+        {
+            "country": "Togo",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Tokelau (New Zealand)",
+            "gmt": "+13:00"
+        },
+        {
+            "country": "Tonga",
+            "gmt": "+13:00"
+        },
+        {
+            "country": "Trinidad and Tobago",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Tristan da Cunha (UK)",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Tunisia",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Turkey",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Turkmenistan",
+            "gmt": "+05:00"
+        },
+        {
+            "country": "Turks and Caicos Islands (UK)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Tuvalu",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Uganda",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Ukraine",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "United Arab Emirates",
+            "gmt": "+04:00"
+        },
+        {
+            "country": "United Kingdom",
+            "gmt": "±00:00"
+        },
+        {
+            "country": "Usa - Alaska Time",
+            "gmt": "-09:00"
+        },
+        {
+            "country": "Usa - Atlantic Time",
+            "gmt": "-04:00"
+        },
+        {
+            "country": "Usa - Central Time",
+            "gmt": "-06_00"
+        },
+        {
+            "country": "Usa - Chamorro Time",
+            "gmt": "+10:00"
+        },
+        {
+            "country": "Usa - Eastern Time",
+            "gmt": "-05:00"
+        },
+        {
+            "country": "Usa - Hawaii Time",
+            "gmt": "-10:00"
+        },
+        {
+            "country": "Usa - Mountain Time",
+            "gmt": "-07:00"
+        },
+        {
+            "country": "Usa - Pacific Time",
+            "gmt": "-08:00"
+        },
+        {
+            "country": "Usa - Samoa Time",
+            "gmt": "-11:00"
+        },
+        {
+            "country": "Uruguay",
+            "gmt": "−03:00"
+        },
+        {
+            "country": "US Virgin Islands (USA)",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Uzbekistan",
+            "gmt": "+05:00"
+        },
+        {
+            "country": "Vanuatu",
+            "gmt": "+11:00"
+        },
+        {
+            "country": "Vatican City (Holy See)",
+            "gmt": "+01:00"
+        },
+        {
+            "country": "Venezuela",
+            "gmt": "−04:00"
+        },
+        {
+            "country": "Vietnam",
+            "gmt": "+07:00"
+        },
+        {
+            "country": "Wake Island (USA)",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Wallis and Futuna (France)",
+            "gmt": "+12:00"
+        },
+        {
+            "country": "Yemen",
+            "gmt": "+03:00"
+        },
+        {
+            "country": "Zambia",
+            "gmt": "+02:00"
+        },
+        {
+            "country": "Zimbabwe",
+            "gmt": "+02:00"
+        }
+    ]
 }

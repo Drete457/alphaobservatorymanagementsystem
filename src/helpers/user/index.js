@@ -1,3 +1,14 @@
-export { default } from './user-object-format';
-export { userInputHandler, userSelectHandler } from './user-handler';
-export { default as gender } from './gender';
+import userFormat from './user-object-format';
+import { userInputHandler, userSelectHandler } from './user-handler';
+import gender from './gender';
+import ocupation from './ocupation';
+
+const userHandler = {
+  userFormat,
+  userInputHandler,
+  userSelectHandler,
+  gender,
+  ocupation,
+};
+
+export default userHandler;

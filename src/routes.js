@@ -2,7 +2,7 @@ import { lazy } from 'react';
 
 const Home = lazy(() => import('./views/home'));
 const MyProfile = lazy(() => import('./views/my-profile'));
-const User = lazy(() => import('./views/user'));
+const UserRegistraion = lazy(() => import('./views/user/user-registration'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home', component: Home },
@@ -16,7 +16,7 @@ const routes = [
     path: '/user/:id',
     exact: true,
     name: 'User',
-    component: User,
+    component: UserRegistraion,
   },
 ];
 

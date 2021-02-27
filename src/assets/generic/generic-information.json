@@ -1,4 +1,6 @@
 {
     "gender":  ["Male" , "Female"],
-    "ocupation": []
+    "ocupation": ["Artisan", "Employed", "Enterpreneur", "Freelancer", "HouseKeeper", 
+        "Manager", "Merchant", "Self-Employed", "Student", "Unemployed", 
+        "Worker", "Other"]
 }

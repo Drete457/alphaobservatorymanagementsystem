@@ -1,20 +1,20 @@
 {
     "btn": {
-        "login":{
+        "login": {
             "google_button": "Google Account"
         },
         "view": "View",
-        "create":{
+        "create": {
             "user": "Create New User"
         }
     },
     "user": {
-        "fields":{
+        "fields": {
             "name": {
                 "title": "Full Name",
                 "placeholder": "Enter The Full Name"
             },
-            "followed": { 
+            "followed": {
                 "title": "Followed By",
                 "placeholder": "Choose The Person That Follow This User"
             },
@@ -51,13 +51,13 @@
             },
             "introduction": {
                 "option": {
-                    "title":"Suitable Introductive Meeting",
+                    "title": "Suitable Introductive Meeting",
                     "placeholder": "Choose If The User Is Suitable For Introductive Meeting"
                 },
                 "date": {
                     "title": "Introductory Meeting Date",
                     "placeholder": "Choose The Day Of The Meeting Date"
-            }
+                }
             },
             "community": {
                 "title": "Joined The Community",
@@ -88,7 +88,7 @@
         "profile": "Profile",
         "logout": "Logout"
     },
-    "pages":{
+    "pages": {
         "home": {
             "title": "All Users"
         },
@@ -100,7 +100,9 @@
             "last": "Last Visited"
         },
         "user": {
-            "title": "User"
+            "registration": {
+                "title": "User Registration"
+            }
         }
     }
 }

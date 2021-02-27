@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/user/:id',
     exact: true,
-    name: 'User',
+    name: 'User Registration',
     component: UserRegistraion,
   },
 ];

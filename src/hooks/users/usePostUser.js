@@ -5,7 +5,7 @@ import { api } from '../../state/atoms';
 export const postUsers = async (communication, user, setData) => {
   await communication
     .database()
-    .ref('/db/utilizadores/' + user.name)
+    .ref('/db/users/' + user.name)
     .update(user)
     .then(() => setData(true));
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CForm } from '@coreui/react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +18,7 @@ const UserDetail = ({ match }) => {
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.user.title')}</h1>
+        <h1 className="title">{t('pages.user.registration.title')}</h1>
       </header>
 
       <main className="registration-body">
@@ -111,7 +111,7 @@ const UserDetail = ({ match }) => {
           <div className="user-input">
             <SelectFieldComponent
               title={t('user.fields.birthyear.title')}
-              name="birtyhear"
+              name="birthyear"
               placeholder={t('user.fields.birthyear.placeholder')}
               value={user?.birthday}
               errorMsg={errorMsg?.birthday}

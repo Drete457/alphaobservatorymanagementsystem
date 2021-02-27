@@ -5,7 +5,7 @@ import { api } from '../../state/atoms';
 export const deleteUsers = async (communication, user, setData) => {
   await communication
     .database()
-    .ref('/db/utilizadores/' + user.name)
+    .ref('/db/users/' + user.name)
     .remove()
     .then(() => setData(true));
 };

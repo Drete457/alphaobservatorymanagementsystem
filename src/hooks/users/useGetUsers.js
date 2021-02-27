@@ -5,7 +5,7 @@ import { api } from '../../state/atoms';
 export const getUsers = async (communication, set) => {
   const response = await communication
     .database()
-    .ref('/db/utilizadores/')
+    .ref('/db/users/')
     .get('value');
 
   set(response.val());

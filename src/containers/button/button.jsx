@@ -7,7 +7,7 @@ const Button = ({ name, isDanger, onClick, className }) => {
       className={className}
       variant="ghost"
       color={isDanger ? 'danger' : 'primary'}
-      size="nm"
+      size="md"
       onClick={onClick}
     >
       {name}

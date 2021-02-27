@@ -7,6 +7,7 @@ import {
   InputField,
 } from '../../../containers/user/input';
 import userHandler from '../../../helpers/user';
+import Submit from '../../../containers/user/submit';
 
 const UserDetail = ({ match }) => {
   const history = useHistory();
@@ -224,6 +225,8 @@ const UserDetail = ({ match }) => {
               className="user-input-format"
             />
           </div>
+
+          <Submit user={user} setErrorMsg={setErrorMsg} />
         </CForm>
       </main>
     </>

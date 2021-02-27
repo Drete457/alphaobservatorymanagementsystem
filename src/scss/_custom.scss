@@ -1,15 +1,17 @@
 // Here you can add other styles
 button {
     text-transform: uppercase;
+    margin: 0 1rem;
 }
 
 .title {
     margin: 1rem 2rem;
 }
 
+//main page
 .home-nav {
-  float: right;
-  margin: 1rem;
+    float: right;
+    margin: 1rem;
 }
 
 .home-button {
@@ -21,8 +23,10 @@ button {
     font-size: small;
 }
 
-.input-style, select-style {
-    height: 2.45rem; 
+//users pages
+.input-style,
+select-style {
+    height: 2.45rem;
 }
 
 .input-style {
@@ -34,10 +38,10 @@ button {
 }
 
 .input-style:focus {
-    border-color: 0 0 0 0.2rem rgba(0 , 0, 139, 1);
-    box-shadow: 0 0 0 0.2rem rgba(0 , 0, 139, 1);
-    -moz-box-shadow: 0 0 0 0.2rem rgba(0 , 0, 139, 1);
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(0 , 0, 139, 1);
+    border-color: 0 0 0 0.2rem rgba(0, 0, 139, 1);
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
+    -moz-box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
 }
 
 .registration-body {
@@ -53,4 +57,11 @@ button {
     width: 45%;
     margin: 1rem;
 }
+
+.user-submit-buttons {
+    display: flex;
+    width: 95%;
+    justify-content: flex-end;
+}
+
 

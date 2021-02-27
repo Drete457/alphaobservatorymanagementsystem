@@ -2,7 +2,7 @@ import { countries as countriesList } from '../../assets/generic/generic-informa
 
 const countries = () => {
   const filterCountriesList = Array.from(countriesList).map(
-    (country) => country.country,
+    (value) => value.country,
   );
 
   return filterCountriesList;

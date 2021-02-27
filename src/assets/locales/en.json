@@ -35,7 +35,7 @@
                 "placeholder": "Choose One Of Status Of The User"
             },
             "birthyear": {
-                "title": "BirthYear",
+                "title": "Birthyear",
                 "placeholder": "Write the Year The User Have Born"
             },
             "age": {

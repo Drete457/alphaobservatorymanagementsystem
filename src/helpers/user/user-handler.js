@@ -3,6 +3,7 @@ const userHandler = (key, value, setUser, user) => {
     ...user,
     [key]: value,
   });
+  console.log(user);
 };
 
 const userInputHandler = (event, setUser, user) => {
@@ -13,7 +14,9 @@ const userInputHandler = (event, setUser, user) => {
 };
 
 const userSelectHandler = (key, value, setUser, user) => {
-  userHandler(key, value, setUser, user);
+  const userSelect = value.value;
+
+  userHandler(key, userSelect, setUser, user);
 };
 
 export { userInputHandler, userSelectHandler };

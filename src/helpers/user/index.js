@@ -4,6 +4,7 @@ import gender from './gender';
 import ocupation from './ocupation';
 import option from './option';
 import countries from './countries';
+import years from './years';
 
 const userHandler = {
   userFormat,
@@ -13,6 +14,7 @@ const userHandler = {
   ocupation,
   option,
   countries,
+  years,
 };
 
 export default userHandler;

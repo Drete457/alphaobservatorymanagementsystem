@@ -109,16 +109,16 @@ const UserDetail = ({ match }) => {
           </div>
 
           <div className="user-input">
-            <InputField
+            <SelectFieldComponent
               title={t('user.fields.birthyear.title')}
-              name="birthYear"
+              name="birtyhear"
               placeholder={t('user.fields.birthyear.placeholder')}
-              type="number"
               value={user?.birthday}
               errorMsg={errorMsg?.birthday}
-              oonChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
+              onChange={(value) =>
+                userHandler.userSelectHandler('birthyear', value, setUser, user)
               }
+              options={userHandler.years()}
               className="user-input-format"
             />
 

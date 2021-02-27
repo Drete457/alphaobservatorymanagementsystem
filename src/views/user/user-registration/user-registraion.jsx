@@ -56,8 +56,10 @@ const UserDetail = ({ match }) => {
               placeholder={t('user.fields.country.placeholder')}
               value={user?.country}
               errorMsg={errorMsg?.country}
-              onChange={() => {}}
-              options=""
+              onChange={(value) =>
+                userHandler.userSelectHandler('country', value, setUser, user)
+              }
+              options={userHandler.countries()}
               className="user-input-format"
             />
 

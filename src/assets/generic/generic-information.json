@@ -21,7 +21,7 @@
         "Yes",
         "No"
     ],
-    "country": [
+    "countries": [
         {
             "country": "Afghanistan",
             "gmt": "+04:30"

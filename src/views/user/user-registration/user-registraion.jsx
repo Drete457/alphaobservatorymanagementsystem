@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CForm } from '@coreui/react';
-import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   SelectFieldComponent,
   InputField,
 } from '../../../containers/user/input';
 import userHandler from '../../../helpers/user';
+import uniqueId from '../../../helpers/id-generator';
 import Submit from '../../../containers/user/submit';
 
 const UserDetail = ({ match }) => {
-  const history = useHistory();
   const [t] = useTranslation();
 
   const [user, setUser] = useState({ ...userHandler.userFormat });
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
+
+  useEffect(() => {
+    const user = { ...userHandler.userFormat };
+    user.id = uniqueId();
+
+    setUser(user);
+  }, []);
 
   return (
     <>
@@ -226,7 +232,7 @@ const UserDetail = ({ match }) => {
             />
           </div>
 
-          <Submit user={user} setErrorMsg={setErrorMsg} />
+          <Submit cancelPage="/" user={user} setErrorMsg={setErrorMsg} />
         </CForm>
       </main>
     </>

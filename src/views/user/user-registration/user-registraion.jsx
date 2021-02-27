@@ -124,6 +124,21 @@ const UserDetail = ({ match }) => {
             />
 
             <InputField
+              title={t('user.fields.community.title')}
+              name="community"
+              placeholder={t('user.fields.community.placeholder')}
+              type="date"
+              value={user?.community}
+              errorMsg={errorMsg?.introductionDate}
+              onChange={(event) =>
+                userHandler.userInputHandler(event, setUser, user)
+              }
+              className="user-input-format"
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
               title={t('user.fields.training.title')}
               name="training"
               placeholder={t('user.fields.training.placeholder')}
@@ -135,9 +150,7 @@ const UserDetail = ({ match }) => {
               }
               className="user-input-format"
             />
-          </div>
 
-          <div className="user-input">
             <InputField
               title={t('user.fields.second.title')}
               name="second"
@@ -150,7 +163,9 @@ const UserDetail = ({ match }) => {
               }
               className="user-input-format"
             />
+          </div>
 
+          <div className="user-input">
             <SelectFieldComponent
               title={t('user.fields.introduction.option.title')}
               name="introductionOption"
@@ -168,28 +183,13 @@ const UserDetail = ({ match }) => {
               options={userHandler.option()}
               className="user-input-format"
             />
-          </div>
 
-          <div className="user-input">
             <InputField
               title={t('user.fields.introduction.date.title')}
               name="introductionDate"
               placeholder={t('user.fields.introduction.date.placeholder')}
               type="date"
               value={user?.introductionDate}
-              errorMsg={errorMsg?.introductionDate}
-              onChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
-              }
-              className="user-input-format"
-            />
-
-            <InputField
-              title={t('user.fields.community.title')}
-              name="community"
-              placeholder={t('user.fields.community.placeholder')}
-              type="date"
-              value={user?.community}
               errorMsg={errorMsg?.introductionDate}
               onChange={(event) =>
                 userHandler.userInputHandler(event, setUser, user)

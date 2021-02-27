@@ -76,6 +76,12 @@
             "ambit": {
                 "first": "Entry Into First Ambit",
                 "entry": "Entry Into Base Ambit"
+            },
+            "activities":{
+                "title": "Number of Activities"
+            },
+            "groupAge": {
+                "title": "Group Age"
             }
         }
     },

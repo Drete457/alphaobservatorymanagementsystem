@@ -10,21 +10,18 @@ const fields = (t) => {
   return [
     { key: 'name', label: t('user.fields.name.title') },
     { key: 'followed', label: t('user.fields.followed.title') },
-    { key: 'country', label: t('user.fields.country.title') },
     { key: 'contacted', label: t('user.fields.contacted.title') },
+    { key: 'country', label: t('user.fields.country.title') },
+    { key: 'groupAge', label: t('user.fields.groupAge.title') },
     { key: 'training', label: t('user.fields.training.title') },
     { key: 'second', label: t('user.fields.second.title') },
     {
       key: 'introductionOption',
       label: t('user.fields.introduction.option.title'),
     },
-    {
-      key: 'introductionDate',
-      label: t('user.fields.introduction.date.title'),
-    },
     { key: 'community', label: t('user.fields.community.title') },
-    { key: 'surveyDate', label: t('user.fields.survey.date.title') },
     { key: 'ambitEntry', label: t('user.fields.ambit.entry') },
+    { key: 'activities', label: t('user.fields.activities.title') },
     {
       key: 'view',
       label: '',

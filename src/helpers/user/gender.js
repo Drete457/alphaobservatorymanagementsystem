@@ -1,5 +1,7 @@
-const gender = (t) => {
-  return [t('gender.male'), t('gender.female')];
+import { gender as genderList } from '../../assets/generic/generic-information.json';
+
+const gender = () => {
+  return genderList;
 };
 
 export default gender;

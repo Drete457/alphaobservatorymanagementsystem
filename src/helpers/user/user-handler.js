@@ -3,6 +3,7 @@ const userHandler = (key, value, setUser, user) => {
     ...user,
     [key]: value,
   });
+  console.log(user);
 };
 
 const userInputHandler = (event, setUser, user) => {

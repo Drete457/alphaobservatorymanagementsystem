@@ -34,8 +34,8 @@
                 "title": "Employment",
                 "placeholder": "Choose One Of Status Of The User"
             },
-            "birthday": {
-                "title": "Birthday",
+            "birthyear": {
+                "title": "BirthYear",
                 "placeholder": "Write the Year The User Have Born"
             },
             "age": {
@@ -102,9 +102,5 @@
         "user": {
             "title": "User"
         }
-    },
-    "gender": {
-        "male": "Male",
-        "female": "Female"
     }
 }

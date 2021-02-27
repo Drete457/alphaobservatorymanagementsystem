@@ -82,7 +82,7 @@ const UserDetail = ({ match }) => {
               onChange={(value) =>
                 userSelectHandler('gender', value, setUser, user)
               }
-              options={gender(t)}
+              options={gender()}
               className="user-input-format"
             />
 
@@ -100,9 +100,9 @@ const UserDetail = ({ match }) => {
 
           <div className="user-input">
             <InputField
-              title={t('user.fields.birthday.title')}
-              name="birthday"
-              placeholder={t('user.fields.birthday.placeholder')}
+              title={t('user.fields.birthyear.title')}
+              name="birthYear"
+              placeholder={t('user.fields.birthyear.placeholder')}
               type="number"
               value={user?.birthday}
               errorMsg={errorMsg?.birthday}

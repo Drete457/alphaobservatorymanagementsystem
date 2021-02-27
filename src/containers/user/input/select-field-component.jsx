@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { CLabel, CInvalidFeedback } from '@coreui/react';
 import Select from 'react-select';
 
+const createList = (options) => {
+  const optionsList = Array.from(options)?.map((value) => {
+    return { label: value, value: value };
+  });
+
+  return optionsList;
+};
+
 const SelectFieldComponent = ({
   title,
   name,
@@ -16,21 +24,24 @@ const SelectFieldComponent = ({
     control: (provided, state) => ({
       ...provided,
       borderColor: state.isFocused ? '#2f4246' : '#2f4246',
-      boxShadow: state.isFocused ? '0 0 0 0.2rem rgba(41,66,70, 1)' : '#2f4246',
+      boxShadow: state.isFocused
+        ? '0 0 0 0.2rem rgba(0, 0, 139, 1)'
+        : '#2f4246',
     }),
     option: (provided, state) => ({
       ...provided,
       background: state.isDisabled
         ? null
         : state.isSelected
-        ? '#00008b'
+        ? '#5f5996'
         : state.isFocused
-        ? '#00008b'
+        ? '#89d6f5'
         : null,
     }),
   };
 
   const [current, setCurrent] = useState('');
+  const optionList = createList(options);
 
   useEffect(() => {
     setCurrent(value);
@@ -41,11 +52,10 @@ const SelectFieldComponent = ({
       <CLabel htmlFor={name}>{title}</CLabel>
       <Select
         styles={customStyles}
-        isClearable
         name={name}
         placeholder={placeholder}
         value={current}
-        options={options}
+        options={optionList}
         autoComplete="off"
         invalid={errorMsg ? true : false}
         onChange={(event) => {

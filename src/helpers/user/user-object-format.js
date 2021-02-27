@@ -5,7 +5,7 @@ const userFormat = {
   contacted: '',
   gender: '',
   employment: '',
-  birthday: '',
+  birthyear: '',
   training: '',
   second: '',
   introductionOption: '',

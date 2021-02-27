@@ -49,7 +49,11 @@ select-style {
 }
 
 .user-input {
-    display: inline;
+    display: flex;
+}
+
+.user-input-error {
+    color: $errorMessageColor;
 }
 
 .user-input-format {

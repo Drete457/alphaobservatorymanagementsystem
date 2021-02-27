@@ -1,5 +1,5 @@
 import React from 'react';
-import { CLabel, CInput, CInvalidFeedback } from '@coreui/react';
+import { CLabel, CInput } from '@coreui/react';
 
 const InputField = ({
   title,
@@ -11,6 +11,8 @@ const InputField = ({
   onChange,
   className,
 }) => {
+  const isInvalid = errorMsg ? true : false;
+
   return (
     <div className={className}>
       <CLabel htmlFor={name}>{title}</CLabel>
@@ -20,14 +22,14 @@ const InputField = ({
         id={name}
         placeholder={placeholder}
         autoComplete="off"
-        invalid={errorMsg ? true : false}
+        invalid={isInvalid}
         onChange={(event) => {
           onChange(event);
         }}
         value={value}
         className="input-style"
       />
-      <CInvalidFeedback>{errorMsg}</CInvalidFeedback>
+      {isInvalid && <p className="user-input-error">{errorMsg}</p>}
     </div>
   );
 };

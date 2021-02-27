@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CLabel, CInvalidFeedback } from '@coreui/react';
+import { CLabel } from '@coreui/react';
 import Select from 'react-select';
 
 const createList = (options) => {
@@ -42,6 +42,7 @@ const SelectFieldComponent = ({
 
   const [current, setCurrent] = useState('');
   const optionList = createList(options);
+  const isInvalid = errorMsg ? true : false;
 
   useEffect(() => {
     setCurrent(value);
@@ -57,14 +58,13 @@ const SelectFieldComponent = ({
         value={current}
         options={optionList}
         autoComplete="off"
-        invalid={errorMsg ? true : false}
         onChange={(event) => {
           setCurrent(event);
           onChange(event);
         }}
         className="select-style"
       />
-      <CInvalidFeedback>{errorMsg}</CInvalidFeedback>
+      {isInvalid && <p className="user-input-error">{errorMsg}</p>}
     </div>
   );
 };

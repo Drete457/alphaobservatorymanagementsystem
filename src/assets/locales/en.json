@@ -12,7 +12,8 @@
         "fields": {
             "name": {
                 "title": "Full Name",
-                "placeholder": "Enter The Full Name"
+                "placeholder": "Enter The Full Name",
+                "error": "Field Needs To Have Full Name"
             },
             "followed": {
                 "title": "Followed By",

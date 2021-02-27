@@ -120,8 +120,8 @@ const UserDetail = ({ match }) => {
               title={t('user.fields.birthyear.title')}
               name="birthyear"
               placeholder={t('user.fields.birthyear.placeholder')}
-              value={user?.birthday}
-              errorMsg={errorMsg?.birthday}
+              value={user?.birthyear}
+              errorMsg={errorMsg?.birthyear}
               onChange={(value) =>
                 userHandler.userSelectHandler('birthyear', value, setUser, user)
               }

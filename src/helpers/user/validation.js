@@ -42,11 +42,8 @@ const validateTotalUser = (user, setError, t) => {
     haveErrors = true;
   }
 
-  if (
-    user?.introductionsDate !== '' &&
-    yearValidation(user.introductionsDate)
-  ) {
-    errors.introductionsDate = t('user.fields.introduction.date.error');
+  if (user?.introductionDate !== '' && yearValidation(user.introductionDate)) {
+    errors.introductionDate = t('user.fields.introduction.date.error');
     haveErrors = true;
   }
 

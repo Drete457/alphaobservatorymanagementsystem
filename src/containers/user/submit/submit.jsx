@@ -8,11 +8,11 @@ import Loading from '../../loading';
 
 const submit = (user, setErrorMsg, t, execute) => {
   if (!userHandler.validation(user, setErrorMsg, t)) {
-    //execute(user);
+    execute(user);
   }
 };
 
-const Submit = ({ cancelPage, user, setErrorMsg }) => {
+const Submit = ({ cancelPage, user, setErrorMsg, setError }) => {
   const history = useHistory();
   const [t] = useTranslation();
   const { isLoading, error, data, execute } = usePostUser();
@@ -22,6 +22,12 @@ const Submit = ({ cancelPage, user, setErrorMsg }) => {
       history.push('/');
     }
   }, [data, history]);
+
+  useEffect(() => {
+    if (error) {
+      setError(error);
+    }
+  }, [setError, error]);
 
   return (
     <>

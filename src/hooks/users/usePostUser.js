@@ -1,11 +1,12 @@
 import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
+import ref from '../../containers/user';
 
 export const postUsers = async (communication, user, setData) => {
   await communication
     .database()
-    .ref('/db/users/' + user.id)
+    .ref(ref + user.id)
     .update(user)
     .then(() => setData(true));
 };

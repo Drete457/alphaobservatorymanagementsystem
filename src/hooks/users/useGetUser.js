@@ -3,24 +3,25 @@ import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
 import ref from '../../containers/user';
 
-export const deleteUsers = async (communication, user, setData) => {
-  await communication
+export const getUser = async (communication, id, set) => {
+  const response = await communication
     .database()
-    .ref(ref + user.name)
-    .remove()
-    .then(() => setData(true));
+    .ref(ref + id)
+    .get('value');
+
+  set(response.val());
 };
 
-const useDeleteUsers = () => {
+const useGetUser = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const communication = useRecoilValue(api);
 
-  const execute = async (user) => {
+  const execute = async (id) => {
     try {
       setIsLoading(true);
-      deleteUsers(communication, user, setData);
+      getUser(communication, id, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);
@@ -36,4 +37,4 @@ const useDeleteUsers = () => {
   };
 };
 
-export default useDeleteUsers;
+export default useGetUser;

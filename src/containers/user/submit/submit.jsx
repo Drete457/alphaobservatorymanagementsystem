@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { usePostUser } from '../../../hooks/users';
 import Button from '../../button';
 import userHandler from '../../../helpers/user';
-import { usePostUser } from '../../../hooks/users';
 import Loading from '../../loading';
 
 const submit = (user, setErrorMsg, t, execute) => {

@@ -115,6 +115,9 @@
         "user": {
             "registration": {
                 "title": "User Registration"
+            },
+            "view": {
+                "title": "User View"
             }
         }
     }

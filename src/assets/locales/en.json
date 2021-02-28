@@ -44,11 +44,13 @@
             },
             "training": {
                 "title": "Training Date",
-                "placeholder": "Choose The Day Of The Training"
+                "placeholder": "Choose The Day Of The Training",
+                "error": "Choose The Date correctly"
             },
             "second": {
                 "title": "Second Survey",
-                "placeholder": "Choose The Day Of The Second Training"
+                "placeholder": "Choose The Day Of The Second Training",
+                "error": "Choose The Date correctly"
             },
             "introduction": {
                 "option": {
@@ -57,21 +59,25 @@
                 },
                 "date": {
                     "title": "Introductory Meeting Date",
-                    "placeholder": "Choose The Day Of The Meeting Date"
+                    "placeholder": "Choose The Day Of The Meeting Date",
+                    "error": "Choose The Date correctly"
                 }
             },
             "community": {
                 "title": "Joined The Community",
-                "placeholder": "Choose The Day That The Enter In The Community"
+                "placeholder": "Choose The Day That The Enter In The Community",
+                "error": "Choose The Date correctly"
             },
             "survey": {
                 "date": {
                     "title": "Survey Activation",
-                    "placeholder": "Choose The Day That The First Survey Was Done"
+                    "placeholder": "Choose The Day That The First Survey Was Done",
+                    "error": "Choose The Date correctly"
                 },
                 "link": {
                     "title": "Survey Link",
-                    "placeholder": "Write The Survey Link Of The User"
+                    "placeholder": "Write The Survey Link Of The User",
+                    "error": "Missing The Personal Link"
                 }
             },
             "ambit": {

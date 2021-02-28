@@ -48,7 +48,6 @@ const UserDetail = ({ match }) => {
               title={t('user.fields.followed.title')}
               name="followed"
               placeholder={t('user.fields.followed.placeholder')}
-              value={user?.followed}
               errorMsg={errorMsg?.followed}
               onChange={() => {}}
               options=""
@@ -61,7 +60,6 @@ const UserDetail = ({ match }) => {
               title={t('user.fields.country.title')}
               name="country"
               placeholder={t('user.fields.country.placeholder')}
-              value={user?.country}
               errorMsg={errorMsg?.country}
               onChange={(value) =>
                 userHandler.userSelectHandler('country', value, setUser, user)
@@ -74,7 +72,6 @@ const UserDetail = ({ match }) => {
               title={t('user.fields.contacted.title')}
               name="contacted"
               placeholder={t('user.fields.contacted.placeholder')}
-              value={user?.contacted}
               errorMsg={errorMsg?.contacted}
               onChange={() => {}}
               options=""
@@ -87,7 +84,6 @@ const UserDetail = ({ match }) => {
               title={t('user.fields.gender.title')}
               name="gender"
               placeholder={t('user.fields.gender.placeholder')}
-              value={user?.gender}
               errorMsg={errorMsg?.gender}
               onChange={(value) =>
                 userHandler.userSelectHandler('gender', value, setUser, user)
@@ -100,7 +96,6 @@ const UserDetail = ({ match }) => {
               title={t('user.fields.employment.title')}
               name="employment"
               placeholder={t('user.fields.employment.placeholder')}
-              value={user?.employment}
               errorMsg={errorMsg?.employment}
               onChange={(value) =>
                 userHandler.userSelectHandler(
@@ -120,7 +115,6 @@ const UserDetail = ({ match }) => {
               title={t('user.fields.birthyear.title')}
               name="birthyear"
               placeholder={t('user.fields.birthyear.placeholder')}
-              value={user?.birthyear}
               errorMsg={errorMsg?.birthyear}
               onChange={(value) =>
                 userHandler.userSelectHandler('birthyear', value, setUser, user)
@@ -135,7 +129,7 @@ const UserDetail = ({ match }) => {
               placeholder={t('user.fields.community.placeholder')}
               type="date"
               value={user?.community}
-              errorMsg={errorMsg?.introductionDate}
+              errorMsg={errorMsg?.community}
               onChange={(event) =>
                 userHandler.userInputHandler(event, setUser, user)
               }
@@ -176,7 +170,6 @@ const UserDetail = ({ match }) => {
               title={t('user.fields.introduction.option.title')}
               name="introductionOption"
               placeholder={t('user.fields.introduction.option.placeholder')}
-              value={user?.introductionOption}
               errorMsg={errorMsg?.introductionOption}
               onChange={(value) =>
                 userHandler.userSelectHandler(

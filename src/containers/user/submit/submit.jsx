@@ -8,7 +8,7 @@ import Loading from '../../loading';
 
 const submit = (user, setErrorMsg, t, execute) => {
   if (!userHandler.validation(user, setErrorMsg, t)) {
-    // execute(user);
+    //execute(user);
   }
 };
 

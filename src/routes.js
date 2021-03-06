@@ -14,7 +14,7 @@ const routes = [
     component: MyProfile,
   },
   {
-    path: '/user',
+    path: '/user/new_user',
     exact: true,
     name: 'User Registration',
     component: UserRegistraion,

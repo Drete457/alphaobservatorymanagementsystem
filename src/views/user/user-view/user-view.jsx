@@ -5,6 +5,7 @@ import { InputField } from '../../../containers/user/input';
 import { useGetUser } from '../../../hooks/users';
 import ErrorInfo from '../../../containers/error';
 import Loading from '../../../containers/loading';
+import View from '../../../containers/user/view';
 
 const UserView = ({ match }) => {
   const [t] = useTranslation();
@@ -175,6 +176,8 @@ const UserView = ({ match }) => {
                   disabled={isDisabled}
                 />
               </div>
+
+              <View cancelPage="/" user={user} />
             </CForm>
           </main>
         </>

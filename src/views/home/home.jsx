@@ -63,7 +63,7 @@ const Home = () => {
                     <td>
                       <Button
                         name={t('btn.view')}
-                        onClick={() => history.push(`/user/${item.id}`)}
+                        onClick={() => history.push(`/user/view/${item.id}`)}
                         className="home-button"
                       />
                     </td>

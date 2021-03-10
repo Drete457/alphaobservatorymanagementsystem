@@ -20,7 +20,7 @@ const routes = [
     component: UserRegistraion,
   },
   {
-    path: '/user/:id',
+    path: '/user/view/:id',
     exact: true,
     name: 'User View',
     component: UserView,

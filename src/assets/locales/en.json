@@ -6,6 +6,11 @@
         "view": "View",
         "create": {
             "user": "Create New User"
+        },
+        "create-edit":{
+            "submit": "Submit",
+            "view": "View",
+            "cancel": "Cancel"
         }
     },
     "user": {

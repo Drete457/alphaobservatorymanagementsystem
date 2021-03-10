@@ -33,13 +33,13 @@ const Submit = ({ cancelPage, user, setErrorMsg, setError }) => {
     <>
       <div className="user-submit-buttons">
         <Button
-          name="Cancel"
+          name={t('btn.create-edit.cancel')}
           isDanger={true}
           onClick={() => history.push(cancelPage)}
         />
 
         <Button
-          name="Submit"
+          name={t('btn.create-edit.submit')}
           isDanger={false}
           onClick={() => submit(user, setErrorMsg, t, execute)}
         />

@@ -27,7 +27,6 @@ const UserEdition = ({ match }) => {
 
   useLayoutEffect(() => {
     if (data) {
-      console.log(data);
       setUser(data);
     }
   }, [data]);

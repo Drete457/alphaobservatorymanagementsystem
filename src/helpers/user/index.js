@@ -3,7 +3,6 @@ import { userInputHandler, userSelectHandler } from './user-handler';
 import gender from './gender';
 import ocupation from './ocupation';
 import option from './option';
-import countries from './countries';
 import years from './years';
 import validation from './validation';
 
@@ -14,7 +13,6 @@ const userHandler = {
   gender,
   ocupation,
   option,
-  countries,
   years,
   validation,
 };

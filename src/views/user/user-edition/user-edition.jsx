@@ -6,6 +6,8 @@ import {
   InputField,
 } from '../../../containers/user/input';
 import { useGetUser } from '../../../hooks/users';
+import { useGetCountries } from '../../../hooks/countries';
+import { useGetSocial } from '../../../hooks/social';
 import userHandler from '../../../helpers/user';
 import Submit from '../../../containers/user/submit';
 import ErrorInfo from '../../../containers/error';
@@ -15,26 +17,72 @@ const UserEdition = ({ match }) => {
   const [t] = useTranslation();
 
   const [user, setUser] = useState({});
+  const [countriesList, setCountriesList] = useState([]);
+  const [social, setSocial] = useState([]);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(null);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
+  const {
+    isLoading: isLoadingCountries,
+    error: errorCountries,
+    data: countries,
+    execute: executeCountries,
+  } = useGetCountries();
+  const {
+    isLoading: isLoadingSocial,
+    error: errorSocial,
+    data: socialList,
+    execute: executeSocial,
+  } = useGetSocial();
 
   useLayoutEffect(() => {
     const userID = match.params.id;
     execute(userID);
-  }, [execute, match]);
+    executeCountries();
+    executeSocial();
+  }, [execute, executeCountries, executeSocial, match]);
 
   useLayoutEffect(() => {
     if (data) {
       setUser(data);
     }
-  }, [data]);
+
+    if (countries) {
+      const filterCountriesList = Array.from(countries).map(
+        (value) => value.country,
+      );
+      setCountriesList(filterCountriesList);
+    }
+
+    if (socialList) {
+      const filterSocialList = Object.values(socialList);
+
+      setSocial(filterSocialList);
+    }
+  }, [data, countries, socialList]);
+
+  useLayoutEffect(() => {
+    const errorInfo = errorServer || errorCountries || errorSocial;
+
+    if (errorInfo) {
+      setError(errorInfo);
+    }
+  }, [errorServer, errorCountries, errorSocial]);
+
+  useLayoutEffect(() => {
+    const loadingInfo = isLoading || isLoadingCountries || isLoadingSocial;
+
+    if (loadingInfo) {
+      setLoading(loadingInfo);
+    }
+  }, [isLoading, isLoadingCountries, isLoadingSocial]);
 
   return (
     <>
-      {error || errorServer ? (
-        <ErrorInfo error={error || errorServer} />
+      {error ? (
+        <ErrorInfo error={error} />
       ) : (
         <>
           <header>
@@ -84,7 +132,7 @@ const UserEdition = ({ match }) => {
                       user,
                     )
                   }
-                  options={userHandler.countries()}
+                  options={countriesList}
                   className="user-input-format"
                 />
 
@@ -270,7 +318,7 @@ const UserEdition = ({ match }) => {
           </main>
         </>
       )}
-      {isLoading && <Loading />}
+      {loading && <Loading />}
     </>
   );
 };

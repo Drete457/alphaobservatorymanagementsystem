@@ -5,29 +5,37 @@ import {
   SelectFieldComponent,
   InputField,
 } from '../../../containers/user/input';
+import { useGetUser } from '../../../hooks/users';
 import userHandler from '../../../helpers/user';
-import uniqueId from '../../../helpers/id-generator';
 import Submit from '../../../containers/user/submit';
 import ErrorInfo from '../../../containers/error';
+import Loading from '../../../containers/loading';
 
-const UserRegistration = () => {
+const UserEdition = ({ match }) => {
   const [t] = useTranslation();
 
-  const [user, setUser] = useState({ ...userHandler.userFormat });
+  const [user, setUser] = useState({});
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
 
-  useLayoutEffect(() => {
-    const user = { ...userHandler.userFormat };
-    user.id = uniqueId();
+  const { isLoading, error: errorServer, data, execute } = useGetUser();
 
-    setUser(user);
-  }, []);
+  useLayoutEffect(() => {
+    const userID = match.params.id;
+    execute(userID);
+  }, [execute, match]);
+
+  useLayoutEffect(() => {
+    if (data) {
+      console.log(data);
+      setUser(data);
+    }
+  }, [data]);
 
   return (
     <>
-      {error ? (
-        <ErrorInfo error={error} />
+      {error || errorServer ? (
+        <ErrorInfo error={error || errorServer} />
       ) : (
         <>
           <header>
@@ -54,6 +62,7 @@ const UserRegistration = () => {
                   title={t('user.fields.followed.title')}
                   name="followed"
                   placeholder={t('user.fields.followed.placeholder')}
+                  value={user?.followed}
                   errorMsg={errorMsg?.followed}
                   onChange={() => {}}
                   options=""
@@ -66,6 +75,7 @@ const UserRegistration = () => {
                   title={t('user.fields.country.title')}
                   name="country"
                   placeholder={t('user.fields.country.placeholder')}
+                  value={user?.country}
                   errorMsg={errorMsg?.country}
                   onChange={(value) =>
                     userHandler.userSelectHandler(
@@ -83,6 +93,7 @@ const UserRegistration = () => {
                   title={t('user.fields.contacted.title')}
                   name="contacted"
                   placeholder={t('user.fields.contacted.placeholder')}
+                  value={user?.contacted}
                   errorMsg={errorMsg?.contacted}
                   onChange={() => {}}
                   options=""
@@ -95,6 +106,7 @@ const UserRegistration = () => {
                   title={t('user.fields.gender.title')}
                   name="gender"
                   placeholder={t('user.fields.gender.placeholder')}
+                  value={user?.gender}
                   errorMsg={errorMsg?.gender}
                   onChange={(value) =>
                     userHandler.userSelectHandler(
@@ -112,6 +124,7 @@ const UserRegistration = () => {
                   title={t('user.fields.employment.title')}
                   name="employment"
                   placeholder={t('user.fields.employment.placeholder')}
+                  value={user?.employment}
                   errorMsg={errorMsg?.employment}
                   onChange={(value) =>
                     userHandler.userSelectHandler(
@@ -131,6 +144,7 @@ const UserRegistration = () => {
                   title={t('user.fields.birthyear.title')}
                   name="birthyear"
                   placeholder={t('user.fields.birthyear.placeholder')}
+                  value={user?.birthyear}
                   errorMsg={errorMsg?.birthyear}
                   onChange={(value) =>
                     userHandler.userSelectHandler(
@@ -191,6 +205,7 @@ const UserRegistration = () => {
                   title={t('user.fields.introduction.option.title')}
                   name="introductionOption"
                   placeholder={t('user.fields.introduction.option.placeholder')}
+                  value={user?.introductionOption}
                   errorMsg={errorMsg?.introductionOption}
                   onChange={(value) =>
                     userHandler.userSelectHandler(
@@ -256,8 +271,9 @@ const UserRegistration = () => {
           </main>
         </>
       )}
+      {isLoading && <Loading />}
     </>
   );
 };
 
-export default UserRegistration;
+export default UserEdition;

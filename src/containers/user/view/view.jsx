@@ -19,7 +19,7 @@ const View = ({ cancelPage, user }) => {
         <Button
           name={t('btn.create-edit.view')}
           isDanger={false}
-          onClick={() => history.push(`/user/registration/${user.id}`)}
+          onClick={() => history.push(`/user/edition/${user.id}`)}
         />
       </div>
     </>

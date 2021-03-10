@@ -3,6 +3,7 @@ import { lazy } from 'react';
 const Home = lazy(() => import('./views/home'));
 const MyProfile = lazy(() => import('./views/my-profile'));
 const UserRegistraion = lazy(() => import('./views/user/user-registration'));
+const UserEdition = lazy(() => import('./views/user/user-edition'));
 const UserView = lazy(() => import('./views/user/user-view'));
 
 const routes = [
@@ -18,6 +19,12 @@ const routes = [
     exact: true,
     name: 'User Registration',
     component: UserRegistraion,
+  },
+  {
+    path: '/user/edition/:id',
+    exact: true,
+    name: 'User Edit',
+    component: UserEdition,
   },
   {
     path: '/user/view/:id',

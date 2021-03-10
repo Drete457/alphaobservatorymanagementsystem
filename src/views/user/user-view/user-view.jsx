@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { CForm } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { InputField } from '../../../containers/user/input';
@@ -14,12 +14,12 @@ const UserView = ({ match }) => {
 
   const { isLoading, error, data, execute } = useGetUser();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const userID = match.params.id;
     execute(userID);
   }, [execute, match]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (data) {
       setUser(data);
     }

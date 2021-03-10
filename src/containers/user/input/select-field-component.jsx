@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { CLabel } from '@coreui/react';
 import Select from 'react-select';
 
@@ -8,6 +8,10 @@ const createList = (options) => {
   });
 
   return optionsList;
+};
+
+const createValue = (value) => {
+  return { label: value, value: value };
 };
 
 const SelectFieldComponent = ({
@@ -40,12 +44,15 @@ const SelectFieldComponent = ({
     }),
   };
 
-  const [current, setCurrent] = useState('');
+  const [current, setCurrent] = useState(null);
   const optionList = createList(options);
   const isInvalid = errorMsg ? true : false;
 
-  useEffect(() => {
-    setCurrent(value);
+  useLayoutEffect(() => {
+    if (value) {
+      const valueFormat = createValue(value);
+      setCurrent(valueFormat);
+    }
   }, [value]);
 
   return (

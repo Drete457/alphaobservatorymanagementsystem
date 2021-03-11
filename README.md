@@ -29,11 +29,11 @@ yarn start
 - React Recoil
 - Bootscrap
 - CoreUi
-- jwt-decode
 - eslint-react-hooks
 - React Select
 - React-Avatar
 - FireBase SDK
+- React Date Picker
 
 ## License
 MIT License

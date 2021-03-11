@@ -1,11 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {construtionImg} from "../../assets/images"
 
 
 const Build = () => {
-  const history = useHistory();
   const [t] = useTranslation();
 
   return (

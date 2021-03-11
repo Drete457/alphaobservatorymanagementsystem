@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
-import { SelectFieldComponent, InputField } from '../input';
+import { SelectFieldComponent, InputField, DateInput } from '../input';
 import Submit from '../submit';
 
 const UserRegister = ({
@@ -117,6 +117,8 @@ const UserRegister = ({
               options={userHandler.years()}
               className="user-input-format"
             />
+
+            <DateInput />
 
             <InputField
               title={t('user.fields.community.title')}

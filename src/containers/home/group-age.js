@@ -26,16 +26,11 @@ const groupChoose = (age) => {
   return text;
 };
 
-const groupAge = (users) => {
-  const newUsersArray = users?.map((user) => {
-    const currentYear = new Date().getFullYear();
-    const userAge = currentYear - user.birthyear;
-    user.groupAge = groupChoose(userAge);
+const groupAge = (user) => {
+  const currentYear = new Date().getFullYear();
+  const userAge = currentYear - user.birthyear;
 
-    return user;
-  });
-
-  return newUsersArray;
+  return groupChoose(userAge);
 };
 
 export default groupAge;

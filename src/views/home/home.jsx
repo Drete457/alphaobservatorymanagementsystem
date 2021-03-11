@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -14,16 +14,24 @@ const Home = () => {
   const [users, setUsers] = useState([]);
   const { isLoading, error, data, execute } = useGetUsers();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     execute();
   }, [execute]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (data) {
       const arrayData = Object.values(data);
-      const groupAgeArray = homeHandler.groupAge(arrayData);
+      const fillArrayData = arrayData.map((user) => {
+        user.groupAge = homeHandler.groupAge(user);
 
-      setUsers(groupAgeArray);
+        //temporary solution for undefinied for each user on the table
+        user.ambitEntry = '';
+        user.activities = '';
+
+        return user;
+      });
+
+      setUsers(fillArrayData);
     }
   }, [data]);
 

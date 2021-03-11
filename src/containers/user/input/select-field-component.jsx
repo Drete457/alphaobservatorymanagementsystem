@@ -23,6 +23,7 @@ const SelectFieldComponent = ({
   onChange,
   options,
   className,
+  isMulti,
 }) => {
   const customStyles = {
     control: (provided, state) => ({
@@ -70,6 +71,7 @@ const SelectFieldComponent = ({
           onChange(event);
         }}
         className="select-style"
+        isMulti={isMulti}
       />
       {isInvalid && <p className="user-input-error">{errorMsg}</p>}
     </div>

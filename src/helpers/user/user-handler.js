@@ -18,4 +18,10 @@ const userSelectHandler = (key, value, setUser, user) => {
   userHandler(key, userSelect, setUser, user);
 };
 
-export { userInputHandler, userSelectHandler };
+const userSocialSelectHandler = (key, value, setUser, user) => {
+  const userSocial = value.map((value) => value.value);
+
+  userHandler(key, userSocial, setUser, user);
+};
+
+export { userInputHandler, userSelectHandler, userSocialSelectHandler };

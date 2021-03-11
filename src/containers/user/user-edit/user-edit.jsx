@@ -12,13 +12,14 @@ const UserEdit = ({
   countriesList,
   setErrorMsg,
   setError,
+  social,
 }) => {
   const [t] = useTranslation();
 
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.user.registration.title')}</h1>
+        <h1 className="title">{t('pages.user.edit.title')}</h1>
       </header>
 
       <main className="registration-body">
@@ -222,6 +223,25 @@ const UserEdit = ({
                 userHandler.userInputHandler(event, setUser, user)
               }
               className="user-input-format"
+            />
+          </div>
+
+          <div className="user-input">
+            <SelectFieldComponent
+              title={t('user.fields.social.title')}
+              name="social"
+              placeholder={t('user.fields.social.placeholder')}
+              onChange={(value) =>
+                userHandler.userSocialSelectHandler(
+                  'social',
+                  value,
+                  setUser,
+                  user,
+                )
+              }
+              options={social}
+              className="user-input-format"
+              isMulti={true}
             />
           </div>
 

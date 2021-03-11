@@ -94,6 +94,10 @@
             },
             "groupAge": {
                 "title": "Group Age"
+            },
+            "social":{
+                "title": "Social Media",
+                "placeholder": "Choose The Social Media User Have"
             }
         }
     },
@@ -123,6 +127,9 @@
             },
             "view": {
                 "title": "User View"
+            },
+            "edit":{
+                "title": "User Edit"
             }
         }
     }

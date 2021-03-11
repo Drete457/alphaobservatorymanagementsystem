@@ -84,6 +84,7 @@ const UserEdition = ({ match }) => {
           countriesList={countriesList}
           setErrorMsg={setErrorMsg}
           setError={setError}
+          social={social}
         />
       )}
       {loading && <Loading />}

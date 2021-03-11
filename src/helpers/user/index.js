@@ -1,5 +1,9 @@
 import userFormat from './user-object-format';
-import { userInputHandler, userSelectHandler } from './user-handler';
+import {
+  userInputHandler,
+  userSelectHandler,
+  userSocialSelectHandler,
+} from './user-handler';
 import gender from './gender';
 import ocupation from './ocupation';
 import option from './option';
@@ -10,6 +14,7 @@ const userHandler = {
   userFormat,
   userInputHandler,
   userSelectHandler,
+  userSocialSelectHandler,
   gender,
   ocupation,
   option,

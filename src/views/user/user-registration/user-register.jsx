@@ -84,6 +84,7 @@ const UserRegistration = () => {
           countriesList={countriesList}
           setErrorMsg={setErrorMsg}
           setError={setError}
+          social={social}
         />
       )}
       {loading && <Loading />}

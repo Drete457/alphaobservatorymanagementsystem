@@ -12,6 +12,7 @@ const UserRegister = ({
   countriesList,
   setErrorMsg,
   setError,
+  social,
 }) => {
   const [t] = useTranslation();
 
@@ -59,6 +60,7 @@ const UserRegister = ({
               }
               options={countriesList}
               className="user-input-format"
+              isMulti={true}
             />
 
             <SelectFieldComponent
@@ -215,6 +217,25 @@ const UserRegister = ({
                 userHandler.userInputHandler(event, setUser, user)
               }
               className="user-input-format"
+            />
+          </div>
+
+          <div className="user-input">
+            <SelectFieldComponent
+              title={t('user.fields.social.title')}
+              name="social"
+              placeholder={t('user.fields.social.placeholder')}
+              onChange={(value) =>
+                userHandler.userSocialSelectHandler(
+                  'social',
+                  value,
+                  setUser,
+                  user,
+                )
+              }
+              options={social}
+              className="user-input-format"
+              isMulti={true}
             />
           </div>
 

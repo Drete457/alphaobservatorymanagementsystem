@@ -24,7 +24,6 @@ yarn start
 - Vanilla Javascript
 - Reactjs 16.13.1
 - React Router 5.2.0
-- React Redux 7.2.1
 - Nodejs 12.19.0
 - React Recoil
 - Bootscrap
@@ -33,7 +32,6 @@ yarn start
 - React Select
 - React-Avatar
 - FireBase SDK
-- React Date Picker
 
 ## License
 MIT License

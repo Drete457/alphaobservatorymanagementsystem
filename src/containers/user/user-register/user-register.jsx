@@ -15,7 +15,7 @@ const UserRegister = ({
   social,
 }) => {
   const [t] = useTranslation();
-  console.log(user);
+
   return (
     <>
       <header>

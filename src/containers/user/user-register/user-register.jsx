@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
-import { SelectFieldComponent, InputField, DateInput } from '../input';
+import { SelectFieldComponent, InputField } from '../input';
 import Submit from '../submit';
 
 const UserRegister = ({
@@ -15,7 +15,7 @@ const UserRegister = ({
   social,
 }) => {
   const [t] = useTranslation();
-
+  console.log(user);
   return (
     <>
       <header>
@@ -60,7 +60,6 @@ const UserRegister = ({
               }
               options={countriesList}
               className="user-input-format"
-              isMulti={true}
             />
 
             <SelectFieldComponent
@@ -117,8 +116,6 @@ const UserRegister = ({
               options={userHandler.years()}
               className="user-input-format"
             />
-
-            <DateInput />
 
             <InputField
               title={t('user.fields.community.title')}
@@ -241,12 +238,7 @@ const UserRegister = ({
             />
           </div>
 
-          <Submit
-            cancelPage="/"
-            user={user}
-            setErrorMsg={setErrorMsg}
-            setError={setError}
-          />
+          <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />
         </CForm>
       </main>
     </>

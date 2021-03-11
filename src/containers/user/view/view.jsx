@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Button from '../../button';
 
-const View = ({ cancelPage, user }) => {
+const View = ({ user }) => {
   const history = useHistory();
   const [t] = useTranslation();
 
@@ -13,7 +13,7 @@ const View = ({ cancelPage, user }) => {
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}
-          onClick={() => history.push(cancelPage)}
+          onClick={() => history.goBack()}
         />
 
         <Button

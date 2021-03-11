@@ -12,14 +12,14 @@ const submit = (user, setErrorMsg, t, execute) => {
   }
 };
 
-const Submit = ({ cancelPage, user, setErrorMsg, setError }) => {
+const Submit = ({ user, setErrorMsg, setError }) => {
   const history = useHistory();
   const [t] = useTranslation();
   const { isLoading, error, data, execute } = usePostUser();
 
   useEffect(() => {
     if (data) {
-      history.push('/');
+      history.push('/users');
     }
   }, [data, history]);
 
@@ -35,7 +35,7 @@ const Submit = ({ cancelPage, user, setErrorMsg, setError }) => {
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}
-          onClick={() => history.push(cancelPage)}
+          onClick={() => history.goBack()}
         />
 
         <Button

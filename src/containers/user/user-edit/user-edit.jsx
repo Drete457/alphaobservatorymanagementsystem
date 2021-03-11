@@ -246,12 +246,7 @@ const UserEdit = ({
             />
           </div>
 
-          <Submit
-            cancelPage="/"
-            user={user}
-            setErrorMsg={setErrorMsg}
-            setError={setError}
-          />
+          <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />
         </CForm>
       </main>
     </>

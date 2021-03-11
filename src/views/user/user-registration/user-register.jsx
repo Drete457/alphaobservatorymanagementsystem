@@ -1,11 +1,12 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { useGetCountries } from '../../../hooks/countries';
 import { useGetSocial } from '../../../hooks/social';
-import UserRegister from '../../../containers/user/user-register';
+import UserRegister from '../../../containers/user/view/user-register';
 import userHandler from '../../../helpers/user';
 import uniqueId from '../../../helpers/id-generator';
 import ErrorInfo from '../../../containers/error';
 import Loading from '../../../containers/loading';
+import Tabs from '../../../containers/user/tabs';
 
 const UserRegistration = () => {
   const [user, setUser] = useState({ ...userHandler.userFormat });
@@ -71,20 +72,37 @@ const UserRegistration = () => {
     }
   }, [isLoadingCountries, isLoadingSocial]);
 
+  const ComponenteUser = () => {
+    return (
+      <UserRegister
+        user={user}
+        setUser={setUser}
+        errorMsg={errorMsg}
+        userHandler={userHandler}
+        countriesList={countriesList}
+        setErrorMsg={setErrorMsg}
+        setError={setError}
+      />
+    );
+  };
+
+  const ComponenteSocial = () => {
+    return <></>;
+  };
+
+  const ComponenteCards = () => {
+    return <></>;
+  };
+
   return (
     <>
       {error ? (
         <ErrorInfo error={error} />
       ) : (
-        <UserRegister
-          user={user}
-          setUser={setUser}
-          errorMsg={errorMsg}
-          userHandler={userHandler}
-          countriesList={countriesList}
-          setErrorMsg={setErrorMsg}
-          setError={setError}
-          social={social}
+        <Tabs
+          ComponenteUser={ComponenteUser}
+          ComponenteSocial={ComponenteSocial}
+          ComponenteCards={ComponenteCards}
         />
       )}
       {loading && <Loading />}

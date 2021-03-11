@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
-import { InputField } from '../../../containers/user/input';
-import View from '../../../containers/user/view';
+import { InputField } from '../../input';
+import View from '../../buttons/view';
 
 const UserViewer = ({ user }) => {
   const [t] = useTranslation();

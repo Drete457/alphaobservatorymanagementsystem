@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Button from '../../button';
+import Button from '../../../button';
 
 const View = ({ user }) => {
   const history = useHistory();

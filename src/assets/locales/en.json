@@ -155,6 +155,11 @@
             },
             "edit":{
                 "title": "User Edit"
+            },
+            "tabs": {
+                "user": " User",
+                "social": " Social",
+                "cards": " Cards"
             }
         }
     }

@@ -2,10 +2,11 @@ import React, { useState, useLayoutEffect } from 'react';
 import { useGetUser } from '../../../hooks/users';
 import { useGetCountries } from '../../../hooks/countries';
 import { useGetSocial } from '../../../hooks/social';
-import UserEdit from '../../../containers/user/user-edit';
+import UserEdit from '../../../containers/user/view/user-edit';
 import userHandler from '../../../helpers/user';
 import ErrorInfo from '../../../containers/error';
 import Loading from '../../../containers/loading';
+import Tabs from '../../../containers/user/tabs';
 
 const UserEdition = ({ match }) => {
   const [user, setUser] = useState({});
@@ -71,20 +72,37 @@ const UserEdition = ({ match }) => {
     }
   }, [isLoading, isLoadingCountries, isLoadingSocial]);
 
+  const ComponenteUser = () => {
+    return (
+      <UserEdit
+        user={user}
+        setUser={setUser}
+        errorMsg={errorMsg}
+        userHandler={userHandler}
+        countriesList={countriesList}
+        setErrorMsg={setErrorMsg}
+        setError={setError}
+      />
+    );
+  };
+
+  const ComponenteSocial = () => {
+    return <></>;
+  };
+
+  const ComponenteCards = () => {
+    return <></>;
+  };
+
   return (
     <>
       {error ? (
         <ErrorInfo error={error} />
       ) : (
-        <UserEdit
-          user={user}
-          setUser={setUser}
-          errorMsg={errorMsg}
-          userHandler={userHandler}
-          countriesList={countriesList}
-          setErrorMsg={setErrorMsg}
-          setError={setError}
-          social={social}
+        <Tabs
+          ComponenteUser={ComponenteUser}
+          ComponenteSocial={ComponenteSocial}
+          ComponenteCards={ComponenteCards}
         />
       )}
       {loading && <Loading />}

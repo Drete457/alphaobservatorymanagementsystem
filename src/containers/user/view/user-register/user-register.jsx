@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
-import { SelectFieldComponent, InputField } from '../input';
-import Submit from '../submit';
+import { SelectFieldComponent, InputField } from '../../input';
+import Submit from '../../buttons/submit';
 
-const UserEdit = ({
+const UserRegister = ({
   user,
   setUser,
   errorMsg,
@@ -19,7 +19,7 @@ const UserEdit = ({
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.user.edit.title')}</h1>
+        <h1 className="title">{t('pages.user.registration.title')}</h1>
       </header>
 
       <main className="registration-body">
@@ -42,7 +42,6 @@ const UserEdit = ({
               title={t('user.fields.followed.title')}
               name="followed"
               placeholder={t('user.fields.followed.placeholder')}
-              value={user?.followed}
               errorMsg={errorMsg?.followed}
               onChange={() => {}}
               options=""
@@ -55,7 +54,6 @@ const UserEdit = ({
               title={t('user.fields.country.title')}
               name="country"
               placeholder={t('user.fields.country.placeholder')}
-              value={user?.country}
               errorMsg={errorMsg?.country}
               onChange={(value) =>
                 userHandler.userSelectHandler('country', value, setUser, user)
@@ -68,7 +66,6 @@ const UserEdit = ({
               title={t('user.fields.contacted.title')}
               name="contacted"
               placeholder={t('user.fields.contacted.placeholder')}
-              value={user?.contacted}
               errorMsg={errorMsg?.contacted}
               onChange={() => {}}
               options=""
@@ -81,7 +78,6 @@ const UserEdit = ({
               title={t('user.fields.gender.title')}
               name="gender"
               placeholder={t('user.fields.gender.placeholder')}
-              value={user?.gender}
               errorMsg={errorMsg?.gender}
               onChange={(value) =>
                 userHandler.userSelectHandler('gender', value, setUser, user)
@@ -94,7 +90,6 @@ const UserEdit = ({
               title={t('user.fields.employment.title')}
               name="employment"
               placeholder={t('user.fields.employment.placeholder')}
-              value={user?.employment}
               errorMsg={errorMsg?.employment}
               onChange={(value) =>
                 userHandler.userSelectHandler(
@@ -114,7 +109,6 @@ const UserEdit = ({
               title={t('user.fields.birthyear.title')}
               name="birthyear"
               placeholder={t('user.fields.birthyear.placeholder')}
-              value={user?.birthyear}
               errorMsg={errorMsg?.birthyear}
               onChange={(value) =>
                 userHandler.userSelectHandler('birthyear', value, setUser, user)
@@ -170,7 +164,6 @@ const UserEdit = ({
               title={t('user.fields.introduction.option.title')}
               name="introductionOption"
               placeholder={t('user.fields.introduction.option.placeholder')}
-              value={user?.introductionOption}
               errorMsg={errorMsg?.introductionOption}
               onChange={(value) =>
                 userHandler.userSelectHandler(
@@ -226,26 +219,6 @@ const UserEdit = ({
             />
           </div>
 
-          <div className="user-input">
-            <SelectFieldComponent
-              title={t('user.fields.social.title')}
-              name="social"
-              placeholder={t('user.fields.social.placeholder')}
-              value={user?.social}
-              onChange={(value) =>
-                userHandler.userSocialSelectHandler(
-                  'social',
-                  value,
-                  setUser,
-                  user,
-                )
-              }
-              options={social}
-              className="user-input-format"
-              isMulti={true}
-            />
-          </div>
-
           <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />
         </CForm>
       </main>
@@ -253,4 +226,4 @@ const UserEdit = ({
   );
 };
 
-export default UserEdit;
+export default UserRegister;

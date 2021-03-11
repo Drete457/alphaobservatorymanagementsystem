@@ -1,4 +1,29 @@
 {
+    "sidebar": {
+        "home":{
+            "title": "Home",
+            "children":{
+                "users": "User"
+            }
+        },
+        "administration":{
+            "title": "Administration",
+            "countries": {
+                "title": "Countries",
+                "children": {
+                    "add": "Add Countries",
+                    "remove": "Remove Countries"
+                }
+            },
+            "social": {
+                "title": "Social Media",
+                "children":{
+                    "add": "Add Social Media",
+                    "remove": "Remove Social Media"
+                }
+            }
+        }
+    },
     "btn": {
         "login": {
             "google_button": "Google Account"
@@ -105,7 +130,6 @@
         "title": "Login",
         "signin": "Sign In with your Google Account"
     },
-    "sidebar": {},
     "header": {
         "profile": "Profile",
         "logout": "Logout"

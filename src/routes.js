@@ -8,6 +8,7 @@ const UserView = lazy(() => import('./views/user/user-view'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home', component: Home },
+  { path: '/users', exact: true, name: 'Home', component: Home },
   {
     path: '/my-profile',
     exact: true,

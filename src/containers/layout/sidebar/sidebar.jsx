@@ -9,6 +9,7 @@ import {
   CSidebarNavDropdown,
   CSidebarNavItem,
 } from '@coreui/react';
+import { useTranslation } from 'react-i18next';
 
 import { sidebarShow } from '../../../state/atoms';
 
@@ -17,6 +18,7 @@ import useNavigation from './navigation';
 
 const Sidebar = () => {
   const [isSidebarShow, setIsSidebarShow] = useRecoilState(sidebarShow);
+  const [t] = useTranslation();
 
   return (
     <CSidebar
@@ -27,7 +29,7 @@ const Sidebar = () => {
       <CSidebarNav>
         <CSidebarNavTitle>Dashboard</CSidebarNavTitle>
         <CCreateElement
-          items={useNavigation()}
+          items={useNavigation(t)}
           components={{
             CSidebarNavDivider,
             CSidebarNavDropdown,

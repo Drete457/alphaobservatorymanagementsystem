@@ -40,7 +40,7 @@ const Login = () => {
         setUser(userInfo);
         setCommunicationSystem(firebase);
 
-        history.push('/');
+        history.push('/users');
       })
       .catch((error) => {
         const errorCode = error.code;

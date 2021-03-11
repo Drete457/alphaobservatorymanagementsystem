@@ -1,14 +1,16 @@
 import { lazy } from 'react';
 
-const Home = lazy(() => import('./views/home'));
+const Build = lazy(() => import('./views/build'));
+const Users = lazy(() => import('./views/users'));
 const MyProfile = lazy(() => import('./views/my-profile'));
 const UserRegistraion = lazy(() => import('./views/user/user-registration'));
 const UserEdition = lazy(() => import('./views/user/user-edition'));
 const UserView = lazy(() => import('./views/user/user-view'));
 
 const routes = [
-  { path: '/', exact: true, name: 'Home', component: Home },
-  { path: '/users', exact: true, name: 'Home', component: Home },
+  { path: '/', exact: true, name: 'Alpha', component: Build },
+  { path: '/dashboard', exact: true, name: 'build', component: Build },
+  { path: '/users', exact: true, name: 'Users', component: Users },
   {
     path: '/my-profile',
     exact: true,

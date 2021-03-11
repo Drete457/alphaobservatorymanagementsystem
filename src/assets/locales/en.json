@@ -135,7 +135,8 @@
         "logout": "Logout"
     },
     "pages": {
-        "home": {
+        "constrution": "Still under construction",
+        "users": {
             "title": "All Users"
         },
         "myprofile": {

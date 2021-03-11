@@ -42,7 +42,7 @@ const Home = () => {
       ) : (
         <>
           <header>
-            <h1 className="title">{t('pages.home.title')}</h1>
+            <h1 className="title">{t('pages.users.title')}</h1>
           </header>
 
           <main>

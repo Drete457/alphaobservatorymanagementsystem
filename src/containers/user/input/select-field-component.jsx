@@ -50,11 +50,16 @@ const SelectFieldComponent = ({
   const isInvalid = errorMsg ? true : false;
 
   useLayoutEffect(() => {
-    if (value) {
+    if (value && !isMulti) {
       const valueFormat = createValue(value);
       setCurrent(valueFormat);
     }
-  }, [value]);
+
+    if (value && isMulti) {
+      const valueList = value.map((social) => createValue(social));
+      setCurrent(valueList);
+    }
+  }, [value, isMulti]);
 
   return (
     <div className={className}>

@@ -11,7 +11,7 @@ import Tabs from '../../../containers/user/tabs';
 const UserRegistration = () => {
   const [user, setUser] = useState({ ...userHandler.userFormat });
   const [countriesList, setCountriesList] = useState([]);
-  const [social, setSocial] = useState([]);
+  //  const [social, setSocial] = useState([]);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);

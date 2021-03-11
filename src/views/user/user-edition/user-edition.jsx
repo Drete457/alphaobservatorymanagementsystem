@@ -50,9 +50,8 @@ const UserEdition = ({ match }) => {
     }
 
     if (socialList) {
-      const filterSocialList = Object.values(socialList);
-
-      setSocial(filterSocialList);
+      // const filterSocialList = Object.values(socialList);
+      // setSocial(filterSocialList);
     }
   }, [data, countries, socialList]);
 

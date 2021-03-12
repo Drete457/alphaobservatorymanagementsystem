@@ -1,7 +1,10 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { useGetCountries } from '../../../hooks/countries';
 import { useGetSocial } from '../../../hooks/social';
-import UserRegister from '../../../containers/user/view/user-register';
+import {
+  UserRegister,
+  UserSocial,
+} from '../../../containers/user/view/user-register';
 import userHandler from '../../../helpers/user';
 import uniqueId from '../../../helpers/id-generator';
 import ErrorInfo from '../../../containers/error';
@@ -89,7 +92,16 @@ const UserRegistration = () => {
               setError={setError}
             />
           )}
-          {active === 1 && ''}
+          {active === 1 && (
+            <UserSocial
+              social={social}
+              user={user}
+              setUser={setUser}
+              errorMsg={errorMsg}
+              setErrorMsg={setErrorMsg}
+              setError={setError}
+            />
+          )}
           {active === 2 && ''}
         </>
       )}

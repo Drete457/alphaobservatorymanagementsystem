@@ -122,7 +122,8 @@
             },
             "social":{
                 "title": "Social Media",
-                "placeholder": "Choose The Social Media User Have"
+                "placeholder": "Choose The Social Media User Have",
+                "placeholdersocialnetwork": "Write The User Name On The Social Network"
             }
         }
     },
@@ -148,13 +149,18 @@
         },
         "user": {
             "registration": {
-                "title": "User Registration"
+                "title": "User Registration",
+                "social": {
+                    "title": "User Registration Social Media"
+                }
             },
             "view": {
-                "title": "User View"
+                "title": "User View",
+                "social": "User View Social Media"
             },
             "edit":{
-                "title": "User Edit"
+                "title": "User Edit",
+                "social": "User Edit Social Media"
             },
             "tabs": {
                 "user": "User",

@@ -13,6 +13,8 @@ const userFormat = {
   community: '',
   surveyDate: '',
   surveyLink: '',
+  social: '',
+  socialInfo: '',
 };
 
 export default userFormat;

@@ -1,6 +1,9 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { useGetUser } from '../../../hooks/users';
-import UserViewer from '../../../containers/user/view/user-view';
+import {
+  UserViewer,
+  UserSocial,
+} from '../../../containers/user/view/user-view';
 import ErrorInfo from '../../../containers/error';
 import Loading from '../../../containers/loading';
 import Tabs from '../../../containers/user/tabs';
@@ -38,7 +41,7 @@ const UserView = ({ match }) => {
         <>
           <Tabs active={active} setActive={setActive} />
           {active === 0 && <UserViewer user={user} />}
-          {active === 1 && ''}
+          {active === 1 && <UserSocial user={user} />}
           {active === 2 && ''}
         </>
       )}

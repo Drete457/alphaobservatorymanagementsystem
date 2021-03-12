@@ -41,6 +41,8 @@ const userSocialSelectHandler = (key, value, setUser, user) => {
   const userSocial = value.map((value) => value.value);
 
   userHandler(key, userSocial, setUser, user);
+
+  user.social = userSocial;
   userSocialInfoAdd(userSocial, setUser, user);
 };
 

@@ -14,7 +14,7 @@ const UserViewer = ({ user }) => {
         <h1 className="title">{t('pages.user.view.title')}</h1>
       </header>
 
-      <main className="registration-body">
+      <main className="main-body">
         <CForm>
           <div className="user-input">
             <InputField

@@ -21,7 +21,7 @@ const UserRegister = ({
         <h1 className="title">{t('pages.user.registration.title')}</h1>
       </header>
 
-      <main className="registration-body">
+      <main className="main-body">
         <CForm>
           <div className="user-input">
             <InputField

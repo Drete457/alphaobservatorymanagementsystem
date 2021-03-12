@@ -84,7 +84,6 @@ const UserRegistration = () => {
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}
-              userHandler={userHandler}
               countriesList={countriesList}
               setErrorMsg={setErrorMsg}
               setError={setError}

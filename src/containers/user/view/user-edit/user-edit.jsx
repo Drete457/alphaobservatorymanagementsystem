@@ -2,17 +2,16 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from '../../input';
+import userHandler from '../../../../helpers/user';
 import Submit from '../../buttons/submit';
 
 const UserEdit = ({
   user,
   setUser,
   errorMsg,
-  userHandler,
   countriesList,
   setErrorMsg,
   setError,
-  social,
 }) => {
   const [t] = useTranslation();
 

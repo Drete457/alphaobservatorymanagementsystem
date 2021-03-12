@@ -84,7 +84,6 @@ const UserEdition = ({ match }) => {
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}
-              userHandler={userHandler}
               countriesList={countriesList}
               setErrorMsg={setErrorMsg}
               setError={setError}

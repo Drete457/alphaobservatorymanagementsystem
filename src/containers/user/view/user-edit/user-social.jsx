@@ -16,16 +16,16 @@ const UserSocial = ({
   const [t] = useTranslation();
 
   if (!user.social) {
-    user.social = [];
+    user.social = '';
   }
   if (!user.socialInfo) {
-    user.socialInfo = [];
+    user.socialInfo = '';
   }
 
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.user.registration.social.title')}</h1>
+        <h1 className="title">{t('pages.user.edit.social.title')}</h1>
       </header>
 
       <main className="main-body">

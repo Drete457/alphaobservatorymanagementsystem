@@ -123,7 +123,8 @@
             "social":{
                 "title": "Social Media",
                 "placeholder": "Choose The Social Media User Have",
-                "placeholdersocialnetwork": "Write The User Name On The Social Network"
+                "placeholdersocialnetwork": "Write The User Name Use In This Social Media",
+                "error": "Don't Forget To Write User Name Used In This Social Media"
             }
         }
     },

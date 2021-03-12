@@ -52,6 +52,15 @@ const validateTotalUser = (user, setError, t) => {
     haveErrors = true;
   }
 
+  if (user.socialInfo) {
+    const isOk = Array.from(user.socialInfo).filter((social) => !social.name);
+
+    if (isOk.length > 0) {
+      errors.socialInfo = t('user.fields.survey.date.error');
+      haveErrors = true;
+    }
+  }
+
   setError(errors);
 
   return haveErrors;

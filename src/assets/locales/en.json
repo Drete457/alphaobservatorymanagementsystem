@@ -34,7 +34,7 @@
         },
         "create-edit":{
             "submit": "Submit",
-            "view": "View",
+            "edit": "Edit",
             "cancel": "Cancel"
         }
     },
@@ -156,11 +156,15 @@
             },
             "view": {
                 "title": "User View",
-                "social": "User View Social Media"
+                "social": {
+                    "title": "User View Social Media"
+                }
             },
             "edit":{
                 "title": "User Edit",
-                "social": "User Edit Social Media"
+                "social": {
+                    "title": "User Edit Social Media"
+                }
             },
             "tabs": {
                 "user": "User",

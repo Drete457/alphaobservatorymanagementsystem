@@ -24,7 +24,7 @@ const UserSocial = ({ user }) => {
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.user.registration.social.title')}</h1>
+        <h1 className="title">{t('pages.user.view.social.title')}</h1>
       </header>
 
       <main className="main-body">

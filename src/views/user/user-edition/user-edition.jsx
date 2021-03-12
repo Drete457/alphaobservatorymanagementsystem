@@ -2,7 +2,7 @@ import React, { useState, useLayoutEffect } from 'react';
 import { useGetUser } from '../../../hooks/users';
 import { useGetCountries } from '../../../hooks/countries';
 import { useGetSocial } from '../../../hooks/social';
-import UserEdit from '../../../containers/user/view/user-edit';
+import { UserEdit, UserSocial } from '../../../containers/user/view/user-edit';
 import userHandler from '../../../helpers/user';
 import ErrorInfo from '../../../containers/error';
 import Loading from '../../../containers/loading';
@@ -89,7 +89,16 @@ const UserEdition = ({ match }) => {
               setError={setError}
             />
           )}
-          {active === 1 && ''}
+          {active === 1 && (
+            <UserSocial
+              social={social}
+              user={user}
+              setUser={setUser}
+              errorMsg={errorMsg}
+              setErrorMsg={setErrorMsg}
+              setError={setError}
+            />
+          )}
           {active === 2 && ''}
         </>
       )}

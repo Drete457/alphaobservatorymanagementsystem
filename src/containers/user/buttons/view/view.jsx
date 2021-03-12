@@ -17,7 +17,7 @@ const View = ({ user }) => {
         />
 
         <Button
-          name={t('btn.create-edit.view')}
+          name={t('btn.create-edit.edit')}
           isDanger={false}
           onClick={() => history.push(`/user/edition/${user.id}`)}
         />

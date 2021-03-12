@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { CCard, CCardBody, CCol } from '@coreui/react';
+import { usePostError } from '../../hooks/errors';
 
 const ErrorInfo = ({ error }) => {
+  const { execute } = usePostError();
+
+  //send error log to the server
+  useLayoutEffect(() => {
+    execute(error);
+  }, [execute, error]);
+
   return (
     <>
       <CCard className="p-4">

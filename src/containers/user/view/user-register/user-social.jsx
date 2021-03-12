@@ -52,7 +52,7 @@ const UserSocial = ({
                   placeholder={t('user.fields.social.placeholdersocialnetwork')}
                   type="text"
                   value={social.name}
-                  errorMsg={social.name ? errorMsg?.socialInfo : ''}
+                  errorMsg={!social.name ? errorMsg?.socialInfo : ''}
                   onChange={(event) => {
                     userHandler.userSocialInfoHandler(
                       'socialInfo',

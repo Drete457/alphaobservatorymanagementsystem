@@ -157,9 +157,9 @@
                 "title": "User Edit"
             },
             "tabs": {
-                "user": " User",
-                "social": " Social",
-                "cards": " Cards"
+                "user": "User",
+                "social": "Social",
+                "cards": "Cards"
             }
         }
     }

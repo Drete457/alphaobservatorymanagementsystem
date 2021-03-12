@@ -7,7 +7,8 @@ import Tabs from '../../../containers/user/tabs';
 
 const UserView = ({ match }) => {
   const [user, setUser] = useState({});
-
+  const [active, setActive] = useState(0);
+  const [loading, setLoading] = useState(null);
   const { isLoading, error, data, execute } = useGetUser();
 
   useLayoutEffect(() => {
@@ -21,30 +22,27 @@ const UserView = ({ match }) => {
     }
   }, [data]);
 
-  const ComponenteUser = () => {
-    return <UserViewer user={user} />;
-  };
+  useLayoutEffect(() => {
+    const loadingInfo = isLoading;
 
-  const ComponenteSocial = () => {
-    return <></>;
-  };
-
-  const ComponenteCards = () => {
-    return <></>;
-  };
+    if (loadingInfo) {
+      setLoading(loadingInfo);
+    }
+  }, [isLoading]);
 
   return (
     <>
       {error ? (
         <ErrorInfo error={error} />
       ) : (
-        <Tabs
-          ComponenteUser={ComponenteUser}
-          ComponenteSocial={ComponenteSocial}
-          ComponenteCards={ComponenteCards}
-        />
+        <>
+          <Tabs active={active} setActive={setActive} />
+          {active === 0 && <UserViewer user={user} />}
+          {active === 1 && ''}
+          {active === 2 && ''}
+        </>
       )}
-      {isLoading && <Loading />}
+      {loading && <Loading />}
     </>
   );
 };

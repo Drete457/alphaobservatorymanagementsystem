@@ -11,7 +11,8 @@ import Tabs from '../../../containers/user/tabs';
 const UserEdition = ({ match }) => {
   const [user, setUser] = useState({});
   const [countriesList, setCountriesList] = useState([]);
-  // const [social, setSocial] = useState([]);
+  const [social, setSocial] = useState([]);
+  const [active, setActive] = useState(0);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -50,8 +51,8 @@ const UserEdition = ({ match }) => {
     }
 
     if (socialList) {
-      // const filterSocialList = Object.values(socialList);
-      // setSocial(filterSocialList);
+      const filterSocialList = Object.values(socialList);
+      setSocial(filterSocialList);
     }
   }, [data, countries, socialList]);
 
@@ -71,38 +72,27 @@ const UserEdition = ({ match }) => {
     }
   }, [isLoading, isLoadingCountries, isLoadingSocial]);
 
-  const ComponenteUser = () => {
-    return (
-      <UserEdit
-        user={user}
-        setUser={setUser}
-        errorMsg={errorMsg}
-        userHandler={userHandler}
-        countriesList={countriesList}
-        setErrorMsg={setErrorMsg}
-        setError={setError}
-      />
-    );
-  };
-
-  const ComponenteSocial = () => {
-    return <></>;
-  };
-
-  const ComponenteCards = () => {
-    return <></>;
-  };
-
   return (
     <>
       {error ? (
         <ErrorInfo error={error} />
       ) : (
-        <Tabs
-          ComponenteUser={ComponenteUser}
-          ComponenteSocial={ComponenteSocial}
-          ComponenteCards={ComponenteCards}
-        />
+        <>
+          <Tabs active={active} setActive={setActive} />
+          {active === 0 && (
+            <UserEdit
+              user={user}
+              setUser={setUser}
+              errorMsg={errorMsg}
+              userHandler={userHandler}
+              countriesList={countriesList}
+              setErrorMsg={setErrorMsg}
+              setError={setError}
+            />
+          )}
+          {active === 1 && ''}
+          {active === 2 && ''}
+        </>
       )}
       {loading && <Loading />}
     </>

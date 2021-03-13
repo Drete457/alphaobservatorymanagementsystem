@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CCard, CCardBody, CCardHeader } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';

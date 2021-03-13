@@ -1,4 +1,4 @@
-import React, { lazy, useState, useEffect } from 'react';
+import { lazy, useState, useEffect, Suspense } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { CFade } from '@coreui/react';
 import Loading from './components/loading';
@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <HashRouter>
-      <React.Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
         <Switch>
           <Route exact path="/login" name="Login" component={Login} />
           <Route
@@ -44,7 +44,7 @@ const App = () => {
             }}
           />
         </Switch>
-      </React.Suspense>
+      </Suspense>
     </HashRouter>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { CLabel } from '@coreui/react';
 import Select from 'react-select';
 

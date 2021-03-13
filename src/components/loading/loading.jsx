@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import { memo, useState } from 'react';
 import { CRow, CModal, CSpinner } from '@coreui/react';
 
 const Loading = () => {

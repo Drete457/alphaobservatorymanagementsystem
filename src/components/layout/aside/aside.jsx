@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { CSidebar, CSidebarClose } from '@coreui/react';
 import { useRecoilState } from 'recoil';
 import { asideShow } from '../../../state/atoms';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { CCol, CFormGroup, CInput, CLabel } from '@coreui/react';
 
 const InputDetailView = ({ title1, value1, title2, value2, md }) => {

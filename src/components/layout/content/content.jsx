@@ -1,4 +1,4 @@
-import React, { Suspense, memo } from 'react';
+import { Suspense, memo } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { CFade } from '@coreui/react';
 import Loading from '../../loading';

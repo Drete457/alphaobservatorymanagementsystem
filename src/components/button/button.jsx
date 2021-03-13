@@ -1,4 +1,3 @@
-import React from 'react';
 import { CButton } from '@coreui/react';
 
 const Button = ({ name, isDanger, onClick, className }) => {

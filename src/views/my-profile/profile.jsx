@@ -1,4 +1,3 @@
-import React from 'react';
 import { CCol, CRow } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';

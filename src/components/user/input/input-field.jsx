@@ -1,4 +1,3 @@
-import React from 'react';
 import { CLabel, CInput } from '@coreui/react';
 
 const InputField = ({

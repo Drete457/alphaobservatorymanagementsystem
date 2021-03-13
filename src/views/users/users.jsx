@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';

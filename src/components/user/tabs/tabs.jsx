@@ -1,4 +1,3 @@
-import React from 'react';
 import { CTabs, CNav, CNavItem, CNavLink } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import CIcon from '@coreui/icons-react';

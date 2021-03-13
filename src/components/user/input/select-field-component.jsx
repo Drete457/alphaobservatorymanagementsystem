@@ -4,14 +4,15 @@ import Select from 'react-select';
 
 const createList = (options) => {
   const optionsList = Array.from(options)?.map((value) => {
-    return { label: value, value: value };
+    return { label: value.name, value: value.id };
   });
 
   return optionsList;
 };
 
-const createValue = (value) => {
-  return { label: value, value: value };
+const createValue = (value, options) => {
+  const userOptions = options.find((options) => options.id === value);
+  return { label: userOptions.name, value: userOptions.id };
 };
 
 const SelectFieldComponent = ({
@@ -51,15 +52,15 @@ const SelectFieldComponent = ({
 
   useLayoutEffect(() => {
     if (value && !isMulti) {
-      const valueFormat = createValue(value);
+      const valueFormat = createValue(value, options);
       setCurrent(valueFormat);
     }
 
     if (value && isMulti) {
-      const valueList = value.map((social) => createValue(social));
+      const valueList = value.map((social) => createValue(social, options));
       setCurrent(valueList);
     }
-  }, [value, isMulti]);
+  }, [value, isMulti, options]);
 
   return (
     <div className={className}>

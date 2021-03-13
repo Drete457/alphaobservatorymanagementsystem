@@ -6,8 +6,8 @@ import { countries as ref } from '../../components/user';
 export const postCountries = async (communication, countries, setData) => {
   await communication
     .database()
-    .ref('/countries')
-    .update(ref)
+    .ref(ref)
+    .update(countries)
     .then(() => setData(true));
 };
 

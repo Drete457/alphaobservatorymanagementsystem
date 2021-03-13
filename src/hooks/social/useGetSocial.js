@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
-import { social } from '../../components/user';
+import { social as ref } from '../../components/user';
 
 export const getSocial = async (communication, set) => {
-  const response = await communication.database().ref(social).get('value');
+  const response = await communication.database().ref(ref).get('value');
 
   set(response.val());
 };

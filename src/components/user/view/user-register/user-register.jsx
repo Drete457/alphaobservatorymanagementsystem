@@ -44,10 +44,11 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
               title={t('user.fields.country.title')}
               name="country"
               placeholder={t('user.fields.country.placeholder')}
+              value={user?.country}
               errorMsg={errorMsg?.country}
-              onChange={(value) =>
-                userHandler.userSelectHandler('country', value, setUser, user)
-              }
+              onChange={(value) => {
+                userHandler.userSelectHandler('country', value, setUser, user);
+              }}
               options={countriesList}
               className="user-input-format"
             />
@@ -68,6 +69,7 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
               title={t('user.fields.gender.title')}
               name="gender"
               placeholder={t('user.fields.gender.placeholder')}
+              value={user?.gender}
               errorMsg={errorMsg?.gender}
               onChange={(value) =>
                 userHandler.userSelectHandler('gender', value, setUser, user)
@@ -80,6 +82,7 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
               title={t('user.fields.employment.title')}
               name="employment"
               placeholder={t('user.fields.employment.placeholder')}
+              value={user?.employment}
               errorMsg={errorMsg?.employment}
               onChange={(value) =>
                 userHandler.userSelectHandler(
@@ -99,6 +102,7 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
               title={t('user.fields.birthyear.title')}
               name="birthyear"
               placeholder={t('user.fields.birthyear.placeholder')}
+              value={user?.birthyear}
               errorMsg={errorMsg?.birthyear}
               onChange={(value) =>
                 userHandler.userSelectHandler('birthyear', value, setUser, user)
@@ -154,6 +158,7 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
               title={t('user.fields.introduction.option.title')}
               name="introductionOption"
               placeholder={t('user.fields.introduction.option.placeholder')}
+              value={user?.introductionOption}
               errorMsg={errorMsg?.introductionOption}
               onChange={(value) =>
                 userHandler.userSelectHandler(

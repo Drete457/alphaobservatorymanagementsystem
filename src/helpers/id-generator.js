@@ -5,17 +5,22 @@ const uniqueId = () => {
       .substring(1);
   };
 
-  //return id of format 'xxxxxxxx'-'xxxx'-'xxxx'-'xxxx'-'xxxxxxxxxxxx'
+  //return id of format 'xxxxxxxxxxxx'-'xxxxxxxx'-'xxxxxxxx'-'xxxxxxxx'-'xxxxxxxxxxxxxxxx'
   return (
     s4() +
     s4() +
-    '-' +
     s4() +
     '-' +
     s4() +
-    '-' +
     s4() +
     '-' +
+    s4() +
+    s4() +
+    '-' +
+    s4() +
+    s4() +
+    '-' +
+    s4() +
     s4() +
     s4() +
     s4()

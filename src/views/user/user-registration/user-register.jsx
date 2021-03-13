@@ -17,7 +17,7 @@ import Submit from '../../../components/user/buttons/submit';
 const UserRegistration = () => {
   const [user, setUser] = useState({ ...userHandler.userFormat });
   const [countriesList, setCountriesList] = useState([]);
-  const [social, setSocial] = useState([]);
+  const [socialList, setSocialList] = useState([]);
   const [active, setActive] = useState(0);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
@@ -32,7 +32,7 @@ const UserRegistration = () => {
   const {
     isLoading: isLoadingSocial,
     error: errorSocial,
-    data: socialList,
+    data: social,
     execute: executeSocial,
   } = useGetSocial();
 
@@ -50,17 +50,18 @@ const UserRegistration = () => {
 
   useLayoutEffect(() => {
     if (countries) {
-      const filterCountriesList = Array.from(countries).map(
-        (value) => value.country,
-      );
-      setCountriesList(filterCountriesList);
+      const newCountriesList = countries.map((country) => {
+        return { name: country.country, id: country.id };
+      });
+      setCountriesList(newCountriesList);
     }
 
-    if (socialList) {
-      const filterSocialList = Object.values(socialList);
-      setSocial(filterSocialList);
+    if (social) {
+      const filterSocialList = Object.values(social);
+
+      setSocialList(filterSocialList);
     }
-  }, [countries, socialList]);
+  }, [countries, social]);
 
   useLayoutEffect(() => {
     const errorInfo = errorCountries || errorSocial;
@@ -95,7 +96,7 @@ const UserRegistration = () => {
           )}
           {active === 1 && (
             <UserSocial
-              social={social}
+              socialList={socialList}
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}

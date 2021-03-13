@@ -14,6 +14,7 @@ const UserCards = () => {
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
   const [cardArray, setCardsArray] = useState([]);
+  const [edit, setEdit] = useState(false);
 
   return (
     <>
@@ -22,7 +23,12 @@ const UserCards = () => {
       </header>
 
       <main className="main-body">
-        <ButtonCards setCardsArray={setCardsArray} cardArray={cardArray} />
+        <ButtonCards
+          setCardsArray={setCardsArray}
+          cardArray={cardArray}
+          setEdit={setEdit}
+          edit={edit}
+        />
         <CForm>
           <ResponsiveGridLayout
             className="layout"
@@ -30,7 +36,7 @@ const UserCards = () => {
             breakpoints={breakPoints}
             cols={{ xl: 3 }}
             isResizable={false}
-            measureBeforeMount={true}
+            measureBeforeMount={false}
           >
             {Array.from(cardArray).map((card, index) => (
               <CCard key={index + ''} accentColor="primary">

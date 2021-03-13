@@ -285,6 +285,34 @@
         {
             "title": "SECOND SURVEY",
             "body": " • Agrees with the general framings: (yes or no)\n • Personal change: (yes or no)\n • Interested in Introductive meeting: (yes or no)\n • Introductive meeting date: (also put the date using the Trello tool)"
+        },
+        {
+            "title": "INTRODUCTORY MEETING",
+            "body": " • Attitude (Followed with attention and interest):\n • Understanding of the themes:\n • Practice execution:\n • Participation in interchanges:\n • Notes:"
+        },
+        {
+            "title": "APPRENTICE TRAINER",
+            "body": "- explanation thematic part: (yes or no)\n - explanation how to do the survey and link creation: (yes or no)\n - Invitation session and Alpha Café and doodle calendar: (yes or no)"
+        },
+        {
+            "title": "APPRENTICE ORGANIZER OF SURVEY SESSIONS",
+            "body": "- Mark the people in red or orange in the Google calendar: (yes or no)\n - Send the remainder the day before for the training and second survey: (yes or no)\n - Mark in the Google calendar the trainers and second survey conductors: (yes or no)\n - Mark in the Doodle calendar the interviewers and move them in the Google calendar (and delete them from the Doodle): (yes or no)\n - Fill in the Trello and registers for the training and monitor that the Technical-trainers and second survey conductors compile Trello and registers: (yes or no)\n - Send the Doodle for the training and second surveys to all those who did not participate: (yes or no)"
+        },
+        {
+            "title": "APPRENTICE COORDINATOR OF SURVEY SESSIONS",
+            "body": "- Check if there are enough trainers and conductors for the second surveys: (yes or no)\n - Create the group chat with the interviewers: (yes or no)\n - Organize training and second surveys at the beginning of the survey session: (yes or no)\n - Introduce the survey session, the initial explanations and the targets: (yes or no)\n - Send the most expert interviewers with the new ones: (yes or no)\n - Stimulates the interviewers and check the Admin: (yes or no)\n - Closing message in the chat and fill in Trello and registers: (yes or no)"
+        },
+        {
+            "title": "CONDUCTING THE SECOND SURVEY",
+            "body": " • Ability to explain the topics of the introduction: (yes or no)\n • Ability to deepen the second question: (yes or no)\n • Clarity about the invitation to the introductory meeting: (yes or no)\n • Clarity in inviting to participate in our activities: (yes or no)"
+        },
+        {
+            "title": "EXPLANATION ALPHA CAFE",
+            "body": "-Interested in participating in Alpha Café: (yes or no)\n -Interested in participating in Survey sessions: (yes or no)\n -Comments: (quality of the connection, language skill, etc.)"
+        },
+        {
+            "title": "SPECIFIC AMBITS",
+            "body": "-University: (Yes or no) \n -Groups/associations: (Yes or no)\n -Other comments: (number of members/ frequency of meetings or communications/ presential or virtual meetings/ communication channel)"
         }
     ]
 }

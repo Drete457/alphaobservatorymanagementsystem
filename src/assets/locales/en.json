@@ -35,7 +35,11 @@
             "submit": "Submit",
             "edit": "Edit",
             "cancel": "Cancel",
-            "cards": "Add A New Card"
+            "cards": {
+                "add": "Add A New Card",
+                "edit": "Edit The Cards",
+                "save": "Save The Cards"
+            }
         }
     },
     "user": {

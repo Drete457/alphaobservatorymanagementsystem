@@ -23,6 +23,7 @@
         }
     },
     "btn": {
+        "maintenance": "Refresh Page",
         "login": {
             "google_button": "Google Account"
         },
@@ -137,6 +138,9 @@
     },
     "pages": {
         "constrution": "Still under construction",
+        "maintenance": {
+            "title": "The Site Is Undergoing Maintenance"
+        },
         "users": {
             "title": "All Users"
         },

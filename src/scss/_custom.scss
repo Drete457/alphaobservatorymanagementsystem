@@ -1,5 +1,9 @@
 // Here you can add other styles
 
+.maintenance-title {
+   text-align: center;
+}
+
 //center the image in the build page
 .center {
   display: block;
@@ -83,9 +87,5 @@ select-style {
     justify-content: flex-end;
     margin: 1rem;
     font-size: 1rem;
-}
-
-.icon-style {
-    margin-left: 100px;
 }
 

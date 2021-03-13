@@ -1,7 +1,8 @@
 {
     "gender": [
         "Male",
-        "Female"
+        "Female",
+        "Non-binary"
     ],
     "ocupation": [
         "Artisan",
@@ -21,7 +22,16 @@
         "Yes",
         "No"
     ],
-    "groupAge": ["16-24", "25-30", "31-36", "37-42", "43-48", "49-54", "55-60", "60+"],
+    "groupAge": [
+        "16-24",
+        "25-30",
+        "31-36",
+        "37-42",
+        "43-48",
+        "49-54",
+        "55-60",
+        "60+"
+    ],
     "years": [
         {
             "year": "1940"
@@ -265,6 +275,16 @@
         },
         {
             "year": "2020"
+        }
+    ],
+    "cardstypes": [
+        {
+            "title": "TRAINING",
+            "body": "- Smartphone or computer:\n - Personal Link: (paste personal link)\n - Comments: (quality of the connection, language skill, member of groups or associations,...)"
+        },
+        {
+            "title": "SECOND SURVEY",
+            "body": " • Agrees with the general framings: (yes or no)\n • Personal change: (yes or no)\n • Interested in Introductive meeting: (yes or no)\n • Introductive meeting date: (also put the date using the Trello tool)"
         }
     ]
 }

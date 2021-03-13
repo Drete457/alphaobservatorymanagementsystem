@@ -14,7 +14,7 @@ const ButtonCards = ({ setCardsArray, cardArray }) => {
         color="primary"
         onClick={() => setCardsArray([{ title: '', body: '' }, ...cardArray])}
       >
-        <CIcon name="cil-note-add" className="icon-style" />
+        <CIcon name="cil-note-add" />
         {' ' + t('btn.create-edit.cards')}
       </CButton>
     </div>

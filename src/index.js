@@ -4,6 +4,7 @@ import './polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Maintenance from './views/maintenence';
 import * as serviceWorker from './serviceWorker';
 
 import { icons } from './assets/icons';
@@ -11,10 +12,11 @@ import { RecoilRoot } from 'recoil';
 
 React.icons = icons;
 
+//use this if you need to have big fix and the site has to be offline
+const isUpdating = false;
+
 ReactDOM.render(
-  <RecoilRoot>
-    <App />
-  </RecoilRoot>,
+  <RecoilRoot>{isUpdating ? <Maintenance /> : <App />}</RecoilRoot>,
   document.getElementById('root'),
 );
 

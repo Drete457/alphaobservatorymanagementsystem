@@ -4,7 +4,7 @@ import { CForm, CCard, CCardBody, CCardHeader } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import { getStyle } from '@coreui/utils';
 import 'react-grid-layout/css/styles.css';
-import CIcon from '@coreui/icons-react';
+import ButtonCards from '../../buttons/cards';
 import userHandler from '../../../../helpers/user';
 
 const UserCards = () => {
@@ -22,14 +22,7 @@ const UserCards = () => {
       </header>
 
       <main className="main-body">
-        <div className="cards-button">
-          <CIcon
-            name="cil-note-add"
-            onClick={() =>
-              setCardsArray([{ title: '', body: '' }, ...cardArray])
-            }
-          ></CIcon>
-        </div>
+        <ButtonCards setCardsArray={setCardsArray} cardArray={cardArray} />
         <CForm>
           <ResponsiveGridLayout
             className="layout"

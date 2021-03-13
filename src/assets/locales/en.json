@@ -33,7 +33,8 @@
         "create-edit":{
             "submit": "Submit",
             "edit": "Edit",
-            "cancel": "Cancel"
+            "cancel": "Cancel",
+            "cards": "Add A New Card"
         }
     },
     "user": {

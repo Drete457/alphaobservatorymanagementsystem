@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
-import ref from '../../components/user';
+import { ref } from '../../components/user';
 
 export const getUsers = async (communication, set) => {
   const response = await communication.database().ref(ref).get('value');

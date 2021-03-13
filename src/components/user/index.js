@@ -1,1 +1,1 @@
-export { default } from './comunication-info';
+export { ref, countries, social, error } from './comunication-info';

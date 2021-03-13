@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
 import id from '../../helpers/id-generator';
+import { error as ref } from '../../components/user';
 
 export const postSocial = async (communication, error) => {
   const errorId = id();
@@ -15,7 +16,7 @@ export const postSocial = async (communication, error) => {
 
   await communication
     .database()
-    .ref('/error/' + errorId)
+    .ref(ref + errorId)
     .update(errorBody);
 };
 

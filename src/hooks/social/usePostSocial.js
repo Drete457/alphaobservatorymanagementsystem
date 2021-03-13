@@ -1,11 +1,12 @@
 import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
+import { social } from '../../components/user';
 
 export const postSocial = async (communication, countries, setData) => {
   await communication
     .database()
-    .ref('/social')
+    .ref(social)
     .update(countries)
     .then(() => setData(true));
 };

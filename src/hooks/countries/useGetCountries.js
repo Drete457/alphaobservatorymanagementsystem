@@ -1,12 +1,10 @@
 import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
+import { countries as ref } from '../../components/user';
 
 export const getCountries = async (communication, set) => {
-  const response = await communication
-    .database()
-    .ref('/countries')
-    .get('value');
+  const response = await communication.database().ref(ref).get('value');
 
   set(response.val());
 };

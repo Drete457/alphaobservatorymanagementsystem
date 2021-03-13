@@ -22,10 +22,14 @@ const UserCards = () => {
       </header>
 
       <main className="main-body">
-        <CIcon
-          name="cil-note-add"
-          onClick={() => setCardsArray([{ title: '', body: '' }, ...cardArray])}
-        ></CIcon>
+        <div className="cards-button">
+          <CIcon
+            name="cil-note-add"
+            onClick={() =>
+              setCardsArray([{ title: '', body: '' }, ...cardArray])
+            }
+          ></CIcon>
+        </div>
         <CForm>
           <ResponsiveGridLayout
             className="layout"

@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
 import { InputField } from '../../input';
-import View from '../../buttons/view';
 
 const UserViewer = ({ user }) => {
   const [t] = useTranslation();
@@ -155,8 +154,6 @@ const UserViewer = ({ user }) => {
               disabled={isDisabled}
             />
           </div>
-
-          <View user={user} />
         </CForm>
       </main>
     </>

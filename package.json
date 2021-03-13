@@ -24,6 +24,7 @@
     "react-big-calendar": "^0.28.1",
     "react-dates": "^21.8.0",
     "react-dom": "^16.13.1",
+    "react-grid-layout": "^1.2.2",
     "react-i18next": "^11.7.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",

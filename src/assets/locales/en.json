@@ -153,18 +153,27 @@
                 "title": "User Registration",
                 "social": {
                     "title": "User Registration Social Media"
+                },
+                "cards": {
+                    "title": "User Registration Cards"
                 }
             },
             "view": {
                 "title": "User View",
                 "social": {
                     "title": "User View Social Media"
+                },
+                "cards": {
+                    "title": "User View Cards"
                 }
             },
             "edit":{
                 "title": "User Edit",
                 "social": {
                     "title": "User Edit Social Media"
+                },
+                "cards": {
+                    "title": "User Edit Cards"
                 }
             },
             "tabs": {

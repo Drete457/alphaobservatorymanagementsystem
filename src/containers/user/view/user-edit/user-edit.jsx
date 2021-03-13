@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from '../../input';
 import userHandler from '../../../../helpers/user';
-import Submit from '../../buttons/submit';
 
 const UserEdit = ({
   user,
@@ -224,8 +223,6 @@ const UserEdit = ({
               className="user-input-format"
             />
           </div>
-
-          <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />
         </CForm>
       </main>
     </>

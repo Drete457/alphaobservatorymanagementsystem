@@ -3,10 +3,12 @@ import { useGetUser } from '../../../hooks/users';
 import {
   UserViewer,
   UserSocial,
+  UserCards,
 } from '../../../containers/user/view/user-view';
 import ErrorInfo from '../../../containers/error';
 import Loading from '../../../containers/loading';
 import Tabs from '../../../containers/user/tabs';
+import View from '../../../containers/user/buttons/view';
 
 const UserView = ({ match }) => {
   const [user, setUser] = useState({});
@@ -42,7 +44,8 @@ const UserView = ({ match }) => {
           <Tabs active={active} setActive={setActive} />
           {active === 0 && <UserViewer user={user} />}
           {active === 1 && <UserSocial user={user} />}
-          {active === 2 && ''}
+          {active === 2 && <UserCards />}
+          <View user={user} />
         </>
       )}
       {loading && <Loading />}

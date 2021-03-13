@@ -4,12 +4,14 @@ import { useGetSocial } from '../../../hooks/social';
 import {
   UserRegister,
   UserSocial,
+  UserCards,
 } from '../../../containers/user/view/user-register';
 import userHandler from '../../../helpers/user';
 import uniqueId from '../../../helpers/id-generator';
 import ErrorInfo from '../../../containers/error';
 import Loading from '../../../containers/loading';
 import Tabs from '../../../containers/user/tabs';
+import Submit from '../../../containers/user/buttons/submit';
 
 const UserRegistration = () => {
   const [user, setUser] = useState({ ...userHandler.userFormat });
@@ -102,7 +104,8 @@ const UserRegistration = () => {
               setError={setError}
             />
           )}
-          {active === 2 && ''}
+          {active === 2 && <UserCards />}
+          <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />
         </>
       )}
       {loading && <Loading />}

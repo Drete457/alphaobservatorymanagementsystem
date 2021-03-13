@@ -10,6 +10,7 @@ import ocupation from './ocupation';
 import option from './option';
 import years from './years';
 import validation from './validation';
+import layouts from './layouts';
 
 const userHandler = {
   userFormat,
@@ -22,6 +23,7 @@ const userHandler = {
   option,
   years,
   validation,
+  layouts,
 };
 
 export default userHandler;

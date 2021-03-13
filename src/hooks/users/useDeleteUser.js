@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
-import ref from '../../containers/user';
+import ref from '../../components/user';
 
 export const deleteUsers = async (communication, user, setData) => {
   await communication

@@ -5,7 +5,7 @@ import { useRecoilValue } from 'recoil';
 import { user } from '../../state/atoms';
 import { Avatar } from '@agney/react-avatar';
 
-import InputDetailView from '../../containers/my-profile';
+import InputDetailView from '../../components/my-profile';
 
 const MyProfile = () => {
   const [t] = useTranslation();

@@ -4,11 +4,11 @@ import {
   UserViewer,
   UserSocial,
   UserCards,
-} from '../../../containers/user/view/user-view';
-import ErrorInfo from '../../../containers/error';
-import Loading from '../../../containers/loading';
-import Tabs from '../../../containers/user/tabs';
-import View from '../../../containers/user/buttons/view';
+} from '../../../components/user/view/user-view';
+import ErrorInfo from '../../../components/error';
+import Loading from '../../../components/loading';
+import Tabs from '../../../components/user/tabs';
+import View from '../../../components/user/buttons/view';
 
 const UserView = ({ match }) => {
   const [user, setUser] = useState({});

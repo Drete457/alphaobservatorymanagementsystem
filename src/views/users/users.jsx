@@ -3,9 +3,9 @@ import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useGetUsers } from '../../hooks/users';
-import homeHandler from '../../containers/home';
-import ErrorInfo from '../../containers/error';
-import Button from '../../containers/button';
+import homeHandler from '../../components/home';
+import ErrorInfo from '../../components/error';
+import Button from '../../components/button';
 
 const Home = () => {
   const [t] = useTranslation();

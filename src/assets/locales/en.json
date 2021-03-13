@@ -11,15 +11,13 @@
             "countries": {
                 "title": "Countries",
                 "children": {
-                    "add": "Add Countries",
-                    "remove": "Remove Countries"
+                    "manage": "Manage Countries"
                 }
             },
             "social": {
                 "title": "Social Media",
                 "children":{
-                    "add": "Add Social Media",
-                    "remove": "Remove Social Media"
+                    "manage": "Manage Social Media"
                 }
             }
         }

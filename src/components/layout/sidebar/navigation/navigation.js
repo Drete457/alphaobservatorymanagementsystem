@@ -26,15 +26,9 @@ const useNavigation = (t) => {
           _children: [
             {
               _tag: 'CSidebarNavItem',
-              name: t('sidebar.administration.countries.children.add'),
-              to: '/administration/countries/add',
-              icon: 'cil-plus',
-            },
-            {
-              _tag: 'CSidebarNavItem',
-              name: t('sidebar.administration.countries.children.remove'),
-              to: '/administration/countries/remove',
-              icon: 'cil-minus',
+              name: t('sidebar.administration.countries.children.manage'),
+              to: '/administration/countries/manage',
+              icon: 'cil-sitemap',
             },
           ],
         },
@@ -46,15 +40,9 @@ const useNavigation = (t) => {
           _children: [
             {
               _tag: 'CSidebarNavItem',
-              name: t('sidebar.administration.social.children.add'),
-              to: '/administration/social/add',
-              icon: 'cil-plus',
-            },
-            {
-              _tag: 'CSidebarNavItem',
-              name: t('sidebar.administration.social.children.remove'),
-              to: '/administration/social/remove',
-              icon: 'cil-minus',
+              name: t('sidebar.administration.social.children.manage'),
+              to: '/administration/social/manage',
+              icon: 'cil-sitemap',
             },
           ],
         },

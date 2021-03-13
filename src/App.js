@@ -1,14 +1,14 @@
 import React, { lazy, useState, useEffect } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { CFade } from '@coreui/react';
-import Loading from './containers/loading';
+import Loading from './components/loading';
 import { useRecoilValue } from 'recoil';
 import { user } from './state/atoms';
 import './i18n';
 import './scss/style.scss';
 
-// Containers
-const Layout = lazy(() => import('./containers/layout'));
+// components
+const Layout = lazy(() => import('./components/layout'));
 const Login = lazy(() => import('./views/login'));
 
 const App = () => {

@@ -5,13 +5,13 @@ import {
   UserRegister,
   UserSocial,
   UserCards,
-} from '../../../containers/user/view/user-register';
+} from '../../../components/user/view/user-register';
 import userHandler from '../../../helpers/user';
 import uniqueId from '../../../helpers/id-generator';
-import ErrorInfo from '../../../containers/error';
-import Loading from '../../../containers/loading';
-import Tabs from '../../../containers/user/tabs';
-import Submit from '../../../containers/user/buttons/submit';
+import ErrorInfo from '../../../components/error';
+import Loading from '../../../components/loading';
+import Tabs from '../../../components/user/tabs';
+import Submit from '../../../components/user/buttons/submit';
 
 const UserRegistration = () => {
   const [user, setUser] = useState({ ...userHandler.userFormat });

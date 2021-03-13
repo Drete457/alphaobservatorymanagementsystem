@@ -5,11 +5,10 @@ import {
   cilCommentSquare,
   cilContact,
   cilGroup,
-  cilMinus,
   cilNoteAdd,
-  cilPlus,
-  cilUser,
   cilSatelite,
+  cilSitemap,
+  cilUser,
 } from '@coreui/icons';
 
 export const icons = Object.assign(
@@ -21,10 +20,9 @@ export const icons = Object.assign(
     cilCommentSquare,
     cilContact,
     cilGroup,
-    cilMinus,
     cilNoteAdd,
-    cilPlus,
-    cilUser,
     cilSatelite,
+    cilSitemap,
+    cilUser,
   },
 );

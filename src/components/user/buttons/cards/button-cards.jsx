@@ -27,6 +27,7 @@ const ButtonCards = ({ setCardsArray, cardArray, setEdit, edit }) => {
         size="md"
         color="primary"
         onClick={() => setCardsArray([{ title: '', body: '' }, ...cardArray])}
+        disabled={!!edit}
       >
         <CIcon name="cil-note-add" />
         {' ' + t('btn.create-edit.cards.add')}

@@ -6,6 +6,7 @@ import {
   UserSocial,
   UserCards,
 } from '../../../components/user/view/user-register';
+import { cardstypes } from '../../../assets/generic/generic-information.json';
 import userHandler from '../../../helpers/user';
 import uniqueId from '../../../helpers/id-generator';
 import ErrorInfo from '../../../components/error';
@@ -90,8 +91,6 @@ const UserRegistration = () => {
               setUser={setUser}
               errorMsg={errorMsg}
               countriesList={countriesList}
-              setErrorMsg={setErrorMsg}
-              setError={setError}
             />
           )}
           {active === 1 && (
@@ -100,11 +99,16 @@ const UserRegistration = () => {
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}
-              setErrorMsg={setErrorMsg}
-              setError={setError}
             />
           )}
-          {active === 2 && <UserCards />}
+          {active === 2 && (
+            <UserCards
+              user={user}
+              setUser={setUser}
+              errorMsg={errorMsg}
+              cardsTypes={cardstypes}
+            />
+          )}
           <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />
         </>
       )}

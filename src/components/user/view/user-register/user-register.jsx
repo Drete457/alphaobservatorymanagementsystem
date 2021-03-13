@@ -3,14 +3,7 @@ import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from '../../input';
 import userHandler from '../../../../helpers/user';
 
-const UserRegister = ({
-  user,
-  setUser,
-  errorMsg,
-  countriesList,
-  setErrorMsg,
-  setError,
-}) => {
+const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
   const [t] = useTranslation();
 
   return (

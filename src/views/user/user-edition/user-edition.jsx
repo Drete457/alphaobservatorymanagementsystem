@@ -90,8 +90,6 @@ const UserEdition = ({ match }) => {
               setUser={setUser}
               errorMsg={errorMsg}
               countriesList={countriesList}
-              setErrorMsg={setErrorMsg}
-              setError={setError}
             />
           )}
           {active === 1 && (
@@ -100,8 +98,6 @@ const UserEdition = ({ match }) => {
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}
-              setErrorMsg={setErrorMsg}
-              setError={setError}
             />
           )}
           {active === 2 && <UserCards />}

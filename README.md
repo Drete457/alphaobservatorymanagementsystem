@@ -33,6 +33,7 @@ yarn start
 - React-Avatar
 - FireBase SDK
 - React-Grid-Layout
+- FireBase Tools
 
 ## License
 MIT License

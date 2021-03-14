@@ -1,11 +1,12 @@
 import { useState, useLayoutEffect } from 'react';
 import { useGetUser } from '../../../hooks/users';
-import { useGetCountries } from '../../../hooks/countries';
 import {
   UserViewer,
   UserSocial,
   UserCards,
 } from '../../../components/user/view/user-view';
+import { useRecoilValue } from 'recoil';
+import { countries, generic } from '../../../state/atoms';
 import ErrorInfo from '../../../components/error';
 import Loading from '../../../components/loading';
 import Tabs from '../../../components/user/tabs';
@@ -14,48 +15,29 @@ import View from '../../../components/user/buttons/view';
 const UserView = ({ match }) => {
   const [user, setUser] = useState({});
   const [active, setActive] = useState(0);
-  const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
-  const [countriesList, setCountriesList] = useState([]);
-  const { isLoading, error: userError, data, execute } = useGetUser();
-  const {
-    isLoading: isLoadingCountries,
-    error: errorCountries,
-    data: countries,
-    execute: executeCountries,
-  } = useGetCountries();
+
+  const countriesList = useRecoilValue(countries);
+  const genericList = useRecoilValue(generic);
+
+  const { isLoading, error: errorServer, data, execute } = useGetUser();
 
   useLayoutEffect(() => {
     const userID = match.params.id;
     execute(userID);
-    executeCountries();
-  }, [execute, executeCountries, match]);
+  }, [execute, match]);
 
   useLayoutEffect(() => {
     if (data) {
       setUser(data);
     }
-
-    if (countries) {
-      setCountriesList(countries);
-    }
-  }, [data, countries]);
+  }, [data]);
 
   useLayoutEffect(() => {
-    const loadingInfo = isLoading || isLoadingCountries;
-
-    if (loadingInfo) {
-      setLoading(loadingInfo);
+    if (errorServer) {
+      setError(errorServer);
     }
-  }, [isLoading, isLoadingCountries]);
-
-  useLayoutEffect(() => {
-    const errorInfo = userError || errorCountries;
-
-    if (errorInfo) {
-      setError(errorInfo);
-    }
-  }, [userError, errorCountries]);
+  }, [errorServer]);
 
   return (
     <>
@@ -65,14 +47,20 @@ const UserView = ({ match }) => {
         <>
           <Tabs active={active} setActive={setActive} />
           {active === 0 && (
-            <UserViewer user={user} countriesList={countriesList} />
+            <UserViewer
+              user={user}
+              countriesList={countriesList}
+              genericList={genericList}
+            />
           )}
-          {active === 1 && <UserSocial user={user} />}
+          {active === 1 && (
+            <UserSocial user={user} socialList={genericList?.socialmedia} />
+          )}
           {active === 2 && <UserCards />}
           <View user={user} />
         </>
       )}
-      {loading && <Loading />}
+      {isLoading && <Loading />}
     </>
   );
 };

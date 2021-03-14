@@ -3,22 +3,22 @@ import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
 import { InputField } from '../../input';
 
-const UserSocial = ({ user }) => {
+const UserSocial = ({ user, socialList }) => {
   const [t] = useTranslation();
   const [social, setSocial] = useState('');
-  const [socialInfo, setSocialInfo] = useState([]);
   const isDisabled = true;
 
   useLayoutEffect(() => {
     if (user.social) {
-      const socialNames = Array.from(user.social).toString();
+      const userSocialList = user.social.map(
+        (social) => socialList.find((value) => value.id === social).name,
+      );
+
+      const socialNames = userSocialList.toString();
       const socialNamesWithSpace = socialNames.replaceAll(',', ', ');
       setSocial(socialNamesWithSpace);
     }
-    if (user.socialInfo) {
-      setSocialInfo(Array.from(user.socialInfo));
-    }
-  }, [user]);
+  }, [user, socialList]);
 
   return (
     <>
@@ -39,12 +39,17 @@ const UserSocial = ({ user }) => {
             />
           </div>
 
-          {Array.from(socialInfo).map((social) => {
+          {Array.from(user.socialInfo).map((social) => {
+            const socialMedia = socialList.find(
+              (socialMedia) => socialMedia.id === social.id,
+            );
+
             return (
-              <div className="user-input" key={social.title}>
+              <div className="user-input" key={socialMedia.id}>
                 <InputField
-                  title={social.title}
-                  name={social.title}
+                  title={socialMedia.name}
+                  name={socialMedia.id}
+                  placeholder={t('user.fields.social.placeholdersocialnetwork')}
                   type="text"
                   value={social.name}
                   className="user-input-format"

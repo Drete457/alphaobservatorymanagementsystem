@@ -3,7 +3,7 @@ import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from '../../input';
 import userHandler from '../../../../helpers/user';
 
-const UserSocial = ({ social, user, setUser, errorMsg }) => {
+const UserSocial = ({ socialList, user, setUser, errorMsg }) => {
   const [t] = useTranslation();
 
   if (!user.social) {
@@ -35,18 +35,22 @@ const UserSocial = ({ social, user, setUser, errorMsg }) => {
                   user,
                 )
               }
-              options={social}
+              options={socialList}
               className="user-input-format"
               isMulti={true}
             />
           </div>
 
           {Array.from(user.socialInfo).map((social, index) => {
+            const socialMedia = socialList.find(
+              (socialMedia) => socialMedia.id === social.id,
+            );
+
             return (
-              <div className="user-input" key={social.title}>
+              <div className="user-input" key={socialMedia.id}>
                 <InputField
-                  title={social.title}
-                  name={social.title}
+                  title={socialMedia.name}
+                  name={socialMedia.id}
                   placeholder={t('user.fields.social.placeholdersocialnetwork')}
                   type="text"
                   value={social.name}

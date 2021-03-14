@@ -17,9 +17,9 @@ const UserRegistration = () => {
     ...userHandler.userFormat,
     id: uniqueId(),
   });
-  const [error, setError] = useState(null);
   const [active, setActive] = useState(0);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
+  const [error, setError] = useState(null);
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);

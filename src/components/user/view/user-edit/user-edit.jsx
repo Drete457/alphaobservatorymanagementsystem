@@ -3,8 +3,11 @@ import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from '../../input';
 import userHandler from '../../../../helpers/user';
 
-const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
+const UserEdit = ({ user, setUser, errorMsg, countriesList, genericList }) => {
   const [t] = useTranslation();
+  const countriesNames = countriesList.map((country) => {
+    return { id: country.id, name: country.country };
+  });
 
   return (
     <>
@@ -32,7 +35,6 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
               title={t('user.fields.followed.title')}
               name="followed"
               placeholder={t('user.fields.followed.placeholder')}
-              value={user?.followed}
               errorMsg={errorMsg?.followed}
               onChange={() => {}}
               options=""
@@ -50,7 +52,7 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
               onChange={(value) =>
                 userHandler.userSelectHandler('country', value, setUser, user)
               }
-              options={countriesList}
+              options={countriesNames}
               className="user-input-format"
             />
 
@@ -58,7 +60,6 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
               title={t('user.fields.contacted.title')}
               name="contacted"
               placeholder={t('user.fields.contacted.placeholder')}
-              value={user?.contacted}
               errorMsg={errorMsg?.contacted}
               onChange={() => {}}
               options=""
@@ -67,7 +68,7 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
           </div>
 
           <div className="user-input">
-            {/*  <SelectFieldComponent
+            <SelectFieldComponent
               title={t('user.fields.gender.title')}
               name="gender"
               placeholder={t('user.fields.gender.placeholder')}
@@ -76,11 +77,11 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
               onChange={(value) =>
                 userHandler.userSelectHandler('gender', value, setUser, user)
               }
-              options={userHandler.gender()}
+              options={genericList?.gender}
               className="user-input-format"
-            /> */}
+            />
 
-            {/* <SelectFieldComponent
+            <SelectFieldComponent
               title={t('user.fields.employment.title')}
               name="employment"
               placeholder={t('user.fields.employment.placeholder')}
@@ -94,13 +95,13 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
                   user,
                 )
               }
-              options={userHandler.ocupation()}
+              options={genericList?.ocupation}
               className="user-input-format"
-            /> */}
+            />
           </div>
 
           <div className="user-input">
-            {/*      <SelectFieldComponent
+            <SelectFieldComponent
               title={t('user.fields.birthyear.title')}
               name="birthyear"
               placeholder={t('user.fields.birthyear.placeholder')}
@@ -109,9 +110,9 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
               onChange={(value) =>
                 userHandler.userSelectHandler('birthyear', value, setUser, user)
               }
-              options={userHandler.years()}
+              options={genericList?.years}
               className="user-input-format"
-            /> */}
+            />
 
             <InputField
               title={t('user.fields.community.title')}
@@ -156,7 +157,7 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
           </div>
 
           <div className="user-input">
-            {/* <SelectFieldComponent
+            <SelectFieldComponent
               title={t('user.fields.introduction.option.title')}
               name="introductionOption"
               placeholder={t('user.fields.introduction.option.placeholder')}
@@ -170,9 +171,9 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList }) => {
                   user,
                 )
               }
-              options={userHandler.option()}
+              options={genericList?.options}
               className="user-input-format"
-            /> */}
+            />
 
             <InputField
               title={t('user.fields.introduction.date.title')}

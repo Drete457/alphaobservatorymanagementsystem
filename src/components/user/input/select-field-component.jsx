@@ -12,7 +12,7 @@ const createList = (options) => {
 
 const createValue = (value, options) => {
   const userOptions = options.find((options) => options.id === value);
-  return { label: userOptions.name, value: userOptions.id };
+  return { label: userOptions?.name, value: userOptions?.id };
 };
 
 const SelectFieldComponent = ({

@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import { useGetUser } from '../../../hooks/users';
 import { useGetCountries } from '../../../hooks/countries';
-import { useGetSocial } from '../../../hooks/social';
+import { useGetGeneric } from '../../../hooks/generic';
 import {
   UserEdit,
   UserSocial,
@@ -16,7 +16,7 @@ import Submit from '../../../components/user/buttons/submit';
 const UserEdition = ({ match }) => {
   const [user, setUser] = useState({});
   const [countriesList, setCountriesList] = useState([]);
-  const [social, setSocial] = useState([]);
+  const [socialList, setSocialList] = useState([]);
   const [active, setActive] = useState(0);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
@@ -30,18 +30,18 @@ const UserEdition = ({ match }) => {
     execute: executeCountries,
   } = useGetCountries();
   const {
-    isLoading: isLoadingSocial,
-    error: errorSocial,
-    data: socialList,
-    execute: executeSocial,
-  } = useGetSocial();
+    isLoading: isLoadingGeneric,
+    error: errorGeneric,
+    data: generic,
+    execute: executeGeneric,
+  } = useGetGeneric();
 
   useLayoutEffect(() => {
     const userID = match.params.id;
     execute(userID);
     executeCountries();
-    executeSocial();
-  }, [execute, executeCountries, executeSocial, match]);
+    executeGeneric();
+  }, [execute, executeCountries, executeGeneric, match]);
 
   useLayoutEffect(() => {
     if (data) {
@@ -49,33 +49,33 @@ const UserEdition = ({ match }) => {
     }
 
     if (countries) {
-      const filterCountriesList = Array.from(countries).map(
-        (value) => value.country,
-      );
-      setCountriesList(filterCountriesList);
+      const newCountriesList = countries.map((country) => {
+        return { name: country.country, id: country.id };
+      });
+      setCountriesList(newCountriesList);
     }
 
-    if (socialList) {
-      const filterSocialList = Object.values(socialList);
-      setSocial(filterSocialList);
+    if (generic) {
+      const filterSocialList = Object.values(generic.social);
+      setSocialList(filterSocialList);
     }
-  }, [data, countries, socialList]);
+  }, [data, countries, generic]);
 
   useLayoutEffect(() => {
-    const errorInfo = errorServer || errorCountries || errorSocial;
+    const errorInfo = errorServer || errorCountries || errorGeneric;
 
     if (errorInfo) {
       setError(errorInfo);
     }
-  }, [errorServer, errorCountries, errorSocial]);
+  }, [errorServer, errorCountries, errorGeneric]);
 
   useLayoutEffect(() => {
-    const loadingInfo = isLoading || isLoadingCountries || isLoadingSocial;
+    const loadingInfo = isLoading || isLoadingCountries || isLoadingGeneric;
 
     if (loadingInfo) {
       setLoading(loadingInfo);
     }
-  }, [isLoading, isLoadingCountries, isLoadingSocial]);
+  }, [isLoading, isLoadingCountries, isLoadingGeneric]);
 
   return (
     <>
@@ -94,7 +94,7 @@ const UserEdition = ({ match }) => {
           )}
           {active === 1 && (
             <UserSocial
-              social={social}
+              social={socialList}
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}

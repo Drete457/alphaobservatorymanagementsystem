@@ -2,21 +2,44 @@ import { useState, useLayoutEffect } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import { useGetCountries } from '../../hooks/countries';
+import { useGetGeneric } from '../../hooks/generic';
+import { countries, generic } from '../../state/atoms';
+import { useSetRecoilState } from 'recoil';
 import { useGetUsers } from '../../hooks/users';
 import homeHandler from '../../components/home';
 import ErrorInfo from '../../components/error';
+import Loading from '../../components/loading';
 import Button from '../../components/button';
 
 const Home = () => {
   const [t] = useTranslation();
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const setCountries = useSetRecoilState(countries);
+  const setGeneric = useSetRecoilState(generic);
 
   const [users, setUsers] = useState([]);
-  const { isLoading, error, data, execute } = useGetUsers();
+  const { isLoading, error: errorUsers, data, execute } = useGetUsers();
+  const {
+    isLoading: isLoadingCountries,
+    error: errorCountries,
+    data: countriesList,
+    execute: executeCountries,
+  } = useGetCountries();
+  const {
+    isLoading: isLoadingGeneric,
+    error: errorGeneric,
+    data: genericList,
+    execute: executeGeneric,
+  } = useGetGeneric();
 
   useLayoutEffect(() => {
     execute();
-  }, [execute]);
+    executeCountries();
+    executeGeneric();
+  }, [execute, executeCountries, executeGeneric]);
 
   useLayoutEffect(() => {
     if (data) {
@@ -33,7 +56,31 @@ const Home = () => {
 
       setUsers(fillArrayData);
     }
-  }, [data]);
+
+    if (countriesList) {
+      setCountries(countriesList);
+    }
+
+    if (genericList) {
+      setGeneric(genericList);
+    }
+  }, [data, countriesList, genericList, setCountries, setGeneric]);
+
+  useLayoutEffect(() => {
+    const errorInfo = errorUsers || errorCountries || errorGeneric;
+
+    if (errorInfo) {
+      setError(errorInfo);
+    }
+  }, [errorUsers, errorCountries, errorGeneric]);
+
+  useLayoutEffect(() => {
+    const loadingInfo = isLoading || isLoadingCountries || isLoadingGeneric;
+
+    if (loadingInfo) {
+      setLoading(loadingInfo);
+    }
+  }, [isLoading, isLoadingCountries, isLoadingGeneric]);
 
   return (
     <>
@@ -82,6 +129,7 @@ const Home = () => {
           </main>
         </>
       )}
+      {loading && <Loading />}
     </>
   );
 };

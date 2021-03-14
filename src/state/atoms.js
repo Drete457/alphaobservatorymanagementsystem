@@ -19,3 +19,13 @@ export const api = atom({
   key: 'api',
   default: null,
 });
+
+export const countries = atom({
+  key: 'countries',
+  default: null,
+});
+
+export const generic = atom({
+  key: 'generic',
+  default: null,
+});

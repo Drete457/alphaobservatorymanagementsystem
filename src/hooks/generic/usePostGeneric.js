@@ -1,13 +1,13 @@
 import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { api } from '../../state/atoms';
-import { social as ref } from '../../components/user';
+import { generic as ref } from '../../components/user';
 
-export const postSocial = async (communication, social, setData) => {
+export const postSocial = async (communication, Generic, setData) => {
   await communication
     .database()
     .ref(ref)
-    .update(social)
+    .update(Generic)
     .then(() => setData(true));
 };
 
@@ -17,10 +17,10 @@ const usePostSocial = () => {
   const [data, setData] = useState(null);
   const communication = useRecoilValue(api);
 
-  const execute = async (social) => {
+  const execute = async (Generic) => {
     try {
       setIsLoading(true);
-      postSocial(communication, social, setData);
+      postSocial(communication, Generic, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);

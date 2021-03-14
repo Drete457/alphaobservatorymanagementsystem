@@ -5,7 +5,7 @@ import userHandler from '../../../../helpers/user';
 
 const UserSocial = ({ socialList, user, setUser, errorMsg }) => {
   const [t] = useTranslation();
-  console.log(socialList);
+
   return (
     <>
       <header>
@@ -34,11 +34,15 @@ const UserSocial = ({ socialList, user, setUser, errorMsg }) => {
           </div>
 
           {Array.from(user.socialInfo).map((social, index) => {
+            const socialMedia = socialList.find(
+              (socialMedia) => socialMedia.id === social.id,
+            );
+
             return (
-              <div className="user-input" key={social.title}>
+              <div className="user-input" key={socialMedia.id}>
                 <InputField
-                  title={social.title}
-                  name={social.title}
+                  title={socialMedia.name}
+                  name={socialMedia.id}
                   placeholder={t('user.fields.social.placeholdersocialnetwork')}
                   type="text"
                   value={social.name}

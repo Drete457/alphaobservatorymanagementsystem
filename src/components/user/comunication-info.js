@@ -1,6 +1,6 @@
 const ref = '/alpha/users/';
 const countries = '/countries/';
-const social = '/socialmedia/';
+const generic = '/generic/';
 const error = '/error/';
 
-export { ref, countries, social, error };
+export { ref, countries, generic, error };

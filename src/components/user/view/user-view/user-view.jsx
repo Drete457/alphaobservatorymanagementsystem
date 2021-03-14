@@ -2,8 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
 import { InputField } from '../../input';
 
-const UserViewer = ({ user }) => {
+const UserViewer = ({ user, countriesList }) => {
   const [t] = useTranslation();
+  const country = countriesList.find((country) => country.id === user.country);
+
   const isDisabled = true;
 
   return (
@@ -39,7 +41,7 @@ const UserViewer = ({ user }) => {
               title={t('user.fields.country.title')}
               name="country"
               type="text"
-              value={user?.country}
+              value={country?.country}
               className="user-input-format"
               disabled={isDisabled}
             />

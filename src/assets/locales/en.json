@@ -14,10 +14,10 @@
                     "manage": "Manage Countries"
                 }
             },
-            "social": {
-                "title": "Social Media",
+            "generic": {
+                "title": "Generic",
                 "children":{
-                    "manage": "Manage Social Media"
+                    "manage": "Manage Generic Information"
                 }
             }
         }

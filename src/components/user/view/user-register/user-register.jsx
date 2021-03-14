@@ -3,8 +3,17 @@ import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from '../../input';
 import userHandler from '../../../../helpers/user';
 
-const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
+const UserRegister = ({
+  user,
+  setUser,
+  errorMsg,
+  countriesList,
+  genericList,
+}) => {
   const [t] = useTranslation();
+  const countriesNames = countriesList.map((country) => {
+    return { id: country.id, name: country.country };
+  });
 
   return (
     <>
@@ -46,10 +55,10 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
               placeholder={t('user.fields.country.placeholder')}
               value={user?.country}
               errorMsg={errorMsg?.country}
-              onChange={(value) => {
-                userHandler.userSelectHandler('country', value, setUser, user);
-              }}
-              options={countriesList}
+              onChange={(value) =>
+                userHandler.userSelectHandler('country', value, setUser, user)
+              }
+              options={countriesNames}
               className="user-input-format"
             />
 
@@ -74,7 +83,7 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
               onChange={(value) =>
                 userHandler.userSelectHandler('gender', value, setUser, user)
               }
-              options={userHandler.gender()}
+              options={genericList?.gender}
               className="user-input-format"
             />
 
@@ -92,7 +101,7 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
                   user,
                 )
               }
-              options={userHandler.ocupation()}
+              options={genericList?.ocupation}
               className="user-input-format"
             />
           </div>
@@ -107,7 +116,7 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
               onChange={(value) =>
                 userHandler.userSelectHandler('birthyear', value, setUser, user)
               }
-              options={userHandler.years()}
+              options={genericList?.years}
               className="user-input-format"
             />
 
@@ -168,7 +177,7 @@ const UserRegister = ({ user, setUser, errorMsg, countriesList }) => {
                   user,
                 )
               }
-              options={userHandler.option()}
+              options={genericList?.options}
               className="user-input-format"
             />
 

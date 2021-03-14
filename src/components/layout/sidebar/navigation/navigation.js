@@ -34,14 +34,14 @@ const useNavigation = (t) => {
         },
         {
           _tag: 'CSidebarNavDropdown',
-          name: t('sidebar.administration.social.title'),
-          route: '/administration/social',
+          name: t('sidebar.administration.generic.title'),
+          route: '/administration/generic',
           icon: 'cil-chat-bubble',
           _children: [
             {
               _tag: 'CSidebarNavItem',
-              name: t('sidebar.administration.social.children.manage'),
-              to: '/administration/social/manage',
+              name: t('sidebar.administration.generic.children.manage'),
+              to: '/administration/generic/manage',
               icon: 'cil-sitemap',
             },
           ],

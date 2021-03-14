@@ -18,21 +18,18 @@ const userSelectHandler = (key, value, setUser, user) => {
   userHandler(key, userSelect, setUser, user);
 };
 
-const userSocialInfoAdd = (userSocial, setUser, user) => {
-  let userSocialInfo = Array.from(user.socialInfo);
-
-  if (userSocial.length > user.socialInfo.length) {
-    const social = userSocial[userSocial.length - 1];
-
-    userSocialInfo.push({
-      title: social,
-      name: '',
-    });
-  } else {
-    userSocialInfo = Array.from(userSocialInfo).filter((social) =>
-      userSocial.includes(social.title),
+const userSocialInfoAdd = (setUser, user) => {
+  let userSocialInfo = user.social.map((social) => {
+    const alreadyHave = Array.from(user.socialInfo).find(
+      (value) => value.id === social,
     );
-  }
+
+    if (alreadyHave) {
+      return alreadyHave;
+    }
+
+    return { id: social, name: '' };
+  });
 
   userHandler('socialInfo', userSocialInfo, setUser, user);
 };
@@ -43,18 +40,16 @@ const userSocialSelectHandler = (key, value, setUser, user) => {
   userHandler(key, userSocial, setUser, user);
 
   user.social = userSocial;
-  userSocialInfoAdd(userSocial, setUser, user);
+  userSocialInfoAdd(setUser, user);
 };
 
 const userSocialInfoHandler = (key, event, setUser, user, index) => {
-  const name = event.target.getAttribute('name');
-  const value = event.target.value;
-
+  const name = event.target.value;
   let socialInfoArray = Array.from(user.socialInfo);
 
   socialInfoArray[index] = {
-    title: name,
-    name: value,
+    ...socialInfoArray[index],
+    name,
   };
 
   userHandler(key, socialInfoArray, setUser, user);

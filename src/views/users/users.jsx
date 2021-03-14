@@ -42,11 +42,28 @@ const Home = () => {
   }, [execute, executeCountries, executeGeneric]);
 
   useLayoutEffect(() => {
-    if (data) {
+    if (data && genericList && countriesList) {
       const arrayData = Object.values(data);
       const fillArrayData = arrayData.map((user) => {
-        user.groupAge = homeHandler.groupAge(user);
+        if (user.birthyear) {
+          const year = genericList?.years.find(
+            (year) => year.id === user.birthyear,
+          );
+          user.groupAge = homeHandler.groupAge(
+            year.name,
+            genericList?.groupAge,
+          );
+        } else {
+          user.groupAge = '';
+        }
 
+        if (user.country) {
+          const countryName = countriesList.find(
+            (country) => country.id === user.country,
+          );
+
+          user.country = countryName?.country;
+        }
         //temporary solution for undefinied for each user on the table
         user.ambitEntry = '';
         user.activities = '';

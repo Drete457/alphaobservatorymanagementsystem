@@ -1,36 +1,36 @@
-import { groupAge as groupAgeList } from '../../assets/generic/generic-information.json';
-
-const groupChoose = (age) => {
+const groupChoose = (age, groupAge) => {
+  let index = 0;
   let text = '';
 
   if (age >= 60) {
-    text = groupAgeList[7];
+    index = 7;
   } else if (age > 54) {
-    text = groupAgeList[6];
+    index = 6;
   } else if (age > 48) {
-    text = groupAgeList[5];
+    index = 5;
   } else if (age > 42) {
-    text = groupAgeList[4];
+    index = 4;
   } else if (age > 36) {
-    text = groupAgeList[3];
+    index = 3;
   } else if (age > 30) {
-    text = groupAgeList[2];
+    index = 2;
   } else if (age > 24) {
-    text = groupAgeList[1];
+    index = 1;
   } else if (age > 15) {
-    text = groupAgeList[0];
+    index = 0;
   } else {
-    text = 'Invalid birth year';
+    index = 8;
   }
 
+  text = groupAge[index]?.name;
   return text;
 };
 
-const groupAge = (user) => {
+const groupAge = (year, groupAge) => {
   const currentYear = new Date().getFullYear();
-  const userAge = currentYear - user.birthyear;
+  const userAge = currentYear - year;
 
-  return groupChoose(userAge);
+  return groupChoose(userAge, groupAge);
 };
 
 export default groupAge;

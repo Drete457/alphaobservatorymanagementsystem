@@ -37,8 +37,8 @@
             "cancel": "Cancel",
             "cards": {
                 "add": "Add A New Card",
-                "edit": "Edit The Cards",
-                "save": "Save The Cards"
+                "edit": "Edit The Card",
+                "save": "Save The Card"
             }
         }
     },

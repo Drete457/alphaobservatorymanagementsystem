@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CCardBody, CCardHeader, CButton } from '@coreui/react';
-import { SelectFieldComponent, TextAreaField } from '../../input';
+import { SelectFieldComponent, TextAreaField, InputField } from '../../input';
 import CIcon from '@coreui/icons-react';
 
 const newObjCard = (event, cardsTypes) => {
@@ -14,17 +14,6 @@ const newObjCard = (event, cardsTypes) => {
   return card;
 };
 
-const updateCards = (value, cardArray, setCardsArray, index) => {
-  let newArray = [...cardArray];
-
-  newArray[index] = {
-    ...newArray[index],
-    body: value,
-  };
-
-  setCardsArray(newArray);
-};
-
 const Card = ({
   t,
   card,
@@ -34,7 +23,6 @@ const Card = ({
   cardsTypes,
   errorMsg,
 }) => {
-  const cardType = cardsTypes.find((value) => value.id === card.id);
   const [selfCard, setSelfCard] = useState(card);
   const [edit, setEdit] = useState(false);
 
@@ -43,25 +31,24 @@ const Card = ({
       ...selfCard,
       body: event.target.value,
     };
+
     setSelfCard(newCard);
+  };
+
+  const updateCards = () => {
+    if (edit) {
+      let newArray = [...cardArray];
+
+      newArray[index] = selfCard;
+
+      setCardsArray(newArray);
+    }
+    setEdit(!edit);
   };
 
   return (
     <>
       <CCardHeader>
-        <CButton
-          shape="pill"
-          variant={edit ? '' : 'ghost'}
-          size="md"
-          color="primary"
-          onClick={() => setEdit(!edit)}
-        >
-          <CIcon name={edit ? 'cil-save' : 'cil-pencil'} />
-          {edit
-            ? ' ' + t('btn.create-edit.cards.save')
-            : ' ' + t('btn.create-edit.cards.edit')}
-        </CButton>
-
         {edit ? (
           <SelectFieldComponent
             placeholder={t('user.fields.cards.placeholder')}
@@ -71,7 +58,7 @@ const Card = ({
             options={cardsTypes}
           />
         ) : (
-          cardType?.name
+          selfCard?.name
         )}
       </CCardHeader>
       <CCardBody>
@@ -87,9 +74,23 @@ const Card = ({
             ''
           )
         ) : (
-          selfCard?.body
+          <div className="text-line">{selfCard?.body}</div>
         )}
       </CCardBody>
+      <div className="cards-button">
+        <CButton
+          shape="pill"
+          variant={edit ? '' : 'ghost'}
+          size="sm"
+          color="primary"
+          onClick={() => updateCards()}
+        >
+          <CIcon name={edit ? 'cil-save' : 'cil-pencil'} />
+          {edit
+            ? ' ' + t('btn.create-edit.cards.save')
+            : ' ' + t('btn.create-edit.cards.edit')}
+        </CButton>
+      </div>
     </>
   );
 };

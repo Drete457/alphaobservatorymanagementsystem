@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
@@ -16,6 +16,11 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes }) => {
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
   const [cardArray, setCardsArray] = useState([]);
+
+  useEffect(() => {
+    user.cards = cardArray;
+    setUser(user);
+  }, [cardArray, user, setUser]);
 
   return (
     <>

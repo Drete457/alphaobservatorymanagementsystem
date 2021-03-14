@@ -23,7 +23,7 @@ const UserRegistration = () => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  console.log(user);
+
   return (
     <>
       {error ? (

@@ -11,6 +11,10 @@
   margin-right: auto;
 }
 
+.text-center {
+    text-align: center;
+}
+
 button {
     text-transform: uppercase;
     margin: 0 1rem;
@@ -93,3 +97,16 @@ select-style {
     white-space: pre-line;
 }
 
+.card-warning {
+    background-color: theme-color('warning');
+    font-weight: bolder;
+}
+
+.card-input {
+    display: flex;
+}
+
+.card-input-format { 
+    width: 45%;
+    margin: -1rem 0.5rem 0.5rem 0.5rem;
+}

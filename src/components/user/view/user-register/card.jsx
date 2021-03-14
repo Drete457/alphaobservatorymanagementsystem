@@ -3,7 +3,7 @@ import { CCardBody, CCardHeader, CButton } from '@coreui/react';
 import { SelectFieldComponent, TextAreaField, InputField } from '../../input';
 import CIcon from '@coreui/icons-react';
 
-const newObjCard = (event, cardsTypes) => {
+const newObjCard = (event, cardsTypes, selfCard) => {
   const card = cardsTypes.find((card) => {
     if (card.id === event.value) {
       return card;
@@ -11,7 +11,14 @@ const newObjCard = (event, cardsTypes) => {
     return null;
   });
 
-  return card;
+  const newCard = {
+    ...selfCard,
+    body: card.body,
+    id: card.id,
+    name: card.name,
+  };
+
+  return newCard;
 };
 
 const Card = ({
@@ -48,13 +55,20 @@ const Card = ({
 
   return (
     <>
-      <CCardHeader>
+      <CCardHeader
+        className={
+          errorMsg?.cards && (!selfCard?.trainer || !selfCard?.body)
+            ? 'card-warning'
+            : ''
+        }
+      >
         {edit ? (
           <SelectFieldComponent
             placeholder={t('user.fields.cards.placeholder')}
             value={selfCard?.id}
-            errorMsg={errorMsg?.cards}
-            onChange={(event) => setSelfCard(newObjCard(event, cardsTypes))}
+            onChange={(event) =>
+              setSelfCard(newObjCard(event, cardsTypes, selfCard))
+            }
             options={cardsTypes}
           />
         ) : (
@@ -64,17 +78,39 @@ const Card = ({
       <CCardBody>
         {edit ? (
           selfCard?.body ? (
-            <TextAreaField
-              placeholder={t('user.fields.cards.bodyplaceholder')}
-              value={selfCard?.body}
-              errorMsg={errorMsg?.cards}
-              onChange={(event) => updateCard(event)}
-            />
+            <>
+              <div className="card-input">
+                <InputField
+                  name="date"
+                  type="date"
+                  value={selfCard?.date}
+                  errorMsg={errorMsg?.community}
+                  onChange={() => {}}
+                  className="card-input-format"
+                />
+
+                <SelectFieldComponent
+                  placeholder={t('user.fields.cards.trainer')}
+                  value={selfCard?.trainer}
+                  onChange={() => {}}
+                  options={() => {}}
+                  className="card-input-format"
+                />
+              </div>
+              <TextAreaField
+                placeholder={t('user.fields.cards.bodyplaceholder')}
+                value={selfCard?.body}
+                onChange={(event) => updateCard(event)}
+              />
+            </>
           ) : (
             ''
           )
         ) : (
-          <div className="text-line">{selfCard?.body}</div>
+          <>
+            <div>{selfCard?.date + ' ' + selfCard?.trainer}</div>
+            <div className="text-line">{selfCard?.body}</div>
+          </>
         )}
       </CCardBody>
       <div className="cards-button">
@@ -91,6 +127,11 @@ const Card = ({
             : ' ' + t('btn.create-edit.cards.edit')}
         </CButton>
       </div>
+      {!edit && (!selfCard?.trainer || !selfCard?.body) ? (
+        <p className="text-center card-warning">{errorMsg?.cards}</p>
+      ) : (
+        ''
+      )}
     </>
   );
 };

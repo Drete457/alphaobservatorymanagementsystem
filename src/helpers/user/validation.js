@@ -52,11 +52,23 @@ const validateTotalUser = (user, setError, t) => {
     haveErrors = true;
   }
 
-  if (user.socialInfo) {
+  if (user?.socialInfo) {
     const isOk = Array.from(user.socialInfo).filter((social) => !social.name);
 
     if (isOk.length > 0) {
       errors.socialInfo = t('user.fields.social.error');
+      haveErrors = true;
+    }
+  }
+
+  if (user?.cards) {
+    const validation = user.cards.map((card) => {
+      const values = Object.values(card);
+      return values.includes('');
+    });
+
+    if (validation.includes(true)) {
+      errors.cards = t('user.fields.cards.error');
       haveErrors = true;
     }
   }

@@ -12,7 +12,17 @@ const ButtonCards = ({ setCardsArray, cardArray }) => {
         variant="ghost"
         size="md"
         color="primary"
-        onClick={() => setCardsArray([{ name: '', body: '' }, ...cardArray])}
+        onClick={() => {
+          let date = new Date();
+          const year = date.getFullYear();
+          const month = date.getMonth();
+          const newDate = year + '-0' + (month + 1) + '-01';
+
+          setCardsArray([
+            { name: '', body: '', date: newDate, trainer: '' },
+            ...cardArray,
+          ]);
+        }}
       >
         <CIcon name="cil-note-add" />
         {' ' + t('btn.create-edit.cards.add')}

@@ -1,14 +1,6 @@
 import { CTextarea } from '@coreui/react';
 
-const TextAreaField = ({
-  placeholder,
-  value,
-  errorMsg,
-  onChange,
-  disabled,
-}) => {
-  const isInvalid = errorMsg ? true : false;
-
+const TextAreaField = ({ placeholder, value, onChange, disabled }) => {
   return (
     <div>
       <CTextarea

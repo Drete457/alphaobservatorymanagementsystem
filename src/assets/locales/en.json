@@ -132,7 +132,9 @@
             },
             "cards" : {
                 "placeholder": "Choose The Type Of Card",
-                "bodyplaceholder": "Don't Delete The Text" 
+                "bodyplaceholder": "Don't Delete The Text",
+                "error": "It Is Necessary To Complete The Card",
+                "trainer": "Choose The Trainer Name"
             }
         }
     },

@@ -53,7 +53,7 @@ const UserRegistration = () => {
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}
-              cardsTypes={genericList?.cardsTypes}
+              cardsTypes={genericList?.cardTypes}
             />
           )}
           <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />

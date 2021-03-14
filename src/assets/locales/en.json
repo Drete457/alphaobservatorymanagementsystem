@@ -129,6 +129,10 @@
                 "placeholder": "Choose The Social Media User Have",
                 "placeholdersocialnetwork": "Write The User Name Use In This Social Media",
                 "error": "Don't Forget To Write User Name Used In This Social Media"
+            },
+            "cards" : {
+                "placeholder": "Choose The Type Of Card",
+                "bodyplaceholder": "Don't Delete The Text" 
             }
         }
     },

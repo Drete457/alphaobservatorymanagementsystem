@@ -19,6 +19,7 @@ const UserSocial = ({ socialList, user, setUser, errorMsg }) => {
               title={t('user.fields.social.title')}
               name="social"
               placeholder={t('user.fields.social.placeholder')}
+              value={user?.social}
               onChange={(value) =>
                 userHandler.userSocialSelectHandler(
                   'social',

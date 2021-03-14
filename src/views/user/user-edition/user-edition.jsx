@@ -65,7 +65,14 @@ const UserEdition = ({ match }) => {
               errorMsg={errorMsg}
             />
           )}
-          {active === 2 && <UserCards />}
+          {active === 2 && (
+            <UserCards
+              user={user}
+              setUser={setUser}
+              errorMsg={errorMsg}
+              cardsTypes={genericList?.cardTypes}
+            />
+          )}
           <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />
         </>
       )}

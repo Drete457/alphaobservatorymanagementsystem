@@ -1,19 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CForm, CCard, CCardBody, CCardHeader } from '@coreui/react';
+import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import { getStyle } from '@coreui/utils';
 import 'react-grid-layout/css/styles.css';
+import ButtonCards from '../../buttons/cards';
 import userHandler from '../../../../helpers/user';
-import CIcon from '@coreui/icons-react';
+import Card from './card';
 
-const UserCards = () => {
+const UserCards = ({ user, setUser, errorMsg, cardsTypes }) => {
   const [t] = useTranslation();
   const breakPoints = {
     xl: parseInt(getStyle('--breakpoint-xl'), 10),
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
-  const [cardArray, setCardsArray] = useState([]);
+
+  const [cardArray, setCardsArray] = useState(user?.cards || []);
+
+  useEffect(() => {
+    user.cards = cardArray;
+    setUser(user);
+  }, [cardArray, user, setUser]);
 
   return (
     <>
@@ -22,14 +29,7 @@ const UserCards = () => {
       </header>
 
       <main className="main-body">
-        <div className="cards-button">
-          <CIcon
-            name="cil-note-add"
-            onClick={() =>
-              setCardsArray([{ title: '', body: '' }, ...cardArray])
-            }
-          ></CIcon>
-        </div>
+        <ButtonCards setCardsArray={setCardsArray} cardArray={cardArray} />
         <CForm>
           <ResponsiveGridLayout
             className="layout"
@@ -37,14 +37,23 @@ const UserCards = () => {
             breakpoints={breakPoints}
             cols={{ xl: 3 }}
             isResizable={false}
-            measureBeforeMount={true}
+            measureBeforeMount={false}
           >
-            {Array.from(cardArray).map((card, index) => (
-              <CCard key={index + ''} accentColor="primary">
-                <CCardHeader>{card?.title}</CCardHeader>
-                <CCardBody>{card?.body}</CCardBody>
-              </CCard>
-            ))}
+            {cardArray.map((card, index) => {
+              return (
+                <CCard key={index + ''} accentColor="primary">
+                  <Card
+                    t={t}
+                    card={card}
+                    index={index}
+                    cardArray={cardArray}
+                    setCardsArray={setCardsArray}
+                    cardsTypes={cardsTypes}
+                    errorMsg={errorMsg}
+                  />
+                </CCard>
+              );
+            })}
           </ResponsiveGridLayout>
         </CForm>
       </main>

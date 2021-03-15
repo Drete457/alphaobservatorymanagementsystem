@@ -3,8 +3,8 @@
   "name": "Alpha Observatory Management System",
   "icons": [
     {
-      "src": "./assets/img/favicon.png",
-      "sizes": "100x100",
+      "src": "./images/nointernet.png",
+      "sizes": "800x600",
       "type": "image/png"
     }
   ],

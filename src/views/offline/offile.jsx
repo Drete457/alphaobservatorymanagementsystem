@@ -3,11 +3,9 @@ import { CModal } from '@coreui/react';
 
 const NoInternet = () => {
   return (
-    <>
-      <CModal show={true} centered size="lg">
-        <img src="./images/nointernet.png" alt="Page Internet Detected" />
-      </CModal>
-    </>
+    <CModal show={true} centered size="lg">
+      <img src="./images/nointernet.png" alt="No Internet Connection" />
+    </CModal>
   );
 };
 

@@ -1,11 +1,12 @@
 import { lazy, useState, useEffect, Suspense } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { CFade } from '@coreui/react';
-import Loading from './components/loading';
 import { useRecoilValue } from 'recoil';
 import { user } from './state/atoms';
+import { noInternetImg } from './assets/images';
 import './i18n';
 import './scss/style.scss';
+import Loading from './components/loading';
 import NoInternet from './views/offline';
 
 // components
@@ -22,6 +23,28 @@ const App = () => {
       setIsAuthenticated(true);
     }
   }, [isUser]);
+
+  useEffect(() => {
+    const image = localStorage.getItem('offline');
+
+    if (!image) {
+      //converte the imagem em string to be safe on localStorage
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', noInternetImg, true);
+      xhr.responseType = 'blob';
+      xhr.onload = function (e) {
+        let reader = new FileReader();
+        reader.onload = function (event) {
+          let res = event.target.result;
+
+          localStorage.setItem('offline', res);
+        };
+        var file = this.response;
+        reader.readAsDataURL(file);
+      };
+      xhr.send();
+    }
+  }, []);
 
   window.ononline = () => {
     setIsOnline(true);

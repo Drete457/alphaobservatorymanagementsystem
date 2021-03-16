@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
 import { InputField } from '../../input';
+import userHandler from '../../../../helpers/user';
 
 const UserViewer = ({ user, countriesList, genericList }) => {
   const [t] = useTranslation();
@@ -51,7 +52,7 @@ const UserViewer = ({ user, countriesList, genericList }) => {
               title={t('user.fields.country.title')}
               name="country"
               type="text"
-              value={country?.country}
+              value={userHandler.countryNameAndGmt(country)}
               className="user-input-format"
               disabled={isDisabled}
             />

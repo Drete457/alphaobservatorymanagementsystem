@@ -12,7 +12,7 @@ const UserRegister = ({
 }) => {
   const [t] = useTranslation();
   const countriesNames = countriesList.map((country) => {
-    return { id: country.id, name: country.country };
+    return { id: country.id, name: userHandler.countryNameAndGmt(country) };
   });
 
   return (

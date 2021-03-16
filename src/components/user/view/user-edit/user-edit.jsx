@@ -6,7 +6,7 @@ import userHandler from '../../../../helpers/user';
 const UserEdit = ({ user, setUser, errorMsg, countriesList, genericList }) => {
   const [t] = useTranslation();
   const countriesNames = countriesList.map((country) => {
-    return { id: country.id, name: country.country };
+    return { id: country.id, name: userHandler.countryNameAndGmt(country) };
   });
 
   return (

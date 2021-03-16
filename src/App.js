@@ -57,6 +57,20 @@ const App = () => {
   return (
     <>
       <HashRouter>
+        <a
+          href="http://free-website-translation.com/"
+          id="ftwtranslation_button"
+          hrefLang="en"
+          title=""
+          className="border"
+        >
+          <img
+            src="http://free-website-translation.com/img/fwt_button_en.gif"
+            id="ftwtranslation_image"
+            alt="website translator plugin"
+            className="border"
+          />
+        </a>
         <Suspense fallback={<Loading />}>
           <Switch>
             <Route exact path="/login" name="Login" component={Login} />

@@ -7,6 +7,7 @@ import { useGetGeneric } from '../../hooks/generic';
 import { countries, generic } from '../../state/atoms';
 import { useSetRecoilState } from 'recoil';
 import { useGetUsers } from '../../hooks/users';
+import userHandler from '../../helpers/user';
 import homeHandler from '../../components/home';
 import ErrorInfo from '../../components/error';
 import Loading from '../../components/loading';
@@ -62,8 +63,9 @@ const Home = () => {
             (country) => country.id === user.country,
           );
 
-          user.country = countryName?.country;
+          user.country = userHandler.countryNameAndGmt(countryName);
         }
+
         //temporary solution for undefinied for each user on the table
         user.ambitEntry = '';
         user.activities = '';

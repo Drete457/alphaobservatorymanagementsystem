@@ -42,6 +42,7 @@ const UserEdit = ({
               title={t('user.fields.followed.title')}
               name="followed"
               placeholder={t('user.fields.followed.placeholder')}
+              value={user?.followed}
               errorMsg={errorMsg?.followed}
               onChange={() => {}}
               options={userList}
@@ -67,6 +68,7 @@ const UserEdit = ({
               title={t('user.fields.contacted.title')}
               name="contacted"
               placeholder={t('user.fields.contacted.placeholder')}
+              value={user?.contacted}
               errorMsg={errorMsg?.contacted}
               onChange={() => {}}
               options={userList}

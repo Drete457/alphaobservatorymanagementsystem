@@ -3,7 +3,6 @@ import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { CFade } from '@coreui/react';
 import { useRecoilValue } from 'recoil';
 import { user } from './state/atoms';
-import { noInternetImg } from './assets/images';
 import './i18n';
 import './scss/style.scss';
 import Loading from './components/loading';
@@ -28,6 +27,7 @@ const App = () => {
     const image = localStorage.getItem('offline');
 
     if (!image) {
+      const noInternetImg = import('./assets/images');
       //converte the imagem em string to be safe on localStorage
       let xhr = new XMLHttpRequest();
       xhr.open('GET', noInternetImg, true);

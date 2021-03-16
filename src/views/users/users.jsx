@@ -44,11 +44,37 @@ const Home = () => {
   }, [execute, executeCountries, executeGeneric]);
 
   useLayoutEffect(() => {
-    let userList = [];
-
     if (data && genericList && countriesList) {
       const arrayData = Object.values(data);
+      const userList = arrayData.map((user) => {
+        return { id: user.id, name: user.name };
+      });
+
       const fillArrayData = arrayData.map((user) => {
+        if (user.followed) {
+          const followedBy = userList.find(
+            (value) => value.id === user.followed,
+          )?.name;
+
+          user.followed = followedBy;
+        }
+
+        if (user.contacted) {
+          const contactBy = userList.find(
+            (value) => value.id === user.contacted,
+          )?.name;
+
+          user.contacted = contactBy;
+        }
+
+        if (user.country) {
+          const countryName = countriesList.find(
+            (country) => country.id === user.country,
+          );
+
+          user.country = userHandler.countryNameAndGmt(countryName);
+        }
+
         if (user.birthyear) {
           const year = genericList?.years.find(
             (year) => year.id === user.birthyear,
@@ -61,23 +87,24 @@ const Home = () => {
           user.groupAge = '';
         }
 
-        if (user.country) {
-          const countryName = countriesList.find(
-            (country) => country.id === user.country,
-          );
+        if (user.introductionOption) {
+          const introductionOption = genericList?.options.find(
+            (value) => value.id === user.introductionOption,
+          )?.name;
 
-          user.country = userHandler.countryNameAndGmt(countryName);
+          user.introductionOption = introductionOption;
         }
 
         //temporary solution for undefinied for each user on the table
         user.ambitEntry = '';
         user.activities = '';
 
-        const userToTheList = { id: user.id, name: user.name };
-        userList.push(userToTheList);
-
         return user;
       });
+
+      if (userList.length > 0) {
+        setListUsers(userList);
+      }
 
       setUsers(fillArrayData);
     }
@@ -88,10 +115,6 @@ const Home = () => {
 
     if (genericList) {
       setGeneric(genericList);
-    }
-
-    if (userList.length > 0) {
-      setListUsers(userList);
     }
   }, [
     data,

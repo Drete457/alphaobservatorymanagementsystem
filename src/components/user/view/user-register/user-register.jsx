@@ -15,7 +15,7 @@ const UserRegister = ({
   const countriesNames = countriesList.map((country) => {
     return { id: country.id, name: userHandler.countryNameAndGmt(country) };
   });
-  console.log(user);
+
   return (
     <>
       <header>
@@ -42,6 +42,7 @@ const UserRegister = ({
               title={t('user.fields.followed.title')}
               name="followed"
               placeholder={t('user.fields.followed.placeholder')}
+              value={user?.followed}
               errorMsg={errorMsg?.followed}
               onChange={(value) =>
                 userHandler.userSelectHandler('followed', value, setUser, user)
@@ -69,6 +70,7 @@ const UserRegister = ({
               title={t('user.fields.contacted.title')}
               name="contacted"
               placeholder={t('user.fields.contacted.placeholder')}
+              value={user?.contacted}
               errorMsg={errorMsg?.contacted}
               onChange={(value) =>
                 userHandler.userSelectHandler('contacted', value, setUser, user)

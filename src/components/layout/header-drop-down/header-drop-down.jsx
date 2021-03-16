@@ -22,6 +22,7 @@ const HeaderAccountDropdown = () => {
       .auth()
       .signOut()
       .then(() => {
+        localStorage.removeItem('offline');
         window.location.reload();
       });
   };

@@ -6,7 +6,7 @@ import {
   UserCards,
 } from '../../../components/user/view/user-edit';
 import { useRecoilValue } from 'recoil';
-import { countries, generic } from '../../../state/atoms';
+import { countries, generic, listUsers } from '../../../state/atoms';
 import userHandler from '../../../helpers/user';
 import ErrorInfo from '../../../components/error';
 import Loading from '../../../components/loading';
@@ -21,6 +21,7 @@ const UserEdition = ({ match }) => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
+  const userList = useRecoilValue(listUsers);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
@@ -55,6 +56,7 @@ const UserEdition = ({ match }) => {
               errorMsg={errorMsg}
               countriesList={countriesList}
               genericList={genericList}
+              userList={userList}
             />
           )}
           {active === 1 && (

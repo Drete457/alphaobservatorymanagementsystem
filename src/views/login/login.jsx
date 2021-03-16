@@ -12,8 +12,39 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSetRecoilState } from 'recoil';
 import { user, api } from '../../state/atoms';
-import { firebase } from '../../api/';
+import { fb } from '../../api';
 import userConstrutor from '../../helpers/login';
+
+const onSubmit = async (setUser, setCommunicationSystem, history, setError) => {
+  const firebase = await fb();
+
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      const googleUser = result.user;
+      const userInfo = userConstrutor(googleUser);
+
+      setUser(userInfo);
+      setCommunicationSystem(firebase);
+
+      history.push('/users');
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.mail;
+      const credential = error.credential;
+
+      setError({
+        code: errorCode,
+        message: errorMessage,
+        email: email,
+        credential: credential,
+      });
+    });
+};
 
 const Login = () => {
   const history = useHistory();
@@ -27,35 +58,6 @@ const Login = () => {
 
   const setUser = useSetRecoilState(user);
   const setCommunicationSystem = useSetRecoilState(api);
-
-  const onSubmit = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        const googleUser = result.user;
-        const userInfo = userConstrutor(googleUser);
-
-        setUser(userInfo);
-        setCommunicationSystem(firebase);
-
-        history.push('/users');
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.mail;
-        const credential = error.credential;
-
-        setError({
-          code: errorCode,
-          message: errorMessage,
-          email: email,
-          credential: credential,
-        });
-      });
-  };
 
   return (
     <div className="c-app c-default-layout flex-row align-items-center">
@@ -75,7 +77,12 @@ const Login = () => {
                         color="primary"
                         className="mt-4"
                         onClick={() => {
-                          onSubmit();
+                          onSubmit(
+                            setUser,
+                            setCommunicationSystem,
+                            history,
+                            setError,
+                          );
                         }}
                       >
                         {t('btn.login.google_button')}

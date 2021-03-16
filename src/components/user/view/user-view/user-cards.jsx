@@ -6,7 +6,7 @@ import 'react-grid-layout/css/styles.css';
 import userHandler from '../../../../helpers/user';
 import Card from './card';
 
-const UserCards = ({ user, cardsTypes }) => {
+const UserCards = ({ user, userList }) => {
   const [t] = useTranslation();
   const breakPoints = {
     xl: parseInt(getStyle('--breakpoint-xl'), 10),
@@ -32,7 +32,7 @@ const UserCards = ({ user, cardsTypes }) => {
             {user?.cards?.map((card, index) => {
               return (
                 <CCard key={index + ''} accentColor="primary">
-                  <Card card={card} cardsTypes={cardsTypes} />
+                  <Card card={card} userList={userList} />
                 </CCard>
               );
             })}

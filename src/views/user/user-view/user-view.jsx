@@ -6,7 +6,7 @@ import {
   UserCards,
 } from '../../../components/user/view/user-view';
 import { useRecoilValue } from 'recoil';
-import { countries, generic } from '../../../state/atoms';
+import { countries, generic, listUsers } from '../../../state/atoms';
 import ErrorInfo from '../../../components/error';
 import Loading from '../../../components/loading';
 import Tabs from '../../../components/user/tabs';
@@ -19,6 +19,7 @@ const UserView = ({ match }) => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
+  const userList = useRecoilValue(listUsers);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
@@ -51,14 +52,13 @@ const UserView = ({ match }) => {
               user={user}
               countriesList={countriesList}
               genericList={genericList}
+              userList={userList}
             />
           )}
           {active === 1 && (
             <UserSocial user={user} socialList={genericList?.socialmedia} />
           )}
-          {active === 2 && (
-            <UserCards user={user} cardsTypes={genericList?.cardTypes} />
-          )}
+          {active === 2 && <UserCards user={user} userList={userList} />}
           <View user={user} />
         </>
       )}

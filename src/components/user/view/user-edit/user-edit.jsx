@@ -3,7 +3,14 @@ import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from '../../input';
 import userHandler from '../../../../helpers/user';
 
-const UserEdit = ({ user, setUser, errorMsg, countriesList, genericList }) => {
+const UserEdit = ({
+  user,
+  setUser,
+  errorMsg,
+  countriesList,
+  genericList,
+  userList,
+}) => {
   const [t] = useTranslation();
   const countriesNames = countriesList.map((country) => {
     return { id: country.id, name: userHandler.countryNameAndGmt(country) };
@@ -37,7 +44,7 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList, genericList }) => {
               placeholder={t('user.fields.followed.placeholder')}
               errorMsg={errorMsg?.followed}
               onChange={() => {}}
-              options=""
+              options={userList}
               className="user-input-format"
             />
           </div>
@@ -62,7 +69,7 @@ const UserEdit = ({ user, setUser, errorMsg, countriesList, genericList }) => {
               placeholder={t('user.fields.contacted.placeholder')}
               errorMsg={errorMsg?.contacted}
               onChange={() => {}}
-              options=""
+              options={userList}
               className="user-input-format"
             />
           </div>

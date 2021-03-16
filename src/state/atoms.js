@@ -29,3 +29,8 @@ export const generic = atom({
   key: 'generic',
   default: null,
 });
+
+export const listUsers = atom({
+  key: 'listUser',
+  default: [],
+});

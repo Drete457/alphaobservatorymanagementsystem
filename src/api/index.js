@@ -1,1 +1,1 @@
-export { firebase } from './config';
+export { fb } from './config';

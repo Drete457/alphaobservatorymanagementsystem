@@ -8,7 +8,7 @@ import ButtonCards from '../../buttons/cards';
 import userHandler from '../../../../helpers/user';
 import Card from './card';
 
-const UserCards = ({ user, setUser, errorMsg, cardsTypes }) => {
+const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const [t] = useTranslation();
   const breakPoints = {
     xl: parseInt(getStyle('--breakpoint-xl'), 10),
@@ -50,6 +50,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes }) => {
                     setCardsArray={setCardsArray}
                     cardsTypes={cardsTypes}
                     errorMsg={errorMsg}
+                    userList={userList}
                   />
                 </CCard>
               );

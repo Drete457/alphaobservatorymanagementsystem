@@ -9,12 +9,13 @@ const UserRegister = ({
   errorMsg,
   countriesList,
   genericList,
+  userList,
 }) => {
   const [t] = useTranslation();
   const countriesNames = countriesList.map((country) => {
     return { id: country.id, name: userHandler.countryNameAndGmt(country) };
   });
-
+  console.log(user);
   return (
     <>
       <header>
@@ -42,8 +43,10 @@ const UserRegister = ({
               name="followed"
               placeholder={t('user.fields.followed.placeholder')}
               errorMsg={errorMsg?.followed}
-              onChange={() => {}}
-              options=""
+              onChange={(value) =>
+                userHandler.userSelectHandler('followed', value, setUser, user)
+              }
+              options={userList}
               className="user-input-format"
             />
           </div>
@@ -67,8 +70,10 @@ const UserRegister = ({
               name="contacted"
               placeholder={t('user.fields.contacted.placeholder')}
               errorMsg={errorMsg?.contacted}
-              onChange={() => {}}
-              options=""
+              onChange={(value) =>
+                userHandler.userSelectHandler('contacted', value, setUser, user)
+              }
+              options={userList}
               className="user-input-format"
             />
           </div>

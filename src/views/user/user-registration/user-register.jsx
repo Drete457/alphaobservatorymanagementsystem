@@ -5,7 +5,7 @@ import {
   UserCards,
 } from '../../../components/user/view/user-register';
 import { useRecoilValue } from 'recoil';
-import { countries, generic } from '../../../state/atoms';
+import { countries, generic, listUsers } from '../../../state/atoms';
 import ErrorInfo from '../../../components/error';
 import userHandler from '../../../helpers/user';
 import uniqueId from '../../../helpers/id-generator';
@@ -23,6 +23,7 @@ const UserRegistration = () => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
+  const userList = useRecoilValue(listUsers);
 
   return (
     <>
@@ -38,6 +39,7 @@ const UserRegistration = () => {
               errorMsg={errorMsg}
               countriesList={countriesList}
               genericList={genericList}
+              userList={userList}
             />
           )}
           {active === 1 && (
@@ -54,6 +56,7 @@ const UserRegistration = () => {
               setUser={setUser}
               errorMsg={errorMsg}
               cardsTypes={genericList?.cardTypes}
+              userList={userList}
             />
           )}
           <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />

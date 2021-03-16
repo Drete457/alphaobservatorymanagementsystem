@@ -1,6 +1,6 @@
 import { CCardBody, CCardHeader } from '@coreui/react';
 
-const Card = ({ card, cardsTypes }) => {
+const Card = ({ card, userList }) => {
   return (
     <>
       <CCardHeader>{card?.name}</CCardHeader>

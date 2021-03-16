@@ -3,7 +3,7 @@ import { CForm } from '@coreui/react';
 import { InputField } from '../../input';
 import userHandler from '../../../../helpers/user';
 
-const UserViewer = ({ user, countriesList, genericList }) => {
+const UserViewer = ({ user, countriesList, genericList, userList }) => {
   const [t] = useTranslation();
   const country = countriesList.find((country) => country.id === user.country);
   const gender = genericList.gender.find((gender) => gender.id === user.gender);

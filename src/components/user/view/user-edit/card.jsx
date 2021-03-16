@@ -29,6 +29,7 @@ const Card = ({
   setCardsArray,
   cardsTypes,
   errorMsg,
+  userList,
 }) => {
   const [selfCard, setSelfCard] = useState(card);
   const [edit, setEdit] = useState(false);
@@ -93,7 +94,7 @@ const Card = ({
                   placeholder={t('user.fields.cards.trainer')}
                   value={selfCard?.trainer}
                   onChange={() => {}}
-                  options={() => {}}
+                  options={userList}
                   className="card-input-format"
                 />
               </div>

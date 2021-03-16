@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useGetCountries } from '../../hooks/countries';
 import { useGetGeneric } from '../../hooks/generic';
-import { countries, generic } from '../../state/atoms';
+import { countries, generic, listUsers } from '../../state/atoms';
 import { useSetRecoilState } from 'recoil';
 import { useGetUsers } from '../../hooks/users';
 import userHandler from '../../helpers/user';
@@ -20,6 +20,7 @@ const Home = () => {
   const [error, setError] = useState(null);
   const setCountries = useSetRecoilState(countries);
   const setGeneric = useSetRecoilState(generic);
+  const setListUsers = useSetRecoilState(listUsers);
 
   const [users, setUsers] = useState([]);
   const { isLoading, error: errorUsers, data, execute } = useGetUsers();
@@ -43,6 +44,8 @@ const Home = () => {
   }, [execute, executeCountries, executeGeneric]);
 
   useLayoutEffect(() => {
+    let userList = [];
+
     if (data && genericList && countriesList) {
       const arrayData = Object.values(data);
       const fillArrayData = arrayData.map((user) => {
@@ -70,6 +73,9 @@ const Home = () => {
         user.ambitEntry = '';
         user.activities = '';
 
+        const userToTheList = { id: user.id, name: user.name };
+        userList.push(userToTheList);
+
         return user;
       });
 
@@ -83,7 +89,18 @@ const Home = () => {
     if (genericList) {
       setGeneric(genericList);
     }
-  }, [data, countriesList, genericList, setCountries, setGeneric]);
+
+    if (userList.length > 0) {
+      setListUsers(userList);
+    }
+  }, [
+    data,
+    countriesList,
+    genericList,
+    setCountries,
+    setGeneric,
+    setListUsers,
+  ]);
 
   useLayoutEffect(() => {
     const errorInfo = errorUsers || errorCountries || errorGeneric;

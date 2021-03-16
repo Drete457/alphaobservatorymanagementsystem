@@ -73,6 +73,7 @@ const UserEdition = ({ match }) => {
               setUser={setUser}
               errorMsg={errorMsg}
               cardsTypes={genericList?.cardTypes}
+              userList={userList}
             />
           )}
           <Submit user={user} setErrorMsg={setErrorMsg} setError={setError} />

@@ -15,7 +15,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
-  const [cardArray, setCardsArray] = useState(user?.cards || []);
+  const [cardArray, setCardsArray] = useState(user.cards ?? []);
 
   useEffect(() => {
     user.cards = cardArray;

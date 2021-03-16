@@ -33,11 +33,12 @@ const Card = ({
 }) => {
   const [selfCard, setSelfCard] = useState(card);
   const [edit, setEdit] = useState(false);
+  const trainer = userList.find((user) => user.id === card.trainer)?.name;
 
-  const updateCard = (event) => {
+  const updateCard = (key, value) => {
     let newCard = {
       ...selfCard,
-      body: event.target.value,
+      [key]: value,
     };
 
     setSelfCard(newCard);
@@ -86,14 +87,15 @@ const Card = ({
                   type="date"
                   value={selfCard?.date}
                   errorMsg={errorMsg?.community}
-                  onChange={() => {}}
+                  onChange={(event) => updateCard('date', event.target.value)}
                   className="card-input-format"
                 />
 
                 <SelectFieldComponent
                   placeholder={t('user.fields.cards.trainer')}
+                  name="trainer"
                   value={selfCard?.trainer}
-                  onChange={() => {}}
+                  onChange={(event) => updateCard('trainer', event.value)}
                   options={userList}
                   className="card-input-format"
                 />
@@ -101,7 +103,7 @@ const Card = ({
               <TextAreaField
                 placeholder={t('user.fields.cards.bodyplaceholder')}
                 value={selfCard?.body}
-                onChange={(event) => updateCard(event)}
+                onChange={(event) => updateCard('body', event.target.value)}
               />
             </>
           ) : (
@@ -109,7 +111,7 @@ const Card = ({
           )
         ) : (
           <>
-            <div>{selfCard?.date + ' ' + selfCard?.trainer}</div>
+            {trainer && <div>{selfCard?.date + ' ' + trainer}</div>}
             <div className="text-line">{selfCard?.body}</div>
           </>
         )}

@@ -15,9 +15,10 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
-  const [cardArray, setCardsArray] = useState([]);
+  const [cardArray, setCardsArray] = useState(user.cards ?? []);
 
   useEffect(() => {
+    console.log('ola');
     user.cards = cardArray;
     setUser(user);
   }, [cardArray, user, setUser]);

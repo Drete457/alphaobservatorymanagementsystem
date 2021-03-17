@@ -1,5 +1,4 @@
 import { useState, useLayoutEffect } from 'react';
-import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useGetCountries } from '../../hooks/countries';
@@ -7,12 +6,11 @@ import { useGetGeneric } from '../../hooks/generic';
 import { countries, generic, listUsers } from '../../state/atoms';
 import { useSetRecoilState } from 'recoil';
 import { useGetUsers } from '../../hooks/users';
-import userHandler from '../../helpers/user';
 import homeHandler from '../../components/home';
 import ErrorInfo from '../../components/error';
 import Loading from '../../components/loading';
 import Button from '../../components/button';
-import CIcon from '@coreui/icons-react';
+import DataTable from '../../components/home/data-table';
 
 const Home = () => {
   const [t] = useTranslation();
@@ -46,68 +44,13 @@ const Home = () => {
 
   useLayoutEffect(() => {
     if (data && genericList && countriesList) {
-      const arrayData = Object.values(data);
-      const userList = arrayData.map((user) => {
-        return { id: user.id, name: user.name };
-      });
-
-      const fillArrayData = arrayData.map((user) => {
-        if (user.followed) {
-          const followedBy = userList.find(
-            (value) => value.id === user.followed,
-          )?.name;
-
-          user.followed = followedBy;
-        }
-
-        if (user.contacted) {
-          const contactBy = userList.find(
-            (value) => value.id === user.contacted,
-          )?.name;
-
-          user.contacted = contactBy;
-        }
-
-        if (user.country) {
-          const countryName = countriesList.find(
-            (country) => country.id === user.country,
-          );
-
-          user.country = userHandler.countryNameAndGmt(countryName);
-        }
-
-        if (user.birthyear) {
-          const year = genericList?.years.find(
-            (year) => year.id === user.birthyear,
-          );
-          user.groupAge = homeHandler.groupAge(
-            year.name,
-            genericList?.groupAge,
-          );
-        } else {
-          user.groupAge = '';
-        }
-
-        if (user.introductionOption) {
-          const introductionOption = genericList?.options.find(
-            (value) => value.id === user.introductionOption,
-          )?.name;
-
-          user.introductionOption = introductionOption;
-        }
-
-        //temporary solution for undefinied for each user on the table
-        user.ambitEntry = '';
-        user.activities = '';
-
-        return user;
-      });
-
-      if (userList.length > 0) {
-        setListUsers(userList);
-      }
-
-      setUsers(fillArrayData);
+      homeHandler.buildUserList(
+        data,
+        countriesList,
+        genericList,
+        setListUsers,
+        setUsers,
+      );
     }
 
     if (countriesList) {
@@ -161,44 +104,7 @@ const Home = () => {
               />
             </nav>
 
-            <CDataTable
-              addTableClasses="home-table"
-              items={users}
-              fields={homeHandler.fields(t)}
-              columnFilter
-              hover
-              striped
-              sorter
-              size="sm"
-              responsive
-              itemsPerPage={100}
-              isLoading={isLoading}
-              noItemsViewSlot={
-                <div className="text-center my-5">
-                  <h2>
-                    {t('pages.users.no-info')}
-                    <CIcon
-                      width="30"
-                      name="cilBan"
-                      className="text-danger mb-2"
-                    />
-                  </h2>
-                </div>
-              }
-              scopedSlots={{
-                view: (item) => {
-                  return (
-                    <td>
-                      <Button
-                        name={t('btn.view')}
-                        onClick={() => history.push(`/user/view/${item.id}`)}
-                        className="home-button"
-                      />
-                    </td>
-                  );
-                },
-              }}
-            />
+            <DataTable users={users} isLoading={isLoading} />
           </main>
         </>
       )}

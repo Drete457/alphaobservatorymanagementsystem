@@ -28,7 +28,7 @@ const Content = () => {
               )
             );
           })}
-          <Redirect from="/" to="/dashboard" />
+          <Redirect from="/" to="/construction" />
         </Switch>
       </Suspense>
     </main>

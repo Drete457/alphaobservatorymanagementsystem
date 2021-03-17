@@ -1,5 +1,8 @@
 {
     "sidebar": {
+        "aside": {
+            "title": "Tools"
+        },
         "home":{
             "title": "Home",
             "children":{

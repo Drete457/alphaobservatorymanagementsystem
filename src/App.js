@@ -1,4 +1,4 @@
-import { lazy, useState, useEffect, Suspense } from 'react';
+import { lazy, useState, useLayoutEffect, Suspense } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { CFade } from '@coreui/react';
 import { useRecoilValue } from 'recoil';
@@ -18,13 +18,13 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isUser) {
       setIsAuthenticated(true);
     }
   }, [isUser]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const image = localStorage.getItem('offline');
 
     if (!image) {

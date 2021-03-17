@@ -1,1 +1,1 @@
-export { default } from './offile';
+export { default } from './offline';

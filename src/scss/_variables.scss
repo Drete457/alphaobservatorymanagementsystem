@@ -4,8 +4,18 @@ $show: #365581;
 $borderColor: #2f4246;
 $boderColorHover: #b3b3b3;
 $errorMessageColor: #FF0000;
+$lineColor: #FFFFFF;
+
+/* $primary: $gray-800 !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-200 !default;
+$dark: $gray-900 !default; */
 
 $theme-colors: (
-  'primary': #3d5d89,
+  'primary': $active,
   'danger': #FF0000,
-);
+); 

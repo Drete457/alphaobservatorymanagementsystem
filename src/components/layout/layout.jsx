@@ -5,7 +5,7 @@ import Header from './header';
 import Content from './content';
 
 const Layout = () => {
-  const classes = classNames('c-app c-default-layout');
+  const classes = classNames('c-app c-classic-layout');
 
   return (
     <div className={classes}>

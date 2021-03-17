@@ -9,15 +9,14 @@ async function getFirebaseClient() {
   ]);
 
   const config = {
-    apiKey: 'AIzaSyCBMG-mc2JthHgNPS-g4l_OXUtYe1QwhZc',
-    authDomain: 'managementsystem-f4618.firebaseapp.com',
-    databaseURL:
-      'https://managementsystem-f4618-default-rtdb.europe-west1.firebasedatabase.app/',
-    projectId: 'managementsystem-f4618',
-    storageBucket: 'managementsystem-f4618.appspot.com',
-    messagingSenderId: '940315265462',
-    appId: '1:940315265462:web:98c87148bbe97ab260d917',
-    measurementId: 'G-VZ197GXMCR',
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DATA_BASE_URL,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_ID,
+    measurementId: process.env.REACT_APP_MEASUREMENT_ID,
   };
 
   firebase.initializeApp(config);

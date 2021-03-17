@@ -12,6 +12,7 @@ import homeHandler from '../../components/home';
 import ErrorInfo from '../../components/error';
 import Loading from '../../components/loading';
 import Button from '../../components/button';
+import CIcon from '@coreui/icons-react';
 
 const Home = () => {
   const [t] = useTranslation();
@@ -170,7 +171,20 @@ const Home = () => {
               sorter
               size="sm"
               responsive
+              itemsPerPage={100}
               isLoading={isLoading}
+              noItemsViewSlot={
+                <div className="text-center my-5">
+                  <h2>
+                    {t('pages.users.no-info')}
+                    <CIcon
+                      width="30"
+                      name="cilBan"
+                      className="text-danger mb-2"
+                    />
+                  </h2>
+                </div>
+              }
               scopedSlots={{
                 view: (item) => {
                   return (

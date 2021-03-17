@@ -155,7 +155,8 @@
             "title": "The Site Is Undergoing Maintenance"
         },
         "users": {
-            "title": "All Users"
+            "title": "All Users",
+            "no-info": "No Users"
         },
         "myprofile": {
             "title": "Profile Page",

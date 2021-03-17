@@ -1,6 +1,7 @@
 import {
   cilApplicationsSettings,
   cilAccountLogout,
+  cilBan,
   cilChatBubble,
   cilCommentSquare,
   cilContact,
@@ -18,6 +19,7 @@ export const icons = Object.assign(
   {
     cilApplicationsSettings,
     cilAccountLogout,
+    cilBan,
     cilChatBubble,
     cilCommentSquare,
     cilContact,

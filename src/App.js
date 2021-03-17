@@ -7,6 +7,7 @@ import './i18n';
 import './scss/style.scss';
 import Loading from './components/loading';
 import NoInternet from './views/offline';
+import { noInternetImg } from './assets/images';
 
 // components
 const Layout = lazy(() => import('./components/layout'));
@@ -27,7 +28,6 @@ const App = () => {
     const image = localStorage.getItem('offline');
 
     if (!image) {
-      const noInternetImg = import('./assets/images');
       //converte the imagem em string to be safe on localStorage
       let xhr = new XMLHttpRequest();
       xhr.open('GET', noInternetImg, true);

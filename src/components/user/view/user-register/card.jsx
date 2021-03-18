@@ -33,18 +33,23 @@ const Card = ({
 }) => {
   const [selfCard, setSelfCard] = useState(card);
   const [edit, setEdit] = useState(false);
-  const trainer = userList.find((user) => user.id === card.trainer)?.name;
+  const trainers = selfCard?.trainer.map(
+    (value) => ' ' + userList.find((user) => user.id === value)?.name,
+  );
 
   //generate a userlist without the none option
   const newUserList = userList?.filter((user) => user.id !== '1');
 
   const updateCard = (key, value) => {
-    let newCard = {
-      ...selfCard,
-      [key]: value,
-    };
+    if (key === 'trainer') {
+      const trainers = value.map((value) => value.value);
 
-    setSelfCard(newCard);
+      selfCard[key] = trainers;
+    } else {
+      selfCard[key] = value;
+    }
+
+    setSelfCard(selfCard);
   };
 
   const updateCards = () => {
@@ -98,10 +103,10 @@ const Card = ({
                   placeholder={t('user.fields.cards.trainer')}
                   name="trainer"
                   value={selfCard?.trainer}
-                  onChange={(event) => updateCard('trainer', event.value)}
+                  onChange={(event) => updateCard('trainer', event)}
                   options={newUserList}
                   className="card-input-format"
-                  isMulti
+                  isMulti={true}
                 />
               </div>
               <TextAreaField
@@ -115,7 +120,7 @@ const Card = ({
           )
         ) : (
           <>
-            {trainer && <div>{selfCard?.date + ' ' + trainer}</div>}
+            {trainers && <div>{selfCard?.date + ' ' + trainers}</div>}
             <div className="text-line">{selfCard?.body}</div>
           </>
         )}

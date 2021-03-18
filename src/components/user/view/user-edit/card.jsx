@@ -101,6 +101,7 @@ const Card = ({
                   onChange={(event) => updateCard('trainer', event.value)}
                   options={newUserList}
                   className="card-input-format"
+                  isMulti
                 />
               </div>
               <TextAreaField

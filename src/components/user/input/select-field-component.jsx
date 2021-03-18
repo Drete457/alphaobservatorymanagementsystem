@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from 'react';
 import { CLabel } from '@coreui/react';
-import Select, { defaultTheme } from 'react-select';
+import Select from 'react-select';
 
 const createList = (options) => {
   const optionsList = Array.from(options)?.map((value) => {
@@ -26,8 +26,6 @@ const SelectFieldComponent = ({
   className,
   isMulti,
 }) => {
-  console.log(defaultTheme.colors['primary']);
-
   const customStyles = {
     control: (provided, state) => ({
       ...provided,

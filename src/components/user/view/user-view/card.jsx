@@ -1,12 +1,15 @@
 import { CCardBody, CCardHeader } from '@coreui/react';
 
 const Card = ({ card, userList }) => {
-  const trainer = userList.find((user) => user.id === card.trainer)?.name;
+  const trainers = card?.trainer.map(
+    (value) => ' ' + userList.find((user) => user.id === value)?.name,
+  );
+
   return (
     <>
       <CCardHeader>{card?.name}</CCardHeader>
       <CCardBody>
-        {trainer && <div>{card?.date + ' ' + trainer}</div>}
+        {trainers && <div>{card?.date + ' ' + trainers}</div>}
         <div className="text-line">{card?.body}</div>
       </CCardBody>
     </>

@@ -33,7 +33,7 @@ const Card = ({
 }) => {
   const [selfCard, setSelfCard] = useState(card);
   const [edit, setEdit] = useState(false);
-  const trainers = selfCard?.trainer.map(
+  const trainers = selfCard?.trainer.map?.(
     (value) => ' ' + userList.find((user) => user.id === value)?.name,
   );
 

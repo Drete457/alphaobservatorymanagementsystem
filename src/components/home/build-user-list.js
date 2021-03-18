@@ -12,7 +12,7 @@ const buildUserList = (
   let userList = arrayData.map((user) => {
     return { id: user.id, name: user.name };
   });
-  userList.unshift({ id: 1, name: 'None' });
+  userList.unshift({ id: '1', name: 'None' });
 
   const fillArrayData = arrayData.map((user) => {
     if (user.followed) {

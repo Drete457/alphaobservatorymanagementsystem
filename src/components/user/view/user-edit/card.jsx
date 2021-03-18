@@ -35,6 +35,9 @@ const Card = ({
   const [edit, setEdit] = useState(false);
   const trainer = userList.find((user) => user.id === card.trainer)?.name;
 
+  //generate a userlist without the none option
+  const newUserList = userList?.filter((user) => user.id !== '1');
+
   const updateCard = (key, value) => {
     let newCard = {
       ...selfCard,
@@ -96,7 +99,7 @@ const Card = ({
                   name="trainer"
                   value={selfCard?.trainer}
                   onChange={(event) => updateCard('trainer', event.value)}
-                  options={userList}
+                  options={newUserList}
                   className="card-input-format"
                 />
               </div>

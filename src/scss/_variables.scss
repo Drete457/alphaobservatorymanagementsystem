@@ -2,11 +2,12 @@
 $active: #3d5d89;
 $show: #365581;
 $borderColor: #2f4246;
-$boderColorHover: #b3b3b3;
-$errorMessageColor: #FF0000;
-$lineColor: #FFFFFF;
+$borderColorHover: #b3b3b3;
+$errorMessageColor: #ff0000;
+$lineColor: #ffffff;
 
 $theme-colors: (
-  'primary': $active,
-  'danger': #FF0000,
-); 
+  "primary": $active,
+  "danger": $errorMessageColor,
+);
+

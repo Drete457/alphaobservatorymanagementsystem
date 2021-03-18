@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from 'react';
 import { CLabel } from '@coreui/react';
-import Select from 'react-select';
+import Select, { defaultTheme } from 'react-select';
 
 const createList = (options) => {
   const optionsList = Array.from(options)?.map((value) => {
@@ -26,6 +26,8 @@ const SelectFieldComponent = ({
   className,
   isMulti,
 }) => {
+  console.log(defaultTheme.colors['primary']);
+
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
@@ -43,6 +45,24 @@ const SelectFieldComponent = ({
         : state.isFocused
         ? '#89d6f5'
         : null,
+    }),
+    multiValue: (styles) => {
+      return {
+        ...styles,
+        backgroundColor: '#365581',
+      };
+    },
+    multiValueLabel: (styles) => ({
+      ...styles,
+      color: '#ffffff',
+    }),
+    multiValueRemove: (styles) => ({
+      ...styles,
+      color: '#ffffff',
+      ':hover': {
+        backgroundColor: '#3d5d89',
+        color: '#ffffff',
+      },
     }),
   };
 

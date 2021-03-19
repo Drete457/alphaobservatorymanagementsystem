@@ -13,9 +13,7 @@ const newObjCard = (event, cardsTypes, selfCard) => {
 
   const newCard = {
     ...selfCard,
-    body: card.body,
-    id: card.id,
-    name: card.name,
+    ...card,
   };
 
   return newCard;

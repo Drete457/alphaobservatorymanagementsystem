@@ -34,6 +34,12 @@ const UserCards = ({ user, userList }) => {
             {user?.cards?.map?.((card, index) => {
               return (
                 <CCard key={index + ''} accentColor="primary">
+                  <span
+                    style={{
+                      background: card?.color,
+                    }}
+                    className="card-header-banner-color"
+                  ></span>
                   <Card card={card} userList={userList} />
                 </CCard>
               );

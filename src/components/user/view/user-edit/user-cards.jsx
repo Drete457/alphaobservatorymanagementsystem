@@ -44,6 +44,12 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
             {cardArray.map?.((card, index) => {
               return (
                 <CCard key={index + ''} accentColor="primary">
+                  <span
+                    style={{
+                      background: card?.color,
+                    }}
+                    className="card-header-banner-color"
+                  ></span>
                   <Card
                     t={t}
                     card={card}

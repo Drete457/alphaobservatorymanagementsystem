@@ -43,7 +43,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
           >
             {cardArray.map?.((card, index) => {
               return (
-                <CCard key={index + ''} accentColor="primary" draggable="true">
+                <CCard key={index + ''} accentColor="primary">
                   <Card
                     t={t}
                     card={card}

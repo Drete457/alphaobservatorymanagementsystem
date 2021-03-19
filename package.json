@@ -2,6 +2,17 @@
   "name": "alpha-observatory-management-system",
   "version": "0.1.0",
   "private": false,
+  "description": "Alpha Observatory Management System",
+  "author": {
+    "name": "Filipe Mota",
+    "github": "https://github.com/Drete457"
+  },
+  "copyright": "Copyright 2020 - 2021 CEO NADA",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Drete457/alphaobservatorymanagementsystem.git"
+  },
+  "license": "https://github.com/Drete457/alphaobservatorymanagementsystem/blob/main/LICENSE",
   "type": "module",
   "dependencies": {
     "@agney/react-avatar": "^1.1.2",
@@ -24,7 +35,7 @@
     "react-big-calendar": "^0.33.2",
     "react-dates": "^21.8.0",
     "react-dom": "^17.0.1",
-    "react-grid-layout": "^1.2.4",
+    "react-grid-layout": "0.18.3",
     "react-i18next": "^11.8.10",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
@@ -68,6 +79,7 @@
     "production": [
       ">0.2%",
       "not dead",
+      "not ie <= 10",
       "not op_mini all"
     ],
     "development": [

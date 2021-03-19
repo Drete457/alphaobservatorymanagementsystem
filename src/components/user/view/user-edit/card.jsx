@@ -45,11 +45,16 @@ const Card = ({
       const trainers = value.map((value) => value.value);
 
       selfCard[key] = trainers;
-    } else {
-      selfCard[key] = value;
-    }
 
-    setSelfCard(selfCard);
+      setSelfCard(selfCard);
+    } else {
+      const newCard = {
+        ...selfCard,
+        [key]: value,
+      };
+
+      setSelfCard(newCard);
+    }
   };
 
   const updateCards = () => {

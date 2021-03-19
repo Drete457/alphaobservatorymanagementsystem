@@ -1,7 +1,7 @@
 import { CCardBody, CCardHeader } from '@coreui/react';
 
 const Card = ({ card, userList }) => {
-  const trainers = card?.trainer.map(
+  const trainers = card?.trainer.map?.(
     (value) => ' ' + userList.find((user) => user.id === value)?.name,
   );
 

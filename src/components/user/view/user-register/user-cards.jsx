@@ -41,7 +41,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
             measureBeforeMount={false}
             draggableHandle={'.card-header'}
           >
-            {cardArray.map((card, index) => {
+            {cardArray.map?.((card, index) => {
               return (
                 <CCard key={index + ''} accentColor="primary" draggable="true">
                   <Card

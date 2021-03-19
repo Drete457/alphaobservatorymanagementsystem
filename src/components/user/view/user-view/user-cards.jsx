@@ -24,12 +24,14 @@ const UserCards = ({ user, userList }) => {
           <ResponsiveGridLayout
             className="layout"
             layouts={userHandler.layouts}
+            onLayoutChange={(layout, layouts) => {}}
             breakpoints={breakPoints}
             cols={{ xl: 3 }}
             isResizable={false}
             measureBeforeMount={false}
+            draggableHandle={'.card-header'}
           >
-            {user?.cards?.map((card, index) => {
+            {user?.cards?.map?.((card, index) => {
               return (
                 <CCard key={index + ''} accentColor="primary">
                   <Card card={card} userList={userList} />

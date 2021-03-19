@@ -3,7 +3,7 @@ import { CLabel } from '@coreui/react';
 import Select from 'react-select';
 
 const createList = (options) => {
-  const optionsList = Array.from(options)?.map((value) => {
+  const optionsList = Array.from(options)?.map?.((value) => {
     return { label: value.name, value: value.id };
   });
 
@@ -75,7 +75,7 @@ const SelectFieldComponent = ({
     }
 
     if (value && isMulti) {
-      const valueList = value.map((social) => createValue(social, options));
+      const valueList = value.map?.((social) => createValue(social, options));
       setCurrent(valueList);
     }
   }, [value, isMulti, options]);

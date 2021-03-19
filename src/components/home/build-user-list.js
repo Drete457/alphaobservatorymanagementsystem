@@ -9,12 +9,12 @@ const buildUserList = (
   setUsers,
 ) => {
   const arrayData = Object.values(data);
-  let userList = arrayData.map((user) => {
+  let userList = arrayData.map?.((user) => {
     return { id: user.id, name: user.name };
   });
   userList.unshift({ id: '1', name: 'None' });
 
-  const fillArrayData = arrayData.map((user) => {
+  const fillArrayData = arrayData.map?.((user) => {
     if (user.followed) {
       const followedBy = userList.find((value) => value.id === user.followed)
         ?.name;

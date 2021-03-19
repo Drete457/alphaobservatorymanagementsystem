@@ -34,7 +34,7 @@ const UserSocial = ({ socialList, user, setUser, errorMsg }) => {
             />
           </div>
 
-          {Array.from(user.socialInfo).map((social, index) => {
+          {Array.from(user.socialInfo).map?.((social, index) => {
             const socialMedia = socialList.find(
               (socialMedia) => socialMedia.id === social.id,
             );

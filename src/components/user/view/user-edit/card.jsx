@@ -42,7 +42,7 @@ const Card = ({
 
   const updateCard = (key, value) => {
     if (key === 'trainer') {
-      const trainers = value.map((value) => value.value);
+      const trainers = value.map?.((value) => value.value);
 
       selfCard[key] = trainers;
 

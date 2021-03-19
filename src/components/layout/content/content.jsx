@@ -11,7 +11,7 @@ const Content = () => {
     <main className="c-main">
       <Suspense fallback={<Loading />}>
         <Switch>
-          {routes.map((route, idx) => {
+          {routes.map?.((route, idx) => {
             return (
               route.component && (
                 <Route

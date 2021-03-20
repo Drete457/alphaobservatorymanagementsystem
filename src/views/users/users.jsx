@@ -13,6 +13,9 @@ import Button from '../../components/button';
 import DataTable from '../../components/home/data-table';
 
 const Home = () => {
+  //delete the remain of cards positions on localStorage
+  localStorage.removeItem('cardsPosition');
+
   const [t] = useTranslation();
   const history = useHistory();
   const [loading, setLoading] = useState(false);

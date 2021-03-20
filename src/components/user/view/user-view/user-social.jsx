@@ -6,7 +6,6 @@ import { InputField } from '../../input';
 const UserSocial = ({ user, socialList }) => {
   const [t] = useTranslation();
   const [social, setSocial] = useState('');
-  const isDisabled = true;
 
   useLayoutEffect(() => {
     if (user.social) {
@@ -35,7 +34,7 @@ const UserSocial = ({ user, socialList }) => {
               type="text"
               value={social}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
           </div>
 
@@ -53,7 +52,7 @@ const UserSocial = ({ user, socialList }) => {
                   type="text"
                   value={social.name}
                   className="user-input-format"
-                  disabled={isDisabled}
+                  disabled
                 />
               </div>
             );

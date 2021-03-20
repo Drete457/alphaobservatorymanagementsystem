@@ -168,11 +168,8 @@ const UserEdit = ({
               type="date"
               value={user?.training}
               errorMsg={errorMsg?.training}
-              onChange={(event) => {
-                userHandler.userInputHandler(event, setUser, user);
-                setWasModified(true);
-              }}
               className="user-input-format"
+              disabled
             />
 
             <InputField
@@ -182,11 +179,8 @@ const UserEdit = ({
               type="date"
               value={user?.second}
               errorMsg={errorMsg?.second}
-              onChange={(event) => {
-                userHandler.userInputHandler(event, setUser, user);
-                setWasModified(true);
-              }}
               className="user-input-format"
+              disabled
             />
           </div>
 
@@ -217,11 +211,8 @@ const UserEdit = ({
               type="date"
               value={user?.introductionDate}
               errorMsg={errorMsg?.introductionDate}
-              onChange={(event) => {
-                userHandler.userInputHandler(event, setUser, user);
-                setWasModified(true);
-              }}
               className="user-input-format"
+              disabled
             />
           </div>
 

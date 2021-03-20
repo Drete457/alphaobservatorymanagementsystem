@@ -19,10 +19,24 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   let cardsPositions =
     JSON.parse(localStorage.getItem('cardsPosition')) ||
     user.cardsPosition ||
-    JSON.stringify(userHandler.layouts);
+    userHandler.layouts;
 
   useEffect(() => {
     user.cards = cardArray;
+
+    //write the dates in the correct properties of the user
+    const cardsIdToPutDate = userHandler.cardsIdToPutDate();
+    const cardsWithId = cardArray.filter((card) => card.id);
+
+    for (var value in cardsWithId) {
+      const id = cardsWithId[value].id;
+
+      if (id in cardsIdToPutDate) {
+        const propertie = cardsIdToPutDate[id];
+        user[propertie] = cardsWithId[value].date;
+      }
+    }
+
     setUser(user);
   }, [cardArray, user, setUser]);
 
@@ -38,9 +52,9 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
           <ResponsiveGridLayout
             className="layout"
             layouts={cardsPositions}
-            onLayoutChange={(layout, layouts) => {
-              userHandler.updateCardsPosition(layouts['xl'], cardsPositions);
-            }}
+            onLayoutChange={(layout, layouts) =>
+              userHandler.updateCardsPosition(layouts['xl'], cardsPositions)
+            }
             breakpoints={breakPoints}
             cols={{ xl: 3 }}
             isResizable={false}

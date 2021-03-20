@@ -23,6 +23,20 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
 
   useEffect(() => {
     user.cards = cardArray;
+
+    //write the dates in the correct properties of the user
+    const cardsIdToPutDate = userHandler.cardsIdToPutDate();
+    const cardsWithId = cardArray.filter((card) => card.id);
+
+    for (var value in cardsWithId) {
+      const id = cardsWithId[value].id;
+
+      if (id in cardsIdToPutDate) {
+        const propertie = cardsIdToPutDate[id];
+        user[propertie] = cardsWithId[value].date;
+      }
+    }
+
     setUser(user);
   }, [cardArray, user, setUser]);
 

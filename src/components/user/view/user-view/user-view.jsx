@@ -19,8 +19,6 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
     (options) => options.id === user.introductionOption,
   );
 
-  const isDisabled = true;
-
   return (
     <>
       <header>
@@ -36,7 +34,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={user?.name}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
 
             <InputField
@@ -45,7 +43,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={followedBy}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
           </div>
 
@@ -56,7 +54,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={userHandler.countryNameAndGmt(country)}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
 
             <InputField
@@ -65,7 +63,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={contactBy}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
           </div>
 
@@ -76,7 +74,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={gender?.name}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
 
             <InputField
@@ -85,7 +83,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={employment?.name}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
           </div>
 
@@ -96,7 +94,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={birthyear?.name}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
 
             <InputField
@@ -105,7 +103,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type={user?.community ? 'date' : 'text'}
               value={user?.community}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
           </div>
 
@@ -116,7 +114,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type={user?.community ? 'date' : 'text'}
               value={user?.training}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
 
             <InputField
@@ -125,7 +123,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type={user?.community ? 'date' : 'text'}
               value={user?.second}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
           </div>
 
@@ -136,7 +134,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={suitable?.name}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
 
             <InputField
@@ -145,7 +143,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type={user?.community ? 'date' : 'text'}
               value={user?.introductionDate}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
           </div>
 
@@ -156,7 +154,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type={user?.community ? 'date' : 'text'}
               value={user?.surveyDate}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
 
             <InputField
@@ -165,7 +163,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               type="text"
               value={user?.surveyLink}
               className="user-input-format"
-              disabled={isDisabled}
+              disabled
             />
           </div>
         </CForm>

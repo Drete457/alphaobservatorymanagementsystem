@@ -13,6 +13,10 @@ const UserCards = ({ user, userList }) => {
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
+  let cardsPositions = JSON.parse(
+    user?.cardsPosition || JSON.stringify(userHandler.layouts),
+  );
+
   return (
     <>
       <header>
@@ -23,13 +27,11 @@ const UserCards = ({ user, userList }) => {
         <CForm>
           <ResponsiveGridLayout
             className="layout"
-            layouts={userHandler.layouts}
-            onLayoutChange={(layout, layouts) => {}}
+            layouts={cardsPositions}
             breakpoints={breakPoints}
             cols={{ xl: 3 }}
             isResizable={false}
             measureBeforeMount={false}
-            draggableHandle={'.card-header'}
           >
             {user?.cards?.map?.((card, index) => {
               return (

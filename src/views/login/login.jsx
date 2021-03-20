@@ -47,6 +47,9 @@ const onSubmit = async (setUser, setCommunicationSystem, history, setError) => {
 };
 
 const Login = () => {
+  //delete the remain of cards positions on localStorage
+  localStorage.removeItem('cardsPosition');
+
   const history = useHistory();
   const [t] = useTranslation();
   const [error, setError] = useState({

@@ -8,6 +8,22 @@ import ButtonCards from '../../buttons/cards';
 import userHandler from '../../../../helpers/user';
 import Card from './card';
 
+const updateCardsPosition = (layout, cardPositions) => {
+  const newPosition = cardPositions['xl'].map((value, index) => {
+    if (typeof layout[index] === 'object') {
+      if (value.x === layout[index].x && value.y === layout[index].y) {
+        return value;
+      } else {
+        const card = { ...value, x: layout[index].x, y: layout[index].y };
+
+        return card;
+      }
+    }
+    return value;
+  });
+  localStorage.setItem('cardsPosition', JSON.stringify({ xl: newPosition }));
+};
+
 const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const [t] = useTranslation();
   const breakPoints = {
@@ -16,6 +32,9 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
   const [cardArray, setCardsArray] = useState(user.cards ?? []);
+  let cardsPositions = JSON.parse(
+    user?.cardsPosition || JSON.stringify(userHandler.layouts),
+  );
 
   useEffect(() => {
     user.cards = cardArray;
@@ -33,8 +52,10 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
         <CForm>
           <ResponsiveGridLayout
             className="layout"
-            layouts={userHandler.layouts}
-            onLayoutChange={(layout, layouts) => {}}
+            layouts={cardsPositions}
+            onLayoutChange={(layout, layouts) => {
+              updateCardsPosition(layouts['xl'], cardsPositions);
+            }}
             breakpoints={breakPoints}
             cols={{ xl: 3 }}
             isResizable={false}

@@ -3,26 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import { getStyle } from '@coreui/utils';
-import 'react-grid-layout/css/styles.css';
 import ButtonCards from '../../buttons/cards';
 import userHandler from '../../../../helpers/user';
 import Card from './card';
-
-const updateCardsPosition = (layout, cardPositions) => {
-  const newPosition = cardPositions['xl'].map((value, index) => {
-    if (typeof layout[index] === 'object') {
-      if (value.x === layout[index].x && value.y === layout[index].y) {
-        return value;
-      } else {
-        const card = { ...value, x: layout[index].x, y: layout[index].y };
-
-        return card;
-      }
-    }
-    return value;
-  });
-  localStorage.setItem('cardsPosition', JSON.stringify({ xl: newPosition }));
-};
+import 'react-grid-layout/css/styles.css';
 
 const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const [t] = useTranslation();
@@ -32,9 +16,10 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
   const [cardArray, setCardsArray] = useState(user.cards ?? []);
-  let cardsPositions = JSON.parse(
-    user?.cardsPosition || JSON.stringify(userHandler.layouts),
-  );
+  let cardsPositions =
+    JSON.parse(localStorage.getItem('cardsPosition')) ||
+    user.cardsPosition ||
+    JSON.stringify(userHandler.layouts);
 
   useEffect(() => {
     user.cards = cardArray;
@@ -54,7 +39,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
             className="layout"
             layouts={cardsPositions}
             onLayoutChange={(layout, layouts) => {
-              updateCardsPosition(layouts['xl'], cardsPositions);
+              userHandler.updateCardsPosition(layouts['xl'], cardsPositions);
             }}
             breakpoints={breakPoints}
             cols={{ xl: 3 }}

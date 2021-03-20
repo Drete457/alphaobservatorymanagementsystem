@@ -8,6 +8,7 @@ import {
 import validation from './validation';
 import layouts from './layouts';
 import countryNameAndGmt from './country-name-gmt';
+import updateCardsPosition from './save-cards-position';
 
 const userHandler = {
   userFormat,
@@ -18,6 +19,7 @@ const userHandler = {
   validation,
   layouts,
   countryNameAndGmt,
+  updateCardsPosition,
 };
 
 export default userHandler;

@@ -8,6 +8,9 @@ import Loading from '../../../loading';
 
 const submit = (user, setErrorMsg, t, execute) => {
   if (!userHandler.validation(user, setErrorMsg, t)) {
+    //put the position of the cards in the user before sending them to the back-end
+    user.cardsPosition = JSON.parse(localStorage.getItem('cardsPosition'));
+    localStorage.removeItem('cardsPosition');
     execute(user);
   }
 };

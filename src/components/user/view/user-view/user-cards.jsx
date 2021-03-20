@@ -3,7 +3,6 @@ import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import { getStyle } from '@coreui/utils';
 import 'react-grid-layout/css/styles.css';
-import userHandler from '../../../../helpers/user';
 import Card from './card';
 
 const UserCards = ({ user, userList }) => {
@@ -13,9 +12,7 @@ const UserCards = ({ user, userList }) => {
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
-  let cardsPositions = JSON.parse(
-    user?.cardsPosition || JSON.stringify(userHandler.layouts),
-  );
+  let cardsPositions = user.cardsPosition;
 
   return (
     <>

@@ -2,8 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import { getStyle } from '@coreui/utils';
-import 'react-grid-layout/css/styles.css';
+import userHandler from '../../../../helpers/user';
 import Card from './card';
+import 'react-grid-layout/css/styles.css';
 
 const UserCards = ({ user, userList }) => {
   const [t] = useTranslation();
@@ -12,7 +13,13 @@ const UserCards = ({ user, userList }) => {
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
-  let cardsPositions = user.cardsPosition;
+  let cardsPositions = user.cardsPosition
+    ? {
+        xl: user.cardsPosition['xl']?.map((value) => {
+          return { ...value, isDraggable: false, isResizable: false };
+        }),
+      }
+    : userHandler.layouts;
 
   return (
     <>

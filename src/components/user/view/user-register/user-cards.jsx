@@ -38,9 +38,9 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
           <ResponsiveGridLayout
             className="layout"
             layouts={cardsPositions}
-            onLayoutChange={(layout, layouts) => {
-              userHandler.updateCardsPosition(layouts['xl'], cardsPositions);
-            }}
+            onLayoutChange={(layout, layouts) =>
+              userHandler.updateCardsPosition(layouts['xl'], cardsPositions)
+            }
             breakpoints={breakPoints}
             cols={{ xl: 3 }}
             isResizable={false}

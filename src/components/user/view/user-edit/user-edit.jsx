@@ -10,6 +10,7 @@ const UserEdit = ({
   countriesList,
   genericList,
   userList,
+  setWasModified,
 }) => {
   const [t] = useTranslation();
   const countriesNames = countriesList.map?.((country) => {
@@ -32,9 +33,10 @@ const UserEdit = ({
               type="text"
               value={user?.name}
               errorMsg={errorMsg?.name}
-              onChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
-              }
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
               className="user-input-format"
             />
 
@@ -44,7 +46,10 @@ const UserEdit = ({
               placeholder={t('user.fields.followed.placeholder')}
               value={user?.followed}
               errorMsg={errorMsg?.followed}
-              onChange={() => {}}
+              onChange={(value) => {
+                userHandler.userSelectHandler('followed', value, setUser, user);
+                setWasModified(true);
+              }}
               options={userList}
               className="user-input-format"
             />
@@ -57,9 +62,10 @@ const UserEdit = ({
               placeholder={t('user.fields.country.placeholder')}
               value={user?.country}
               errorMsg={errorMsg?.country}
-              onChange={(value) =>
-                userHandler.userSelectHandler('country', value, setUser, user)
-              }
+              onChange={(value) => {
+                userHandler.userSelectHandler('country', value, setUser, user);
+                setWasModified(true);
+              }}
               options={countriesNames}
               className="user-input-format"
             />
@@ -70,7 +76,15 @@ const UserEdit = ({
               placeholder={t('user.fields.contacted.placeholder')}
               value={user?.contacted}
               errorMsg={errorMsg?.contacted}
-              onChange={() => {}}
+              onChange={(value) => {
+                userHandler.userSelectHandler(
+                  'contacted',
+                  value,
+                  setUser,
+                  user,
+                );
+                setWasModified(true);
+              }}
               options={userList}
               className="user-input-format"
             />
@@ -83,9 +97,10 @@ const UserEdit = ({
               placeholder={t('user.fields.gender.placeholder')}
               value={user?.gender}
               errorMsg={errorMsg?.gender}
-              onChange={(value) =>
-                userHandler.userSelectHandler('gender', value, setUser, user)
-              }
+              onChange={(value) => {
+                userHandler.userSelectHandler('gender', value, setUser, user);
+                setWasModified(true);
+              }}
               options={genericList?.gender}
               className="user-input-format"
             />
@@ -96,14 +111,15 @@ const UserEdit = ({
               placeholder={t('user.fields.employment.placeholder')}
               value={user?.employment}
               errorMsg={errorMsg?.employment}
-              onChange={(value) =>
+              onChange={(value) => {
                 userHandler.userSelectHandler(
                   'employment',
                   value,
                   setUser,
                   user,
-                )
-              }
+                );
+                setWasModified(true);
+              }}
               options={genericList?.ocupation}
               className="user-input-format"
             />
@@ -116,9 +132,15 @@ const UserEdit = ({
               placeholder={t('user.fields.birthyear.placeholder')}
               value={user?.birthyear}
               errorMsg={errorMsg?.birthyear}
-              onChange={(value) =>
-                userHandler.userSelectHandler('birthyear', value, setUser, user)
-              }
+              onChange={(value) => {
+                userHandler.userSelectHandler(
+                  'birthyear',
+                  value,
+                  setUser,
+                  user,
+                );
+                setWasModified(true);
+              }}
               options={genericList?.years}
               className="user-input-format"
             />
@@ -130,9 +152,10 @@ const UserEdit = ({
               type="date"
               value={user?.community}
               errorMsg={errorMsg?.community}
-              onChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
-              }
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
               className="user-input-format"
             />
           </div>
@@ -145,9 +168,10 @@ const UserEdit = ({
               type="date"
               value={user?.training}
               errorMsg={errorMsg?.training}
-              onChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
-              }
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
               className="user-input-format"
             />
 
@@ -158,9 +182,10 @@ const UserEdit = ({
               type="date"
               value={user?.second}
               errorMsg={errorMsg?.second}
-              onChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
-              }
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
               className="user-input-format"
             />
           </div>
@@ -172,14 +197,15 @@ const UserEdit = ({
               placeholder={t('user.fields.introduction.option.placeholder')}
               value={user?.introductionOption}
               errorMsg={errorMsg?.introductionOption}
-              onChange={(value) =>
+              onChange={(value) => {
+                setWasModified(true);
                 userHandler.userSelectHandler(
                   'introductionOption',
                   value,
                   setUser,
                   user,
-                )
-              }
+                );
+              }}
               options={genericList?.options}
               className="user-input-format"
             />
@@ -191,9 +217,10 @@ const UserEdit = ({
               type="date"
               value={user?.introductionDate}
               errorMsg={errorMsg?.introductionDate}
-              onChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
-              }
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
               className="user-input-format"
             />
           </div>
@@ -206,9 +233,10 @@ const UserEdit = ({
               type="date"
               value={user?.surveyDate}
               errorMsg={errorMsg?.surveyDate}
-              onChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
-              }
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
               className="user-input-format"
             />
 
@@ -219,9 +247,10 @@ const UserEdit = ({
               type="url"
               value={user?.surveyLink}
               errorMsg={errorMsg?.surveyLink}
-              onChange={(event) =>
-                userHandler.userInputHandler(event, setUser, user)
-              }
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
               className="user-input-format"
             />
           </div>

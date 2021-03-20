@@ -15,12 +15,15 @@ const DataTable = ({ users, isLoading }) => {
       items={users}
       fields={homeHandler.fields(t)}
       columnFilter
+      tableFilter
       hover
       striped
       sorter
       size="sm"
       responsive
-      itemsPerPage={100}
+      itemsPerPageSelect
+      itemsPerPage={25}
+      pagination={true}
       isLoading={isLoading}
       noItemsViewSlot={
         <div className="text-center my-5">

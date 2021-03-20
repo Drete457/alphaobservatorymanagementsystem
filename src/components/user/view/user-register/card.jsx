@@ -79,9 +79,9 @@ const Card = ({
           <SelectFieldComponent
             placeholder={t('user.fields.cards.placeholder')}
             value={selfCard?.id}
-            onChange={(event) =>
-              setSelfCard(newObjCard(event, cardsTypes, selfCard))
-            }
+            onChange={(event) => {
+              setSelfCard(newObjCard(event, cardsTypes, selfCard));
+            }}
             options={cardsTypes}
           />
         ) : (

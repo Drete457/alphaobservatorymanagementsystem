@@ -3,7 +3,13 @@ import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from '../../input';
 import userHandler from '../../../../helpers/user';
 
-const UserSocial = ({ socialList, user, setUser, errorMsg }) => {
+const UserSocial = ({
+  socialList,
+  user,
+  setUser,
+  errorMsg,
+  setWasModified,
+}) => {
   const [t] = useTranslation();
 
   return (
@@ -20,14 +26,15 @@ const UserSocial = ({ socialList, user, setUser, errorMsg }) => {
               name="social"
               placeholder={t('user.fields.social.placeholder')}
               value={user?.social}
-              onChange={(value) =>
+              onChange={(value) => {
                 userHandler.userSocialSelectHandler(
                   'social',
                   value,
                   setUser,
                   user,
-                )
-              }
+                );
+                setWasModified(true);
+              }}
               options={socialList}
               className="user-input-format"
               isMulti={true}

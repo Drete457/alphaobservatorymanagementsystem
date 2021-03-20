@@ -156,7 +156,8 @@
         },
         "users": {
             "title": "All Users",
-            "no-info": "No Users"
+            "no-info": "No Users",
+            "table-title": "Registers"
         },
         "myprofile": {
             "title": "Profile Page",
@@ -197,7 +198,8 @@
                 "user": "User",
                 "social": "Social",
                 "cards": "Cards"
-            }
+            },
+            "leaving-the-page": "You have unsaved information, do you want to leave the page?"
         }
     }
 }

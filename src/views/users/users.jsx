@@ -96,13 +96,16 @@ const Home = () => {
           </header>
 
           <main>
-            <nav className="home-nav">
+            <hr />
+            <nav className="home-nav h3">
+              {t('pages.users.table-title')}
               <Button
                 name={t('btn.create.user')}
                 onClick={() => history.push(`/user/new_user`)}
                 className="home-button"
               />
             </nav>
+            <hr />
 
             <DataTable users={users} isLoading={isLoading} />
           </main>

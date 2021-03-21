@@ -1,16 +1,16 @@
 import { useState, useLayoutEffect } from 'react';
-import { useGetUser } from '../../../hooks/users';
+import { useGetUser } from 'hooks/users';
 import {
   UserViewer,
   UserSocial,
   UserCards,
-} from '../../../components/user/view/user-view';
+} from 'components/user/view/user-view';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from '../../../state/atoms';
-import ErrorInfo from '../../../components/error';
-import Loading from '../../../components/loading';
-import Tabs from '../../../components/user/tabs';
-import View from '../../../components/user/buttons/view';
+import { countries, generic, listUsers } from 'state/atoms';
+import ErrorInfo from 'components/error';
+import Loading from 'components/loading';
+import Tabs from 'components/user/tabs';
+import View from 'components/user/buttons/view';
 
 const UserView = ({ match }) => {
   const [user, setUser] = useState({});

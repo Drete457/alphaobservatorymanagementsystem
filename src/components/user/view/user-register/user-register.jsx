@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
-import { SelectFieldComponent, InputField } from '../../input';
-import userHandler from '../../../../helpers/user';
+import { SelectFieldComponent, InputField } from 'components/user/input';
+import userHandler from 'helpers/user';
 
 const UserRegister = ({
   user,

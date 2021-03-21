@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
-import { api } from '../../state/atoms';
-import { generic as ref } from '../../components/user';
+import { api } from 'state/atoms';
+import { generic as ref } from 'components/user';
 
 export const postSocial = async (communication, Generic, setData) => {
   await communication

@@ -10,10 +10,10 @@ import {
 import HeaderAccountDropdown from '../header-drop-down';
 import CIcon from '@coreui/icons-react';
 
-import { sidebarShow, asideShow } from '../../../state/atoms';
+import { sidebarShow, asideShow } from 'state/atoms';
 
 // routes config
-import routes from '../../../routes';
+import routes from 'routes';
 
 const Header = () => {
   const [isSidebarShow, setIsSidebarShow] = useRecoilState(sidebarShow);

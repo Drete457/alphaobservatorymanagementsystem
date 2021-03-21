@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from '@agney/react-avatar';
 import { useRecoilValue } from 'recoil';
-import { user, api } from '../../../state/atoms';
+import { user, api } from 'state/atoms';
 import CIcon from '@coreui/icons-react';
 
 const HeaderAccountDropdown = () => {

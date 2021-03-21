@@ -1,10 +1,10 @@
 import { Suspense, memo } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { CFade } from '@coreui/react';
-import Loading from '../../loading';
+import Loading from 'components/loading';
 
 // routes config
-import routes from '../../../routes';
+import routes from 'routes';
 
 const Content = () => {
   return (

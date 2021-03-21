@@ -27,6 +27,12 @@ const Tabs = ({ active, setActive }) => {
               {active === 2 && ' ' + t('pages.user.tabs.cards')}
             </CNavLink>
           </CNavItem>
+          <CNavItem>
+            <CNavLink>
+              <CIcon name="cil-comment-square" />
+              {active === 3 && '  Profile Page'}
+            </CNavLink>
+          </CNavItem>
         </CNav>
       </CTabs>
     </>

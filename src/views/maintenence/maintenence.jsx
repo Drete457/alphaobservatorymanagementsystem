@@ -7,7 +7,7 @@ import {
   CContainer,
   CRow,
 } from '@coreui/react';
-import { maintenanceImg } from '../../assets/images';
+import { maintenanceImg } from 'assets/images';
 import { useTranslation } from 'react-i18next';
 
 const refreshPage = () => {

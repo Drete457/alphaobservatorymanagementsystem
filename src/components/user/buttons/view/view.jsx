@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Button from '../../../button';
+import Button from 'components/button';
 
 const View = ({ user }) => {
   const history = useHistory();

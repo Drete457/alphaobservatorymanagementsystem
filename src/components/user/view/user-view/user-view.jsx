@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
-import { InputField } from '../../input';
-import userHandler from '../../../../helpers/user';
+import { InputField } from 'components/user/input';
+import userHandler from 'helpers/user';
 
 const UserViewer = ({ user, countriesList, genericList, userList }) => {
   const [t] = useTranslation();

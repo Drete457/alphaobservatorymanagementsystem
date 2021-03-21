@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import { getStyle } from '@coreui/utils';
-import ButtonCards from '../../buttons/cards';
-import userHandler from '../../../../helpers/user';
+import ButtonCards from 'components/user/buttons/cards';
+import userHandler from 'helpers/user';
 import Card from './card';
 import 'react-grid-layout/css/styles.css';
 

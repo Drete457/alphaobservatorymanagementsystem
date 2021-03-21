@@ -2,7 +2,7 @@ import { memo, useLayoutEffect } from 'react';
 import { CSidebar, CSidebarClose } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilState } from 'recoil';
-import { asideShow } from '../../../state/atoms';
+import { asideShow } from 'state/atoms';
 
 const googleTranslateElementInit = () => {
   /* eslint-disable no-new */

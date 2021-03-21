@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { usePostUser } from '../../../../hooks/users';
-import Button from '../../../button';
-import userHandler from '../../../../helpers/user';
-import Loading from '../../../loading';
+import { usePostUser } from 'hooks/users';
+import Button from 'components/button';
+import userHandler from 'helpers/user';
+import Loading from 'components/loading';
 
 const submit = (user, setErrorMsg, t, execute, setWasModified) => {
   if (!userHandler.validation(user, setErrorMsg, t)) {

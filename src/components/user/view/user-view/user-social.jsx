@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm } from '@coreui/react';
-import { InputField } from '../../input';
+import { InputField } from 'components/user/input';
 
 const UserSocial = ({ user, socialList }) => {
   const [t] = useTranslation();

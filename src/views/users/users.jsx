@@ -1,16 +1,16 @@
 import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { useGetCountries } from '../../hooks/countries';
-import { useGetGeneric } from '../../hooks/generic';
-import { countries, generic, listUsers } from '../../state/atoms';
+import { useGetCountries } from 'hooks/countries';
+import { useGetGeneric } from 'hooks/generic';
+import { countries, generic, listUsers } from 'state/atoms';
 import { useSetRecoilState } from 'recoil';
-import { useGetUsers } from '../../hooks/users';
-import homeHandler from '../../components/home';
-import ErrorInfo from '../../components/error';
-import Loading from '../../components/loading';
-import Button from '../../components/button';
-import DataTable from '../../components/home/data-table';
+import { useGetUsers } from 'hooks/users';
+import homeHandler from 'components/home';
+import ErrorInfo from 'components/error';
+import Loading from 'components/loading';
+import Button from 'components/button';
+import DataTable from 'components/home/data-table';
 
 const Home = () => {
   //delete the remain of cards positions on localStorage

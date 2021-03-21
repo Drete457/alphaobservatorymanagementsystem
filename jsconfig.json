@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+            "api/*": ["api/*"],
+            "assets/*": ["assets/*"],
+            "components/*": ["components/*"],
+            "helpers/*": ["helpers/*"],
+            "hooks/*": ["hooks/*"],
+            "scss/*": ["scss/*"],
+            "state/*": ["state/*"],
+            "views/*": ["views/*"]
+        }  
+    },
+    "include": ["src"]
+}

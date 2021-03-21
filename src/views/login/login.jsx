@@ -11,9 +11,9 @@ import {
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSetRecoilState } from 'recoil';
-import { user, api } from '../../state/atoms';
-import { fb } from '../../api';
-import userConstrutor from '../../helpers/login';
+import { user, api } from 'state/atoms';
+import { fb } from 'api';
+import userConstrutor from 'helpers/login';
 
 const onSubmit = async (setUser, setCommunicationSystem, history, setError) => {
   const firebase = await fb();

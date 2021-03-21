@@ -1,6 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { CCard, CCardBody, CCol } from '@coreui/react';
-import { usePostError } from '../../hooks/errors';
+import { usePostError } from 'hooks/errors';
 
 const ErrorInfo = ({ error }) => {
   const { execute } = usePostError();

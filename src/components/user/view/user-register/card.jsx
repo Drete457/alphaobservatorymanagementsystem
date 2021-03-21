@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { CCardBody, CCardHeader, CButton } from '@coreui/react';
-import { SelectFieldComponent, TextAreaField, InputField } from '../../input';
+import {
+  SelectFieldComponent,
+  TextAreaField,
+  InputField,
+} from 'components/user/input';
 import CIcon from '@coreui/icons-react';
 
 const newObjCard = (event, cardsTypes, selfCard) => {

@@ -1,10 +1,10 @@
 import { CCol, CRow } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { user } from '../../state/atoms';
+import { user } from 'state/atoms';
 import { Avatar } from '@agney/react-avatar';
 
-import InputDetailView from '../../components/my-profile';
+import InputDetailView from 'components/my-profile';
 
 const MyProfile = () => {
   const [t] = useTranslation();

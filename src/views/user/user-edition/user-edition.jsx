@@ -1,19 +1,19 @@
 import { useState, useLayoutEffect } from 'react';
 import { Prompt } from 'react-router-dom';
-import { useGetUser } from '../../../hooks/users';
+import { useGetUser } from 'hooks/users';
 import {
   UserEdit,
   UserSocial,
   UserCards,
-} from '../../../components/user/view/user-edit';
+} from 'components/user/view/user-edit';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from '../../../state/atoms';
+import { countries, generic, listUsers } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
-import userHandler from '../../../helpers/user';
-import ErrorInfo from '../../../components/error';
-import Loading from '../../../components/loading';
-import Tabs from '../../../components/user/tabs';
-import Submit from '../../../components/user/buttons/submit';
+import userHandler from 'helpers/user';
+import ErrorInfo from 'components/error';
+import Loading from 'components/loading';
+import Tabs from 'components/user/tabs';
+import Submit from 'components/user/buttons/submit';
 
 const UserEdition = ({ match }) => {
   const [t] = useTranslation();

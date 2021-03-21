@@ -1,5 +1,5 @@
 import homeHandler from '.';
-import userHandler from '../../helpers/user';
+import userHandler from 'helpers/user';
 
 const buildUserList = (
   data,

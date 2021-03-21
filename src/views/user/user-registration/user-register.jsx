@@ -4,15 +4,16 @@ import {
   UserRegister,
   UserSocial,
   UserCards,
-} from '../../../components/user/view/user-register';
+  ProfilePage,
+} from 'components/user/view/user-register';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from '../../../state/atoms';
+import { countries, generic, listUsers } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
-import ErrorInfo from '../../../components/error';
-import userHandler from '../../../helpers/user';
-import uniqueId from '../../../helpers/id-generator';
-import Tabs from '../../../components/user/tabs';
-import Submit from '../../../components/user/buttons/submit';
+import ErrorInfo from 'components/error';
+import userHandler from 'helpers/user';
+import uniqueId from 'helpers/id-generator';
+import Tabs from 'components/user/tabs';
+import Submit from 'components/user/buttons/submit';
 
 const UserRegistration = () => {
   const [t] = useTranslation();
@@ -69,6 +70,7 @@ const UserRegistration = () => {
               userList={userList}
             />
           )}
+          {active === 3 && <ProfilePage />}
           <Submit
             user={user}
             setErrorMsg={setErrorMsg}

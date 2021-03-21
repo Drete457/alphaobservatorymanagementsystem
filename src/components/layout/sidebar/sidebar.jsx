@@ -11,7 +11,7 @@ import {
 } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 
-import { sidebarShow } from '../../../state/atoms';
+import { sidebarShow } from 'state/atoms';
 
 // sidebar nav config
 import useNavigation from './navigation';

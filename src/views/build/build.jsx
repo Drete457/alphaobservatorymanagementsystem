@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { construtionImg } from "../../assets/images"
+import { construtionImg } from 'assets/images';
 
 const Build = () => {
   const [t] = useTranslation();

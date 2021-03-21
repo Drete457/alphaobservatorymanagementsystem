@@ -22,17 +22,17 @@ yarn start
 ## Tecnologies
 
 - Vanilla Javascript
-- Reactjs 16.13.1
-- React Router 5.2.0
-- Nodejs 12.19.0
+- Reactjs
+- React Router
+- Nodejs
 - React Recoil
 - Bootscrap
 - CoreUi
 - eslint-react-hooks
 - React Select
 - React-Avatar
-- FireBase SDK
 - React-Grid-Layout
+- FireBase SDK
 - FireBase Tools
 
 ## License

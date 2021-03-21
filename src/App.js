@@ -2,12 +2,12 @@ import { lazy, useState, useLayoutEffect, Suspense } from 'react';
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { CFade } from '@coreui/react';
 import { useRecoilValue } from 'recoil';
-import { user } from './state/atoms';
+import { noInternetImg } from 'assets/images';
+import { user } from 'state/atoms';
+import Loading from 'components/loading';
+import NoInternet from 'views/offline';
 import './i18n';
 import './scss/style.scss';
-import Loading from './components/loading';
-import NoInternet from './views/offline';
-import { noInternetImg } from './assets/images';
 
 // components
 const Layout = lazy(() => import('./components/layout'));

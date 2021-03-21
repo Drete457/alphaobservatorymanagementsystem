@@ -2,7 +2,7 @@ import { CButton } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import CIcon from '@coreui/icons-react';
 
-const ButtonCards = ({ setCardsArray, cardArray }) => {
+const ButtonCards = ({ setCardsArray, cardArray, cardsLimit }) => {
   const [t] = useTranslation();
 
   return (
@@ -23,6 +23,7 @@ const ButtonCards = ({ setCardsArray, cardArray }) => {
             ...cardArray,
           ]);
         }}
+        disabled={cardArray.length < cardsLimit ? false : true}
       >
         <CIcon name="cil-note-add" />
         {' ' + t('btn.create-edit.cards.add')}

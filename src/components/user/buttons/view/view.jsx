@@ -12,7 +12,7 @@ const View = ({ user }) => {
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}
-          onClick={() => history.goBack()}
+          onClick={() => history.push('/users/')}
         />
 
         <Button

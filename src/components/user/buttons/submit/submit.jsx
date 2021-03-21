@@ -26,9 +26,9 @@ const Submit = ({ user, setErrorMsg, setError, setWasModified }) => {
 
   useEffect(() => {
     if (data) {
-      history.push('/users');
+      history.push(`/user/view/${user.id}`);
     }
-  }, [data, history]);
+  }, [data, history, user]);
 
   useEffect(() => {
     if (error) {
@@ -42,7 +42,7 @@ const Submit = ({ user, setErrorMsg, setError, setWasModified }) => {
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}
-          onClick={() => history.goBack()}
+          onClick={() => history.push('/users/')}
         />
 
         <Button

@@ -14,6 +14,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
     xl: parseInt(getStyle('--breakpoint-xl'), 10),
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
+  const cardsLimit = userHandler.layouts['xl'].length;
 
   const [cardArray, setCardsArray] = useState(user.cards ?? []);
   let cardsPositions =
@@ -47,7 +48,11 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
       </header>
 
       <main className="main-body">
-        <ButtonCards setCardsArray={setCardsArray} cardArray={cardArray} />
+        <ButtonCards
+          setCardsArray={setCardsArray}
+          cardArray={cardArray}
+          cardsLimit={cardsLimit}
+        />
         <CForm>
           <ResponsiveGridLayout
             className="layout"

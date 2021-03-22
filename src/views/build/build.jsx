@@ -10,7 +10,7 @@ const Build = () => {
         <h1 className="title">{t('pages.constrution')}</h1>
       </header>
       <main>
-        <img src={construtionImg} alt="Page under constrution" className="center" />
+        <img src={construtionImg} alt={t('pages.constrution')} className="center" />
       </main>
     </>
   );

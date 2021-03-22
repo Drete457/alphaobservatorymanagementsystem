@@ -151,6 +151,7 @@
     },
     "pages": {
         "constrution": "Still under construction",
+        "nointernet": "No Internet Connection",
         "maintenance": {
             "title": "The Site Is Undergoing Maintenance"
         },

@@ -31,7 +31,7 @@ const Maintenence = () => {
                     </h1>
                     <img
                       src={maintenanceImg}
-                      alt="Page under constrution"
+                      alt={t('pages.maintenance.title')}
                       className="center"
                     />
                     <CButton

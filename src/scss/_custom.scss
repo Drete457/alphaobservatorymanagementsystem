@@ -89,7 +89,7 @@ select-style {
 }
 
 //card page
-.cards-button {
+.cards-button, .profile-button {
     display: flex;
     justify-content: flex-end;
     margin: 1rem;
@@ -119,4 +119,5 @@ select-style {
      width: auto;
      height: 1rem;
 }
+
 

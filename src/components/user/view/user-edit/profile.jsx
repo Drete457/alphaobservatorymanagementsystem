@@ -20,7 +20,7 @@ const ProfilePage = () => {
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.user.registration.profile.title')}</h1>
+        <h1 className="title">{t('pages.user.edit.profile.title')}</h1>
       </header>
 
       <main className="main-body">

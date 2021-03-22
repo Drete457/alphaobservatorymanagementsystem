@@ -5,6 +5,7 @@ import {
   UserEdit,
   UserSocial,
   UserCards,
+  ProfilePage,
 } from 'components/user/view/user-edit';
 import { useRecoilValue } from 'recoil';
 import { countries, generic, listUsers } from 'state/atoms';
@@ -86,6 +87,7 @@ const UserEdition = ({ match }) => {
               userList={userList}
             />
           )}
+          {active === 3 && <ProfilePage />}
           <Submit
             user={user}
             setErrorMsg={setErrorMsg}

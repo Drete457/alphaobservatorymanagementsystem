@@ -4,6 +4,7 @@ import {
   UserViewer,
   UserSocial,
   UserCards,
+  ProfilePage,
 } from 'components/user/view/user-view';
 import { useRecoilValue } from 'recoil';
 import { countries, generic, listUsers } from 'state/atoms';
@@ -59,6 +60,7 @@ const UserView = ({ match }) => {
             <UserSocial user={user} socialList={genericList?.socialmedia} />
           )}
           {active === 2 && <UserCards user={user} userList={userList} />}
+          {active === 3 && <ProfilePage />}
           <View user={user} />
         </>
       )}

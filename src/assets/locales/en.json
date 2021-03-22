@@ -42,6 +42,10 @@
                 "add": "Add A New Card",
                 "edit": "Edit The Card",
                 "save": "Save The Card"
+            },
+            "profile": {
+                "insert": "Upload The Profile",
+                "delete": "Delete The Profile"
             }
         }
     },
@@ -175,6 +179,9 @@
                 },
                 "cards": {
                     "title": "User Registration Cards"
+                },
+                "profile": {
+                    "title": "User Registration Profile"
                 }
             },
             "view": {
@@ -184,6 +191,9 @@
                 },
                 "cards": {
                     "title": "User View Cards"
+                },
+                "profile": {
+                    "title": "User View Profile"
                 }
             },
             "edit":{
@@ -193,12 +203,16 @@
                 },
                 "cards": {
                     "title": "User Edit Cards"
+                },
+                "profile": {
+                    "title": "User Edit Profile"
                 }
             },
             "tabs": {
                 "user": "User",
                 "social": "Social",
-                "cards": "Cards"
+                "cards": "Cards",
+                "profile": "Profile"
             },
             "leaving-the-page": "You have unsaved information, do you want to leave the page?"
         }

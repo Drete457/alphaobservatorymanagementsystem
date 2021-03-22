@@ -60,7 +60,7 @@ const UserView = ({ match }) => {
             <UserSocial user={user} socialList={genericList?.socialmedia} />
           )}
           {active === 2 && <UserCards user={user} userList={userList} />}
-          {active === 3 && <ProfilePage />}
+          {active === 3 && <ProfilePage user={user} />}
           <View user={user} />
         </>
       )}

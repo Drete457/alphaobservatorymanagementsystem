@@ -70,7 +70,7 @@ const UserRegistration = () => {
               userList={userList}
             />
           )}
-          {active === 3 && <ProfilePage />}
+          {active === 3 && <ProfilePage user={user} setUser={setUser} />}
           <Submit
             user={user}
             setErrorMsg={setErrorMsg}

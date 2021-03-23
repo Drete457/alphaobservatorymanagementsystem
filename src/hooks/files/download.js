@@ -30,8 +30,7 @@ export const download = async (
       xhr.onload = (e) => {
         let fileBlob = xhr.response;
         const fileUrl = URL.createObjectURL(fileBlob);
-        setPdfFile(fileUrl);
-        setData(true);
+        setData(fileUrl);
       };
       xhr.send();
     })
@@ -44,10 +43,10 @@ const useDownload = () => {
   const [data, setData] = useState(false);
   const communication = useRecoilValue(api);
 
-  const execute = async (ref, setPdfFile) => {
+  const execute = async (ref) => {
     try {
       setData(false);
-      download(communication, ref, setProgress, setError, setData, setPdfFile);
+      download(communication, ref, setProgress, setError, setData);
     } catch (e) {
       setError(e);
     }

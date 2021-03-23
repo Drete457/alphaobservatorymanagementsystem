@@ -4,16 +4,14 @@ import { api } from 'state/atoms';
 import id from 'helpers/id-generator';
 import { error as ref } from 'components/user';
 
-export const postSocial = async (communication, error) => {
+export const postError = async (communication, error) => {
   const errorId = id();
   const errorBody = {
     code: error?.code,
     message: error?.message,
-    user: error?.email,
-    credentional: error?.credential,
     time: new Date(),
   };
-
+  console.log(errorBody);
   await communication
     .database()
     .ref(ref + errorId)
@@ -21,12 +19,12 @@ export const postSocial = async (communication, error) => {
     .catch((error) => console.log(error));
 };
 
-const usePostSocial = () => {
+const usePostError = () => {
   const communication = useRecoilValue(api);
 
   const execute = async (error) => {
     try {
-      postSocial(communication, error);
+      postError(communication, error);
     } catch (e) {}
   };
 
@@ -35,4 +33,4 @@ const usePostSocial = () => {
   };
 };
 
-export default usePostSocial;
+export default usePostError;

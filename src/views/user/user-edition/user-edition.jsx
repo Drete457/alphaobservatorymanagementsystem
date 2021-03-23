@@ -87,7 +87,9 @@ const UserEdition = ({ match }) => {
               userList={userList}
             />
           )}
-          {active === 3 && <ProfilePage user={user} setUser={setUser} />}
+          {active === 3 && (
+            <ProfilePage user={user} setUser={setUser} setError={setError} />
+          )}
           <Submit
             user={user}
             setErrorMsg={setErrorMsg}

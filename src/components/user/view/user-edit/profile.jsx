@@ -1,21 +1,47 @@
-import { useState, useRef } from 'react';
-import { CForm } from '@coreui/react';
+import { useState, useRef, useLayoutEffect, useEffect } from 'react';
+import { CForm, CProgress } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
+import { download, deleteF } from 'hooks/files';
 import Button from 'components/button';
 
-const ProfilePage = () => {
+const ProfilePage = ({ user, setUser, setError }) => {
   const [t] = useTranslation();
   const [pdfFile, setPdfFile] = useState(null);
+  const { progress, error, data, execute } = download();
+  const { execute: executeDelete } = deleteF();
 
   const inputFile = useRef(null);
 
   const onButtonClick = () => {
     if (pdfFile) {
+      const ref = 'profile/' + user.id + '.pdf';
+      executeDelete(ref);
       setPdfFile(null);
+      user.profile = false;
+      setUser(user);
     } else {
       inputFile.current.click();
     }
   };
+
+  useLayoutEffect(() => {
+    if (user && user.profile) {
+      const ref = 'profile/' + user.id + '.pdf';
+      execute(ref);
+    }
+  }, [execute, user]);
+
+  useEffect(() => {
+    if (data) {
+      setPdfFile(data);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (error) {
+      setError(error);
+    }
+  }, [error, setError]);
 
   return (
     <>
@@ -32,8 +58,11 @@ const ProfilePage = () => {
           className="sr-only"
           onChange={(event) => {
             if (event.target.files[0]) {
-              const file = URL.createObjectURL(event.target.files[0]);
-              setPdfFile(file);
+              const file = event.target.files[0];
+              const fileUrl = URL.createObjectURL(file);
+              user.profile = file;
+              setUser(user);
+              setPdfFile(fileUrl);
             }
           }}
         />
@@ -49,10 +78,13 @@ const ProfilePage = () => {
           />
         </div>
         <CForm>
-          <embed
-            src={pdfFile}
-            style={{ width: '100%', minHeight: '30rem', border: 'none' }}
-          />
+          {!data && <CProgress animated value={progress} className="mb-3" />}
+          {pdfFile && (
+            <embed
+              src={pdfFile}
+              style={{ width: '100%', minHeight: '30rem', border: 'none' }}
+            />
+          )}
         </CForm>
       </main>
     </>

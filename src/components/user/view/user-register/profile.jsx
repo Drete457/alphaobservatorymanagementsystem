@@ -21,7 +21,7 @@ const ProfilePage = ({ user, setUser }) => {
       inputFile.current.click();
     }
   };
-  console.log(user);
+
   useEffect(() => {
     if (data) {
       user.profile = true;

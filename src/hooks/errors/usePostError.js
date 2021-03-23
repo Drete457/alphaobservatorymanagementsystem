@@ -17,7 +17,8 @@ export const postSocial = async (communication, error) => {
   await communication
     .database()
     .ref(ref + errorId)
-    .update(errorBody);
+    .update(errorBody)
+    .catch((error) => console.log(error));
 };
 
 const usePostSocial = () => {

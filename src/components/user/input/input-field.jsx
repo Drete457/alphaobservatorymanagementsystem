@@ -20,7 +20,7 @@ const InputField = ({
         <CInput
           defaultValue={value}
           className="input-style"
-          disabled={disabled}
+          readOnly={disabled}
         />
       ) : (
         <CInput

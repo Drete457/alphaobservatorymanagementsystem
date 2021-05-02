@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { CProgress } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { usePostUser } from 'hooks/users';
-import { upload } from 'hooks/files';
+import { upload, deleteF } from 'hooks/files';
 import Button from 'components/button';
 import userHandler from 'helpers/user';
 import Loading from 'components/loading';
@@ -15,6 +15,7 @@ const submit = (
   execute,
   setWasModified,
   executeUpload,
+  executeDelete,
 ) => {
   if (!userHandler.validation(user, setErrorMsg, t)) {
     setWasModified(false);
@@ -29,6 +30,9 @@ const submit = (
       const file = user.profile;
       executeUpload(ref, file);
       user.profile = true;
+    } else {
+      const ref = 'profile/' + user.id + '.pdf';
+      executeDelete(ref);
     }
 
     //send the user information for the backend
@@ -46,6 +50,7 @@ const Submit = ({ user, setErrorMsg, setError, setWasModified }) => {
     data: dataUpload,
     execute: executeUpload,
   } = upload();
+  const { execute: executeDelete } = deleteF();
 
   useEffect(() => {
     if (data) {
@@ -72,7 +77,15 @@ const Submit = ({ user, setErrorMsg, setError, setWasModified }) => {
           name={t('btn.create-edit.submit')}
           isDanger={false}
           onClick={() =>
-            submit(user, setErrorMsg, t, execute, setWasModified, executeUpload)
+            submit(
+              user,
+              setErrorMsg,
+              t,
+              execute,
+              setWasModified,
+              executeUpload,
+              executeDelete,
+            )
           }
         />
       </div>

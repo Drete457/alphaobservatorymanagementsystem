@@ -1,21 +1,18 @@
 import { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { CForm, CProgress } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
-import { download, deleteF } from 'hooks/files';
+import { download } from 'hooks/files';
 import Button from 'components/button';
 
 const ProfilePage = ({ user, setUser, setError }) => {
   const [t] = useTranslation();
   const [pdfFile, setPdfFile] = useState(null);
   const { progress, error, data, execute } = download();
-  const { execute: executeDelete } = deleteF();
 
   const inputFile = useRef(null);
 
   const onButtonClick = () => {
     if (pdfFile) {
-      const ref = 'profile/' + user.id + '.pdf';
-      executeDelete(ref);
       setPdfFile(null);
       user.profile = false;
       setUser(user);

@@ -10,7 +10,7 @@ const TextAreaField = ({ placeholder, value, onChange, disabled }) => {
         value={value}
         onChange={onChange}
         className="input-style"
-        disabled={disabled}
+        readOnly={disabled}
       />
     </div>
   );

@@ -11,6 +11,12 @@ const useNavigation = (t) => {
           to: '/users',
           icon: 'cil-group',
         },
+        {
+          _tag: 'CSidebarNavItem',
+          name: t('sidebar.home.children.activities'),
+          to: '/activities_table',
+          icon: 'cil-chart-pie',
+        },
       ],
     },
     {

@@ -6,7 +6,8 @@
         "home":{
             "title": "Home",
             "children":{
-                "users": "User"
+                "users": "User",
+                "activities": "Activities"
             }
         },
         "administration":{
@@ -32,7 +33,8 @@
         },
         "view": "View",
         "create": {
-            "user": "Create New User"
+            "user": "Create New User",
+            "activities": "Create New Activities"
         },
         "create-edit":{
             "submit": "Submit",
@@ -215,6 +217,10 @@
                 "profile": "Profile"
             },
             "leaving-the-page": "You have unsaved information, do you want to leave the page?"
+        },
+        "activities" : {
+            "title" : "Activities",
+            "no-info" : "No Activities"
         }
     }
 }

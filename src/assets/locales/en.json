@@ -147,6 +147,19 @@
             }
         }
     },
+    "activities": {
+        "fields": {
+            "name": {
+                "title": "Name Of Activitie"
+            },
+            "participants": {
+                "title": "Number Of Participants"
+            },
+            "date": {
+                "title": "Day Of The Activitie"
+            }
+        }
+    },
     "login": {
         "title": "Login",
         "signin": "Sign In with your Google Account"

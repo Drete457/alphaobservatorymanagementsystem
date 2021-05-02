@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-
+import DataTable from 'components/activities/table/data-table';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Button from 'components/button';
@@ -33,6 +33,7 @@ const ActivitiesTable = () => {
               />
             </nav>
             <hr />
+            <DataTable />
           </main>
         </>
       )}

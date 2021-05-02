@@ -2,7 +2,7 @@ import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import homeHandler from './';
-import Button from '../button';
+import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
 
 const DataTable = ({ users, isLoading }) => {

@@ -5,6 +5,7 @@ const userConstrutor = (googleUser) => {
     photo: googleUser.photoURL,
     last: googleUser.metadata.lastSignInTime,
     create: googleUser.metadata.creationTime,
+    uid: googleUser.uid,
   };
 };
 

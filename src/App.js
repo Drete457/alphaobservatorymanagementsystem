@@ -32,9 +32,9 @@ const App = () => {
       let xhr = new XMLHttpRequest();
       xhr.open('GET', noInternetImg, true);
       xhr.responseType = 'blob';
-      xhr.onload = (e) => {
+      xhr.onload = function (e) {
         let reader = new FileReader();
-        reader.onload = (event) => {
+        reader.onload = function (event) {
           let res = event.target.result;
 
           localStorage.setItem('offline', res);

@@ -7,6 +7,7 @@ async function getFirebaseClient() {
     import('firebase/database'),
     import('firebase/analytics'),
     import('firebase/storage'),
+    import('firebase/firestore'),
   ]);
 
   const config = {

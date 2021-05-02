@@ -12,7 +12,7 @@ export const asideShow = atom({
 
 export const user = atom({
   key: 'user',
-  default: {},
+  default: null,
 });
 
 export const api = atom({

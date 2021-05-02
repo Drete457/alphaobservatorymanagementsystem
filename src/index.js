@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Maintenance from 'views/maintenence';
 import * as serviceWorker from './serviceWorker';
-import 'react-app-polyfill/ie11'; // For IE 11 support
-import 'react-app-polyfill/stable';
-import './polyfill';
 
 import { icons } from './assets/icons';
 import { RecoilRoot } from 'recoil';

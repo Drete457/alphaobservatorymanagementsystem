@@ -4,7 +4,7 @@ Responsive website for the Alpha Observatory project
 
 ## Description
 
-Management system
+Management system for the project [AlphaObservatory](https://www.alphaobservatory.org/en/ "AlphaObservatory")
 
 ## Description
 Visit the website: https://managementsystemalpha.vercel.app/

@@ -11,7 +11,7 @@ import 'react-grid-layout/css/styles.css';
 const generateLink = (set, id) => {
   const protocol = window.location.protocol;
   const host = window.location.host;
-  const url = `${protocol}//${host}/cards/${id}`;
+  const url = `${protocol}//${host}/#/cards/${id}`;
 
   set(url);
 };

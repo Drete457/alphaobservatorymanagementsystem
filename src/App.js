@@ -59,21 +59,18 @@ const App = () => {
       <HashRouter>
         <Suspense fallback={<Loading />}>
           <Switch>
-            <Route exact path="/login" name="Login" component={Login} />
             <Route
               path="/"
               name="Home"
-              render={({ location }) => {
-                const redirectLocation = {
-                  pathname: '/login',
-                  state: { from: location },
-                };
+              render={() => {
                 return isAuthenticated ? (
                   <CFade>
                     <Layout />
                   </CFade>
                 ) : (
-                  <Redirect push to={redirectLocation} />
+                  <CFade>
+                    <Login />
+                  </CFade>
                 );
               }}
             />

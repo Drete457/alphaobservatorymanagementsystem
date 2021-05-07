@@ -1,17 +1,16 @@
 import { useState, useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import { api } from 'state/atoms';
+import { fb } from 'api';
 
 export const download = async (
-  communication,
   ref,
   setProgress,
   setError,
   setData,
   setPdfFile,
 ) => {
+  const firebase = await fb();
   //create store ref
-  const storageRef = communication.storage().ref(ref);
+  const storageRef = firebase.storage().ref(ref);
 
   //download file
   storageRef
@@ -41,12 +40,11 @@ const useDownload = () => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [data, setData] = useState(false);
-  const communication = useRecoilValue(api);
 
   const execute = async (ref) => {
     try {
       setData(false);
-      download(communication, ref, setProgress, setError, setData);
+      download(ref, setProgress, setError, setData);
     } catch (e) {
       setError(e);
     }
@@ -56,7 +54,7 @@ const useDownload = () => {
     progress,
     error,
     data,
-    execute: useCallback(execute, [communication]),
+    execute: useCallback(execute, []),
   };
 };
 

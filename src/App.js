@@ -1,5 +1,5 @@
 import { lazy, useState, useLayoutEffect, Suspense } from 'react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { CFade } from '@coreui/react';
 import { useRecoilValue } from 'recoil';
 import { noInternetImg } from 'assets/images';

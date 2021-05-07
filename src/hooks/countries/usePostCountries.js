@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import { api } from 'state/atoms';
+import { fb } from 'api';
 import { countries as ref } from 'components/user';
 
-export const postCountries = async (communication, countries, setData) => {
-  await communication
+export const postCountries = async (countries, setData) => {
+  const firebase = await fb();
+  await firebase
     .database()
     .ref(ref)
     .update(countries)
@@ -15,12 +15,11 @@ const usePostCountries = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const communication = useRecoilValue(api);
 
   const execute = async (countries) => {
     try {
       setIsLoading(true);
-      postCountries(communication, countries, setData);
+      postCountries(countries, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);
@@ -32,7 +31,7 @@ const usePostCountries = () => {
     isLoading,
     error,
     data,
-    execute: useCallback(execute, [communication]),
+    execute: useCallback(execute, []),
   };
 };
 

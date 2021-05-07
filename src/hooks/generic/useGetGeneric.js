@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import { api } from '../../state/atoms';
-import { generic as ref } from '../../components/user';
+import { fb } from 'api';
+import { generic as ref } from 'components/user';
 
-export const getSocial = async (communication, set) => {
-  const response = await communication.database().ref(ref).get('value');
+export const getSocial = async (set) => {
+  const firebase = await fb();
+  const response = await firebase.database().ref(ref).get('value');
 
   set(response.val());
 };
@@ -13,12 +13,11 @@ const useGetGeneric = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const communication = useRecoilValue(api);
 
   const execute = async () => {
     try {
       setIsLoading(true);
-      getSocial(communication, setData);
+      getSocial(setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);
@@ -30,7 +29,7 @@ const useGetGeneric = () => {
     isLoading,
     error,
     data,
-    execute: useCallback(execute, [communication]),
+    execute: useCallback(execute, []),
   };
 };
 

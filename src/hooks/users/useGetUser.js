@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import { api } from 'state/atoms';
+import { fb } from 'api';
 import { ref } from 'components/user';
 
-export const getUser = async (communication, id, set) => {
-  const response = await communication
+export const getUser = async (id, set) => {
+  const firebase = await fb();
+  const response = await firebase
     .database()
     .ref(ref + id)
     .get('value');
@@ -16,12 +16,11 @@ const useGetUser = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const communication = useRecoilValue(api);
 
   const execute = async (id) => {
     try {
       setIsLoading(true);
-      getUser(communication, id, setData);
+      getUser(id, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);
@@ -33,7 +32,7 @@ const useGetUser = () => {
     isLoading,
     error,
     data,
-    execute: useCallback(execute, [communication]),
+    execute: useCallback(execute, []),
   };
 };
 

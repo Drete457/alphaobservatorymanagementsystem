@@ -1,24 +1,24 @@
 import { useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import { api } from 'state/atoms';
+import { fb } from 'api';
 
-export const deleteF = async (communication, ref) => {
+export const deleteF = async (ref) => {
+  const firebase = await fb();
   //create store ref
-  const storageRef = communication.storage().ref(ref);
+  const storageRef = firebase.storage().ref(ref);
 
   //delete the file
   storageRef.delete();
 };
 
 const useDelete = () => {
-  const communication = useRecoilValue(api);
-
   const execute = async (ref) => {
-    deleteF(communication, ref);
+    try {
+      deleteF(ref);
+    } catch (e) {}
   };
 
   return {
-    execute: useCallback(execute, [communication]),
+    execute: useCallback(execute, []),
   };
 };
 

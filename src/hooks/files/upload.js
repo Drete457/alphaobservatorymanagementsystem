@@ -1,17 +1,10 @@
 import { useState, useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import { api } from 'state/atoms';
+import { fb } from 'api';
 
-export const upload = async (
-  communication,
-  ref,
-  file,
-  setProgress,
-  setError,
-  setData,
-) => {
+export const upload = async (ref, file, setProgress, setError, setData) => {
+  const firebase = await fb();
   //create store ref
-  const storageRef = communication.storage().ref(ref);
+  const storageRef = firebase.storage().ref(ref);
 
   //upload the file
   const task = storageRef.put(file);
@@ -39,12 +32,11 @@ const useUpload = () => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [data, setData] = useState(false);
-  const communication = useRecoilValue(api);
 
   const execute = async (ref, file) => {
     try {
       setData(false);
-      upload(communication, ref, file, setProgress, setError, setData);
+      upload(ref, file, setProgress, setError, setData);
     } catch (e) {
       setError(e);
     }
@@ -54,7 +46,7 @@ const useUpload = () => {
     progress,
     error,
     data,
-    execute: useCallback(execute, [communication]),
+    execute: useCallback(execute, []),
   };
 };
 

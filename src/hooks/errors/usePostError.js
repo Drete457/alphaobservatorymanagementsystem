@@ -1,18 +1,17 @@
 import { useCallback } from 'react';
-import { useRecoilValue } from 'recoil';
-import { api } from 'state/atoms';
+import { fb } from 'api';
 import id from 'helpers/id-generator';
 import { error as ref } from 'components/user';
 
-export const postError = async (communication, error) => {
+export const postError = async (error) => {
   const errorId = id();
   const errorBody = {
     code: error?.code,
     message: error?.message,
     time: new Date(),
   };
-  console.log(errorBody);
-  await communication
+  const firebase = await fb();
+  await firebase
     .database()
     .ref(ref + errorId)
     .update(errorBody)
@@ -20,16 +19,14 @@ export const postError = async (communication, error) => {
 };
 
 const usePostError = () => {
-  const communication = useRecoilValue(api);
-
   const execute = async (error) => {
     try {
-      postError(communication, error);
+      postError(error);
     } catch (e) {}
   };
 
   return {
-    execute: useCallback(execute, [communication]),
+    execute: useCallback(execute, []),
   };
 };
 

@@ -69,7 +69,7 @@ select-style {
 }
 
 .user-input, .activity-input {
-    
+    margin: auto;
 }
 
 .user-input-error {
@@ -118,6 +118,23 @@ select-style {
     display: inline-block;
     width: auto;
     height: 1rem;
+}
+
+//TODO delete after the card link is no longer needed
+.card-generate-button {
+    display: flex;
+    margin-right: 1rem;
+    justify-content: flex-end;
+}
+
+.card-input-generate {
+    display: flex;
+    margin-right: 1rem;
+    justify-content: flex-end;
+}
+
+.card-input-generate-link {
+    width: 40%;
 }
 
 .activity-input-format-users {

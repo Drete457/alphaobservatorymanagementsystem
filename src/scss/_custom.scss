@@ -68,15 +68,15 @@ select-style {
     margin: 1rem;
 }
 
-.user-input {
-    display: flex;
+.user-input, .activity-input {
+    
 }
 
 .user-input-error {
     color: $errorMessageColor;
 }
 
-.user-input-format {
+.user-input-format, .activity-input-format {
     display: inline-block;
     width: 45%;
     margin: 1rem;
@@ -115,9 +115,13 @@ select-style {
 }
 
 .card-header-banner-color {
-     display: inline-block;
-     width: auto;
-     height: 1rem;
+    display: inline-block;
+    width: auto;
+    height: 1rem;
 }
 
-
+.activity-input-format-users {
+    display: inline-block;
+    width: 92%;
+    margin: 1rem;
+}

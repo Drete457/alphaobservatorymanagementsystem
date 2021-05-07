@@ -1,18 +1,41 @@
+import { useState, useEffect } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import activitiesHandler from './';
+import activitiesHandler from 'helpers/activities';
+import activitiesTypes from 'assets/mocks/activities.js';
 import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
 
 const DataTable = ({ activities, isLoading }) => {
   const [t] = useTranslation();
   const history = useHistory();
+  const [list, setList] = useState([]);
+
+  //TODO: apagar assim que terminar o backend
+  useEffect(() => {
+    if (activities) {
+      const filterList = activities.map((activity) => {
+        const activityFilter = activitiesTypes.find(
+          (value) => value.id === activity.type,
+        );
+
+        return {
+          name: activityFilter.name + ' ' + activity.date,
+          type: activityFilter.name,
+          participants: activity.list.length,
+          date: activity.date,
+        };
+      });
+
+      setList(filterList);
+    }
+  }, [activities]);
 
   return (
     <CDataTable
       addTableClasses="home-table"
-      items={activities}
+      items={list}
       fields={activitiesHandler.fields(t)}
       columnFilter
       tableFilter

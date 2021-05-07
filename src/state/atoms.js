@@ -34,3 +34,9 @@ export const listUsers = atom({
   key: 'listUser',
   default: [],
 });
+
+//TODO: retirar assim que tiver o backend a funcionar
+export const globalActivityList = atom({
+  key: 'globalActivityList',
+  default: [],
+});

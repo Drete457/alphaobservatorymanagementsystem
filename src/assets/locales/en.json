@@ -150,13 +150,24 @@
     "activities": {
         "fields": {
             "name": {
-                "title": "Name Of Activitie"
+                "title": "Name Of Activity"
+            },
+            "type": {
+                "title": "Type Of Activitie",
+                "placeholder": "Choose The Type Of Activity"
             },
             "participants": {
                 "title": "Number Of Participants"
             },
             "date": {
-                "title": "Day Of The Activitie"
+                "title": "Day Of The Activity"
+            },
+            "list": {
+                "title": "Activity Participants",
+                "placeholder": "Choose Who Participated In The Activity"
+            },
+            "listInfo": {
+                "placeholder": "Enter The Number"
             }
         }
     },
@@ -233,7 +244,11 @@
         },
         "activities" : {
             "title" : "Activities",
-            "no-info" : "No Activities"
+            "no-info" : "No Activities",
+            "table-title": "Activities Registration",
+            "registration": {
+                "title": "New Activity"
+            }
         }
     }
 }

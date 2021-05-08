@@ -32,7 +32,8 @@ const NewActivitie = () => {
     listInfo: [],
   });
   const [haveExtra, setHaveExtra] = useState(false);
-  const [error, setError] = useState(null);
+  //const [error, setError] = useState(null);
+  const error = null;
   const isLoading = false;
 
   useLayoutEffect(() => {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -11,8 +11,10 @@ import Button from 'components/button';
 const ActivitiesTable = () => {
   const [t] = useTranslation();
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  //const [error, setError] = useState(null);
+  const loading = false;
+  const error = null;
 
   //TODO: retirar isto assim que o backend tiver a funcionar
   const activitiesList = useRecoilValue(activityList);

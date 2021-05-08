@@ -32,10 +32,10 @@ const Maintenence = () => {
                     <img
                       src={maintenanceImg}
                       alt={t('pages.maintenance.title')}
-                      className="center"
+                      className="center-maintenance"
                     />
                     <CButton
-                      className="center"
+                      className="center-maintenance"
                       color="primary"
                       onClick={() => refreshPage()}
                     >

@@ -28,6 +28,7 @@
     },
     "btn": {
         "maintenance": "Refresh Page",
+        "notfound": "Return Home",
         "login": {
             "google_button": "Google Account"
         },
@@ -191,6 +192,10 @@
         "nointernet": "No Internet Connection",
         "maintenance": {
             "title": "The Site Is Undergoing Maintenance"
+        },
+        "notfound": {
+            "lost": "Look like you're lost",
+            "page": "The Page you are looking is not avaible right now!"
         },
         "home": {
             "title": "Alpha Observatory Calendar",

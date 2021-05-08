@@ -8,7 +8,7 @@ const UserRegistraion = lazy(() => import('views/user/user-registration'));
 const UserEdition = lazy(() => import('views/user/user-edition'));
 const UserView = lazy(() => import('views/user/user-view'));
 const ActivitiesTable = lazy(() => import('views/activities/activities-table'));
-const NewActivitie = lazy(() => import('views/activities/new-activity'));
+const NewActivitie = lazy(() => import('views/activities/new-activitie'));
 const CardsView = lazy(() => import('views/user/cards'));
 
 const routes = [

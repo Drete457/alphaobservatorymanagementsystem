@@ -4,9 +4,10 @@ import { CFade } from '@coreui/react';
 import { useRecoilState } from 'recoil';
 import { user } from 'state/atoms';
 import { noInternetImg } from 'assets/images';
+import { buildLogin } from 'helpers/users';
 import Loading from 'components/loading';
 import NoInternet from 'views/offline';
-import { buildLogin } from 'helpers/users';
+import ErrorBoundry from 'components/error-boundary';
 import './i18n';
 import './scss/style.scss';
 
@@ -70,7 +71,9 @@ const App = () => {
               render={() => {
                 return isAuthenticated ? (
                   <CFade>
-                    <Layout />
+                    <ErrorBoundry>
+                      <Layout />
+                    </ErrorBoundry>
                   </CFade>
                 ) : (
                   <CFade>

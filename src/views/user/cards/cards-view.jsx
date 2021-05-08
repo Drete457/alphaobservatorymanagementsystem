@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { useGetCountries } from 'hooks/countries';
 import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
+import { buildUsersListFilter } from 'helpers/users';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
@@ -61,15 +62,9 @@ const CardsView = ({ match }) => {
 
   useLayoutEffect(() => {
     if (dataCountriesList && dataGenericList && dataUserList) {
-      const arrayData = Object.values(dataUserList);
-      const userListFilter = arrayData.map?.((user) => {
-        return { id: user.id, name: user.name };
-      });
-      userListFilter.unshift({ id: '1', name: 'None' });
-
       setCountriesList(dataCountriesList);
       setGenericList(dataGenericList);
-      setUserList(userListFilter);
+      setUserList(buildUsersListFilter(dataUserList));
     }
   }, [dataCountriesList, dataGenericList, dataUserList]);
 

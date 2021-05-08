@@ -6,7 +6,7 @@ import { user } from 'state/atoms';
 import { noInternetImg } from 'assets/images';
 import Loading from 'components/loading';
 import NoInternet from 'views/offline';
-import buildLogin from 'helpers/users';
+import { buildLogin } from 'helpers/users';
 import './i18n';
 import './scss/style.scss';
 

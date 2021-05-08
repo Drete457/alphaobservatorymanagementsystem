@@ -8,7 +8,6 @@ import {
   CContainer,
   CRow,
 } from '@coreui/react';
-import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSetRecoilState } from 'recoil';
 import { user } from 'state/atoms';
@@ -27,8 +26,6 @@ const onSubmit = async (setUser, history, setError) => {
       const userInfo = userConstrutor(googleUser);
 
       setUser(userInfo);
-
-      history.push('/users');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -46,7 +43,6 @@ const onSubmit = async (setUser, history, setError) => {
 };
 
 const Login = () => {
-  const history = useHistory();
   const [t] = useTranslation();
   const [error, setError] = useState({
     code: '',
@@ -75,7 +71,7 @@ const Login = () => {
                         color="primary"
                         className="mt-4"
                         onClick={() => {
-                          onSubmit(setUser, history, setError);
+                          onSubmit(setUser, setError);
                         }}
                       >
                         {t('btn.login.google_button')}

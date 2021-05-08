@@ -1,0 +1,117 @@
+import { useState, useLayoutEffect } from 'react';
+import { useGetUser } from 'hooks/users';
+import {
+  UserViewer,
+  UserSocial,
+  UserCards,
+  ProfilePage,
+} from 'components/user/view/user-view';
+import { useTranslation } from 'react-i18next';
+import { useGetCountries } from 'hooks/countries';
+import { useGetGeneric } from 'hooks/generic';
+import { useGetUsers } from 'hooks/users';
+import ErrorInfo from 'components/error';
+import Loading from 'components/loading';
+import Tabs from 'components/user/tabs';
+import View from 'components/user/buttons/view';
+
+const CardsView = ({ match }) => {
+  const [t] = useTranslation();
+  const [user, setUser] = useState(null);
+  const [userList, setUserList] = useState(null);
+  const [countriesList, setCountriesList] = useState(null);
+  const [genericList, setGenericList] = useState(null);
+  const [active, setActive] = useState(0);
+  const [error, setError] = useState(null);
+
+  const {
+    isLoading: isLoadingUserList,
+    error: errorUsers,
+    data: dataUserList,
+    execute: executeUsersList,
+  } = useGetUsers();
+  const {
+    isLoading: isLoadingCountries,
+    error: errorCountries,
+    data: dataCountriesList,
+    execute: executeCountries,
+  } = useGetCountries();
+  const {
+    isLoading: isLoadingGeneric,
+    error: errorGeneric,
+    data: dataGenericList,
+    execute: executeGeneric,
+  } = useGetGeneric();
+
+  const { isLoading, error: errorServer, data, execute } = useGetUser();
+
+  useLayoutEffect(() => {
+    const userID = match.params.id;
+    execute(userID);
+  }, [execute, match]);
+
+  useLayoutEffect(() => {
+    if (data) {
+      setUser(data);
+      executeCountries();
+      executeGeneric();
+      executeUsersList();
+    }
+  }, [data, executeCountries, executeGeneric, executeUsersList]);
+
+  useLayoutEffect(() => {
+    if (dataCountriesList && dataGenericList && dataUserList) {
+      const arrayData = Object.values(dataUserList);
+      const userListFilter = arrayData.map?.((user) => {
+        return { id: user.id, name: user.name };
+      });
+      userListFilter.unshift({ id: '1', name: 'None' });
+
+      setCountriesList(dataCountriesList);
+      setGenericList(dataGenericList);
+      setUserList(userListFilter);
+    }
+  }, [dataCountriesList, dataGenericList, dataUserList]);
+
+  useLayoutEffect(() => {
+    if (errorServer || errorGeneric || errorCountries || errorUsers) {
+      setError(errorServer);
+    }
+  }, [errorServer, errorGeneric, errorCountries, errorUsers]);
+
+  return (
+    <>
+      {error ? (
+        <ErrorInfo error={error} />
+      ) : user && userList && countriesList && genericList ? (
+        <>
+          <Tabs active={active} setActive={setActive} />
+          {active === 0 && (
+            <UserViewer
+              user={user}
+              countriesList={countriesList}
+              genericList={genericList}
+              userList={userList}
+            />
+          )}
+          {active === 1 && (
+            <UserSocial user={user} socialList={genericList?.socialmedia} />
+          )}
+          {active === 2 && <UserCards user={user} userList={userList} />}
+          {active === 3 && <ProfilePage user={user} />}
+          <View user={user} />
+        </>
+      ) : (
+        <>
+          <h1>{t('pages.user.view.notfound.title')}</h1>
+        </>
+      )}
+      {isLoading ||
+        isLoadingCountries ||
+        isLoadingGeneric ||
+        (isLoadingUserList && <Loading />)}
+    </>
+  );
+};
+
+export default CardsView;

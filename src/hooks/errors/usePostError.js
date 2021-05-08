@@ -15,7 +15,7 @@ export const postError = async (error) => {
     .database()
     .ref(ref + errorId)
     .update(errorBody)
-    .catch((error) => console.log(error));
+    .catch((error) => {});
 };
 
 const usePostError = () => {

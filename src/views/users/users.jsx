@@ -6,11 +6,11 @@ import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
 import { countries, generic, listUsers } from 'state/atoms';
 import { useSetRecoilState } from 'recoil';
-import homeHandler from 'components/home';
+import homeHandler from 'helpers/users';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Button from 'components/button';
-import DataTable from 'components/home/data-table';
+import DataTable from 'components/home';
 
 const Home = () => {
   //delete the remain of cards positions on localStorage

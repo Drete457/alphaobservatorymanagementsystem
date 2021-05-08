@@ -1,4 +1,3 @@
-import { buildUsersListFilter } from 'helpers/users';
 import homeHandler from '.';
 import userHandler from 'helpers/user';
 
@@ -10,7 +9,7 @@ const buildUserList = (
   setUsers,
 ) => {
   const arrayData = Object.values(data);
-  const userList = buildUsersListFilter(data);
+  const userList = homeHandler.buildUsersListFilter(data);
 
   const fillArrayData = arrayData.map?.((user) => {
     if (user.followed) {

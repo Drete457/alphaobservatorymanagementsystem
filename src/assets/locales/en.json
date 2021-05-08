@@ -48,6 +48,10 @@
             "profile": {
                 "insert": "Upload The Profile",
                 "delete": "Delete The Profile"
+            },
+            "generate-link": {
+                "title": "Generate Link",
+                "copy": "Copy Link"
             }
         }
     },
@@ -216,7 +220,8 @@
                     "title": "User View Social Media"
                 },
                 "cards": {
-                    "title": "User View Cards"
+                    "title": "User View Cards",
+                    "hascopy": "The Link Has Been Copied To Memory "
                 },
                 "profile": {
                     "title": "User View Profile"

@@ -7,19 +7,6 @@
    text-align: center;
 }
 
-//home page
-.calendar-view {
-    display: inline-block;
-    width: 100%;
-    height: 70vh;
-}
-
-.calendar-open-view-button {
-    display: flex;
-    margin: 1rem;
-    justify-content: flex-end;
-}
-
 //center the image in the build page
 .center {
   width: 100vw;
@@ -39,117 +26,11 @@ button {
     margin: 1rem 2rem;
 }
 
-//users page
-.users-nav {
-    display: flex;
-    margin: 1rem;
-}
-
-.users-button {
-    margin-left: auto;
-    font-weight: bold;
-}
-
-.users-table {
-    font-size: small;
-    text-align: center;
-}
-
-//users pages
-.input-style,
-select-style {
-    height: 2.45rem;
-}
-
-.input-style {
-    border: 0.01rem solid $borderColor;
-}
-
-.input-style:hover {
-    border: 0.02rem solid $borderColorHover;
-}
-
-.input-style:focus {
-    border-color: 0 0 0 0.2rem rgba(0, 0, 139, 1);
-    box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
-    -moz-box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
-}
-
-.main-body {
-    margin: 1rem;
-}
-
-.user-input, .activity-input {
-    margin: auto;
-}
-
-.user-input-error {
-    color: $errorMessageColor;
-}
-
-.user-input-format, .activity-input-format {
-    display: inline-block;
-    width: 45%;
-    margin: 1rem;
-}
-
-.user-submit-buttons {
-    display: flex;
-    width: 95%;
-    justify-content: flex-end;
-}
-
 //card page
-.cards-button, .profile-button {
+.profile-button {
     display: flex;
     justify-content: flex-end;
     margin: 1rem;
     font-size: 1rem;
 }
 
-.text-line {
-    white-space: pre-line;
-}
-
-.card-warning {
-    background-color: theme-color('warning');
-    font-weight: bolder;
-}
-
-.card-input {
-    display: flex;
-}
-
-.card-input-format { 
-    width: 45%;
-    margin: -1rem 0.5rem 0.5rem 0.5rem;
-}
-
-.card-header-banner-color {
-    display: inline-block;
-    width: auto;
-    height: 1rem;
-}
-
-.card-generate-button {
-    display: flex;
-    margin-right: 1rem;
-    justify-content: flex-end;
-}
-
-.card-input-generate {
-    display: flex;
-    margin-right: 1rem;
-    justify-content: flex-end;
-}
-
-.card-input-generate-link {
-    width: 40%;
-}
-
-.activity-input-format-users {
-    display: inline-block;
-    width: 92%;
-    margin: 1rem;
-}

@@ -1,0 +1,47 @@
+//card page
+.cards-button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+    font-size: 1rem;
+}
+
+.text-line {
+    white-space: pre-line;
+}
+
+.card-warning {
+    background-color: theme-color('warning');
+    font-weight: bolder;
+}
+
+.card-input {
+    display: flex;
+}
+
+.card-input-format { 
+    width: 45%;
+    margin: -1rem 0.5rem 0.5rem 0.5rem;
+}
+
+.card-header-banner-color {
+    display: inline-block;
+    width: auto;
+    height: 1rem;
+}
+
+.card-generate-button {
+    display: flex;
+    margin-right: 1rem;
+    justify-content: flex-end;
+}
+
+.card-input-generate {
+    display: flex;
+    margin-right: 1rem;
+    justify-content: flex-end;
+}
+
+.card-input-generate-link {
+    width: 40%;
+}

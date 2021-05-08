@@ -1,5 +1,9 @@
 // If you want to override variables do it here
 @import 'variables';
+@import 'calendar';
+@import 'users';
+@import 'cards';
+@import 'activity';
 
 // Import CoreUI styles
 @import '~@coreui/coreui-pro/scss/coreui.scss';

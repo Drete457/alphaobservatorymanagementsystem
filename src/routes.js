@@ -12,6 +12,7 @@ const NewActivitie = lazy(() => import('views/activities/new-activitie'));
 const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Build },
   { path: '/construction', exact: true, name: 'Build', component: Build },
+  { path: '/cards/:id', exact: true, name: 'Cards', component: UserView },
   { path: '/users', exact: true, name: 'Users', component: Users },
   {
     path: '/my-profile',

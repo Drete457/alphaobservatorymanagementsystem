@@ -8,17 +8,18 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from '@agney/react-avatar';
 import { useRecoilValue } from 'recoil';
-import { user, api } from 'state/atoms';
+import { user } from 'state/atoms';
+import { fb } from 'api';
 import CIcon from '@coreui/icons-react';
 
 const HeaderAccountDropdown = () => {
   const [t] = useTranslation();
   const history = useHistory();
   const isUser = useRecoilValue(user);
-  const comunication = useRecoilValue(api);
 
-  const logOut = () => {
-    comunication
+  const logOut = async () => {
+    const firebase = await fb();
+    firebase
       .auth()
       .signOut()
       .then(() => {

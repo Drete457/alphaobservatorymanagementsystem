@@ -15,11 +15,6 @@ export const user = atom({
   default: null,
 });
 
-export const api = atom({
-  key: 'api',
-  default: null,
-});
-
 export const countries = atom({
   key: 'countries',
   default: null,

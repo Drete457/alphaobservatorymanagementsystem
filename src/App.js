@@ -1,11 +1,12 @@
 import { lazy, useState, useLayoutEffect, Suspense } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { CFade } from '@coreui/react';
-import { useRecoilValue } from 'recoil';
-import { noInternetImg } from 'assets/images';
+import { useRecoilState } from 'recoil';
 import { user } from 'state/atoms';
+import { noInternetImg } from 'assets/images';
 import Loading from 'components/loading';
 import NoInternet from 'views/offline';
+import buildLogin from 'helpers/users';
 import './i18n';
 import './scss/style.scss';
 
@@ -14,9 +15,13 @@ const Layout = lazy(() => import('./components/layout'));
 const Login = lazy(() => import('./views/login'));
 
 const App = () => {
-  const isUser = useRecoilValue(user);
+  const [isUser, setIsUser] = useRecoilState(user);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
+
+  useLayoutEffect(() => {
+    buildLogin(setIsUser);
+  }, [setIsUser]);
 
   useLayoutEffect(() => {
     if (isUser) {

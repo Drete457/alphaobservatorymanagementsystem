@@ -18,7 +18,7 @@ import Submit from 'components/user/buttons/submit';
 
 const UserEdition = ({ match }) => {
   const [t] = useTranslation();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [active, setActive] = useState(0);
   const [wasModified, setWasModified] = useState(false);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
@@ -51,7 +51,7 @@ const UserEdition = ({ match }) => {
     <>
       {error ? (
         <ErrorInfo error={error} />
-      ) : (
+      ) : user ? (
         <>
           <Prompt
             when={wasModified}
@@ -96,6 +96,10 @@ const UserEdition = ({ match }) => {
             setError={setError}
             setWasModified={setWasModified}
           />
+        </>
+      ) : (
+        <>
+          <h1>{t('pages.user.edit.notfound.title')}</h1>
         </>
       )}
       {isLoading && <Loading />}

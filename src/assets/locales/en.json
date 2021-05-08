@@ -220,6 +220,9 @@
                 },
                 "profile": {
                     "title": "User View Profile"
+                },
+                "notfound": {
+                    "title": "User Not Found"
                 }
             },
             "edit":{
@@ -232,6 +235,9 @@
                 },
                 "profile": {
                     "title": "User Edit Profile"
+                },
+                "notfound": {
+                    "title": "User Not Found"
                 }
             },
             "tabs": {

@@ -8,13 +8,15 @@ import {
 } from 'components/user/view/user-view';
 import { useRecoilValue } from 'recoil';
 import { countries, generic, listUsers } from 'state/atoms';
+import { useTranslation } from 'react-i18next';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
 import View from 'components/user/buttons/view';
 
 const UserView = ({ match }) => {
-  const [user, setUser] = useState({});
+  const [t] = useTranslation();
+  const [user, setUser] = useState(null);
   const [active, setActive] = useState(0);
   const [error, setError] = useState(null);
 
@@ -45,7 +47,7 @@ const UserView = ({ match }) => {
     <>
       {error ? (
         <ErrorInfo error={error} />
-      ) : (
+      ) : user ? (
         <>
           <Tabs active={active} setActive={setActive} />
           {active === 0 && (
@@ -62,6 +64,10 @@ const UserView = ({ match }) => {
           {active === 2 && <UserCards user={user} userList={userList} />}
           {active === 3 && <ProfilePage user={user} />}
           <View user={user} />
+        </>
+      ) : (
+        <>
+          <h1>{t('pages.user.view.notfound.title')}</h1>
         </>
       )}
       {isLoading && <Loading />}

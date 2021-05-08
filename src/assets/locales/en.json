@@ -31,6 +31,9 @@
         "login": {
             "google_button": "Google Account"
         },
+        "home": {
+            "calendar-button": "Open SpreadSheat Calendar"
+        },
         "view": "View",
         "create": {
             "user": "Create New User",
@@ -188,6 +191,10 @@
         "nointernet": "No Internet Connection",
         "maintenance": {
             "title": "The Site Is Undergoing Maintenance"
+        },
+        "home": {
+            "title": "Alpha Observatory Calendar",
+            "calendar": "Google Calendar"
         },
         "users": {
             "title": "All Users",

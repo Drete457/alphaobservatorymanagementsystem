@@ -11,7 +11,7 @@ const DataTable = ({ users, isLoading }) => {
 
   return (
     <CDataTable
-      addTableClasses="home-table"
+      addTableClasses="users-table"
       items={users}
       fields={homeHandler.fields(t)}
       columnFilter

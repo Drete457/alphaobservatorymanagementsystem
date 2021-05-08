@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 
+const Home = lazy(() => import('views/home'));
 const Build = lazy(() => import('views/build'));
 const Users = lazy(() => import('views/users'));
 const MyProfile = lazy(() => import('views/my-profile'));
@@ -10,9 +11,8 @@ const ActivitiesTable = lazy(() => import('views/activities/activities-table'));
 const NewActivitie = lazy(() => import('views/activities/new-activitie'));
 const CardsView = lazy(() => import('views/user/cards'));
 
-//TODO delete the cards path when all the registration is working.
 const routes = [
-  { path: '/', exact: true, name: 'Alpha', component: Build },
+  { path: '/', exact: true, name: 'Alpha', component: Home },
   { path: '/construction', exact: true, name: 'Build', component: Build },
   { path: '/cards/:id', exact: true, name: 'Cards', component: CardsView },
   { path: '/users', exact: true, name: 'Users', component: Users },

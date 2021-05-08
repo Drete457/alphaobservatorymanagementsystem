@@ -10,9 +10,9 @@ import homeHandler from 'helpers/users';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Button from 'components/button';
-import DataTable from 'components/home';
+import DataTable from 'components/users';
 
-const Home = () => {
+const Users = () => {
   //delete the remain of cards positions on localStorage
   localStorage.removeItem('cardsPosition');
 
@@ -100,12 +100,12 @@ const Home = () => {
 
           <main>
             <hr />
-            <nav className="home-nav h3">
+            <nav className="users-nav h3">
               {t('pages.users.table-title')}
               <Button
                 name={t('btn.create.user')}
                 onClick={() => history.push(`/user/new_user`)}
-                className="home-button"
+                className="users-button"
               />
             </nav>
             <hr />
@@ -119,4 +119,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Users;

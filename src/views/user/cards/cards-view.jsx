@@ -14,7 +14,6 @@ import { buildUsersListFilter } from 'helpers/users';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
-import View from 'components/user/buttons/view';
 
 const CardsView = ({ match }) => {
   const [t] = useTranslation();
@@ -94,7 +93,6 @@ const CardsView = ({ match }) => {
           )}
           {active === 2 && <UserCards user={user} userList={userList} />}
           {active === 3 && <ProfilePage user={user} />}
-          <View user={user} />
         </>
       ) : (
         <>

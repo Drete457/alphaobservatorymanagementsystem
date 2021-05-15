@@ -25,8 +25,6 @@ const SelectFieldComponent = ({
   options,
   className,
   isMulti,
-  isSearchable,
-  inputProps,
 }) => {
   const customStyles = {
     control: (provided, state) => ({
@@ -98,8 +96,7 @@ const SelectFieldComponent = ({
         }}
         className="select-style"
         isMulti={isMulti}
-        isSearchable={isSearchable}
-        inputProps={inputProps}
+        isSearchable={name === undefined ? false : true}
       />
       {isInvalid && <p className="user-input-error">{errorMsg}</p>}
     </div>

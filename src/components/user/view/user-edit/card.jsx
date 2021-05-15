@@ -114,6 +114,7 @@ const Card = ({
                   options={newUserList}
                   className="card-input-format"
                   isMulti
+                  isInputProps={{ readOnly: true }}
                 />
               </div>
               <TextAreaField

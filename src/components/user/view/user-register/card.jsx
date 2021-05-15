@@ -87,6 +87,7 @@ const Card = ({
               setSelfCard(newObjCard(event, cardsTypes, selfCard));
             }}
             options={cardsTypes}
+            isInputProps={{ readOnly: true }}
           />
         ) : (
           selfCard?.name
@@ -116,6 +117,7 @@ const Card = ({
                   isMulti={true}
                 />
               </div>
+
               <TextAreaField
                 placeholder={t('user.fields.cards.bodyplaceholder')}
                 value={selfCard?.body}

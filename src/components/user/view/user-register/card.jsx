@@ -116,6 +116,7 @@ const Card = ({
                   className="card-input-format"
                   isMulti={true}
                   isSearchable={false}
+                  inputProps={{ readOnly: true }}
                 />
               </div>
 

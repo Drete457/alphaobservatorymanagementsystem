@@ -79,20 +79,21 @@ const Card = ({
             : ''
         }
       >
-        {edit ? (
+        {edit && (
           <SelectFieldComponent
             placeholder={t('user.fields.cards.placeholder')}
+            name="selectCardType"
             value={selfCard?.id}
-            onChange={(event) => {
-              setSelfCard(newObjCard(event, cardsTypes, selfCard));
-            }}
+            onChange={(event) =>
+              setSelfCard(newObjCard(event, cardsTypes, selfCard))
+            }
             options={cardsTypes}
-            isInputProps={{ readOnly: true }}
+            isSearchable={false}
           />
-        ) : (
-          selfCard?.name
         )}
+        {!edit && selfCard?.name}
       </CCardHeader>
+
       <CCardBody>
         {edit ? (
           selfCard?.body ? (

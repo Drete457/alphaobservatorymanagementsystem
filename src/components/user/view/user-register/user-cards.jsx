@@ -10,6 +10,19 @@ import 'react-grid-layout/css/styles.css';
 
 const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const [t] = useTranslation();
+
+  //verify if  the user is using mobile device
+  const [isDraggable, setIsDraggable] = useState(true);
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+  if (
+    /android/i.test(userAgent) ||
+    (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
+  ) {
+    console.log('entrou');
+    setIsDraggable(false);
+  }
+
   const breakPoints = {
     xl: parseInt(getStyle('--breakpoint-xl'), 10),
   };
@@ -17,6 +30,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const cardsLimit = userHandler.layouts['xl'].length;
 
   const [cardArray, setCardsArray] = useState(user.cards || []);
+
   let cardsPositions = JSON.parse(
     localStorage.getItem('cardsPosition') ||
       JSON.stringify(userHandler.layouts),
@@ -65,6 +79,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
             isResizable={false}
             measureBeforeMount={false}
             draggableHandle={'.card-header'}
+            isDraggable={isDraggable}
           >
             {cardArray.map?.((card, index) => {
               return (

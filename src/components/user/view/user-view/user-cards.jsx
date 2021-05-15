@@ -39,6 +39,7 @@ const UserCards = ({ user, userList }) => {
             cols={{ xl: 3 }}
             isResizable={false}
             measureBeforeMount={false}
+            isDraggable={false}
           >
             {user?.cards?.map?.((card, index) => {
               return (

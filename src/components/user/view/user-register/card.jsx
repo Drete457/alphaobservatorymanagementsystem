@@ -115,6 +115,7 @@ const Card = ({
                   options={newUserList}
                   className="card-input-format"
                   isMulti={true}
+                  isSearchable={false}
                 />
               </div>
 

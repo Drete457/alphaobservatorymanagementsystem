@@ -114,9 +114,10 @@ const Card = ({
                   options={newUserList}
                   className="card-input-format"
                   isMulti
-                  isInputProps={{ readOnly: true }}
+                  isSearchable={false}
                 />
               </div>
+
               <TextAreaField
                 placeholder={t('user.fields.cards.bodyplaceholder')}
                 value={selfCard?.body}

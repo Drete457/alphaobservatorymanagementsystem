@@ -11,9 +11,12 @@ import { useGetCountries } from 'hooks/countries';
 import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
 import { buildUsersListFilter } from 'helpers/users';
+import { useSetRecoilState } from 'recoil';
+import { countries, generic, listUsers } from 'state/atoms';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
+import View from 'components/user/buttons/view';
 
 const CardsView = ({ match }) => {
   const [t] = useTranslation();
@@ -23,6 +26,11 @@ const CardsView = ({ match }) => {
   const [genericList, setGenericList] = useState(null);
   const [active, setActive] = useState(0);
   const [error, setError] = useState(null);
+
+  //Save the information on memory state
+  const setCountries = useSetRecoilState(countries);
+  const setGeneric = useSetRecoilState(generic);
+  const setListUsers = useSetRecoilState(listUsers);
 
   const {
     isLoading: isLoadingUserList,
@@ -61,11 +69,26 @@ const CardsView = ({ match }) => {
 
   useLayoutEffect(() => {
     if (dataCountriesList && dataGenericList && dataUserList) {
+      const usersList = buildUsersListFilter(dataUserList);
+
+      //for the page
       setCountriesList(dataCountriesList);
       setGenericList(dataGenericList);
-      setUserList(buildUsersListFilter(dataUserList));
+      setUserList(usersList);
+
+      //for the edit page
+      setCountries(dataCountriesList);
+      setGeneric(dataGenericList);
+      setListUsers(usersList);
     }
-  }, [dataCountriesList, dataGenericList, dataUserList]);
+  }, [
+    dataCountriesList,
+    dataGenericList,
+    dataUserList,
+    setCountries,
+    setGeneric,
+    setListUsers,
+  ]);
 
   useLayoutEffect(() => {
     if (errorServer || errorGeneric || errorCountries || errorUsers) {
@@ -93,6 +116,7 @@ const CardsView = ({ match }) => {
           )}
           {active === 2 && <UserCards user={user} userList={userList} />}
           {active === 3 && <ProfilePage user={user} />}
+          <View user={user} />
         </>
       ) : (
         <>

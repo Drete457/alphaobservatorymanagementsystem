@@ -13,17 +13,15 @@ const buildUserList = (
 
   const fillArrayData = arrayData.map?.((user) => {
     if (user.followed) {
-      const followedBy = userList.find(
-        (value) => value.id === user.followed,
-      )?.name;
+      const followedBy = userList.find((value) => value.id === user.followed)
+        ?.name;
 
       user.followed = followedBy;
     }
 
     if (user.contacted) {
-      const contactBy = userList.find(
-        (value) => value.id === user.contacted,
-      )?.name;
+      const contactBy = userList.find((value) => value.id === user.contacted)
+        ?.name;
 
       user.contacted = contactBy;
     }

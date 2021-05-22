@@ -61,13 +61,19 @@ const Card = ({
 
   const updateCards = () => {
     if (edit) {
-      let newArray = [...cardArray];
+      const newArray = [...cardArray];
 
       newArray[index] = selfCard;
 
       setCardsArray(newArray);
     }
     setEdit(!edit);
+  };
+
+  const deleteCard = () => {
+    const newArray = cardArray.filter((card) => card !== selfCard);
+
+    setCardsArray(newArray);
   };
 
   return (
@@ -136,6 +142,18 @@ const Card = ({
         )}
       </CCardBody>
       <div className="cards-button">
+        {!edit && (
+          <CButton
+            shape="pill"
+            variant={'ghost'}
+            size="sm"
+            color="danger"
+            onClick={() => deleteCard()}
+          >
+            <CIcon name={'cil-trash'} />
+            t('btn.create-edit.cards.delete')
+          </CButton>
+        )}
         <CButton
           shape="pill"
           variant={edit ? '' : 'ghost'}

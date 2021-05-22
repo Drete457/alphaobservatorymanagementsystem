@@ -56,7 +56,8 @@
             "generate-link": {
                 "title": "Generate Link",
                 "copy": "Copy Link"
-            }
+            },
+            "delete": "Delete"
         }
     },
     "user": {

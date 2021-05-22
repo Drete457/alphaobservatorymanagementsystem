@@ -47,7 +47,10 @@
             "cards": {
                 "add": "Add A New Card",
                 "edit": "Edit The Card",
-                "save": "Save The Card"
+                "save": "Save The Card",
+                "delete": "Delete",
+                "yes": "Yes",
+                "no": "No"
             },
             "profile": {
                 "insert": "Upload The Profile",
@@ -56,8 +59,7 @@
             "generate-link": {
                 "title": "Generate Link",
                 "copy": "Copy Link"
-            },
-            "delete": "Delete"
+            }
         }
     },
     "user": {
@@ -221,7 +223,8 @@
                     "title": "User Registration Social Media"
                 },
                 "cards": {
-                    "title": "User Registration Cards"
+                    "title": "User Registration Cards",
+                    "delete": "Are you sure you want to erase the card?"
                 },
                 "profile": {
                     "title": "User Registration Profile"
@@ -249,7 +252,8 @@
                     "title": "User Edit Social Media"
                 },
                 "cards": {
-                    "title": "User Edit Cards"
+                    "title": "User Edit Cards",
+                    "delete": "Are you sure you want to erase the card?"
                 },
                 "profile": {
                     "title": "User Edit Profile"

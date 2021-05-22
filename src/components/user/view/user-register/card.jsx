@@ -5,6 +5,7 @@ import {
   TextAreaField,
   InputField,
 } from 'components/user/input';
+import DeleteWarning from 'components/user/view/delete-card-warning';
 import CIcon from '@coreui/icons-react';
 
 const newObjCard = (event, cardsTypes, selfCard) => {
@@ -35,6 +36,7 @@ const Card = ({
 }) => {
   const [selfCard, setSelfCard] = useState(card);
   const [edit, setEdit] = useState(false);
+  const [deleteCardState, setDeleteCardState] = useState(false);
   const trainers = selfCard?.trainer.map?.(
     (value) => ' ' + userList.find((user) => user.id === value)?.name,
   );
@@ -78,99 +80,111 @@ const Card = ({
 
   return (
     <>
-      <CCardHeader
-        className={
-          errorMsg?.cards && (!selfCard?.trainer || !selfCard?.body)
-            ? 'card-warning'
-            : ''
-        }
-      >
-        {edit && (
-          <SelectFieldComponent
-            placeholder={t('user.fields.cards.placeholder')}
-            name="selectCardType"
-            value={selfCard?.id}
-            onChange={(event) =>
-              setSelfCard(newObjCard(event, cardsTypes, selfCard))
+      {!deleteCardState ? (
+        <>
+          <CCardHeader
+            className={
+              errorMsg?.cards && (!selfCard?.trainer || !selfCard?.body)
+                ? 'card-warning'
+                : ''
             }
-            options={cardsTypes}
-            isSearchable={false}
-          />
-        )}
-        {!edit && selfCard?.name}
-      </CCardHeader>
-
-      <CCardBody>
-        {edit ? (
-          selfCard?.body ? (
-            <>
-              <div className="card-input">
-                <InputField
-                  name="date"
-                  type="date"
-                  value={selfCard?.date}
-                  errorMsg={errorMsg?.community}
-                  onChange={(event) => updateCard('date', event.target.value)}
-                  className="card-input-format"
-                />
-
-                <SelectFieldComponent
-                  placeholder={t('user.fields.cards.trainer')}
-                  name="trainer"
-                  value={selfCard?.trainer}
-                  onChange={(event) => updateCard('trainer', event)}
-                  options={newUserList}
-                  className="card-input-format"
-                  isMulti={true}
-                />
-              </div>
-
-              <TextAreaField
-                placeholder={t('user.fields.cards.bodyplaceholder')}
-                value={selfCard?.body}
-                onChange={(event) => updateCard('body', event.target.value)}
+          >
+            {edit && (
+              <SelectFieldComponent
+                placeholder={t('user.fields.cards.placeholder')}
+                name="selectCardType"
+                value={selfCard?.id}
+                onChange={(event) =>
+                  setSelfCard(newObjCard(event, cardsTypes, selfCard))
+                }
+                options={cardsTypes}
+                isSearchable={false}
               />
-            </>
+            )}
+            {!edit && selfCard?.name}
+          </CCardHeader>
+
+          <CCardBody>
+            {edit ? (
+              selfCard?.body ? (
+                <>
+                  <div className="card-input">
+                    <InputField
+                      name="date"
+                      type="date"
+                      value={selfCard?.date}
+                      errorMsg={errorMsg?.community}
+                      onChange={(event) =>
+                        updateCard('date', event.target.value)
+                      }
+                      className="card-input-format"
+                    />
+
+                    <SelectFieldComponent
+                      placeholder={t('user.fields.cards.trainer')}
+                      name="trainer"
+                      value={selfCard?.trainer}
+                      onChange={(event) => updateCard('trainer', event)}
+                      options={newUserList}
+                      className="card-input-format"
+                      isMulti={true}
+                    />
+                  </div>
+
+                  <TextAreaField
+                    placeholder={t('user.fields.cards.bodyplaceholder')}
+                    value={selfCard?.body}
+                    onChange={(event) => updateCard('body', event.target.value)}
+                  />
+                </>
+              ) : (
+                ''
+              )
+            ) : (
+              <>
+                {trainers && <div>{selfCard?.date + ' ' + trainers}</div>}
+                <div className="text-line">{selfCard?.body}</div>
+              </>
+            )}
+          </CCardBody>
+          <div className="cards-button">
+            {!edit && (
+              <CButton
+                shape="pill"
+                variant={'ghost'}
+                size="sm"
+                color="danger"
+                onClick={() => setDeleteCardState(true)}
+              >
+                <CIcon name={'cil-trash'} />
+                {t('btn.create-edit.cards.delete')}
+              </CButton>
+            )}
+            <CButton
+              shape="pill"
+              variant={edit ? '' : 'ghost'}
+              size="sm"
+              color="primary"
+              onClick={() => updateCards()}
+            >
+              <CIcon name={edit ? 'cil-save' : 'cil-pencil'} />
+              {edit
+                ? ' ' + t('btn.create-edit.cards.save')
+                : ' ' + t('btn.create-edit.cards.edit')}
+            </CButton>
+          </div>
+          {!edit && (!selfCard?.trainer || !selfCard?.body) ? (
+            <p className="text-center card-warning">{errorMsg?.cards}</p>
           ) : (
             ''
-          )
-        ) : (
-          <>
-            {trainers && <div>{selfCard?.date + ' ' + trainers}</div>}
-            <div className="text-line">{selfCard?.body}</div>
-          </>
-        )}
-      </CCardBody>
-      <div className="cards-button">
-        {!edit && (
-          <CButton
-            shape="pill"
-            variant={'ghost'}
-            size="sm"
-            color="danger"
-            onClick={() => deleteCard()}
-          >
-            <CIcon name={'cil-trash'} />
-            t('btn.create-edit.cards.delete')
-          </CButton>
-        )}
-        <CButton
-          shape="pill"
-          variant={edit ? '' : 'ghost'}
-          size="sm"
-          color="primary"
-          onClick={() => updateCards()}
-        >
-          <CIcon name={edit ? 'cil-save' : 'cil-pencil'} />
-          {edit
-            ? ' ' + t('btn.create-edit.cards.save')
-            : ' ' + t('btn.create-edit.cards.edit')}
-        </CButton>
-      </div>
-      {!edit && (!selfCard?.trainer || !selfCard?.body) ? (
-        <p className="text-center card-warning">{errorMsg?.cards}</p>
+          )}
+        </>
       ) : (
-        ''
+        <DeleteWarning
+          deleteCard={deleteCard}
+          setDeleteCardState={setDeleteCardState}
+          t={t}
+        />
       )}
     </>
   );

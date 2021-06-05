@@ -18,6 +18,9 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
   const suitable = genericList.options.find(
     (options) => options.id === user.introductionOption,
   );
+  const personality = genericList.personality.find(
+    (options) => options.id === user.personality,
+  );
 
   return (
     <>
@@ -100,7 +103,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
             <InputField
               title={t('user.fields.community.title')}
               name="community"
-              type={user?.community ? 'date' : 'text'}
+              type="date"
               value={user?.community}
               className="user-input-format"
               disabled
@@ -111,7 +114,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
             <InputField
               title={t('user.fields.training.title')}
               name="training"
-              type={user?.community ? 'date' : 'text'}
+              type="date"
               value={user?.training}
               className="user-input-format"
               disabled
@@ -120,7 +123,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
             <InputField
               title={t('user.fields.second.title')}
               name="second"
-              type={user?.community ? 'date' : 'text'}
+              type="date"
               value={user?.second}
               className="user-input-format"
               disabled
@@ -140,8 +143,28 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
             <InputField
               title={t('user.fields.introduction.date.title')}
               name="introductionDate"
-              type={user?.community ? 'date' : 'text'}
+              type="date"
               value={user?.introductionDate}
+              className="user-input-format"
+              disabled
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.firstActivity.title')}
+              name="firstActivity"
+              type="date"
+              value={user?.firstActivity}
+              className="user-input-format"
+              disabled
+            />
+
+            <InputField
+              title={t('user.fields.personality.title')}
+              name="personality"
+              type="text"
+              value={personality?.name}
               className="user-input-format"
               disabled
             />
@@ -151,7 +174,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
             <InputField
               title={t('user.fields.survey.date.title')}
               name="surveyDate"
-              type={user?.community ? 'date' : 'text'}
+              type="date"
               value={user?.surveyDate}
               className="user-input-format"
               disabled

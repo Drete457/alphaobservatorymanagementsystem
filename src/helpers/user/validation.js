@@ -1,4 +1,8 @@
 const yearValidation = (dateString) => {
+  if (dateString === undefined) {
+    return false;
+  }
+
   const end = dateString.indexOf('-');
   const yearString = dateString.substring(0, end);
   const yearNumber = parseInt(yearString);
@@ -44,6 +48,11 @@ const validateTotalUser = (user, setError, t) => {
 
   if (user?.introductionDate !== '' && yearValidation(user.introductionDate)) {
     errors.introductionDate = t('user.fields.introduction.date.error');
+    haveErrors = true;
+  }
+
+  if (user?.firstActivity !== '' && yearValidation(user.firstActivity)) {
+    errors.introductionDate = t('user.fields.firstActivity.error');
     haveErrors = true;
   }
 

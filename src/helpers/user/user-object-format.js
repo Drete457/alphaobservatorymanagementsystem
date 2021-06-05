@@ -11,6 +11,8 @@ const userFormat = {
   introductionOption: '',
   introductionDate: '',
   community: '',
+  firstActivity: '',
+  personality: '',
   surveyDate: '',
   surveyLink: '',
   social: '',

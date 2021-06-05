@@ -14,7 +14,7 @@ const userInputHandler = (event, setUser, user) => {
 
 const userSelectHandler = (key, value, setUser, user) => {
   const userSelect = value.value;
-
+  console.log();
   userHandler(key, userSelect, setUser, user);
 };
 

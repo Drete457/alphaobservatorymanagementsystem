@@ -218,6 +218,41 @@ const UserEdit = ({
 
           <div className="user-input">
             <InputField
+              title={t('user.fields.firstActivity.title')}
+              name="firstActivity"
+              placeholder={t('user.fields.firstActivity.placeholder')}
+              type="date"
+              value={user?.firstActivity}
+              errorMsg={errorMsg?.firstActivity}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
+              className="user-input-format"
+            />
+
+            <SelectFieldComponent
+              title={t('user.fields.personality.title')}
+              name="personality"
+              placeholder={t('user.fields.personality.placeholder')}
+              value={user?.personality}
+              errorMsg={errorMsg?.personality}
+              onChange={(value) => {
+                setWasModified(true);
+                userHandler.userSelectHandler(
+                  'personality',
+                  value,
+                  setUser,
+                  user,
+                );
+              }}
+              options={genericList?.personality}
+              className="user-input-format"
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
               title={t('user.fields.survey.date.title')}
               name="surveyDate"
               placeholder={t('user.fields.survey.date.placeholder')}

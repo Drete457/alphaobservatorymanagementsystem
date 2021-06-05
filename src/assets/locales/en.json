@@ -101,6 +101,15 @@
                 "placeholder": "Choose The Day Of The Training",
                 "error": "Choose The Date correctly"
             },
+            "firstActivity": {
+                "title": "First Activity Date",
+                "placeholder": "Choose The Day Of The First Activity",
+                "error": "Choose The Date correctly"
+            },
+            "personality": {
+                "title": "Profile",
+                "placeholder": "Select The User Profile"
+            },
             "second": {
                 "title": "Second Survey",
                 "placeholder": "Choose The Day Of The Second Training",

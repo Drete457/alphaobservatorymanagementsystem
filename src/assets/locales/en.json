@@ -38,7 +38,8 @@
         "view": "View",
         "create": {
             "user": "Create New User",
-            "activities": "Create New Activities"
+            "activities": "Create New Activities",
+            "excel": "Export To Excel"
         },
         "create-edit":{
             "submit": "Submit",

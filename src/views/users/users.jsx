@@ -25,6 +25,7 @@ const Users = () => {
   const setListUsers = useSetRecoilState(listUsers);
 
   const [users, setUsers] = useState([]);
+  const [genericHome, setGenericHome] = useState({});
   const { isLoading, error: errorUsers, data, execute } = useGetUsers();
   const {
     isLoading: isLoadingCountries,
@@ -62,6 +63,7 @@ const Users = () => {
 
     if (genericList) {
       setGeneric(genericList);
+      setGenericHome(genericList);
     }
   }, [
     data,
@@ -102,11 +104,18 @@ const Users = () => {
             <hr />
             <nav className="users-nav h3">
               {t('pages.users.table-title')}
-              <Button
-                name={t('btn.create.user')}
-                onClick={() => history.push(`/user/new_user`)}
-                className="users-button"
-              />
+              <div className="users-button">
+                <Button
+                  name={t('btn.create.excel')}
+                  onClick={() => homeHandler.exportToExcel(users, genericHome)}
+                  className="button-font-weight"
+                />
+                <Button
+                  name={t('btn.create.user')}
+                  onClick={() => history.push(`/user/new_user`)}
+                  className="button-font-weight"
+                />
+              </div>
             </nav>
             <hr />
 

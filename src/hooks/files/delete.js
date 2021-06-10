@@ -3,11 +3,15 @@ import { fb } from 'api';
 
 export const deleteF = async (ref) => {
   const firebase = await fb();
-  //create store ref
-  const storageRef = firebase.storage().ref(ref);
 
-  //delete the file
-  storageRef.delete();
+  //create store ref
+  firebase
+    .storage()
+    .ref(ref)
+    .delete() //delete the file
+    .catch((e) => {
+      /* if the file doesn't exist, it doesn't matter to inform the user. */
+    });
 };
 
 const useDelete = () => {

@@ -10,6 +10,7 @@ const download = (data) => {
 const exportToExcel = (data, generic) => {
   const newData = data.map((user) => {
     delete user.cardsPosition;
+    delete user.cards;
     delete user.activities;
     delete user.social;
     delete user.id;

@@ -14,7 +14,7 @@ import { user } from 'state/atoms';
 import { fb } from 'api';
 import userConstrutor from 'helpers/login';
 
-const onSubmit = async (setUser, history, setError) => {
+const onSubmit = async (setUser, setError) => {
   const firebase = await fb();
 
   const provider = new firebase.auth.GoogleAuthProvider();

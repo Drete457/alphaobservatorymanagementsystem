@@ -22,6 +22,8 @@ const UserCards = ({ user, userList }) => {
       }
     : userHandler.layouts;
 
+  const rotation = userHandler.deviceOrientation() === 'portrait';
+
   return (
     <>
       <header>
@@ -32,29 +34,37 @@ const UserCards = ({ user, userList }) => {
 
       <main className="main-body">
         <CForm>
-          <ResponsiveGridLayout
-            className="layout"
-            layouts={cardsPositions}
-            breakpoints={breakPoints}
-            cols={{ xl: 3 }}
-            isResizable={false}
-            measureBeforeMount={false}
-            isDraggable={false}
-          >
-            {user?.cards?.map?.((card, index) => {
-              return (
-                <CCard key={index + ''} accentColor="primary">
-                  <span
-                    style={{
-                      background: card?.color,
-                    }}
-                    className="card-header-banner-color"
-                  ></span>
-                  <Card card={card} userList={userList} />
-                </CCard>
-              );
-            })}
-          </ResponsiveGridLayout>
+          {user?.cards && rotation ? (
+            <div className="device-rotation" />
+          ) : (
+            <ResponsiveGridLayout
+              className="layout"
+              layouts={cardsPositions}
+              breakpoints={breakPoints}
+              cols={{ xl: 3 }}
+              isResizable={false}
+              measureBeforeMount={false}
+              isDraggable={false}
+            >
+              {rotation ? (
+                <div className="device-rotation" />
+              ) : (
+                user?.cards?.map?.((card, index) => {
+                  return (
+                    <CCard key={index + ''} accentColor="primary">
+                      <span
+                        style={{
+                          background: card?.color,
+                        }}
+                        className="card-header-banner-color"
+                      ></span>
+                      <Card card={card} userList={userList} />
+                    </CCard>
+                  );
+                })
+              )}
+            </ResponsiveGridLayout>
+          )}
         </CForm>
       </main>
     </>

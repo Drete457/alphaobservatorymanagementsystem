@@ -10,6 +10,7 @@ import layouts from './layouts';
 import countryNameAndGmt from './country-name-gmt';
 import updateCardsPosition from './save-cards-position';
 import cardsIdToPutDate from './properties-receive-date';
+import deviceOrientation from './device-orientation';
 
 const userHandler = {
   userFormat,
@@ -22,6 +23,7 @@ const userHandler = {
   countryNameAndGmt,
   updateCardsPosition,
   cardsIdToPutDate,
+  deviceOrientation,
 };
 
 export default userHandler;

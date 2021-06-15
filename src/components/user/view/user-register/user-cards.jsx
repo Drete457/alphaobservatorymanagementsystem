@@ -21,6 +21,8 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
 
   const [cardArray, setCardsArray] = useState(user.cards || []);
 
+  const [rotation, setRotation] = useState(false);
+
   let cardsPositions = JSON.parse(
     localStorage.getItem('cardsPosition') ||
       JSON.stringify(userHandler.layouts),
@@ -35,6 +37,9 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
       (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
     ) {
       setIsDraggable(false);
+
+      const result = userHandler.deviceOrientation() === 'portrait';
+      setRotation(result);
     }
   }, []);
 
@@ -70,42 +75,46 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
           cardsLimit={cardsLimit}
         />
         <CForm>
-          <ResponsiveGridLayout
-            className="layout"
-            layouts={cardsPositions}
-            onLayoutChange={(layout, layouts) =>
-              userHandler.updateCardsPosition(layouts['xl'], cardsPositions)
-            }
-            breakpoints={breakPoints}
-            cols={{ xl: 3 }}
-            isResizable={false}
-            measureBeforeMount={false}
-            draggableHandle={'.card-header'}
-            isDraggable={isDraggable}
-          >
-            {cardArray.map?.((card, index) => {
-              return (
-                <CCard key={index + ''} accentColor="primary">
-                  <span
-                    style={{
-                      background: card?.color,
-                    }}
-                    className="card-header-banner-color"
-                  ></span>
-                  <Card
-                    t={t}
-                    card={card}
-                    index={index}
-                    cardArray={cardArray}
-                    setCardsArray={setCardsArray}
-                    cardsTypes={cardsTypes}
-                    errorMsg={errorMsg}
-                    userList={userList}
-                  />
-                </CCard>
-              );
-            })}
-          </ResponsiveGridLayout>
+          {user?.cards && rotation ? (
+            <div className="device-rotation" />
+          ) : (
+            <ResponsiveGridLayout
+              className="layout"
+              layouts={cardsPositions}
+              onLayoutChange={(layout, layouts) =>
+                userHandler.updateCardsPosition(layouts['xl'], cardsPositions)
+              }
+              breakpoints={breakPoints}
+              cols={{ xl: 3 }}
+              isResizable={false}
+              measureBeforeMount={false}
+              draggableHandle={'.card-header'}
+              isDraggable={isDraggable}
+            >
+              {cardArray.map?.((card, index) => {
+                return (
+                  <CCard key={index + ''} accentColor="primary">
+                    <span
+                      style={{
+                        background: card?.color,
+                      }}
+                      className="card-header-banner-color"
+                    ></span>
+                    <Card
+                      t={t}
+                      card={card}
+                      index={index}
+                      cardArray={cardArray}
+                      setCardsArray={setCardsArray}
+                      cardsTypes={cardsTypes}
+                      errorMsg={errorMsg}
+                      userList={userList}
+                    />
+                  </CCard>
+                );
+              })}
+            </ResponsiveGridLayout>
+          )}
         </CForm>
       </main>
     </>

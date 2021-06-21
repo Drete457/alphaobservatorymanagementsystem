@@ -2,8 +2,6 @@ import { CCol, CRow } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { user } from 'state/atoms';
-import { Avatar } from '@agney/react-avatar';
-
 import InputDetailView from 'components/my-profile';
 
 const MyProfile = () => {
@@ -19,11 +17,10 @@ const MyProfile = () => {
 
         <CRow className="ml-3 mt-3">
           <CCol md="2">
-            <Avatar
+            <img
               src={isUser.photo}
-              backgrounds={['#FFFFFF']}
-              htmlWidth="150px"
-              className="border border-primary d-flex display-3"
+              alt={t('header.alt')}
+              className="profile-page-image"
             />
           </CCol>
           <CCol md="8">

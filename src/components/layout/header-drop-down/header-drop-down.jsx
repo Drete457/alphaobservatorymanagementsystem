@@ -6,7 +6,6 @@ import {
 } from '@coreui/react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Avatar } from '@agney/react-avatar';
 import { useRecoilValue } from 'recoil';
 import { user } from 'state/atoms';
 import { fb } from 'api';
@@ -32,11 +31,10 @@ const HeaderAccountDropdown = () => {
     <CDropdown inNav className="c-header-nav-items mx-2" direction="down">
       <CDropdownToggle className="c-header-nav-link" caret={false}>
         <div className="c-avatar">
-          <Avatar
+          <img
             src={isUser.photo}
-            backgrounds={['#FFFFFF']}
-            htmlWidth="35px"
-            className="border border-primary"
+            alt={t('header.alt')}
+            className="header-nav-dropdown-menu-picture"
           />
         </div>
       </CDropdownToggle>

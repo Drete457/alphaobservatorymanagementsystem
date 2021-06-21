@@ -198,7 +198,8 @@
     },
     "header": {
         "profile": "Profile",
-        "logout": "Logout"
+        "logout": "Logout",
+        "alt": "User Profile Photo"
     },
     "pages": {
         "constrution": "Still under construction",

@@ -1,5 +1,6 @@
 import homeHandler from '.';
 import userHandler from 'helpers/user';
+import sortList from './sort-list';
 
 const buildUserList = (
   data,
@@ -9,9 +10,13 @@ const buildUserList = (
   setUsers,
 ) => {
   const arrayData = Object.values(data);
+  const sortedList = arrayData.sort((user1, user2) =>
+    sortList(user1, user2, 'name'),
+  );
+
   const userList = homeHandler.buildUsersListFilter(data);
 
-  const fillArrayData = arrayData.map?.((user) => {
+  const fillArrayData = sortedList.map?.((user) => {
     if (user.followed) {
       const followedBy = userList.find(
         (value) => value.id === user.followed,

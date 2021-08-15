@@ -142,6 +142,16 @@
                     "title": "Survey Link",
                     "placeholder": "Write The Survey Link Of The User",
                     "error": "Missing The Personal Link"
+                },
+                "face": {
+                    "title": "Survey Face To Face",
+                    "placeholder": "Write The Survey Face to Face Of The User",
+                    "error": "Missing The Face to Face Link"
+                },
+                "friend": {
+                    "title": "Survey Friend",
+                    "placeholder": "Write The Survey Friend Link Of The User",
+                    "error": "Missing The Friend Link"
                 }
             },
             "ambit": {

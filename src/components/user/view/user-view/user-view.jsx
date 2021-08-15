@@ -92,6 +92,46 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
 
           <div className="user-input">
             <InputField
+              title={t('user.fields.survey.date.title')}
+              name="surveyDate"
+              type="date"
+              value={user?.surveyDate}
+              className="user-input-format"
+              disabled
+            />
+
+            <InputField
+              title={t('user.fields.survey.link.title')}
+              name="surveyLink"
+              type="text"
+              value={user?.surveyLink}
+              className="user-input-format"
+              disabled
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.survey.face.title')}
+              name="surveyFace"
+              type="text"
+              value={user?.surveyFace}
+              className="user-input-format"
+              disabled
+            />
+
+            <InputField
+              title={t('user.fields.survey.friend.title')}
+              name="surveyFriend"
+              type="text"
+              value={user?.surveyFriend}
+              className="user-input-format"
+              disabled
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
               title={t('user.fields.birthyear.title')}
               name="birthyear"
               type="text"
@@ -165,26 +205,6 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               name="personality"
               type="text"
               value={personality?.name}
-              className="user-input-format"
-              disabled
-            />
-          </div>
-
-          <div className="user-input">
-            <InputField
-              title={t('user.fields.survey.date.title')}
-              name="surveyDate"
-              type="date"
-              value={user?.surveyDate}
-              className="user-input-format"
-              disabled
-            />
-
-            <InputField
-              title={t('user.fields.survey.link.title')}
-              name="surveyLink"
-              type="text"
-              value={user?.surveyLink}
               className="user-input-format"
               disabled
             />

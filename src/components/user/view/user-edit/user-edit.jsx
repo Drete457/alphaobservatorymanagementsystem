@@ -126,6 +126,66 @@ const UserEdit = ({
           </div>
 
           <div className="user-input">
+            <InputField
+              title={t('user.fields.survey.date.title')}
+              name="surveyDate"
+              placeholder={t('user.fields.survey.date.placeholder')}
+              type="date"
+              value={user?.surveyDate}
+              errorMsg={errorMsg?.surveyDate}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
+              className="user-input-format"
+            />
+
+            <InputField
+              title={t('user.fields.survey.link.title')}
+              name="surveyLink"
+              placeholder={t('user.fields.survey.link.placeholder')}
+              type="url"
+              value={user?.surveyLink}
+              errorMsg={errorMsg?.surveyLink}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
+              className="user-input-format"
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.survey.face.title')}
+              name="surveyFace"
+              placeholder={t('user.fields.survey.face.placeholder')}
+              type="url"
+              value={user?.surveyFace}
+              errorMsg={errorMsg?.surveyFace}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
+              className="user-input-format"
+            />
+
+            <InputField
+              title={t('user.fields.survey.friend.title')}
+              name="surveyFriend"
+              placeholder={t('user.fields.survey.friend.placeholder')}
+              type="url"
+              value={user?.surveyFriend}
+              errorMsg={errorMsg?.surveyFriend}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
+              className="user-input-format"
+            />
+          </div>
+
+          <div className="user-input">
             <SelectFieldComponent
               title={t('user.fields.birthyear.title')}
               name="birthyear"
@@ -247,36 +307,6 @@ const UserEdit = ({
                 );
               }}
               options={genericList?.personality}
-              className="user-input-format"
-            />
-          </div>
-
-          <div className="user-input">
-            <InputField
-              title={t('user.fields.survey.date.title')}
-              name="surveyDate"
-              placeholder={t('user.fields.survey.date.placeholder')}
-              type="date"
-              value={user?.surveyDate}
-              errorMsg={errorMsg?.surveyDate}
-              onChange={(event) => {
-                userHandler.userInputHandler(event, setUser, user);
-                setWasModified(true);
-              }}
-              className="user-input-format"
-            />
-
-            <InputField
-              title={t('user.fields.survey.link.title')}
-              name="surveyLink"
-              placeholder={t('user.fields.survey.link.placeholder')}
-              type="url"
-              value={user?.surveyLink}
-              errorMsg={errorMsg?.surveyLink}
-              onChange={(event) => {
-                userHandler.userInputHandler(event, setUser, user);
-                setWasModified(true);
-              }}
               className="user-input-format"
             />
           </div>

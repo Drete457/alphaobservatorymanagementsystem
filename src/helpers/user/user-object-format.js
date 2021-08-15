@@ -15,6 +15,8 @@ const userFormat = {
   personality: '',
   surveyDate: '',
   surveyLink: '',
+  surveyFace: '',
+  surveyFriend: '',
   social: '',
   socialInfo: '',
 };

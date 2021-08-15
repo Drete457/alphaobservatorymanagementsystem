@@ -15,10 +15,13 @@ const buildUserList = (
   );
 
   const userList = homeHandler.buildUsersListFilter(data);
+  const userListSort = userList.sort((user1, user2) =>
+    sortList(user1, user2, 'name'),
+  );
 
   const fillArrayData = sortedList.map?.((user) => {
     if (user.followed) {
-      const followedBy = userList.find(
+      const followedBy = userListSort.find(
         (value) => value.id === user.followed,
       )?.name;
 

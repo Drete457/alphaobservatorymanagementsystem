@@ -74,7 +74,7 @@ const Login = () => {
                           onSubmit(setUser, setError);
                         }}
                       >
-                        {t('btn.login.google_button')}
+                        {t('btn.login.google-button')}
                       </CButton>
                     </CCol>
                   </CRow>

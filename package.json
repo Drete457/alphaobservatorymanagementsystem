@@ -51,7 +51,7 @@
       "react"
     ],
     "rules": {
-      "react/jsx-uses-react": "off",
+      "react/jsx-uses-react": 2,
       "react/react-in-jsx-scope": "off"
     },
     "overrides": [

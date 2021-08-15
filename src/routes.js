@@ -10,6 +10,7 @@ const UserView = lazy(() => import('views/user/user-view'));
 const ActivitiesTable = lazy(() => import('views/activities/activities-table'));
 const NewActivitie = lazy(() => import('views/activities/new-activitie'));
 const CardsView = lazy(() => import('views/user/cards'));
+const TableImport = lazy(() => import('views/table-import'));
 
 const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
@@ -51,6 +52,12 @@ const routes = [
     exact: true,
     name: 'New Activitie',
     component: NewActivitie,
+  },
+  {
+    path: '/table_import',
+    exact: true,
+    name: 'Table Import',
+    component: TableImport,
   },
 ];
 

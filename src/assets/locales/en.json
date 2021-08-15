@@ -30,7 +30,7 @@
         "maintenance": "Refresh Page",
         "notfound": "Return Home",
         "login": {
-            "google_button": "Google Account"
+            "google-button": "Google Account"
         },
         "home": {
             "calendar-button": "Open SpreadSheat Calendar"
@@ -61,6 +61,10 @@
                 "title": "Generate Link",
                 "copy": "Copy Link"
             }
+        },
+        "table-import": {
+            "button": "Import Users Table",
+            "button-import": "Import Table"
         }
     },
     "user": {
@@ -298,6 +302,9 @@
             "registration": {
                 "title": "New Activity"
             }
+        },
+        "table-import": {
+            "title": "Import Users Table"
         }
     }
 }

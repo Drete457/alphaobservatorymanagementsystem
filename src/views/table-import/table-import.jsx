@@ -54,11 +54,13 @@ const TableImport = () => {
         newUser.name = user[0] != null ? user[0] : ''; // text
         newUser.country = user[4] != null ? user[4] : ''; // text
         newUser.surveyLink = user[11] != null ? user[11] : ''; // text
-        newUser.training = user[5] != null ? user[5] : ''; // date
-        newUser.second = user[6] != null ? user[6] : ''; // date
-        newUser.community = user[8] != null ? user[8] : ''; // date
-        newUser.firstActivity = user[9] != null ? user[9] : ''; // date
-        newUser.surveyDate = user[10] != null ? user[10] : ''; // date
+        newUser.training = user[5] != null ? user[5].replaceAll('/', '-') : ''; // date
+        newUser.second = user[6] != null ? user[6].replaceAll('/', '-') : ''; // date
+        newUser.community = user[8] != null ? user[8].replaceAll('/', '-') : ''; // date
+        newUser.firstActivity =
+          user[9] != null ? user[9].replaceAll('/', '-') : ''; // date
+        newUser.surveyDate =
+          user[10] != null ? user[10].replaceAll('/', '-') : ''; // date
 
         newUser.gender =
           user[1] != null ? filter(genericList?.gender, user[1]) : '';

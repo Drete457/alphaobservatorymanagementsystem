@@ -1,3 +1,5 @@
+import homeHandler from 'helpers/users';
+
 const activityHandler = (key, value, setActivity, activity) => {
   setActivity({
     ...activity,
@@ -19,7 +21,11 @@ const activitySelectHandler = (key, value, setActivity, activity) => {
 };
 
 const activityMultiSelectHandler = (key, value, setActivity, activity) => {
-  const usersList = value.map?.((value) => value.value);
+  const userListSort = value.sort((user1, user2) =>
+    homeHandler.sortList(user1, user2, 'label'),
+  );
+
+  const usersList = userListSort.map?.((value) => value.value);
 
   activityHandler(key, usersList, setActivity, activity);
 };

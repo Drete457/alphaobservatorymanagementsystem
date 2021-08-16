@@ -10,17 +10,14 @@ import activitiesTypes from 'assets/mocks/activities.js';
 import ErrorInfo from 'components/error';
 import Submit from 'components/activities/buttons/submit';
 import Loading from 'components/loading';
+import dateGenerator from 'helpers/date-generator';
 
 const NewActivitie = () => {
   //TODO: a ser retirado assim que o backend tiver a funcionar
   const setGlobalActivity = useSetRecoilState(activityList);
 
   //generate the date for the activity
-  let date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
-  const newDate = year + '-0' + (month + 1) + '-0' + day;
+  const newDate = dateGenerator();
 
   const [t] = useTranslation();
   const userList = useRecoilValue(listUsers);

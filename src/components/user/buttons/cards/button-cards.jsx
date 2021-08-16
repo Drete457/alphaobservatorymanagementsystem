@@ -1,6 +1,7 @@
 import { CButton } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import CIcon from '@coreui/icons-react';
+import dateGenerator from 'helpers/date-generator';
 
 const ButtonCards = ({ setCardsArray, cardArray, cardsLimit }) => {
   const [t] = useTranslation();
@@ -13,10 +14,7 @@ const ButtonCards = ({ setCardsArray, cardArray, cardsLimit }) => {
         size="md"
         color="primary"
         onClick={() => {
-          let date = new Date();
-          const year = date.getFullYear();
-          const month = date.getMonth();
-          const newDate = year + '-0' + (month + 1) + '-01';
+          const newDate = dateGenerator();
 
           setCardsArray([
             { name: '', body: '', date: newDate, trainer: '' },

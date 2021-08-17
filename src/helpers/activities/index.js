@@ -5,6 +5,7 @@ import {
   activityMultiInputHandler,
 } from './activities-handler';
 import fields from './fields';
+import validateActivities from './validation';
 
 const activitiesHandler = {
   activityInputHandler,
@@ -12,6 +13,7 @@ const activitiesHandler = {
   activityMultiSelectHandler,
   activityMultiInputHandler,
   fields,
+  validateActivities,
 };
 
 export default activitiesHandler;

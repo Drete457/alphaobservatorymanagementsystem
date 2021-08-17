@@ -189,7 +189,8 @@
             },
             "type": {
                 "title": "Type Of Activitie",
-                "placeholder": "Choose The Type Of Activity"
+                "placeholder": "Choose The Type Of Activity",
+                "error": "Need To choose The type Of Activity"
             },
             "participants": {
                 "title": "Number Of Participants"
@@ -199,10 +200,12 @@
             },
             "list": {
                 "title": "Activity Participants",
-                "placeholder": "Choose Who Participated In The Activity"
+                "placeholder": "Choose Who Participated In The Activity",
+                "error": "Need To Choose Who Participated In The Activity"
             },
             "listInfo": {
-                "placeholder": "Enter The Number"
+                "placeholder": "Enter The Number",
+                "error": "Need To Write a Number Here"
             }
         }
     },

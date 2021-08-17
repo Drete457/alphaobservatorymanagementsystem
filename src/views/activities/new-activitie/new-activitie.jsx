@@ -1,8 +1,8 @@
 import { useState, useLayoutEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { listUsers } from 'state/atoms';
-import { activityList } from 'state/selectors';
 import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from 'components/activities/input';
 import activitiesHandler from 'helpers/activities';
@@ -12,10 +12,14 @@ import Submit from 'components/activities/buttons/submit';
 import Loading from 'components/loading';
 import dateGenerator from 'helpers/date-generator';
 
-const NewActivitie = () => {
-  //TODO: a ser retirado assim que o backend tiver a funcionar
-  const setGlobalActivity = useSetRecoilState(activityList);
+const newActivityStruct = {
+  type: '',
+  list: '',
+  listInfo: [],
+};
 
+const NewActivitie = () => {
+  const history = useHistory();
   //generate the date for the activity
   const newDate = dateGenerator();
 
@@ -23,15 +27,20 @@ const NewActivitie = () => {
   const userList = useRecoilValue(listUsers);
 
   const [newActivity, setActivity] = useState({
-    type: '',
+    ...newActivityStruct,
     date: newDate,
-    list: '',
-    listInfo: [],
   });
+  const [errorActivity, setErrorActivity] = useState({});
+
   const [haveExtra, setHaveExtra] = useState(false);
-  //const [error, setError] = useState(null);
   const error = null;
   const isLoading = false;
+
+  useLayoutEffect(() => {
+    if (userList.length === 0) {
+      history.push('/users');
+    }
+  }, [userList, history]);
 
   useLayoutEffect(() => {
     if (newActivity.type) {
@@ -63,6 +72,7 @@ const NewActivitie = () => {
                   name="type"
                   placeholder={t('activities.fields.type.placeholder')}
                   value={newActivity?.type}
+                  errorMsg={errorActivity?.type}
                   onChange={(value) => {
                     activitiesHandler.activitySelectHandler(
                       'type',
@@ -70,6 +80,7 @@ const NewActivitie = () => {
                       setActivity,
                       newActivity,
                     );
+                    setErrorActivity({});
                   }}
                   options={activitiesTypes}
                   className="activity-input-format"
@@ -99,14 +110,16 @@ const NewActivitie = () => {
                     name="list"
                     placeholder={t('activities.fields.list.placeholder')}
                     value={newActivity?.list}
-                    onChange={(value) =>
+                    errorMsg={errorActivity?.list}
+                    onChange={(value) => {
                       activitiesHandler.activityMultiSelectHandler(
                         'list',
                         value,
                         setActivity,
                         newActivity,
-                      )
-                    }
+                      );
+                      setErrorActivity({});
+                    }}
                     options={userList}
                     className="activity-input-format-users"
                     isMulti={true}
@@ -127,13 +140,13 @@ const NewActivitie = () => {
                         placeholder={t(
                           'activities.fields.listInfo.placeholder',
                         )}
-                        type="text"
+                        type="number"
                         value={
                           newActivity.listInfo.find(
                             (user) => user.id === participant.id,
                           )?.value
                         }
-                        errorMsg={''}
+                        errorMsg={errorActivity?.listInfo}
                         onChange={(event) =>
                           activitiesHandler.activityMultiInputHandler(
                             event,
@@ -155,7 +168,8 @@ const NewActivitie = () => {
             </CForm>
             <Submit
               newActivity={newActivity}
-              setGlobalActivity={setGlobalActivity}
+              setErrorActivity={setErrorActivity}
+              haveExtra={haveExtra}
             />
           </main>
         </>

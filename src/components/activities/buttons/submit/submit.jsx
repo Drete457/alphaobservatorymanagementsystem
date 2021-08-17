@@ -1,8 +1,9 @@
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 
-const Submit = ({ newActivity, setGlobalActivity }) => {
+const Submit = ({ newActivity, setErrorActivity, haveExtra, execute }) => {
   const history = useHistory();
   const [t] = useTranslation();
 
@@ -18,8 +19,18 @@ const Submit = ({ newActivity, setGlobalActivity }) => {
           name={t('btn.create-edit.submit')}
           isDanger={false}
           onClick={() => {
-            setGlobalActivity(newActivity);
-            history.push('/activities_table');
+            if (
+              !activitiesHandler.validateActivities(
+                newActivity,
+                setErrorActivity,
+                haveExtra,
+                t,
+              )
+            ) {
+              console.log('ups');
+              // execute(newActivity);
+              //history.push('/activities_table');
+            }
           }}
         />
       </div>

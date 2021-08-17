@@ -22,7 +22,7 @@ const validateTotalUser = (user, setError, t) => {
     return true;
   }
 
-  for (var attr in user) {
+  for (let attr in user) {
     errors[attr] = '';
   }
 

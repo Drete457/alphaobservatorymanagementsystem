@@ -42,19 +42,22 @@ const activityMultiInputHandler = (
     id: participant.id,
     value,
   };
-  const newActivityList = [];
 
-  activity.listInfo?.forEach((info) => {
+  const newActivityList = activity.listInfo.map?.((info) => {
     if (info.id === participant.id) {
-      newActivityList.push(objInfoList);
-    } else {
-      newActivityList.push(info);
+      return objInfoList;
     }
+
+    return info;
   });
 
-  if (!isNaN(value)) {
-    activityHandler(key, activity.listInfo, setActivity, activity);
+  //search if the participant is already on the list
+  const find = newActivityList.find?.((value) => value.id === participant.id);
+  if (!find) {
+    newActivityList.push(objInfoList);
   }
+
+  activityHandler(key, newActivityList, setActivity, activity);
 };
 
 export {

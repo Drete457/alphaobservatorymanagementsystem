@@ -11,16 +11,18 @@ const DataTable = ({ activities, isLoading }) => {
   const [t] = useTranslation();
   const history = useHistory();
   const [list, setList] = useState([]);
+  //console.log(activities);
 
-  //TODO: apagar assim que terminar o backend
   useEffect(() => {
     if (activities) {
+      console.log(activities);
       const filterList = activities.map((activity) => {
         const activityFilter = activitiesTypes.find(
           (value) => value.id === activity.type,
         );
 
         return {
+          id: activity.id,
           name: activityFilter.name + ' ' + activity.date,
           type: activityFilter.name,
           participants: activity.list.length,

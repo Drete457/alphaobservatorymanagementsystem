@@ -1,5 +1,12 @@
 const fields = (t) => {
   return [
+    {
+      key: 'id',
+      label: '',
+      _style: { width: '0%' },
+      sorter: false,
+      filter: false,
+    },
     { key: 'name', label: t('activities.fields.name.title') },
     { key: 'type', label: t('activities.fields.type.title') },
     { key: 'participants', label: t('activities.fields.participants.title') },

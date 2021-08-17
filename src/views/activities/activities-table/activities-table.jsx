@@ -1,18 +1,20 @@
-//import { useState } from 'react';
+import { useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import { useGetActivities } from 'hooks/activities';
 import DataTable from 'components/activities/table';
 import ErrorInfo from 'components/error';
-import Loading from 'components/loading';
 import Button from 'components/button';
 
 const ActivitiesTable = () => {
   const [t] = useTranslation();
   const history = useHistory();
-  // const [loading, setLoading] = useState(false);
-  //const [error, setError] = useState(null);
-  const loading = false;
-  const error = null;
+
+  const { isLoading, error, data, execute } = useGetActivities();
+
+  useLayoutEffect(() => {
+    execute();
+  }, [execute]);
 
   return (
     <>
@@ -35,11 +37,10 @@ const ActivitiesTable = () => {
               />
             </nav>
             <hr />
-            <DataTable activities={''} />
+            <DataTable activities={data} isLoading={isLoading} />
           </main>
         </>
       )}
-      {loading && <Loading />}
     </>
   );
 };

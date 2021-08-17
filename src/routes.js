@@ -49,13 +49,13 @@ const routes = [
     component: ActivitiesTable,
   },
   {
-    path: '/activities_table/new_activity',
+    path: '/activities_table/new',
     exact: true,
     name: 'New Activity',
     component: NewActivity,
   },
   {
-    path: '/activities_table/viw_activity',
+    path: '/activities_table/view/:id',
     exact: true,
     name: 'View Activity',
     component: ViewActivity,

@@ -11,11 +11,9 @@ const DataTable = ({ activities, isLoading }) => {
   const [t] = useTranslation();
   const history = useHistory();
   const [list, setList] = useState([]);
-  //console.log(activities);
 
   useEffect(() => {
     if (activities) {
-      console.log(activities);
       const filterList = activities.map((activity) => {
         const activityFilter = activitiesTypes.find(
           (value) => value.id === activity.type,
@@ -64,7 +62,9 @@ const DataTable = ({ activities, isLoading }) => {
             <td>
               <Button
                 name={t('btn.view')}
-                onClick={() => history.push(`/activities/view/${item.id}`)}
+                onClick={() =>
+                  history.push(`/activities_table/view/${item.id}`)
+                }
                 className="home-button"
               />
             </td>

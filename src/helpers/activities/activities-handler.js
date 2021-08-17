@@ -34,7 +34,6 @@ const activityMultiInputHandler = (
   event,
   setActivity,
   activity,
-  index,
   participant,
 ) => {
   const key = event.target.getAttribute('name');
@@ -43,7 +42,15 @@ const activityMultiInputHandler = (
     id: participant.id,
     value,
   };
-  activity.listInfo[index] = objInfoList;
+  const newActivityList = [];
+
+  activity.listInfo?.forEach((info) => {
+    if (info.id === participant.id) {
+      newActivityList.push(objInfoList);
+    } else {
+      newActivityList.push(info);
+    }
+  });
 
   if (!isNaN(value)) {
     activityHandler(key, activity.listInfo, setActivity, activity);

@@ -114,11 +114,10 @@ const NewActivitie = () => {
                 </div>
               )}
 
-              {Array.from(newActivity.list).map?.((activity, index) => {
+              {Array.from(newActivity.list).map?.((activity) => {
                 const participant = userList.find(
                   (user) => user.id === activity,
                 );
-
                 return (
                   <div className="activity-input" key={participant.id}>
                     {haveExtra ? (
@@ -129,14 +128,17 @@ const NewActivitie = () => {
                           'activities.fields.listInfo.placeholder',
                         )}
                         type="text"
-                        value={newActivity.listInfo[index]?.value}
+                        value={
+                          newActivity.listInfo.find(
+                            (user) => user.id === participant.id,
+                          )?.value
+                        }
                         errorMsg={''}
                         onChange={(event) =>
                           activitiesHandler.activityMultiInputHandler(
                             event,
                             setActivity,
                             newActivity,
-                            index,
                             participant,
                           )
                         }

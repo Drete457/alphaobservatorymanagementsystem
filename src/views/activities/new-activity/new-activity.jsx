@@ -17,7 +17,7 @@ const newActivityStruct = {
   listInfo: [],
 };
 
-const NewActivitie = () => {
+const NewActivity = () => {
   const history = useHistory();
   //generate the date for the activity
   const newDate = dateGenerator();
@@ -177,4 +177,4 @@ const NewActivitie = () => {
   );
 };
 
-export default NewActivitie;
+export default NewActivity;

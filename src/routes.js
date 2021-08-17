@@ -8,7 +8,8 @@ const UserRegistraion = lazy(() => import('views/user/user-registration'));
 const UserEdition = lazy(() => import('views/user/user-edition'));
 const UserView = lazy(() => import('views/user/user-view'));
 const ActivitiesTable = lazy(() => import('views/activities/activities-table'));
-const NewActivitie = lazy(() => import('views/activities/new-activitie'));
+const NewActivity = lazy(() => import('views/activities/new-activity'));
+const ViewActivity = lazy(() => import('views/activities/view-activity'));
 const CardsView = lazy(() => import('views/user/cards'));
 const TableImport = lazy(() => import('views/table-import'));
 
@@ -48,10 +49,16 @@ const routes = [
     component: ActivitiesTable,
   },
   {
-    path: '/activities_table/new_activitie',
+    path: '/activities_table/new_activity',
     exact: true,
-    name: 'New Activitie',
-    component: NewActivitie,
+    name: 'New Activity',
+    component: NewActivity,
+  },
+  {
+    path: '/activities_table/viw_activity',
+    exact: true,
+    name: 'View Activity',
+    component: ViewActivity,
   },
   {
     path: '/table_import',

@@ -1,23 +1,24 @@
 import { useState, useCallback } from 'react';
 import { fb } from 'api';
+import { ref } from 'components/activities';
 
-export const postActivitie = async (activatie, setData) => {
+export const postActivity = async (activity, setData) => {
   const firebase = await fb();
   const firestore = firebase.firestore();
-  const callDoc = firestore.collection('activatiesList').doc();
+  const callDoc = firestore.collection(ref).doc();
 
-  await callDoc.set(activatie).then(() => setData(true));
+  await callDoc.set(activity).then(() => setData(true));
 };
 
-const usePostActivatie = () => {
+const usePostActivity = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
-  const execute = async (activitie) => {
+  const execute = async (activity) => {
     try {
       setIsLoading(true);
-      postActivitie(activitie, setData);
+      postActivity(activity, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);
@@ -33,4 +34,4 @@ const usePostActivatie = () => {
   };
 };
 
-export default usePostActivatie;
+export default usePostActivity;

@@ -1,10 +1,11 @@
 import { useState, useCallback } from 'react';
 import { fb } from 'api';
+import { ref } from 'components/activities';
 
 export const getActivities = async (setData) => {
   const firebase = await fb();
   const firestore = firebase.firestore();
-  const callDoc = firestore.collection('activatiesList');
+  const callDoc = firestore.collection(ref);
 
   await callDoc.get().then((snapshot) => {
     const newActivitiesArray = [];

@@ -11,7 +11,7 @@ const InputField = ({
   className,
   disabled,
 }) => {
-  const isInvalid = errorMsg && !value;
+  const isInvalid = errorMsg && !value ? true : false;
 
   return (
     <div className={className}>

@@ -1,8 +1,6 @@
 //import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { activityList } from 'state/selectors';
 import DataTable from 'components/activities/table';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
@@ -15,9 +13,6 @@ const ActivitiesTable = () => {
   //const [error, setError] = useState(null);
   const loading = false;
   const error = null;
-
-  //TODO: retirar isto assim que o backend tiver a funcionar
-  const activitiesList = useRecoilValue(activityList);
 
   return (
     <>
@@ -40,7 +35,7 @@ const ActivitiesTable = () => {
               />
             </nav>
             <hr />
-            <DataTable activities={activitiesList} />
+            <DataTable activities={''} />
           </main>
         </>
       )}

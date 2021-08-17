@@ -1,5 +1,5 @@
 import { selector } from 'recoil';
-import { globalActivityList } from './atoms';
+/* import { globalActivityList } from './atoms';
 
 export const activityList = selector({
   key: 'activityList',
@@ -8,4 +8,4 @@ export const activityList = selector({
     const array = get(globalActivityList);
     set(globalActivityList, [...array, newActivity]);
   },
-});
+}); */

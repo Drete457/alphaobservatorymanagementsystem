@@ -9,7 +9,6 @@ import activitiesHandler from 'helpers/activities';
 import activitiesTypes from 'assets/mocks/activities.js';
 import ErrorInfo from 'components/error';
 import Submit from 'components/activities/buttons/submit';
-import Loading from 'components/loading';
 import dateGenerator from 'helpers/date-generator';
 
 const newActivityStruct = {
@@ -33,8 +32,7 @@ const NewActivitie = () => {
   const [errorActivity, setErrorActivity] = useState({});
 
   const [haveExtra, setHaveExtra] = useState(false);
-  const error = null;
-  const isLoading = false;
+  const [error, setError] = useState(null);
 
   useLayoutEffect(() => {
     if (userList.length === 0) {
@@ -168,13 +166,13 @@ const NewActivitie = () => {
             </CForm>
             <Submit
               newActivity={newActivity}
+              setError={setError}
               setErrorActivity={setErrorActivity}
               haveExtra={haveExtra}
             />
           </main>
         </>
       )}
-      {isLoading && <Loading />}
     </>
   );
 };

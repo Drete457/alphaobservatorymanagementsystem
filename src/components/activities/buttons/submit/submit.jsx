@@ -1,11 +1,27 @@
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { usePostActivitie } from 'hooks/activities';
 import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
+import Loading from 'components/loading';
 
-const Submit = ({ newActivity, setErrorActivity, haveExtra, execute }) => {
+const Submit = ({ newActivity, setError, setErrorActivity, haveExtra }) => {
   const history = useHistory();
   const [t] = useTranslation();
+  const { isLoading, error, data, execute } = usePostActivitie();
+
+  useEffect(() => {
+    if (data) {
+      history.push(`/activities_table`);
+    }
+  }, [data, history]);
+
+  useEffect(() => {
+    if (error) {
+      setError(error);
+    }
+  }, [setError, error]);
 
   return (
     <>
@@ -27,13 +43,16 @@ const Submit = ({ newActivity, setErrorActivity, haveExtra, execute }) => {
                 t,
               )
             ) {
-              console.log('ups');
-              // execute(newActivity);
-              //history.push('/activities_table');
+              if (!haveExtra) {
+                newActivity.listInfo = [];
+              }
+
+              execute(newActivity);
             }
           }}
         />
       </div>
+      {isLoading && <Loading />}
     </>
   );
 };

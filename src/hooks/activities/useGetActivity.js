@@ -5,9 +5,21 @@ import { ref } from 'components/activities';
 export const getActivity = async (id, setData) => {
   const firebase = await fb();
   const firestore = firebase.firestore();
-  const callDoc = firestore.collection(ref).doc();
+  const callDoc = firestore.collection(ref).doc(id);
 
-  await callDoc.set(id).then(() => setData(true));
+  await callDoc.get().then((doc) => {
+    if (doc.exists) {
+      const activity = doc.data();
+
+      setData({
+        id: doc.id,
+        date: activity.date,
+        list: activity.list,
+        listInfo: activity.listInfo,
+        type: activity.type,
+      });
+    }
+  });
 };
 
 const useGetActivity = () => {

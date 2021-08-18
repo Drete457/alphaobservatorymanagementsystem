@@ -190,13 +190,14 @@
             "type": {
                 "title": "Type Of Activitie",
                 "placeholder": "Choose The Type Of Activity",
-                "error": "Need To choose The type Of Activity"
+                "error": "Need To Choose The type Of Activity"
             },
             "participants": {
                 "title": "Number Of Participants"
             },
             "date": {
-                "title": "Day Of The Activity"
+                "title": "Day Of The Activity",
+                "error": "Need To Choose a Date"
             },
             "list": {
                 "title": "Activity Participants",

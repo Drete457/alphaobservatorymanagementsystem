@@ -1,30 +1,42 @@
-const validateActivities = (newActivitie, setErrorActivity, haveExtra, t) => {
+import yearValidation from 'helpers/year-validation';
+
+const validateActivities = (newActivity, setErrorActivity, haveExtra, t) => {
   let errors = {};
   let haveErrors = false;
 
   if (
-    !newActivitie ||
-    typeof newActivitie !== 'object' ||
-    Array.isArray(newActivitie)
+    !newActivity ||
+    typeof newActivity !== 'object' ||
+    Array.isArray(newActivity)
   ) {
     return true;
   }
 
-  for (let attr in newActivitie) {
+  for (let attr in newActivity) {
     errors[attr] = '';
   }
 
-  if (newActivitie?.type === '') {
+  if (newActivity?.type === '') {
     errors.type = t('activities.fields.type.error');
     haveErrors = true;
   }
 
-  if (newActivitie?.list === '') {
+  if (!newActivity?.date) {
+    errors.date = t('activities.fields.date.error');
+    haveErrors = true;
+  }
+
+  if (newActivity?.date !== '' && yearValidation(newActivity?.date)) {
+    errors.date = t('activities.fields.date.error');
+    haveErrors = true;
+  }
+
+  if (newActivity?.list === '') {
     errors.list = t('activities.fields.list.error');
     haveErrors = true;
   }
 
-  if (haveExtra && newActivitie.list.length !== newActivitie.listInfo.length) {
+  if (haveExtra && newActivity.list.length !== newActivity.listInfo.length) {
     errors.listInfo = t('activities.fields.listInfo.error');
     haveErrors = true;
   }

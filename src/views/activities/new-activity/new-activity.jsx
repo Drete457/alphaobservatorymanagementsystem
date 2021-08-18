@@ -89,7 +89,7 @@ const NewActivity = () => {
                   name="date"
                   type="date"
                   value={newActivity?.date}
-                  errorMsg={''}
+                  errorMsg={errorActivity?.date}
                   onChange={(event) =>
                     activitiesHandler.activityInputHandler(
                       event,

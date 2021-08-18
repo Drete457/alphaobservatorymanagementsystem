@@ -25,7 +25,7 @@ const activityMultiSelectHandler = (key, value, setActivity, activity) => {
     homeHandler.sortList(user1, user2, 'label'),
   );
 
-  const usersList = userListSort.map?.((value) => value.value);
+  const usersList = userListSort?.map((value) => value.value);
 
   activityHandler(key, usersList, setActivity, activity);
 };
@@ -43,7 +43,7 @@ const activityMultiInputHandler = (
     value,
   };
 
-  const newActivityList = activity.listInfo.map?.((info) => {
+  const newActivityList = activity.listInfo?.map((info) => {
     if (info.id === participant.id) {
       return objInfoList;
     }
@@ -52,7 +52,7 @@ const activityMultiInputHandler = (
   });
 
   //search if the participant is already on the list
-  const find = newActivityList.find?.((value) => value.id === participant.id);
+  const find = newActivityList?.find((value) => value.id === participant.id);
   if (!find) {
     newActivityList.push(objInfoList);
   }

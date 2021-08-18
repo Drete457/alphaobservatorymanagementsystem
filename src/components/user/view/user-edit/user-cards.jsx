@@ -91,7 +91,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
               draggableHandle={'.card-header'}
               isDraggable={isDraggable}
             >
-              {cardArray.map?.((card, index) => {
+              {cardArray?.map((card, index) => {
                 return (
                   <CCard key={index + ''} accentColor="primary">
                     <span

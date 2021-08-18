@@ -4,7 +4,7 @@ import Select from 'react-select';
 
 const createList = (options) => {
   const optionsList = [];
-  Array.from(options)?.forEach?.((value) => {
+  Array.from(options)?.forEach((value) => {
     if (value.name !== 'None') {
       optionsList.push({ label: value.name, value: value.id });
     }
@@ -78,7 +78,7 @@ const SelectFieldComponent = ({
     }
 
     if (value && isMulti) {
-      const valueList = value.map?.((user) => createValue(user, options));
+      const valueList = value?.map((user) => createValue(user, options));
       setCurrent(valueList);
     }
   }, [value, isMulti, options]);

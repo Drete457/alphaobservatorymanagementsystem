@@ -9,7 +9,7 @@ const UserSocial = ({ user, socialList }) => {
 
   useLayoutEffect(() => {
     if (user.social) {
-      const userSocialList = user.social.map?.(
+      const userSocialList = user.social?.map(
         (social) => socialList.find((value) => value.id === social).name,
       );
 
@@ -38,7 +38,7 @@ const UserSocial = ({ user, socialList }) => {
             />
           </div>
 
-          {Array.from(user.socialInfo).map?.((social) => {
+          {Array.from(user.socialInfo)?.map((social) => {
             const socialMedia = socialList.find(
               (socialMedia) => socialMedia.id === social.id,
             );

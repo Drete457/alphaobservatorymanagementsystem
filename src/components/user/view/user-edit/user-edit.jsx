@@ -13,7 +13,7 @@ const UserEdit = ({
   setWasModified,
 }) => {
   const [t] = useTranslation();
-  const countriesNames = countriesList.map?.((country) => {
+  const countriesNames = countriesList?.map((country) => {
     return { id: country.id, name: userHandler.countryNameAndGmt(country) };
   });
 

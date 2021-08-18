@@ -49,7 +49,7 @@ const UserCards = ({ user, userList }) => {
               {rotation ? (
                 <div className="device-rotation" />
               ) : (
-                user?.cards?.map?.((card, index) => {
+                user?.cards?.map((card, index) => {
                   return (
                     <CCard key={index + ''} accentColor="primary">
                       <span

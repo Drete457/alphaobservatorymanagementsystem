@@ -7,6 +7,7 @@ import { CForm } from '@coreui/react';
 import { InputField } from 'components/activities/input';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
+import View from 'components/activities/buttons/view';
 import activitiesTypes from 'assets/mocks/activities.js';
 import useGetActivity from 'hooks/activities/useGetActivity';
 
@@ -14,6 +15,9 @@ const ViewActivity = ({ match }) => {
   const history = useHistory();
   const [t] = useTranslation();
 
+  const [activity, setActivity] = useState({});
+  const [userListFilter, setUserListFilter] = useState('');
+  const [activityType, setActivityType] = useState('');
   const [haveExtra, setHaveExtra] = useState(false);
 
   const userList = useRecoilValue(listUsers);
@@ -36,10 +40,18 @@ const ViewActivity = ({ match }) => {
       const haveExtra = activitiesTypes.find(
         (activity) => activity.id === data.type,
       );
+      const userListNames = data?.list.map((userId) => {
+        const participant = userList.find((user) => user.id === userId);
 
+        return ' ' + participant.name;
+      });
+
+      setActivity(data);
+      setUserListFilter(userListNames);
+      setActivityType(haveExtra?.name);
       setHaveExtra(haveExtra?.extra);
     }
-  }, [data]);
+  }, [data, userList]);
 
   return (
     <>
@@ -58,7 +70,7 @@ const ViewActivity = ({ match }) => {
                   title={t('activities.fields.type.title')}
                   name="type"
                   type="text"
-                  value={data?.type}
+                  value={activityType}
                   className="activity-input-format"
                   disabled
                 />
@@ -67,29 +79,28 @@ const ViewActivity = ({ match }) => {
                   title={t('activities.fields.date.title')}
                   name="date"
                   type="date"
-                  value={data?.date}
+                  value={activity?.date}
                   className="activity-input-format"
                   disabled
                 />
               </div>
 
-              {data.type && (
+              {activity?.type && (
                 <div className="activity-input">
                   <InputField
                     title={t('activities.fields.list.title')}
                     name="list"
                     type="text"
-                    value={data?.list}
+                    value={userListFilter}
                     className="activity-input-format-users"
                     disabled
                   />
                 </div>
               )}
 
-              {Array.from(data.list).map?.((activity) => {
-                const participant = userList.find(
-                  (user) => user.id === activity,
-                );
+              {activity?.list?.map((userId) => {
+                const participant = userList.find((user) => user.id === userId);
+
                 return (
                   <div className="activity-input" key={participant.id}>
                     {haveExtra ? (
@@ -98,7 +109,7 @@ const ViewActivity = ({ match }) => {
                         name="listInfo"
                         type="text"
                         value={
-                          data.listInfo.find(
+                          activity.listInfo?.find?.(
                             (user) => user.id === participant.id,
                           )?.value
                         }
@@ -114,6 +125,7 @@ const ViewActivity = ({ match }) => {
                 );
               })}
             </CForm>
+            <View activity={activity} />
           </main>
           {isLoading && <Loading />}
         </>

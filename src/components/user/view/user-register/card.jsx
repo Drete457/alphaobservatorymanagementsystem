@@ -37,7 +37,7 @@ const Card = ({
   const [selfCard, setSelfCard] = useState(card);
   const [edit, setEdit] = useState(false);
   const [deleteCardState, setDeleteCardState] = useState(false);
-  const trainers = selfCard?.trainer.map?.(
+  const trainers = selfCard?.trainer?.map(
     (value) => ' ' + userList.find((user) => user.id === value)?.name,
   );
 
@@ -46,7 +46,7 @@ const Card = ({
 
   const updateCard = (key, value) => {
     if (key === 'trainer') {
-      const trainers = value.map?.((value) => value.value);
+      const trainers = value?.map((value) => value.value);
 
       selfCard[key] = trainers;
 

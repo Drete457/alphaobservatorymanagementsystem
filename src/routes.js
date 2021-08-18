@@ -10,6 +10,7 @@ const UserView = lazy(() => import('views/user/user-view'));
 const ActivitiesTable = lazy(() => import('views/activities/activities-table'));
 const NewActivity = lazy(() => import('views/activities/new-activity'));
 const ViewActivity = lazy(() => import('views/activities/view-activity'));
+const EditActivity = lazy(() => import('views/activities/edit-activity'));
 const CardsView = lazy(() => import('views/user/cards'));
 const TableImport = lazy(() => import('views/table-import'));
 
@@ -59,6 +60,12 @@ const routes = [
     exact: true,
     name: 'View Activity',
     component: ViewActivity,
+  },
+  {
+    path: '/activities_table/edit/:id',
+    exact: true,
+    name: 'Edit Activity',
+    component: EditActivity,
   },
   {
     path: '/table_import',

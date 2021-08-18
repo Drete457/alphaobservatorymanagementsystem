@@ -19,7 +19,7 @@ const userSelectHandler = (key, value, setUser, user) => {
 };
 
 const userSocialInfoAdd = (setUser, user) => {
-  let userSocialInfo = user.social.map?.((social) => {
+  let userSocialInfo = user.social?.map((social) => {
     const alreadyHave = Array.from(user.socialInfo).find(
       (value) => value.id === social,
     );
@@ -35,7 +35,7 @@ const userSocialInfoAdd = (setUser, user) => {
 };
 
 const userSocialSelectHandler = (key, value, setUser, user) => {
-  const userSocial = value.map?.((value) => value.value);
+  const userSocial = value?.map((value) => value.value);
 
   userHandler(key, userSocial, setUser, user);
 

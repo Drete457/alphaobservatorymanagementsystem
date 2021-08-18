@@ -125,7 +125,7 @@ const NewActivity = () => {
                 </div>
               )}
 
-              {Array.from(newActivity.list).map?.((activity) => {
+              {Array.from(newActivity.list)?.map((activity) => {
                 const participant = userList.find(
                   (user) => user.id === activity,
                 );

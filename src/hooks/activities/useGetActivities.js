@@ -10,7 +10,7 @@ export const getActivities = async (setData) => {
   await callDoc.get().then((snapshot) => {
     const newActivitiesArray = [];
 
-    snapshot.forEach?.((doc) => {
+    snapshot?.forEach((doc) => {
       const activity = doc.data();
 
       newActivitiesArray.push({

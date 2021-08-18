@@ -57,7 +57,7 @@ const validateTotalUser = (user, setError, t) => {
   }
 
   if (user?.cards) {
-    const validation = user.cards.map?.((card) => {
+    const validation = user.cards?.map((card) => {
       const values = Object.values(card);
       return values.includes('');
     });

@@ -19,7 +19,7 @@ const buildUserList = (
     sortList(user1, user2, 'name'),
   );
 
-  const fillArrayData = sortedList.map?.((user) => {
+  const fillArrayData = sortedList?.map((user) => {
     if (user.followed) {
       const followedBy = userListSort.find(
         (value) => value.id === user.followed,

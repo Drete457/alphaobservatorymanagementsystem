@@ -304,6 +304,9 @@
             "table-title": "Activities Registration",
             "registration": {
                 "title": "New Activity"
+            },
+            "view": {
+                "title": "View Activity"
             }
         },
         "table-import": {

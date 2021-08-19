@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+/* import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'components/button';
 import Loading from 'components/loading';
-
+ */
 const Home = () => {
-  const [t] = useTranslation();
+  const history = useHistory();
+  history.push('/users');
+  /* const [t] = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const linkGoogleCalendar =
     'https://docs.google.com/spreadsheets/d/1BDo7-qqpRMryKrl_1wjKRAkSjGLEVRnp8sYS-Ihbj6I/edit?usp=sharing';
@@ -39,7 +42,8 @@ const Home = () => {
         {isLoading && <Loading />}
       </main>
     </>
-  );
+  ); */
+  return <></>;
 };
 
 export default Home;

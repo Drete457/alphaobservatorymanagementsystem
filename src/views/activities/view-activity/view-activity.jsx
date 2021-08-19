@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { listUsers, generic } from 'state/atoms';
 import { CForm } from '@coreui/react';
+import { useGetActivity } from 'hooks/activities';
 import { InputField } from 'components/activities/input';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import View from 'components/activities/buttons/view';
-import useGetActivity from 'hooks/activities/useGetActivity';
 
 const ViewActivity = ({ match }) => {
   const history = useHistory();

@@ -5,9 +5,9 @@ import { ref } from 'components/activities';
 export const getActivities = async (setData) => {
   const firebase = await fb();
   const firestore = firebase.firestore();
-  const callDoc = firestore.collection(ref);
+  const callCollection = firestore.collection(ref);
 
-  await callDoc.get().then((snapshot) => {
+  await callCollection.get().then((snapshot) => {
     const newActivitiesArray = [];
 
     snapshot?.forEach((doc) => {

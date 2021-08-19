@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useGetCountries } from 'hooks/countries';
 import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
+import useGetUserActivities from 'hooks/activities/useGetUserActivities';
 import { useSetRecoilState } from 'recoil';
 import { countries, generic, listUsers } from 'state/atoms';
 import homeHandler from 'helpers/users';
@@ -26,6 +27,7 @@ const Users = () => {
 
   const [users, setUsers] = useState([]);
   const [genericHome, setGenericHome] = useState({});
+
   const { isLoading, error: errorUsers, data, execute } = useGetUsers();
   const {
     isLoading: isLoadingCountries,
@@ -39,6 +41,11 @@ const Users = () => {
     data: genericList,
     execute: executeGeneric,
   } = useGetGeneric();
+  const {
+    error: errorGetUserActivity,
+    data: userGetActivity,
+    execute: executeUserActivity,
+  } = useGetUserActivities();
 
   useLayoutEffect(() => {
     execute();
@@ -55,6 +62,10 @@ const Users = () => {
         setListUsers,
         setUsers,
       );
+
+      //query how many ativities each user have
+      const arrayData = Object.values(data);
+      arrayData.forEach((user) => executeUserActivity(user.id));
     }
 
     if (countriesList) {
@@ -72,15 +83,39 @@ const Users = () => {
     setCountries,
     setGeneric,
     setListUsers,
+    executeUserActivity,
   ]);
 
   useLayoutEffect(() => {
-    const errorInfo = errorUsers || errorCountries || errorGeneric;
+    if (userGetActivity && users) {
+      let newValue = false;
+
+      const newUsersArray = users.map((user) => {
+        if (
+          user.id === userGetActivity.id &&
+          user.activities !== userGetActivity.number
+        ) {
+          user.activities = userGetActivity.number;
+          newValue = true;
+        }
+
+        return user;
+      });
+
+      if (newValue) {
+        setUsers(newUsersArray);
+      }
+    }
+  }, [userGetActivity, users]);
+
+  useLayoutEffect(() => {
+    const errorInfo =
+      errorUsers || errorCountries || errorGeneric || errorGetUserActivity;
 
     if (errorInfo) {
       setError(errorInfo);
     }
-  }, [errorUsers, errorCountries, errorGeneric]);
+  }, [errorUsers, errorCountries, errorGeneric, errorGetUserActivity]);
 
   useLayoutEffect(() => {
     const loadingInfo = isLoading || isLoadingCountries || isLoadingGeneric;

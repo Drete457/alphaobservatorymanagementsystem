@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { listUsers, generic } from 'state/atoms';
 import { CForm } from '@coreui/react';
+import { useGetActivity } from 'hooks/activities';
 import { SelectFieldComponent, InputField } from 'components/activities/input';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Submit from 'components/activities/buttons/submit';
-import useGetActivity from 'hooks/activities/useGetActivity';
 import activitiesHandler from 'helpers/activities';
 
 const EditActivity = ({ match }) => {

@@ -61,7 +61,7 @@ const buildUserList = (
       user.introductionOption = introductionOption;
     }
 
-    //temporary solution for undefinied for each user on the table
+    //undefinied for each user on the table
     user.ambitEntry = '';
     user.activities = '';
 

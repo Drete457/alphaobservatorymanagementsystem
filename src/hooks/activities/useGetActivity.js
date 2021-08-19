@@ -11,13 +11,7 @@ export const getActivity = async (id, setData) => {
     if (doc.exists) {
       const activity = doc.data();
 
-      setData({
-        id: doc.id,
-        date: activity.date,
-        list: activity.list,
-        listInfo: activity.listInfo,
-        type: activity.type,
-      });
+      setData(activity);
     }
   });
 };

@@ -37,7 +37,7 @@ const activityMultiInputHandler = (
   participant,
 ) => {
   const key = event.target.getAttribute('name');
-  const value = event.target.value;
+  const value = event.target.value > 0 ? event.target.value : 0;
   const objInfoList = {
     id: participant.id,
     value,

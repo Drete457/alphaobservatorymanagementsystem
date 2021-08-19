@@ -3,6 +3,7 @@ import { CLabel, CInput } from '@coreui/react';
 const InputField = ({
   title,
   name,
+  id,
   placeholder,
   type,
   value,
@@ -26,7 +27,7 @@ const InputField = ({
         <CInput
           type={type}
           name={name}
-          id={name}
+          id={id}
           placeholder={placeholder}
           autoComplete="off"
           invalid={isInvalid}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 /* import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +7,11 @@ import Loading from 'components/loading';
  */
 const Home = () => {
   const history = useHistory();
-  history.push('/users');
+
+  useEffect(() => {
+    history.push('/users');
+  }, [history]);
+
   /* const [t] = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const linkGoogleCalendar =

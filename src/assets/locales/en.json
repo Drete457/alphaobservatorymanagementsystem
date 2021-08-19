@@ -308,6 +308,9 @@
             },
             "view": {
                 "title": "View Activity"
+            },
+            "edit": {
+                "title": "Edit Activity"
             }
         },
         "table-import": {

@@ -46,8 +46,8 @@ const Submit = ({ newActivity, setError, setErrorActivity, haveExtra }) => {
               if (!haveExtra) {
                 newActivity.listInfo = [];
               }
-
-              execute(newActivity);
+              console.log('foi');
+              // execute(newActivity);
             }
           }}
         />

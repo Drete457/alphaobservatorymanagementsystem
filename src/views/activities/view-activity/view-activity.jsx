@@ -98,7 +98,7 @@ const ViewActivity = ({ match }) => {
                 </div>
               )}
 
-              {activity?.list?.map((userId) => {
+              {activity?.list?.map((userId, index) => {
                 const participant = userList.find((user) => user.id === userId);
 
                 return (
@@ -107,6 +107,7 @@ const ViewActivity = ({ match }) => {
                       <InputField
                         title={participant.name}
                         name="listInfo"
+                        id={index}
                         type="text"
                         value={
                           activity.listInfo?.find?.(

@@ -11,7 +11,7 @@ const validateActivities = (newActivity, setErrorActivity, haveExtra, t) => {
   ) {
     return true;
   }
-
+  console.log(newActivity);
   for (let attr in newActivity) {
     errors[attr] = '';
   }
@@ -31,7 +31,7 @@ const validateActivities = (newActivity, setErrorActivity, haveExtra, t) => {
     haveErrors = true;
   }
 
-  if (newActivity?.list === '') {
+  if (newActivity?.list === '' || newActivity?.list.length === 0) {
     errors.list = t('activities.fields.list.error');
     haveErrors = true;
   }

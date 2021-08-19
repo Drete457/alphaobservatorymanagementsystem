@@ -125,7 +125,7 @@ const NewActivity = () => {
                 </div>
               )}
 
-              {Array.from(newActivity.list)?.map((activity) => {
+              {Array.from(newActivity.list)?.map((activity, index) => {
                 const participant = userList.find(
                   (user) => user.id === activity,
                 );
@@ -135,6 +135,7 @@ const NewActivity = () => {
                       <InputField
                         title={participant.name}
                         name="listInfo"
+                        id={index}
                         placeholder={t(
                           'activities.fields.listInfo.placeholder',
                         )}

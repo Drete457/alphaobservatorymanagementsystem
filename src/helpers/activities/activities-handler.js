@@ -15,9 +15,9 @@ const activityInputHandler = (event, setActivity, activity) => {
 };
 
 const activitySelectHandler = (key, value, setActivity, activity) => {
-  const userSelect = value.value;
+  const activitySelect = value.value;
 
-  activityHandler(key, userSelect, setActivity, activity);
+  activityHandler(key, activitySelect, setActivity, activity);
 };
 
 const activityMultiSelectHandler = (key, value, setActivity, activity) => {

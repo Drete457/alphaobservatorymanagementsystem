@@ -10,11 +10,13 @@ import activitiesTypes from 'assets/mocks/activities.js';
 import ErrorInfo from 'components/error';
 import Submit from 'components/activities/buttons/submit';
 import dateGenerator from 'helpers/date-generator';
+import uniqueId from 'helpers/id-generator';
 
 const newActivityStruct = {
   type: '',
   list: '',
   listInfo: [],
+  id: uniqueId(),
 };
 
 const NewActivity = () => {

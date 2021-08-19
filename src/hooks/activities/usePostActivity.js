@@ -5,7 +5,7 @@ import { ref } from 'components/activities';
 export const postActivity = async (activity, setData) => {
   const firebase = await fb();
   const firestore = firebase.firestore();
-  const callDoc = firestore.collection(ref).doc();
+  const callDoc = firestore.collection(ref).doc(activity.id);
 
   await callDoc.set(activity).then(() => setData(true));
 };

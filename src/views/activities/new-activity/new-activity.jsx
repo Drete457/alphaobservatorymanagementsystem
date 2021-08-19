@@ -2,39 +2,40 @@ import { useState, useLayoutEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { listUsers } from 'state/atoms';
+import { listUsers, generic } from 'state/atoms';
 import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from 'components/activities/input';
 import activitiesHandler from 'helpers/activities';
-import activitiesTypes from 'assets/mocks/activities.js';
 import ErrorInfo from 'components/error';
 import Submit from 'components/activities/buttons/submit';
 import dateGenerator from 'helpers/date-generator';
 import uniqueId from 'helpers/id-generator';
 
-const newActivityStruct = {
-  type: '',
-  list: '',
-  listInfo: [],
-  id: uniqueId(),
-};
-
 const NewActivity = () => {
   const history = useHistory();
+
   //generate the date for the activity
   const newDate = dateGenerator();
+  const newActivityStruct = {
+    type: '',
+    list: '',
+    listInfo: [],
+    id: uniqueId(),
+  };
 
   const [t] = useTranslation();
-  const userList = useRecoilValue(listUsers);
 
   const [newActivity, setActivity] = useState({
     ...newActivityStruct,
     date: newDate,
   });
   const [errorActivity, setErrorActivity] = useState({});
-
+  console.log(newActivity.id);
   const [haveExtra, setHaveExtra] = useState(false);
   const [error, setError] = useState(null);
+
+  const userList = useRecoilValue(listUsers);
+  const { activitiesType } = useRecoilValue(generic);
 
   useLayoutEffect(() => {
     if (userList.length === 0) {
@@ -44,13 +45,13 @@ const NewActivity = () => {
 
   useLayoutEffect(() => {
     if (newActivity.type) {
-      const haveExtra = activitiesTypes.find(
+      const haveExtra = activitiesType.find(
         (activity) => activity.id === newActivity.type,
       );
 
       setHaveExtra(haveExtra?.extra);
     }
-  }, [newActivity.type]);
+  }, [newActivity.type, activitiesType]);
 
   return (
     <>
@@ -82,7 +83,7 @@ const NewActivity = () => {
                     );
                     setErrorActivity({});
                   }}
-                  options={activitiesTypes}
+                  options={activitiesType}
                   className="activity-input-format"
                 />
 

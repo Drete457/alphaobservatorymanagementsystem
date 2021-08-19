@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { generic } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
-import activitiesTypes from 'assets/mocks/activities.js';
 import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
 
@@ -12,10 +13,12 @@ const DataTable = ({ activities, isLoading }) => {
   const history = useHistory();
   const [list, setList] = useState([]);
 
+  const { activitiesType } = useRecoilValue(generic);
+
   useEffect(() => {
     if (activities) {
       const filterList = activities.map((activity) => {
-        const activityFilter = activitiesTypes.find(
+        const activityFilter = activitiesType.find(
           (value) => value.id === activity.type,
         );
 
@@ -30,7 +33,7 @@ const DataTable = ({ activities, isLoading }) => {
 
       setList(filterList);
     }
-  }, [activities]);
+  }, [activities, activitiesType]);
 
   return (
     <CDataTable

@@ -30,7 +30,7 @@ const NewActivity = () => {
     date: newDate,
   });
   const [errorActivity, setErrorActivity] = useState({});
-  console.log(newActivity.id);
+
   const [haveExtra, setHaveExtra] = useState(false);
   const [error, setError] = useState(null);
 

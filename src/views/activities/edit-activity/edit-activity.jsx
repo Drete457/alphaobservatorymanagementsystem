@@ -2,13 +2,12 @@ import { useState, useLayoutEffect, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { listUsers } from 'state/atoms';
+import { listUsers, generic } from 'state/atoms';
 import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from 'components/activities/input';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Submit from 'components/activities/buttons/submit';
-import activitiesTypes from 'assets/mocks/activities.js';
 import useGetActivity from 'hooks/activities/useGetActivity';
 import activitiesHandler from 'helpers/activities';
 
@@ -23,6 +22,7 @@ const EditActivity = ({ match }) => {
   const [error, setError] = useState(null);
 
   const userList = useRecoilValue(listUsers);
+  const { activitiesType } = useRecoilValue(generic);
 
   const {
     isLoading,
@@ -44,14 +44,14 @@ const EditActivity = ({ match }) => {
 
   useLayoutEffect(() => {
     if (data) {
-      const haveExtra = activitiesTypes.find(
+      const haveExtra = activitiesType.find(
         (activityInfo) => activityInfo.id === data.type,
       );
 
       setActivity(data);
       setHaveExtra(haveExtra?.extra);
     }
-  }, [data]);
+  }, [data, activitiesType]);
 
   useEffect(() => {
     const error = errorGetActivity;
@@ -62,13 +62,13 @@ const EditActivity = ({ match }) => {
 
   useEffect(() => {
     if (activity?.type) {
-      const haveExtra = activitiesTypes.find(
+      const haveExtra = activitiesType.find(
         (activityInfo) => activityInfo.id === activity.type,
       );
 
       setHaveExtra(haveExtra?.extra);
     }
-  }, [activity?.type]);
+  }, [activity?.type, activitiesType]);
 
   return (
     <>
@@ -98,7 +98,7 @@ const EditActivity = ({ match }) => {
                     );
                     setErrorActivity({});
                   }}
-                  options={activitiesTypes}
+                  options={activitiesType}
                   className="activity-input-format"
                 />
 

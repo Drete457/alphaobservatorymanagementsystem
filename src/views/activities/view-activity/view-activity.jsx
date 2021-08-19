@@ -2,13 +2,12 @@ import { useState, useLayoutEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { listUsers } from 'state/atoms';
+import { listUsers, generic } from 'state/atoms';
 import { CForm } from '@coreui/react';
 import { InputField } from 'components/activities/input';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import View from 'components/activities/buttons/view';
-import activitiesTypes from 'assets/mocks/activities.js';
 import useGetActivity from 'hooks/activities/useGetActivity';
 
 const ViewActivity = ({ match }) => {
@@ -21,6 +20,7 @@ const ViewActivity = ({ match }) => {
   const [haveExtra, setHaveExtra] = useState(false);
 
   const userList = useRecoilValue(listUsers);
+  const { activitiesType } = useRecoilValue(generic);
 
   const { isLoading, error, data, execute } = useGetActivity();
 
@@ -37,7 +37,7 @@ const ViewActivity = ({ match }) => {
 
   useLayoutEffect(() => {
     if (data) {
-      const haveExtra = activitiesTypes.find(
+      const haveExtra = activitiesType.find(
         (activity) => activity.id === data.type,
       );
       const userListNames = data?.list.map((userId) => {
@@ -51,7 +51,7 @@ const ViewActivity = ({ match }) => {
       setActivityType(haveExtra?.name);
       setHaveExtra(haveExtra?.extra);
     }
-  }, [data, userList]);
+  }, [data, userList, activitiesType]);
 
   return (
     <>

@@ -38,7 +38,7 @@ const NewActivity = () => {
   const { activitiesType } = useRecoilValue(generic);
 
   useLayoutEffect(() => {
-    if (userList.length === 0 || activitiesType.length === 0) {
+    if (userList.length === 0) {
       history.push('/users');
     }
   }, [userList, activitiesType, history]);

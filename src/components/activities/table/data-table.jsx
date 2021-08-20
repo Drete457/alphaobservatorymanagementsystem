@@ -15,12 +15,6 @@ const DataTable = ({ activities, isLoading }) => {
 
   const { activitiesType } = useRecoilValue(generic);
 
-  useLayoutEffect(() => {
-    if (activitiesType.length === 0) {
-      history.push('/users');
-    }
-  }, [activitiesType, history]);
-
   useEffect(() => {
     if (activities) {
       const filterList = activities.map((activity) => {

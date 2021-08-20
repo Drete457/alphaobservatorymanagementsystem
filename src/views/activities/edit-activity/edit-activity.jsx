@@ -32,10 +32,10 @@ const EditActivity = ({ match }) => {
   } = useGetActivity();
 
   useLayoutEffect(() => {
-    if (userList.length === 0) {
+    if (userList.length === 0 || activitiesType.length === 0) {
       history.push('/users');
     }
-  }, [userList, history]);
+  }, [userList, activitiesType, history]);
 
   useLayoutEffect(() => {
     const id = match.params.id;

@@ -36,11 +36,6 @@ const validateActivities = (newActivity, setErrorActivity, haveExtra, t) => {
     haveErrors = true;
   }
 
-  if (haveExtra && newActivity.list.length !== newActivity.listInfo.length) {
-    errors.listInfo = t('activities.fields.listInfo.error');
-    haveErrors = true;
-  }
-
   setErrorActivity(errors);
 
   return haveErrors;

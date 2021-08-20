@@ -33,7 +33,7 @@ const useNavigation = (t) => {
             {
               _tag: 'CSidebarNavItem',
               name: t('sidebar.administration.countries.children.manage'),
-              to: '/administration/countries/manage',
+              to: '/administration/countries',
               icon: 'cil-sitemap',
             },
           ],

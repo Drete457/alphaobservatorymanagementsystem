@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -14,6 +14,12 @@ const DataTable = ({ activities, isLoading }) => {
   const [list, setList] = useState([]);
 
   const { activitiesType } = useRecoilValue(generic);
+
+  useLayoutEffect(() => {
+    if (activitiesType.length === 0) {
+      history.push('/users');
+    }
+  }, [activitiesType, history]);
 
   useEffect(() => {
     if (activities) {

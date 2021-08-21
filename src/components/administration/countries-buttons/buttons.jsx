@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { usePostCountries } from 'hooks/countries';
 import countriesHandler from 'helpers/countries';
+import uniqueId from 'helpers/id-generator';
+import homeHandler from 'helpers/users';
 import Button from 'components/button';
 import Loading from 'components/loading';
 
@@ -51,9 +53,13 @@ const Buttons = ({
               name={t('btn.create-edit.submit')}
               isDanger={false}
               onClick={() => {
+                const countriesSort = countries.sort((country1, country2) =>
+                  homeHandler.sortList(country1, country2, 'country'),
+                );
+
                 const newCountriesArray = [];
 
-                countries?.forEach((country) => {
+                countriesSort?.forEach((country) => {
                   newCountriesArray.push({
                     country: country.country,
                     gmt: country.gmt,
@@ -110,9 +116,13 @@ const Buttons = ({
             name={t('btn.create-edit.save')}
             isDanger={false}
             onClick={() => {
+              const countriesSort = countries.sort((country1, country2) =>
+                homeHandler.sortList(country1, country2, 'country'),
+              );
+
               const newCountriesArray = [];
 
-              countries?.forEach((country) => {
+              countriesSort?.forEach((country) => {
                 newCountriesArray.push({
                   country: country.country,
                   gmt: country.gmt,
@@ -128,8 +138,29 @@ const Buttons = ({
                 )
               ) {
                 setCountriesOriginal(newCountriesArray);
+                setErrorCountries([]);
                 setIsEdit(false);
               }
+            }}
+          />
+
+          <Button
+            name={t('btn.create-edit.countries')}
+            isDanger={false}
+            onClick={() => {
+              const newCountriesArray = [
+                { country: '', gmt: '', id: uniqueId() },
+              ];
+
+              countries?.forEach((country) => {
+                newCountriesArray.push({
+                  country: country.country,
+                  gmt: country.gmt,
+                  id: country.id,
+                });
+              });
+
+              setCountries(newCountriesArray);
             }}
           />
         </div>

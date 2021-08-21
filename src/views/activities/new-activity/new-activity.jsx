@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { listUsers, generic } from 'state/atoms';
@@ -32,6 +32,7 @@ const NewActivity = () => {
   const [errorActivity, setErrorActivity] = useState({});
 
   const [haveExtra, setHaveExtra] = useState(false);
+  const [wasModified, setWasModified] = useState(false);
   const [error, setError] = useState(null);
 
   const userList = useRecoilValue(listUsers);
@@ -59,6 +60,10 @@ const NewActivity = () => {
         <ErrorInfo error={error} />
       ) : (
         <>
+          <Prompt
+            when={wasModified}
+            message={() => t('pages.user.leaving-the-page')}
+          />
           <header>
             <h1 className="title">
               {t('pages.activities.registration.title')}
@@ -82,6 +87,7 @@ const NewActivity = () => {
                       newActivity,
                     );
                     setErrorActivity({});
+                    setWasModified(true);
                   }}
                   options={activitiesType}
                   className="activity-input-format"
@@ -149,14 +155,14 @@ const NewActivity = () => {
                           )?.value
                         }
                         errorMsg={errorActivity?.listInfo}
-                        onChange={(event) =>
+                        onChange={(event) => {
                           activitiesHandler.activityMultiInputHandler(
                             event,
                             setActivity,
                             newActivity,
                             participant,
-                          )
-                        }
+                          );
+                        }}
                         className="activity-input-format"
                       />
                     ) : (
@@ -173,6 +179,7 @@ const NewActivity = () => {
               setError={setError}
               setErrorActivity={setErrorActivity}
               haveExtra={haveExtra}
+              setWasModified={setWasModified}
             />
           </main>
         </>

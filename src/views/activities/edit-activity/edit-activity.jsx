@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { listUsers, generic } from 'state/atoms';
@@ -19,6 +19,7 @@ const EditActivity = ({ match }) => {
   const [errorActivity, setErrorActivity] = useState({});
 
   const [haveExtra, setHaveExtra] = useState(false);
+  const [wasModified, setWasModified] = useState(false);
   const [error, setError] = useState(null);
 
   const userList = useRecoilValue(listUsers);
@@ -76,6 +77,10 @@ const EditActivity = ({ match }) => {
         <ErrorInfo error={error} />
       ) : (
         <>
+          <Prompt
+            when={wasModified}
+            message={() => t('pages.user.leaving-the-page')}
+          />
           <header>
             <h1 className="title">{t('pages.activities.edit.title')}</h1>
           </header>
@@ -97,6 +102,7 @@ const EditActivity = ({ match }) => {
                       activity,
                     );
                     setErrorActivity({});
+                    setWasModified(true);
                   }}
                   options={activitiesType}
                   className="activity-input-format"
@@ -135,6 +141,7 @@ const EditActivity = ({ match }) => {
                         activity,
                       );
                       setErrorActivity({});
+                      setWasModified(true);
                     }}
                     options={userList}
                     className="activity-input-format-users"
@@ -163,14 +170,15 @@ const EditActivity = ({ match }) => {
                           )?.value
                         }
                         errorMsg={errorActivity?.listInfo}
-                        onChange={(event) =>
+                        onChange={(event) => {
                           activitiesHandler.activityMultiInputHandler(
                             event,
                             setActivity,
                             activity,
                             participant,
-                          )
-                        }
+                          );
+                          setWasModified(true);
+                        }}
                         className="activity-input-format"
                       />
                     ) : (
@@ -187,6 +195,7 @@ const EditActivity = ({ match }) => {
               setError={setError}
               setErrorActivity={setErrorActivity}
               haveExtra={haveExtra}
+              setWasModified={setWasModified}
             />
           </main>
         </>

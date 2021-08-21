@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { usePostActivitie } from 'hooks/activities';
+import { usePostCountries } from 'hooks/countries';
 import countriesHandler from 'helpers/countries';
 import Button from 'components/button';
 import Loading from 'components/loading';
@@ -21,7 +21,8 @@ const Buttons = ({
 }) => {
   const history = useHistory();
   const [t] = useTranslation();
-  const { isLoading, error, data, execute } = usePostActivitie();
+
+  const { isLoading, error, data, execute } = usePostCountries();
 
   useEffect(() => {
     if (data) {
@@ -49,7 +50,28 @@ const Buttons = ({
             <Button
               name={t('btn.create-edit.submit')}
               isDanger={false}
-              onClick={() => {}}
+              onClick={() => {
+                const newCountriesArray = [];
+
+                countries?.forEach((country) => {
+                  newCountriesArray.push({
+                    country: country.country,
+                    gmt: country.gmt,
+                    id: country.id,
+                  });
+                });
+
+                if (
+                  !countriesHandler.validateCountries(
+                    newCountriesArray,
+                    setErrorCountries,
+                    t,
+                  )
+                ) {
+                  execute(newCountriesArray);
+                  setWasModified(false);
+                }
+              }}
             />
           )}
         </div>
@@ -79,6 +101,7 @@ const Buttons = ({
 
               setWasModified(result);
               setCountries(newCountriesArray);
+              setErrorCountries([]);
               setIsEdit(false);
             }}
           />
@@ -97,8 +120,16 @@ const Buttons = ({
                 });
               });
 
-              setCountriesOriginal(newCountriesArray);
-              setIsEdit(false);
+              if (
+                !countriesHandler.validateCountries(
+                  newCountriesArray,
+                  setErrorCountries,
+                  t,
+                )
+              ) {
+                setCountriesOriginal(newCountriesArray);
+                setIsEdit(false);
+              }
             }}
           />
         </div>

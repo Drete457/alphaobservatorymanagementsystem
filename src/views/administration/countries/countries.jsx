@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect, useEffect } from 'react';
-import { useHistory, Prompt } from 'react-router-dom';
+import { Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CForm, CButton } from '@coreui/react';
 import { useGetCountries } from 'hooks/countries';
@@ -11,12 +11,11 @@ import countriesHandler from 'helpers/countries';
 import CIcon from '@coreui/icons-react';
 
 const Countries = () => {
-  const history = useHistory();
   const [t] = useTranslation();
 
   const [countries, setCountries] = useState([]);
   const [countriesOriginal, setCountriesOriginal] = useState([]);
-  const [errorCountries, setErrorCountries] = useState({});
+  const [errorCountries, setErrorCountries] = useState([]);
 
   const [isEdit, setIsEdit] = useState(false);
   const [wasModified, setWasModified] = useState(false);
@@ -106,19 +105,21 @@ const Countries = () => {
                       <div key={index}>
                         <div className="country-input">
                           <InputField
-                            title={t('pages.countries.country')}
+                            title={t('countries.country.title')}
                             name="country"
                             type="text"
                             value={country?.country}
+                            errorMsg={errorCountries[index]?.country}
                             className="country-input-format"
                             disabled
                           />
 
                           <InputField
-                            title={t('pages.countries.gmt')}
+                            title={t('countries.gmt.title')}
                             name="gmt"
                             type="text"
                             value={country?.gmt}
+                            errorMsg={errorCountries[index]?.gmt}
                             className="country-input-format"
                             disabled
                           />
@@ -135,11 +136,12 @@ const Countries = () => {
                     <div key={index}>
                       <div className="country-input">
                         <InputField
-                          title={t('pages.countries.country')}
+                          title={t('countries.country.title')}
                           name="country"
                           type="text"
+                          placeholder={t('countries.country.placeholder')}
                           value={country?.country}
-                          errorMsg={errorCountries?.country}
+                          errorMsg={errorCountries[index]?.country}
                           onChange={(event) => {
                             countriesHandler.inputHandler(
                               event,
@@ -153,11 +155,12 @@ const Countries = () => {
                           disabled={!isEdit}
                         />
                         <InputField
-                          title={t('pages.countries.gmt')}
+                          title={t('countries.gmt.title')}
                           name="gmt"
                           type="text"
+                          placeholder={t('countries.gmt.placeholder')}
                           value={country?.gmt}
-                          errorMsg={errorCountries?.gmt}
+                          errorMsg={errorCountries[index]?.gmt}
                           onChange={(event) => {
                             countriesHandler.inputHandler(
                               event,

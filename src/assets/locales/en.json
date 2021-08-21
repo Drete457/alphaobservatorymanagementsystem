@@ -315,6 +315,11 @@
         },
         "table-import": {
             "title": "Import Users Table"
+        },
+        "countries": {
+            "title": "Countries Management",
+            "country": "Country Name",
+            "gmt": "GMT"
         }
     }
 }

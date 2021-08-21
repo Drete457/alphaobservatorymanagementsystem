@@ -12,7 +12,7 @@ const InputField = ({
   className,
   disabled,
 }) => {
-  const isInvalid = errorMsg && !value ? true : false;
+  const isInvalid = errorMsg;
 
   return (
     <div className={className}>

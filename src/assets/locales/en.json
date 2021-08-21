@@ -211,6 +211,18 @@
             }
         }
     },
+    "countries" : {
+        "country": {
+            "title": "Country Name",
+            "placeholder": "Write The Name Of The Country",
+            "error": "Need To Write The Name Of The Country" 
+        }, 
+        "gmt": {
+            "title": "GMT",
+            "placeholder": "Write The GMT of The Country",
+            "error": "Need To Write The GMT ex: +01:00"
+        }
+    },
     "login": {
         "title": "Login",
         "signin": "Sign In with your Google Account"
@@ -318,9 +330,7 @@
             "title": "Import Users Table"
         },
         "countries": {
-            "title": "Countries Management",
-            "country": "Country Name",
-            "gmt": "GMT"
+            "title": "Countries Management"
         }
     }
 }

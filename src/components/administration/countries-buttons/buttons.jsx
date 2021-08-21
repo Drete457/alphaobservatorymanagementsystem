@@ -2,10 +2,11 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { usePostActivitie } from 'hooks/activities';
+import countriesHandler from 'helpers/countries';
 import Button from 'components/button';
 import Loading from 'components/loading';
 
-const Submit = ({
+const Buttons = ({
   countries,
   setCountries,
   countriesOriginal,
@@ -15,6 +16,8 @@ const Submit = ({
   isEdit,
   setIsEdit,
   wasModified,
+  setWasModified,
+  dataCountries,
 }) => {
   const history = useHistory();
   const [t] = useTranslation();
@@ -68,6 +71,13 @@ const Submit = ({
                 });
               });
 
+              const result = countriesHandler.wasModifiedVerification(
+                wasModified,
+                dataCountries,
+                countriesOriginal,
+              );
+
+              setWasModified(result);
               setCountries(newCountriesArray);
               setIsEdit(false);
             }}
@@ -98,4 +108,4 @@ const Submit = ({
   );
 };
 
-export default Submit;
+export default Buttons;

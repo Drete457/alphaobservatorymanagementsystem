@@ -92,6 +92,8 @@ const Countries = () => {
               isEdit={isEdit}
               setIsEdit={setIsEdit}
               wasModified={wasModified}
+              setWasModified={setWasModified}
+              dataCountries={data}
             />
           </header>
 

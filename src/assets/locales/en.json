@@ -45,6 +45,7 @@
             "submit": "Submit",
             "edit": "Edit",
             "cancel": "Cancel",
+            "save": "Save",
             "cards": {
                 "add": "Add A New Card",
                 "edit": "Edit The Card",

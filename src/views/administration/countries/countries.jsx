@@ -1,21 +1,26 @@
 import { useState, useLayoutEffect, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CForm, CButton } from '@coreui/react';
 import { useGetCountries } from 'hooks/countries';
 import { InputField } from 'components/administration/input';
+import Buttons from 'components/administration/countries-buttons';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
+import countriesHandler from 'helpers/countries';
 import CIcon from '@coreui/icons-react';
 
 const Countries = () => {
   const history = useHistory();
   const [t] = useTranslation();
 
-  const [countries, setCountries] = useState({});
+  const [countries, setCountries] = useState([]);
+  const [countriesOriginal, setCountriesOriginal] = useState([]);
   const [errorCountries, setErrorCountries] = useState({});
-
-  const [isEdit, setisEdit] = useState(false);
+  console.log('Modifided: ', countries);
+  console.log('Original: ', countriesOriginal);
+  const [isEdit, setIsEdit] = useState(false);
+  const [wasModified, setWasModified] = useState(false);
   const [error, setError] = useState(null);
 
   const {
@@ -32,6 +37,7 @@ const Countries = () => {
   useLayoutEffect(() => {
     if (data) {
       setCountries(data);
+      setCountriesOriginal(data);
     }
   }, [data]);
 
@@ -49,13 +55,28 @@ const Countries = () => {
         <ErrorInfo error={error} />
       ) : (
         <>
+          <Prompt
+            when={wasModified}
+            message={() => t('pages.user.leaving-the-page')}
+          />
           <header>
             <h1 className="title">{t('pages.countries.title')}</h1>
+            <Buttons
+              countries={countries}
+              setCountries={setCountries}
+              countriesOriginal={countriesOriginal}
+              setCountriesOriginal={setCountriesOriginal}
+              setError={setError}
+              setErrorCountries={setErrorCountries}
+              isEdit={isEdit}
+              setIsEdit={setIsEdit}
+              wasModified={wasModified}
+            />
           </header>
 
           <main className="main-body">
             <CForm>
-              {Array.from(countries)?.map((country, index) => {
+              {countries?.map((country, index) => {
                 return (
                   <div key={index}>
                     <div className="country-input">
@@ -65,32 +86,57 @@ const Countries = () => {
                         type="text"
                         value={country?.country}
                         errorMsg={errorCountries?.country}
-                        onChange={(event) => {}}
+                        onChange={(event) => {
+                          countriesHandler.inputHandler(
+                            event,
+                            setCountries,
+                            countries,
+                            index,
+                          );
+                          setWasModified(true);
+                        }}
                         className="country-input-format"
                         disabled={!isEdit}
                       />
 
                       <InputField
                         title={t('pages.countries.gmt')}
-                        name="country"
+                        name="gmt"
                         type="text"
                         value={country?.gmt}
                         errorMsg={errorCountries?.gmt}
-                        onChange={(event) => {}}
+                        onChange={(event) => {
+                          countriesHandler.inputHandler(
+                            event,
+                            setCountries,
+                            countries,
+                            index,
+                          );
+                          setWasModified(true);
+                        }}
                         className="country-input-format"
                         disabled={!isEdit}
                       />
 
-                      <CButton
-                        className="country-trash"
-                        shape="pill"
-                        variant={'ghost'}
-                        size="sm"
-                        color="danger"
-                        onClick={() => {}}
-                      >
-                        <CIcon name={'cil-trash'} />
-                      </CButton>
+                      {isEdit && (
+                        <CButton
+                          className="country-trash"
+                          shape="pill"
+                          variant={'ghost'}
+                          size="sm"
+                          color="danger"
+                          onClick={() => {
+                            countriesHandler.countryDelete(
+                              index,
+                              countries,
+                              setCountries,
+                            );
+                            setWasModified(true);
+                          }}
+                        >
+                          <CIcon name={'cil-trash'} />
+                        </CButton>
+                      )}
                     </div>
                   </div>
                 );

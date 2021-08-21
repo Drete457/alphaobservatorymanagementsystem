@@ -2,7 +2,7 @@ const countryHandler = (setCountries, countries) => {
   setCountries([...countries]);
 };
 
-const inputHandler = (event, setCountries, countries, index) => {
+const inputHandler = (event, countries, setCountries, index) => {
   const key = event.target.getAttribute('name');
   const value = event.target.value;
 

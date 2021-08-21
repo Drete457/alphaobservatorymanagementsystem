@@ -4,11 +4,15 @@ import { countries as ref } from 'components/user';
 
 export const postCountries = async (countries, setData) => {
   const firebase = await fb();
-  await firebase
-    .database()
-    .ref(ref)
-    .update(countries)
-    .then(() => setData(true));
+
+  countries?.forEach((country, index) => {
+    firebase
+      .database()
+      .ref(ref + index)
+      .update(country);
+  });
+
+  setData(true);
 };
 
 const usePostCountries = () => {

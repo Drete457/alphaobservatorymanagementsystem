@@ -7,12 +7,13 @@ const MyProfile = lazy(() => import('views/my-profile'));
 const UserRegistraion = lazy(() => import('views/user/user-registration'));
 const UserEdition = lazy(() => import('views/user/user-edition'));
 const UserView = lazy(() => import('views/user/user-view'));
+const CardsView = lazy(() => import('views/user/cards'));
 const ActivitiesTable = lazy(() => import('views/activities/activities-table'));
 const NewActivity = lazy(() => import('views/activities/new-activity'));
 const ViewActivity = lazy(() => import('views/activities/view-activity'));
 const EditActivity = lazy(() => import('views/activities/edit-activity'));
-const CardsView = lazy(() => import('views/user/cards'));
 const TableImport = lazy(() => import('views/table-import'));
+const Countries = lazy(() => import('views/administration/countries'));
 
 const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
@@ -72,6 +73,12 @@ const routes = [
     exact: true,
     name: 'Table Import',
     component: TableImport,
+  },
+  {
+    path: '/administration/countries',
+    exact: true,
+    name: 'Countries',
+    component: Countries,
   },
 ];
 

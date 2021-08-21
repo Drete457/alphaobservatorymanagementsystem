@@ -45,6 +45,7 @@
             "submit": "Submit",
             "edit": "Edit",
             "cancel": "Cancel",
+            "save": "Save",
             "cards": {
                 "add": "Add A New Card",
                 "edit": "Edit The Card",
@@ -60,7 +61,8 @@
             "generate-link": {
                 "title": "Generate Link",
                 "copy": "Copy Link"
-            }
+            },
+            "countries": "Create New Country"
         },
         "table-import": {
             "button": "Import Users Table",
@@ -210,6 +212,18 @@
             }
         }
     },
+    "countries" : {
+        "country": {
+            "title": "Country Name",
+            "placeholder": "Write The Name Of The Country",
+            "error": "Need To Write The Name Of The Country" 
+        }, 
+        "gmt": {
+            "title": "GMT",
+            "placeholder": "Write The GMT of The Country",
+            "error": "Need To Write The GMT ex: +01:00"
+        }
+    },
     "login": {
         "title": "Login",
         "signin": "Sign In with your Google Account"
@@ -315,6 +329,9 @@
         },
         "table-import": {
             "title": "Import Users Table"
+        },
+        "countries": {
+            "title": "Countries Management"
         }
     }
 }

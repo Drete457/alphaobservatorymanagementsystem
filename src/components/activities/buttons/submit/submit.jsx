@@ -6,7 +6,13 @@ import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 import Loading from 'components/loading';
 
-const Submit = ({ newActivity, setError, setErrorActivity, haveExtra }) => {
+const Submit = ({
+  newActivity,
+  setError,
+  setErrorActivity,
+  haveExtra,
+  setWasModified,
+}) => {
   const history = useHistory();
   const [t] = useTranslation();
   const { isLoading, error, data, execute } = usePostActivitie();
@@ -15,7 +21,7 @@ const Submit = ({ newActivity, setError, setErrorActivity, haveExtra }) => {
     if (data) {
       history.push(`/activities_table`);
     }
-  }, [data, history]);
+  }, [data, history, setWasModified]);
 
   useEffect(() => {
     if (error) {
@@ -48,6 +54,7 @@ const Submit = ({ newActivity, setError, setErrorActivity, haveExtra }) => {
               }
 
               execute(newActivity);
+              setWasModified(false);
             }
           }}
         />

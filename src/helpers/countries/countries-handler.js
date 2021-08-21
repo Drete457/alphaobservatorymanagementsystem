@@ -23,4 +23,26 @@ const countryDelete = (index, countries, setCountries) => {
   setCountries(newCountriesArray);
 };
 
-export { countryDelete, inputHandler };
+const wasModifiedVerification = (wasModified, data, countries) => {
+  let result = false;
+
+  if (wasModified) {
+    for (let i = 0; i < data.length && countries.length; i++) {
+      if (data[i].country !== countries[i].country) {
+        console.log('country');
+        result = true;
+        break;
+      }
+
+      if (data[i].gmt !== countries[i].gmt) {
+        console.log('gmt');
+        result = true;
+        break;
+      }
+    }
+  }
+
+  return result;
+};
+
+export { countryDelete, inputHandler, wasModifiedVerification };

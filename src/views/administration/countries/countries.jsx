@@ -35,18 +35,25 @@ const Countries = () => {
 
   useLayoutEffect(() => {
     if (data) {
-      const newCountriesArray = [];
+      const newCountriesarray = [];
+      const newCountriesArrayOriginal = [];
 
       data?.forEach((country) => {
-        newCountriesArray.push({
+        newCountriesarray.push({
+          country: country.country,
+          gmt: country.gmt,
+          id: country.id,
+        });
+
+        newCountriesArrayOriginal.push({
           country: country.country,
           gmt: country.gmt,
           id: country.id,
         });
       });
 
-      setCountries(data);
-      setCountriesOriginal(newCountriesArray);
+      setCountries(newCountriesarray);
+      setCountriesOriginal(newCountriesArrayOriginal);
     }
   }, [data]);
 
@@ -65,7 +72,11 @@ const Countries = () => {
       ) : (
         <>
           <Prompt
-            when={wasModified}
+            when={countriesHandler.wasModifiedVerification(
+              wasModified,
+              data,
+              countries,
+            )}
             message={() => t('pages.user.leaving-the-page')}
           />
           <header>

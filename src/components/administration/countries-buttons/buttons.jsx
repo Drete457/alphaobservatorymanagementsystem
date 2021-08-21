@@ -51,21 +51,43 @@ const Submit = ({
           )}
         </div>
       )}
+
       {isEdit && (
         <div className="user-submit-buttons">
           <Button
             name={t('btn.create-edit.cancel')}
             isDanger={true}
             onClick={() => {
-              setCountries(countriesOriginal);
+              const newCountriesArray = [];
+
+              countriesOriginal?.forEach((country) => {
+                newCountriesArray.push({
+                  country: country.country,
+                  gmt: country.gmt,
+                  id: country.id,
+                });
+              });
+
+              setCountries(newCountriesArray);
               setIsEdit(false);
             }}
           />
+
           <Button
             name={t('btn.create-edit.save')}
             isDanger={false}
             onClick={() => {
-              setCountriesOriginal(countries);
+              const newCountriesArray = [];
+
+              countries?.forEach((country) => {
+                newCountriesArray.push({
+                  country: country.country,
+                  gmt: country.gmt,
+                  id: country.id,
+                });
+              });
+
+              setCountriesOriginal(newCountriesArray);
               setIsEdit(false);
             }}
           />

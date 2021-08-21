@@ -17,8 +17,7 @@ const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [countriesOriginal, setCountriesOriginal] = useState([]);
   const [errorCountries, setErrorCountries] = useState({});
-  console.log('Modifided: ', countries);
-  console.log('Original: ', countriesOriginal);
+
   const [isEdit, setIsEdit] = useState(false);
   const [wasModified, setWasModified] = useState(false);
   const [error, setError] = useState(null);
@@ -36,8 +35,18 @@ const Countries = () => {
 
   useLayoutEffect(() => {
     if (data) {
+      const newCountriesArray = [];
+
+      data?.forEach((country) => {
+        newCountriesArray.push({
+          country: country.country,
+          gmt: country.gmt,
+          id: country.id,
+        });
+      });
+
       setCountries(data);
-      setCountriesOriginal(data);
+      setCountriesOriginal(newCountriesArray);
     }
   }, [data]);
 
@@ -61,6 +70,7 @@ const Countries = () => {
           />
           <header>
             <h1 className="title">{t('pages.countries.title')}</h1>
+
             <Buttons
               countries={countries}
               setCountries={setCountries}
@@ -76,49 +86,77 @@ const Countries = () => {
 
           <main className="main-body">
             <CForm>
-              {countries?.map((country, index) => {
-                return (
-                  <div key={index}>
-                    <div className="country-input">
-                      <InputField
-                        title={t('pages.countries.country')}
-                        name="country"
-                        type="text"
-                        value={country?.country}
-                        errorMsg={errorCountries?.country}
-                        onChange={(event) => {
-                          countriesHandler.inputHandler(
-                            event,
-                            setCountries,
-                            countries,
-                            index,
-                          );
-                          setWasModified(true);
-                        }}
-                        className="country-input-format"
-                        disabled={!isEdit}
-                      />
+              {!isEdit && (
+                <>
+                  {countries?.map((country, index) => {
+                    return (
+                      <div key={index}>
+                        <div className="country-input">
+                          <InputField
+                            title={t('pages.countries.country')}
+                            name="country"
+                            type="text"
+                            value={country?.country}
+                            className="country-input-format"
+                            disabled
+                          />
 
-                      <InputField
-                        title={t('pages.countries.gmt')}
-                        name="gmt"
-                        type="text"
-                        value={country?.gmt}
-                        errorMsg={errorCountries?.gmt}
-                        onChange={(event) => {
-                          countriesHandler.inputHandler(
-                            event,
-                            setCountries,
-                            countries,
-                            index,
-                          );
-                          setWasModified(true);
-                        }}
-                        className="country-input-format"
-                        disabled={!isEdit}
-                      />
+                          <InputField
+                            title={t('pages.countries.gmt')}
+                            name="gmt"
+                            type="text"
+                            value={country?.gmt}
+                            className="country-input-format"
+                            disabled
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
 
-                      {isEdit && (
+              {isEdit &&
+                countries?.map((country, index) => {
+                  return (
+                    <div key={index}>
+                      <div className="country-input">
+                        <InputField
+                          title={t('pages.countries.country')}
+                          name="country"
+                          type="text"
+                          value={country?.country}
+                          errorMsg={errorCountries?.country}
+                          onChange={(event) => {
+                            countriesHandler.inputHandler(
+                              event,
+                              countries,
+                              setCountries,
+                              index,
+                            );
+                            setWasModified(true);
+                          }}
+                          className="country-input-format"
+                          disabled={!isEdit}
+                        />
+                        <InputField
+                          title={t('pages.countries.gmt')}
+                          name="gmt"
+                          type="text"
+                          value={country?.gmt}
+                          errorMsg={errorCountries?.gmt}
+                          onChange={(event) => {
+                            countriesHandler.inputHandler(
+                              event,
+                              countries,
+                              setCountries,
+                              index,
+                            );
+                            setWasModified(true);
+                          }}
+                          className="country-input-format"
+                          disabled={!isEdit}
+                        />
                         <CButton
                           className="country-trash"
                           shape="pill"
@@ -136,11 +174,10 @@ const Countries = () => {
                         >
                           <CIcon name={'cil-trash'} />
                         </CButton>
-                      )}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </CForm>
           </main>
         </>
@@ -151,11 +188,3 @@ const Countries = () => {
 };
 
 export default Countries;
-
-/*     return (
-        
-    );
-};
-
-export default EditActivity;
- */

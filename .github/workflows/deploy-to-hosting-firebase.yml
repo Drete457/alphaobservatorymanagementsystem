@@ -1,20 +1,22 @@
-name: Deploy to Firebase Hosting on merge
+name: Deploy to Firebase Hosting
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repo
+      - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '14'
       - run: yarn
       - run: yarn build
       - name: GitHub Action for Firebase
-        uses: w9jds/firebase-action@v1.5.0
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:

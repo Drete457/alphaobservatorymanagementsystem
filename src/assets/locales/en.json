@@ -332,6 +332,44 @@
         },
         "countries": {
             "title": "Countries Management"
+        },
+        "generic": {
+            "activities-types": {
+                "tab": "Activities Types",
+                "title": "Activities Types"
+            },
+            "card-types": {
+                "tab": "Card Types",
+                "title": "Card Types"
+            },
+            "gender": {
+                "tab": "Gender",
+                "title": "Gender"
+            },
+            "group-age": {
+                "tab": "Group Age",
+                "title": "Group Age"
+            },
+            "ocupation": {
+                "tab": "Ocupation",
+                "title": "Ocupation"
+            },
+            "options": {
+                "tab": "Options",
+                "title": "Options"
+            },
+            "personality": {
+                "tab": "Personality",
+                "title": "Personality"
+            },
+            "social-media": {
+                "tab": "Social Media",
+                "title": "Social Media"
+            },
+            "years": {
+                "tab": "Years",
+                "title": "Years"
+            }
         }
     }
 }

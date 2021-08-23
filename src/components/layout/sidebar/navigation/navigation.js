@@ -47,7 +47,7 @@ const useNavigation = (t) => {
             {
               _tag: 'CSidebarNavItem',
               name: t('sidebar.administration.generic.children.manage'),
-              to: '/administration/generic/manage',
+              to: '/administration/generic',
               icon: 'cil-sitemap',
             },
           ],

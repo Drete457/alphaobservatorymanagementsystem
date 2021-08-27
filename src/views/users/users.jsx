@@ -1,12 +1,12 @@
 import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { countries, generic, listUsers } from 'state/atoms';
 import { useGetCountries } from 'hooks/countries';
 import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
 import useGetUserActivities from 'hooks/activities/useGetUserActivities';
-import { useSetRecoilState } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
 import homeHandler from 'helpers/users';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';

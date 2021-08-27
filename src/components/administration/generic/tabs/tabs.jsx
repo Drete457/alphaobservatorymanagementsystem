@@ -10,55 +10,55 @@ const Tabs = ({ active, setActive }) => {
         <CNav variant="tabs">
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.activities-types')}
+              {t('pages.generic.activities-types.tab')}
               {active === 0}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.card-types')}
+              {t('pages.generic.card-types.tab')}
               {active === 1}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.gender')}
+              {t('pages.generic.gender.tab')}
               {active === 2}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.group-age')}
+              {t('pages.generic.group-age.tab')}
               {active === 3}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.ocupation')}
+              {t('pages.generic.ocupation.tab')}
               {active === 4}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.options')}
+              {t('pages.generic.options.tab')}
               {active === 5}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.personality')}
+              {t('pages.generic.personality.tab')}
               {active === 6}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.social-media')}
+              {t('pages.generic.social-media.tab')}
               {active === 7}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.years')}
+              {t('pages.generic.years.tab')}
               {active === 8}
             </CNavLink>
           </CNavItem>

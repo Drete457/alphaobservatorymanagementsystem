@@ -42,7 +42,7 @@ const TableImport = () => {
   }, [genericList, history]);
 
   useEffect(() => {
-    if (tableFile.length > 1) {
+    if (tableFile.length > 0) {
       let count = 0;
 
       tableFile.forEach((user) => {
@@ -53,14 +53,21 @@ const TableImport = () => {
 
         newUser.name = user[0] != null ? user[0] : ''; // text
         newUser.country = user[4] != null ? user[4] : ''; // text
-        newUser.surveyLink = user[11] != null ? user[11] : ''; // text
-        newUser.training = user[5] != null ? user[5].replaceAll('/', '-') : ''; // date
-        newUser.second = user[6] != null ? user[6].replaceAll('/', '-') : ''; // date
-        newUser.community = user[8] != null ? user[8].replaceAll('/', '-') : ''; // date
-        newUser.firstActivity =
-          user[9] != null ? user[9].replaceAll('/', '-') : ''; // date
-        newUser.surveyDate =
+        newUser.trelloCard = user[5] != null ? user[5] : ''; // text
+        newUser.surveyLink = user[14] != null ? user[14] : ''; // text
+        newUser.surveyFriend = user[15] != null ? user[15] : ''; // text
+        newUser.surveyFace = user[16] != null ? user[16] : ''; // text
+        newUser.training = user[7] != null ? user[7].replaceAll('/', '-') : ''; // date
+        newUser.second = user[8] != null ? user[8].replaceAll('/', '-') : ''; // date
+
+        newUser.community =
           user[10] != null ? user[10].replaceAll('/', '-') : ''; // date
+        newUser.firstActivity =
+          user[11] != null ? user[11].replaceAll('/', '-') : ''; // date
+        newUser.surveyDate =
+          user[12] != null ? user[12].replaceAll('/', '-') : ''; // date
+        newUser.baseAmbit =
+          user[13] != null ? user[13].replaceAll('/', '-') : ''; // date
 
         newUser.gender =
           user[1] != null ? filter(genericList?.gender, user[1]) : '';
@@ -72,7 +79,7 @@ const TableImport = () => {
           user[3] != null ? filter(genericList?.years, user[3].toString()) : '';
 
         newUser.introductionOption =
-          user[7] != null ? filter(genericList?.options, user[7]) : '';
+          user[9] != null ? filter(genericList?.options, user[9]) : '';
 
         if (newUser.name !== '') {
           execute(newUser);

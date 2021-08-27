@@ -62,7 +62,6 @@ const buildUserList = (
     }
 
     //undefinied for each user on the table
-    user.ambitEntry = '';
     user.activities = '';
 
     return user;

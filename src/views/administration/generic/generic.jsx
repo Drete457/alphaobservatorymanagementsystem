@@ -1,4 +1,5 @@
 import { useState, useLayoutEffect } from 'react';
+import { Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useGetGeneric } from 'hooks/generic';
 import ErrorInfo from 'components/error';
@@ -8,20 +9,33 @@ import Tabs from 'components/administration/generic/tabs';
 const Generic = () => {
   const [t] = useTranslation();
 
-  const [active, setActive] = useState(1);
+  const [generic, setGeneric] = useState({});
+  const [active, setActive] = useState(0);
+  const [isEdit, setIsEdit] = useState({});
+  const [wasModified, setWasModified] = useState(false);
 
   const { isLoading, error, data, execute } = useGetGeneric();
 
   useLayoutEffect(() => {
     execute();
   }, [execute]);
-  console.log(data);
+
+  useLayoutEffect(() => {
+    if (data) {
+      setGeneric(data);
+    }
+  }, [data]);
+  console.log(generic);
   return (
     <>
       {error ? (
         <ErrorInfo error={error} />
       ) : (
         <>
+          <Prompt
+            when={wasModified}
+            message={() => t('pages.user.leaving-the-page')}
+          />
           <Tabs active={active} setActive={setActive} />
           {active === 0 && <p>0</p>}
           {active === 1 && <p>1</p>}

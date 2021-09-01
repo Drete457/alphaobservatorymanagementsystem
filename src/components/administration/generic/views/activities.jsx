@@ -5,34 +5,24 @@ import { InputField } from 'components/administration/input';
 import Buttons from 'components/administration/countries-buttons';
 import CIcon from '@coreui/icons-react';
 
-const Activities = () => {
+const Activities = ({
+  activities,
+  generic,
+  setGeneric,
+  isEdit,
+  setIsEdit,
+  setWasModified,
+}) => {
   const [t] = useTranslation();
-
+  const [errorsActivities, setErrorsActivities] = useState([]);
+  console.log(activities);
   return (
     <>
-      <header>
-        <h1 className="title">{t('pages.countries.title')}</h1>
-
-        <Buttons
-          countries={countries}
-          setCountries={setCountries}
-          countriesOriginal={countriesOriginal}
-          setCountriesOriginal={setCountriesOriginal}
-          setError={setError}
-          setErrorCountries={setErrorCountries}
-          isEdit={isEdit}
-          setIsEdit={setIsEdit}
-          wasModified={wasModified}
-          setWasModified={setWasModified}
-          dataCountries={data}
-        />
-      </header>
-
       <main className="main-body">
         <CForm>
-          {!isEdit && (
+          {!isEdit?.activitiesType && (
             <>
-              {countries?.map((country, index) => {
+              {activities?.map((activity, index) => {
                 return (
                   <div key={index}>
                     <div className="country-input">
@@ -40,8 +30,8 @@ const Activities = () => {
                         title={t('countries.country.title')}
                         name="country"
                         type="text"
-                        value={country?.country}
-                        errorMsg={errorCountries[index]?.country}
+                        value={activity?.name}
+                        errorMsg={errorsActivities[index]?.name}
                         className="country-input-format"
                         disabled
                       />
@@ -49,9 +39,9 @@ const Activities = () => {
                       <InputField
                         title={t('countries.gmt.title')}
                         name="gmt"
-                        type="text"
-                        value={country?.gmt}
-                        errorMsg={errorCountries[index]?.gmt}
+                        type="checkbox"
+                        value={activity?.extra}
+                        errorMsg={errorsActivities[index]?.extra}
                         className="country-input-format"
                         disabled
                       />
@@ -62,8 +52,8 @@ const Activities = () => {
             </>
           )}
 
-          {isEdit &&
-            countries?.map((country, index) => {
+          {isEdit?.activitiesType &&
+            activities?.map((activity, index) => {
               return (
                 <div key={index}>
                   <div className="country-input">
@@ -72,15 +62,9 @@ const Activities = () => {
                       name="country"
                       type="text"
                       placeholder={t('countries.country.placeholder')}
-                      value={country?.country}
-                      errorMsg={errorCountries[index]?.country}
+                      value={activity?.name}
+                      errorMsg={errorsActivities[index]?.name}
                       onChange={(event) => {
-                        countriesHandler.inputHandler(
-                          event,
-                          countries,
-                          setCountries,
-                          index,
-                        );
                         setWasModified(true);
                       }}
                       className="country-input-format"
@@ -89,17 +73,11 @@ const Activities = () => {
                     <InputField
                       title={t('countries.gmt.title')}
                       name="gmt"
-                      type="text"
+                      type="checkbox"
                       placeholder={t('countries.gmt.placeholder')}
-                      value={country?.gmt}
-                      errorMsg={errorCountries[index]?.gmt}
+                      value={activity?.extra}
+                      errorMsg={errorsActivities[index]?.extra}
                       onChange={(event) => {
-                        countriesHandler.inputHandler(
-                          event,
-                          countries,
-                          setCountries,
-                          index,
-                        );
                         setWasModified(true);
                       }}
                       className="country-input-format"
@@ -112,11 +90,6 @@ const Activities = () => {
                       size="sm"
                       color="danger"
                       onClick={() => {
-                        countriesHandler.countryDelete(
-                          index,
-                          countries,
-                          setCountries,
-                        );
                         setWasModified(true);
                       }}
                     >

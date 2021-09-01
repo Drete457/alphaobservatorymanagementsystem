@@ -2,6 +2,7 @@ import { useState, useLayoutEffect } from 'react';
 import { Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useGetGeneric } from 'hooks/generic';
+import TabsViews from 'components/administration/generic/views';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/administration/generic/tabs';
@@ -22,10 +23,18 @@ const Generic = () => {
 
   useLayoutEffect(() => {
     if (data) {
+      const isEditBuild = {};
+
+      for (let key in data) {
+        isEditBuild[key] = false;
+      }
+
+      setIsEdit(isEditBuild);
       setGeneric(data);
     }
   }, [data]);
   console.log(generic);
+  console.log(isEdit);
   return (
     <>
       {error ? (
@@ -37,7 +46,16 @@ const Generic = () => {
             message={() => t('pages.user.leaving-the-page')}
           />
           <Tabs active={active} setActive={setActive} />
-          {active === 0 && <p>0</p>}
+          {active === 0 && (
+            <TabsViews.Activities
+              activities={generic?.activitiesType}
+              generic={generic}
+              setGeneric={setGeneric}
+              isEdit={isEdit}
+              setIsEdit={setIsEdit}
+              setWasModified={setWasModified}
+            />
+          )}
           {active === 1 && <p>1</p>}
           {active === 2 && <p>2</p>}
           {active === 3 && <p>3</p>}

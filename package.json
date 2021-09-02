@@ -12,7 +12,9 @@
     "type": "git",
     "url": "https://github.com/Drete457/alphaobservatorymanagementsystem.git"
   },
-  "main": "public/start-electron.js",
+  "main": "public/start-electron.cjs",
+  "browser": "public/start-electron.cjs",
+  "module": "public/start-electron.cjs",
   "type": "module",
   "dependencies": {
     "@coreui/coreui-pro": "^3.4.0",

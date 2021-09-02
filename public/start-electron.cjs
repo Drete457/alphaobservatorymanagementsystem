@@ -10,8 +10,10 @@ const createMainWindow = () => {
     backgroundColor: 'white',
     webPreferences: {
       nodeIntegration: false,
+      nativeWindowOpen: true,
     },
   });
+
   const startURL = isDev
     ? 'http://localhost:3000'
     : `file://${path.join(__dirname, '../build/index.html')}`;

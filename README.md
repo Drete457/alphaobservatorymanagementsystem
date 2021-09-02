@@ -15,9 +15,26 @@ With Git and Node.js installed on your machine, choose location and clone reposi
 ```
 git clone https://github.com/Drete457/alphaobservatorymanagementsystem.git
 cd alphaobservatorymanagementsystem
-yarn
-yarn start
+yarn install
+yarn react-start
 ```
+
+## Desktop Aplication
+
+### Installation & Running
+
+```
+Create .env with PORT=3000 and REACT_APP_API_KEY and REACT_APP_TITLE
+yarn install
+yarn start - to start desktop aplication
+```
+
+### Building 
+
+```
+yarn build - will build the aplication for your system
+yart build:all - will build for macos, linux and windows - use this only on macos computer.
+yarn release - will create installer
 
 ## Tecnologies
 
@@ -35,6 +52,9 @@ yarn start
 - FireBase SDK
 - FireBase Tools
 - Export From Json
+- Electron
+- Concurrently
+- Wait-On
 
 ## License
 MIT License

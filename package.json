@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/Drete457/alphaobservatorymanagementsystem.git"
   },
+  "main": "public/start-electron.js",
   "type": "module",
   "dependencies": {
     "@coreui/coreui-pro": "^3.4.0",
@@ -32,13 +33,20 @@
     "react-scripts": "^4.0.3",
     "react-select": "^5.0.0",
     "read-excel-file": "^5.2.10",
-    "recoil": "^0.4.1"
+    "recoil": "^0.4.1",
+    "electron-is": "^3.0.0",
+    "electron-is-dev": "^2.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "set \"CI=false\" && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "react-start": "react-scripts start",
+    "react-build": "set \"CI=false\" && react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "yarn react-build && electron-builder --publish=always",
+    "build": "yarn react-build && yarn electron-build",
+    "build:all": "yarn build-electron && electron-builder build --publish never -mwl",
+    "start": "concurrently \"yarn react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [
@@ -86,6 +94,20 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.4.1",
-    "yarn-upgrade-all": "^0.5.4"
+    "yarn-upgrade-all": "^0.5.4",
+    "concurrently": "^6.0.0",
+    "electron": "^12.0.1",
+    "electron-builder": "^22.10.5",
+    "wait-on": "^5.3.0"
+  },
+  "build": {
+    "appId": "Alpha-Observatory",
+    "productName": "Alpha-Observatory",
+    "files": [
+      "build/**/*",
+      "public/start-electron.js",
+      "package.json"
+    ],
+    "extends": null
   }
 }

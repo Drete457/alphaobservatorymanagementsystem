@@ -1,23 +1,34 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CButton } from '@coreui/react';
-import { InputField } from 'components/administration/input';
-import Buttons from 'components/administration/countries-buttons';
+import {
+  InputField,
+  SelectFieldComponent,
+} from 'components/administration/input';
 import CIcon from '@coreui/icons-react';
 
-const Activities = ({
-  activities,
-  generic,
-  setGeneric,
-  isEdit,
-  setIsEdit,
-  setWasModified,
-}) => {
+const option = (options, value, t) => {
+  const activityExtraValue = value
+    ? t('generic.options.yes')
+    : t('generic.options.no');
+
+  const optionSelected = options.find(
+    (option) => option.name === activityExtraValue,
+  );
+
+  return optionSelected?.id;
+};
+
+const Activities = ({ activities, isEdit, setWasModified, options }) => {
   const [t] = useTranslation();
   const [errorsActivities, setErrorsActivities] = useState([]);
   console.log(activities);
   return (
     <>
+      <header>
+        <h1 className="title">{t('pages.generic.activities-types.title')}</h1>
+      </header>
+
       <main className="main-body">
         <CForm>
           {!isEdit?.activitiesType && (
@@ -27,8 +38,8 @@ const Activities = ({
                   <div key={index}>
                     <div className="country-input">
                       <InputField
-                        title={t('countries.country.title')}
-                        name="country"
+                        title={t('generic.activities-type.name')}
+                        name="name"
                         type="text"
                         value={activity?.name}
                         errorMsg={errorsActivities[index]?.name}
@@ -37,11 +48,15 @@ const Activities = ({
                       />
 
                       <InputField
-                        title={t('countries.gmt.title')}
-                        name="gmt"
-                        type="checkbox"
-                        value={activity?.extra}
-                        errorMsg={errorsActivities[index]?.extra}
+                        title={t('generic.activities-type.extra')}
+                        name="extra"
+                        type="text"
+                        value={
+                          activity?.extra
+                            ? t('generic.options.yes')
+                            : t('generic.options.no')
+                        }
+                        errorMsg={errorsActivities[index]?.name}
                         className="country-input-format"
                         disabled
                       />
@@ -58,31 +73,33 @@ const Activities = ({
                 <div key={index}>
                   <div className="country-input">
                     <InputField
-                      title={t('countries.country.title')}
-                      name="country"
+                      title={t('generic.activities-type.name')}
+                      name="name"
                       type="text"
-                      placeholder={t('countries.country.placeholder')}
+                      placeholder={t('generic.activities-type.placeholder')}
                       value={activity?.name}
                       errorMsg={errorsActivities[index]?.name}
                       onChange={(event) => {
                         setWasModified(true);
                       }}
                       className="country-input-format"
-                      disabled={!isEdit}
                     />
-                    <InputField
-                      title={t('countries.gmt.title')}
-                      name="gmt"
-                      type="checkbox"
-                      placeholder={t('countries.gmt.placeholder')}
-                      value={activity?.extra}
+
+                    <SelectFieldComponent
+                      title={t('generic.activities-type.extra')}
+                      name="extra"
+                      placeholder={t(
+                        'generic.activities-type.placeholderExtra',
+                      )}
+                      value={option(options, activity?.extra, t)}
                       errorMsg={errorsActivities[index]?.extra}
-                      onChange={(event) => {
+                      onChange={(value) => {
                         setWasModified(true);
                       }}
-                      className="country-input-format"
-                      disabled={!isEdit}
+                      options={options}
+                      className="user-input-format"
                     />
+
                     <CButton
                       className="country-trash"
                       shape="pill"

@@ -26,7 +26,7 @@ const Generic = () => {
       const isEditBuild = {};
 
       for (let key in data) {
-        isEditBuild[key] = false;
+        isEditBuild[key] = true;
       }
 
       setIsEdit(isEditBuild);
@@ -49,11 +49,9 @@ const Generic = () => {
           {active === 0 && (
             <TabsViews.Activities
               activities={generic?.activitiesType}
-              generic={generic}
-              setGeneric={setGeneric}
               isEdit={isEdit}
-              setIsEdit={setIsEdit}
               setWasModified={setWasModified}
+              options={generic?.options}
             />
           )}
           {active === 1 && <p>1</p>}
@@ -63,7 +61,6 @@ const Generic = () => {
           {active === 5 && <p>5</p>}
           {active === 6 && <p>6</p>}
           {active === 7 && <p>7</p>}
-          {active === 8 && <p>8</p>}
         </>
       )}
       {isLoading && <Loading />}

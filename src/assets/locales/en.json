@@ -233,6 +233,19 @@
         "logout": "Logout",
         "alt": "User Profile Photo"
     },
+    "generic": {
+        "options": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "activities-type": {
+            "name": "Activity Name",
+            "placeholder": "Write The Name of The Activity",
+            "error": "Need To Write Activity Name",
+            "extra": "Need To Write Number?",
+            "placeholderExtra": "Choose The Option"
+        }
+    },
     "pages": {
         "constrution": "Still under construction",
         "nointernet": "No Internet Connection",
@@ -342,21 +355,9 @@
                 "tab": "Card Types",
                 "title": "Card Types"
             },
-            "gender": {
-                "tab": "Gender",
-                "title": "Gender"
-            },
-            "group-age": {
-                "tab": "Group Age",
-                "title": "Group Age"
-            },
             "ocupation": {
                 "tab": "Ocupation",
                 "title": "Ocupation"
-            },
-            "options": {
-                "tab": "Options",
-                "title": "Options"
             },
             "personality": {
                 "tab": "Personality",

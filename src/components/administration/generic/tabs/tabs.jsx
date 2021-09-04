@@ -22,44 +22,26 @@ const Tabs = ({ active, setActive }) => {
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.gender.tab')}
+              {t('pages.generic.ocupation.tab')}
               {active === 2}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.group-age.tab')}
+              {t('pages.generic.personality.tab')}
               {active === 3}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.ocupation.tab')}
+              {t('pages.generic.social-media.tab')}
               {active === 4}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
-              {t('pages.generic.options.tab')}
-              {active === 5}
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink>
-              {t('pages.generic.personality.tab')}
-              {active === 6}
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink>
-              {t('pages.generic.social-media.tab')}
-              {active === 7}
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink>
               {t('pages.generic.years.tab')}
-              {active === 8}
+              {active === 5}
             </CNavLink>
           </CNavItem>
         </CNav>

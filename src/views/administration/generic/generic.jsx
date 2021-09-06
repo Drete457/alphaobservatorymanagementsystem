@@ -26,7 +26,7 @@ const Generic = () => {
       const isEditBuild = {};
 
       for (let key in data) {
-        isEditBuild[key] = true;
+        isEditBuild[key] = false;
       }
 
       setIsEdit(isEditBuild);
@@ -54,7 +54,13 @@ const Generic = () => {
               options={generic?.options}
             />
           )}
-          {active === 1 && <p>1</p>}
+          {active === 1 && (
+            <TabsViews.CardType
+              activities={generic?.cardTypes}
+              isEdit={isEdit}
+              setWasModified={setWasModified}
+            />
+          )}
           {active === 2 && (
             <TabsViews.Generic
               generic={generic?.ocupation}

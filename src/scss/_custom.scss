@@ -58,3 +58,12 @@ button {
     justify-content: center;
     width: 100%;
 }
+
+.card-type-text-line {
+    border: 0.1rem solid black;
+    border-radius: 10px;
+    margin: 0 1rem;
+    padding: 1rem 0;
+    padding-left: 1rem;
+    white-space: pre-line;
+}

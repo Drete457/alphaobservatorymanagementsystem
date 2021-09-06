@@ -22,7 +22,7 @@ const option = (options, value, t) => {
 const Activities = ({ activities, isEdit, setWasModified, options }) => {
   const [t] = useTranslation();
   const [errorsActivities, setErrorsActivities] = useState([]);
-  console.log(activities);
+
   return (
     <>
       <header>
@@ -100,18 +100,20 @@ const Activities = ({ activities, isEdit, setWasModified, options }) => {
                       className="user-input-format"
                     />
 
-                    <CButton
-                      className="country-trash"
-                      shape="pill"
-                      variant={'ghost'}
-                      size="sm"
-                      color="danger"
-                      onClick={() => {
-                        setWasModified(true);
-                      }}
-                    >
-                      <CIcon name={'cil-trash'} />
-                    </CButton>
+                    {!activity?.id && (
+                      <CButton
+                        className="country-trash"
+                        shape="pill"
+                        variant={'ghost'}
+                        size="sm"
+                        color="danger"
+                        onClick={() => {
+                          setWasModified(true);
+                        }}
+                      >
+                        <CIcon name={'cil-trash'} />
+                      </CButton>
+                    )}
                   </div>
                 </div>
               );

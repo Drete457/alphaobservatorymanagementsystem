@@ -55,12 +55,50 @@ const Generic = () => {
             />
           )}
           {active === 1 && <p>1</p>}
-          {active === 2 && <p>2</p>}
-          {active === 3 && <p>3</p>}
-          {active === 4 && <p>4</p>}
-          {active === 5 && <p>5</p>}
-          {active === 6 && <p>6</p>}
-          {active === 7 && <p>7</p>}
+          {active === 2 && (
+            <TabsViews.Generic
+              generic={generic?.ocupation}
+              type="ocupation"
+              title={t('pages.generic.ocupation.title')}
+              inputTitle={t('generic.ocupation.name')}
+              inputPlaceHolder={t('generic.ocupation.placeholder')}
+              isEdit={isEdit}
+              setWasModified={setWasModified}
+            />
+          )}
+          {active === 3 && (
+            <TabsViews.Generic
+              generic={generic?.personality}
+              type="personality"
+              title={t('pages.generic.personality.title')}
+              inputTitle={t('generic.personality.name')}
+              inputPlaceHolder={t('generic.personality.placeholder')}
+              isEdit={isEdit}
+              setWasModified={setWasModified}
+            />
+          )}
+          {active === 4 && (
+            <TabsViews.Generic
+              generic={generic?.socialmedia}
+              type="socialmedia"
+              title={t('pages.generic.social-media.title')}
+              inputTitle={t('generic.social-media.name')}
+              inputPlaceHolder={t('generic.social-media.placeholder')}
+              isEdit={isEdit}
+              setWasModified={setWasModified}
+            />
+          )}
+          {active === 5 && (
+            <TabsViews.Generic
+              generic={generic?.years}
+              type="years"
+              title={t('pages.generic.years.title')}
+              inputTitle={t('generic.years.name')}
+              inputPlaceHolder={t('generic.years.placeholder')}
+              isEdit={isEdit}
+              setWasModified={setWasModified}
+            />
+          )}
         </>
       )}
       {isLoading && <Loading />}

@@ -244,6 +244,26 @@
             "error": "Need To Write Activity Name",
             "extra": "Need To Write Number?",
             "placeholderExtra": "Choose The Option"
+        },
+        "ocupation": {
+            "name": "Ocupation Name",
+            "placeholder": "Write The Name of The Ocupation",
+            "error": "Need To Write Ocupation Name"
+        },
+        "personality": {
+            "name": "Personality Name",
+            "placeholder": "Write The Name of The Personality",
+            "error": "Need To Write Personality Name"
+        },
+        "social-media": {
+            "name": "Social Media Name",
+            "placeholder": "Write The Name of The Social Media",
+            "error": "Need To Write Social Media Name"
+        },
+        "years": {
+            "name": "Year",
+            "placeholder": "Write The Year",
+            "error": "Need To Write a Year"
         }
     },
     "pages": {

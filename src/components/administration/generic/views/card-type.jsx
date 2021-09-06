@@ -1,29 +1,29 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CButton } from '@coreui/react';
-import { InputField } from 'components/administration/input';
+import { InputField, TextAreaField } from 'components/administration/input';
 import CIcon from '@coreui/icons-react';
 
-const CardType = ({ activities, isEdit, setWasModified }) => {
+const CardType = ({ cards, isEdit, setWasModified }) => {
   const [t] = useTranslation();
   const [errorsCard, setErrorsCard] = useState([]);
 
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.generic.activities-types.title')}</h1>
+        <h1 className="title">{t('pages.generic.card-types.title')}</h1>
       </header>
 
       <main className="main-body">
         <CForm>
-          {!isEdit?.activitiesType && (
+          {!isEdit?.cardTypes && (
             <>
-              {activities?.map((card, index) => {
+              {cards?.map((card, index) => {
                 return (
                   <div key={index}>
                     <div className="country-input">
                       <InputField
-                        title={t('generic.activities-type.name')}
+                        title={t('generic.card-type.name')}
                         name="name"
                         type="text"
                         value={card?.name}
@@ -33,7 +33,7 @@ const CardType = ({ activities, isEdit, setWasModified }) => {
                       />
 
                       <InputField
-                        title={t('generic.activities-type.extra')}
+                        title={t('generic.card-type.color')}
                         name="color"
                         type="color"
                         errorMsg={errorsCard[index]?.color}
@@ -42,23 +42,27 @@ const CardType = ({ activities, isEdit, setWasModified }) => {
                         style={{ background: card?.color }}
                       />
                     </div>
-                    <div className="card-type-text-line">{card?.body}</div>
+
+                    <div className="card-type-text-line">
+                      <label>{t('generic.card-type.name-body')}</label>
+                      <div>{card?.body}</div>
+                    </div>
                   </div>
                 );
               })}
             </>
           )}
 
-          {isEdit?.activitiesType &&
-            activities?.map((card, index) => {
+          {isEdit?.cardTypes &&
+            cards?.map((card, index) => {
               return (
                 <div key={index}>
                   <div className="country-input">
                     <InputField
-                      title={t('generic.activities-type.name')}
+                      title={t('generic.card-type.name')}
                       name="name"
                       type="text"
-                      placeholder={t('generic.activities-type.placeholder')}
+                      placeholder={t('generic.card-type.placeholder')}
                       value={card?.name}
                       errorMsg={errorsCard[index]?.name}
                       onChange={(event) => {
@@ -68,10 +72,10 @@ const CardType = ({ activities, isEdit, setWasModified }) => {
                     />
 
                     <InputField
-                      title={t('generic.activities-type.name')}
+                      title={t('generic.card-type.color')}
                       name="color"
                       type="color"
-                      placeholder={t('generic.activities-type.placeholder')}
+                      placeholder={t('generic.card-type.placeholder-body')}
                       value={card?.color}
                       errorMsg={errorsCard[index]?.color}
                       onChange={(event) => {
@@ -95,6 +99,11 @@ const CardType = ({ activities, isEdit, setWasModified }) => {
                       </CButton>
                     )}
                   </div>
+                  <TextAreaField
+                    placeholder={t('user.fields.cards.bodyplaceholder')}
+                    value={card?.body}
+                    onChange={(event) => {}}
+                  />
                 </div>
               );
             })}

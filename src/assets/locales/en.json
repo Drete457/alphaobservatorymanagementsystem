@@ -250,7 +250,6 @@
             "placeholder": "Write The Card Type Name",
             "error": "Need To Write a Card Type Name",
             "color": "Color",
-            "name-body": "Body Of The Message",
             "placeholder-body": "Write The Text For The Body",
             "error-body": "Need To Write a Text For The Body"
         },

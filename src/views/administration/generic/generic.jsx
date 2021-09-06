@@ -26,7 +26,7 @@ const Generic = () => {
       const isEditBuild = {};
 
       for (let key in data) {
-        isEditBuild[key] = true;
+        isEditBuild[key] = false;
       }
 
       setIsEdit(isEditBuild);

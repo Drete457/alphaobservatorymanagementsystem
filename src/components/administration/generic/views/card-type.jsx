@@ -43,10 +43,12 @@ const CardType = ({ cards, isEdit, setWasModified }) => {
                       />
                     </div>
 
-                    <div className="card-type-text-line">
-                      <label>{t('generic.card-type.name-body')}</label>
-                      <div>{card?.body}</div>
-                    </div>
+                    <TextAreaField
+                      placeholder={t('generic.card-type.placeholder')}
+                      value={card?.body}
+                      onChange={(event) => {}}
+                      disabled={true}
+                    />
                   </div>
                 );
               })}

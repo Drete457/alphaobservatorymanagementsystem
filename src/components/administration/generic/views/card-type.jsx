@@ -44,6 +44,7 @@ const CardType = ({ cards, isEdit, setWasModified }) => {
                     </div>
 
                     <TextAreaField
+                      rows={card?.body.split(/\r\n|\r|\n/).length}
                       placeholder={t('generic.card-type.placeholder')}
                       value={card?.body}
                       onChange={(event) => {}}

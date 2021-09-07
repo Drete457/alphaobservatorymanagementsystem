@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 //import uniqueId from 'helpers/id-generator';
 import Button from 'components/button';
 
-const Buttons = ({ isEdit, setIsEdit, type }) => {
+const Buttons = ({ isEdit, setIsEdit, type, genericName }) => {
   const history = useHistory();
   const [t] = useTranslation();
-  console.log(isEdit[type]);
+
   return (
     <>
       {!isEdit[type] && (
@@ -20,6 +20,28 @@ const Buttons = ({ isEdit, setIsEdit, type }) => {
                 [type]: true,
               })
             }
+          />
+        </div>
+      )}
+
+      {isEdit[type] && (
+        <div className="user-submit-buttons">
+          <Button
+            name={t('btn.create-edit.cancel')}
+            isDanger={true}
+            onClick={() => {}}
+          />
+
+          <Button
+            name={t('btn.create-edit.save')}
+            isDanger={false}
+            onClick={() => {}}
+          />
+
+          <Button
+            name={t('btn.create-edit.generic') + genericName}
+            isDanger={false}
+            onClick={() => {}}
           />
         </div>
       )}

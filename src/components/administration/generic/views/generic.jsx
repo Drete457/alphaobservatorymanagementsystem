@@ -21,7 +21,12 @@ const Generic = ({
       <header>
         <h1 className="title">{title}</h1>
 
-        <Buttons isEdit={isEdit} setIsEdit={setIsEdit} type={type} />
+        <Buttons
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          type={type}
+          genericName={title}
+        />
       </header>
 
       <main className="main-body">

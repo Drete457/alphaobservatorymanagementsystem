@@ -62,7 +62,8 @@
                 "title": "Generate Link",
                 "copy": "Copy Link"
             },
-            "countries": "Create New Country"
+            "countries": "Create New Country",
+            "generic": "Create a New "
         },
         "table-import": {
             "button": "Import Users Table",

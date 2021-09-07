@@ -14,7 +14,12 @@ const CardType = ({ cards, isEdit, setIsEdit, setWasModified }) => {
       <header>
         <h1 className="title">{t('pages.generic.card-types.title')}</h1>
 
-        <Buttons isEdit={isEdit} setIsEdit={setIsEdit} type="cardTypes" />
+        <Buttons
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          type="cardTypes"
+          genericName={t('pages.generic.card-types.title')}
+        />
       </header>
 
       <main className="main-body">

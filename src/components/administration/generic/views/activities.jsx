@@ -35,7 +35,12 @@ const Activities = ({
       <header>
         <h1 className="title">{t('pages.generic.activities-types.title')}</h1>
 
-        <Buttons isEdit={isEdit} setIsEdit={setIsEdit} type="activitiesType" />
+        <Buttons
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          type="activitiesType"
+          genericName={t('pages.generic.activities-types.title')}
+        />
       </header>
 
       <main className="main-body">

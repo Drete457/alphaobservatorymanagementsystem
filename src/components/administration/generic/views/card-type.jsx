@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CButton } from '@coreui/react';
 import { InputField, TextAreaField } from 'components/administration/input';
+import Buttons from 'components/administration/generic/buttons';
 import CIcon from '@coreui/icons-react';
 
-const CardType = ({ cards, isEdit, setWasModified }) => {
+const CardType = ({ cards, isEdit, setIsEdit, setWasModified }) => {
   const [t] = useTranslation();
   const [errorsCard, setErrorsCard] = useState([]);
 
@@ -12,6 +13,8 @@ const CardType = ({ cards, isEdit, setWasModified }) => {
     <>
       <header>
         <h1 className="title">{t('pages.generic.card-types.title')}</h1>
+
+        <Buttons isEdit={isEdit} setIsEdit={setIsEdit} type="cardTypes" />
       </header>
 
       <main className="main-body">
@@ -102,7 +105,9 @@ const CardType = ({ cards, isEdit, setWasModified }) => {
                       </CButton>
                     )}
                   </div>
+
                   <TextAreaField
+                    rows={card?.body.split(/\r\n|\r|\n/).length}
                     placeholder={t('user.fields.cards.bodyplaceholder')}
                     value={card?.body}
                     onChange={(event) => {}}

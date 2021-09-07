@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CForm, CButton } from '@coreui/react';
 import { InputField } from 'components/administration/input';
+import Buttons from 'components/administration/generic/buttons';
 import CIcon from '@coreui/icons-react';
 
 const Generic = ({
@@ -10,6 +11,7 @@ const Generic = ({
   inputTitle,
   inputPlaceHolder,
   isEdit,
+  setIsEdit,
   setWasModified,
 }) => {
   const [errorsGeneric, setErrorsGeneric] = useState([]);
@@ -18,6 +20,8 @@ const Generic = ({
     <>
       <header>
         <h1 className="title">{title}</h1>
+
+        <Buttons isEdit={isEdit} setIsEdit={setIsEdit} type={type} />
       </header>
 
       <main className="main-body">

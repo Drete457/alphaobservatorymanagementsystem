@@ -33,8 +33,7 @@ const Generic = () => {
       setGeneric(data);
     }
   }, [data]);
-  console.log(generic);
-  console.log(isEdit);
+
   return (
     <>
       {error ? (
@@ -50,6 +49,7 @@ const Generic = () => {
             <TabsViews.Activities
               activities={generic?.activitiesType}
               isEdit={isEdit}
+              setIsEdit={setIsEdit}
               setWasModified={setWasModified}
               options={generic?.options}
             />
@@ -58,6 +58,7 @@ const Generic = () => {
             <TabsViews.CardType
               cards={generic?.cardTypes}
               isEdit={isEdit}
+              setIsEdit={setIsEdit}
               setWasModified={setWasModified}
             />
           )}
@@ -69,6 +70,7 @@ const Generic = () => {
               inputTitle={t('generic.ocupation.name')}
               inputPlaceHolder={t('generic.ocupation.placeholder')}
               isEdit={isEdit}
+              setIsEdit={setIsEdit}
               setWasModified={setWasModified}
             />
           )}
@@ -80,6 +82,7 @@ const Generic = () => {
               inputTitle={t('generic.personality.name')}
               inputPlaceHolder={t('generic.personality.placeholder')}
               isEdit={isEdit}
+              setIsEdit={setIsEdit}
               setWasModified={setWasModified}
             />
           )}
@@ -91,6 +94,7 @@ const Generic = () => {
               inputTitle={t('generic.social-media.name')}
               inputPlaceHolder={t('generic.social-media.placeholder')}
               isEdit={isEdit}
+              setIsEdit={setIsEdit}
               setWasModified={setWasModified}
             />
           )}
@@ -102,6 +106,7 @@ const Generic = () => {
               inputTitle={t('generic.years.name')}
               inputPlaceHolder={t('generic.years.placeholder')}
               isEdit={isEdit}
+              setIsEdit={setIsEdit}
               setWasModified={setWasModified}
             />
           )}

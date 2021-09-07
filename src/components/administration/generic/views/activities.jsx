@@ -5,6 +5,7 @@ import {
   InputField,
   SelectFieldComponent,
 } from 'components/administration/input';
+import Buttons from 'components/administration/generic/buttons';
 import CIcon from '@coreui/icons-react';
 
 const option = (options, value, t) => {
@@ -19,7 +20,13 @@ const option = (options, value, t) => {
   return optionSelected?.id;
 };
 
-const Activities = ({ activities, isEdit, setWasModified, options }) => {
+const Activities = ({
+  activities,
+  isEdit,
+  setIsEdit,
+  setWasModified,
+  options,
+}) => {
   const [t] = useTranslation();
   const [errorsActivities, setErrorsActivities] = useState([]);
 
@@ -27,6 +34,8 @@ const Activities = ({ activities, isEdit, setWasModified, options }) => {
     <>
       <header>
         <h1 className="title">{t('pages.generic.activities-types.title')}</h1>
+
+        <Buttons isEdit={isEdit} setIsEdit={setIsEdit} type="activitiesType" />
       </header>
 
       <main className="main-body">

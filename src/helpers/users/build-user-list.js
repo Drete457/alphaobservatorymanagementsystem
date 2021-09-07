@@ -18,6 +18,7 @@ const buildUserList = (
   const userListSort = userList.sort((user1, user2) =>
     sortList(user1, user2, 'name'),
   );
+  userListSort.unshift({ id: '1', name: 'None' });
 
   const fillArrayData = sortedList?.map((user) => {
     if (user.followed) {

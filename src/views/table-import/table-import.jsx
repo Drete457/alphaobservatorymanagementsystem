@@ -16,13 +16,17 @@ const ExcelDateToJSDate = (serial) => {
   const utc_value = utc_days * 86400;
   const date_info = new Date(utc_value * 1000);
 
-  return (
-    date_info.getFullYear() +
-    '-' +
-    (date_info.getMonth() + 1) +
-    '-' +
-    date_info.getDate()
-  );
+  const year = date_info.getFullYear();
+  const month = date_info.getMonth();
+  const day = date_info.getDate();
+
+  const monthFormating =
+    month.toString().length > 1 ? month + 1 : '0' + (month + 1);
+  const dayFormating = day.toLocaleString().length > 1 ? day : '0' + day;
+
+  const newDate = year + '-' + monthFormating + '-' + dayFormating;
+
+  return newDate;
 };
 
 const filter = (list, valueToSearch) => {

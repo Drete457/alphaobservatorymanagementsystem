@@ -13,6 +13,8 @@ const Generic = ({
   isEdit,
   setIsEdit,
   setWasModified,
+  genericList,
+  setGeneric,
 }) => {
   const [errorsGeneric, setErrorsGeneric] = useState([]);
 
@@ -26,6 +28,9 @@ const Generic = ({
           setIsEdit={setIsEdit}
           type={type}
           genericName={title}
+          genericList={genericList}
+          setGeneric={setGeneric}
+          create={true}
         />
       </header>
 
@@ -33,7 +38,7 @@ const Generic = ({
         <CForm>
           {!isEdit[type] && (
             <>
-              {generic?.map((activity, index) => {
+              {generic?.map((generic, index) => {
                 return (
                   <div key={index}>
                     <div className="generic-main">
@@ -41,7 +46,7 @@ const Generic = ({
                         title={inputTitle}
                         name="name"
                         type="text"
-                        value={activity?.name}
+                        value={generic?.name}
                         errorMsg={errorsGeneric[index]?.name}
                         className="country-input-format"
                         disabled
@@ -54,7 +59,7 @@ const Generic = ({
           )}
 
           {isEdit[type] &&
-            generic?.map((activity, index) => {
+            generic?.map((generic, index) => {
               return (
                 <div key={index}>
                   <div className="generic-main">
@@ -63,7 +68,7 @@ const Generic = ({
                       name="name"
                       type="text"
                       placeholder={inputPlaceHolder}
-                      value={activity?.name}
+                      value={generic?.name}
                       errorMsg={errorsGeneric[index]?.name}
                       onChange={(event) => {
                         setWasModified(true);
@@ -71,7 +76,7 @@ const Generic = ({
                       className="country-input-format"
                     />
 
-                    {!activity && (
+                    {!generic?.id && (
                       <CButton
                         className="country-trash"
                         shape="pill"

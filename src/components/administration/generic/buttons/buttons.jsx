@@ -3,7 +3,15 @@ import { useTranslation } from 'react-i18next';
 //import uniqueId from 'helpers/id-generator';
 import Button from 'components/button';
 
-const Buttons = ({ isEdit, setIsEdit, type, genericName }) => {
+const Buttons = ({
+  isEdit,
+  setIsEdit,
+  type,
+  genericName,
+  genericList,
+  setGeneric,
+  create,
+}) => {
   const history = useHistory();
   const [t] = useTranslation();
 
@@ -41,7 +49,18 @@ const Buttons = ({ isEdit, setIsEdit, type, genericName }) => {
           <Button
             name={t('btn.create-edit.generic') + genericName}
             isDanger={false}
-            onClick={() => {}}
+            onClick={() => {
+              const newArray = [...genericList[type]];
+
+              create
+                ? newArray.push({ id: '', name: '' })
+                : newArray.push(create);
+
+              setGeneric({
+                ...genericList,
+                [type]: newArray,
+              });
+            }}
           />
         </div>
       )}

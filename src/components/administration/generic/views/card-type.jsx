@@ -5,7 +5,14 @@ import { InputField, TextAreaField } from 'components/administration/input';
 import Buttons from 'components/administration/generic/buttons';
 import CIcon from '@coreui/icons-react';
 
-const CardType = ({ cards, isEdit, setIsEdit, setWasModified }) => {
+const CardType = ({
+  cards,
+  isEdit,
+  setIsEdit,
+  setWasModified,
+  genericList,
+  setGeneric,
+}) => {
   const [t] = useTranslation();
   const [errorsCard, setErrorsCard] = useState([]);
 
@@ -19,6 +26,9 @@ const CardType = ({ cards, isEdit, setIsEdit, setWasModified }) => {
           setIsEdit={setIsEdit}
           type="cardTypes"
           genericName={t('pages.generic.card-types.title')}
+          genericList={genericList}
+          setGeneric={setGeneric}
+          create={{ id: '', name: '', color: '#ffffff', body: '' }}
         />
       </header>
 
@@ -34,6 +44,7 @@ const CardType = ({ cards, isEdit, setIsEdit, setWasModified }) => {
                         title={t('generic.card-type.name')}
                         name="name"
                         type="text"
+                        placeholder={t('generic.card-type.placeholder')}
                         value={card?.name}
                         errorMsg={errorsCard[index]?.name}
                         className="country-input-format"
@@ -52,8 +63,8 @@ const CardType = ({ cards, isEdit, setIsEdit, setWasModified }) => {
                     </div>
 
                     <TextAreaField
-                      rows={card?.body.split(/\r\n|\r|\n/).length}
-                      placeholder={t('generic.card-type.placeholder')}
+                      rows={card?.body?.split(/\r\n|\r|\n/).length}
+                      placeholder={t('generic.card-type.placeholder-body')}
                       value={card?.body}
                       onChange={(event) => {}}
                       disabled={true}
@@ -86,7 +97,6 @@ const CardType = ({ cards, isEdit, setIsEdit, setWasModified }) => {
                       title={t('generic.card-type.color')}
                       name="color"
                       type="color"
-                      placeholder={t('generic.card-type.placeholder-body')}
                       value={card?.color}
                       errorMsg={errorsCard[index]?.color}
                       onChange={(event) => {
@@ -112,8 +122,8 @@ const CardType = ({ cards, isEdit, setIsEdit, setWasModified }) => {
                   </div>
 
                   <TextAreaField
-                    rows={card?.body.split(/\r\n|\r|\n/).length}
-                    placeholder={t('user.fields.cards.bodyplaceholder')}
+                    rows={card?.body?.split(/\r\n|\r|\n/).length}
+                    placeholder={t('generic.card-type.placeholder-body')}
                     value={card?.body}
                     onChange={(event) => {}}
                   />

@@ -26,6 +26,8 @@ const Activities = ({
   setIsEdit,
   setWasModified,
   options,
+  genericList,
+  setGeneric,
 }) => {
   const [t] = useTranslation();
   const [errorsActivities, setErrorsActivities] = useState([]);
@@ -40,6 +42,9 @@ const Activities = ({
           setIsEdit={setIsEdit}
           type="activitiesType"
           genericName={t('pages.generic.activities-types.title')}
+          genericList={genericList}
+          setGeneric={setGeneric}
+          create={{ id: '', name: '', extra: false }}
         />
       </header>
 

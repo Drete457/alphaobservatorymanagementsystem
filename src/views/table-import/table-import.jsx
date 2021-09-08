@@ -11,6 +11,20 @@ import Button from 'components/button';
 import userHandler from 'helpers/user';
 import uniqueId from 'helpers/id-generator';
 
+const ExcelDateToJSDate = (serial) => {
+  const utc_days = Math.floor(serial - 25569);
+  const utc_value = utc_days * 86400;
+  const date_info = new Date(utc_value * 1000);
+
+  return (
+    date_info.getFullYear() +
+    '-' +
+    (date_info.getMonth() + 1) +
+    '-' +
+    date_info.getDate()
+  );
+};
+
 const filter = (list, valueToSearch) => {
   if (Array.isArray(list)) {
     const value = list.find((value) => value.name === valueToSearch);
@@ -51,35 +65,48 @@ const TableImport = () => {
           id: uniqueId(),
         };
 
-        newUser.name = user[0] != null ? user[0] : ''; // text
-        newUser.country = user[4] != null ? user[4] : ''; // text
-        newUser.trelloCard = user[5] != null ? user[5] : ''; // text
-        newUser.surveyLink = user[14] != null ? user[14] : ''; // text
-        newUser.surveyFriend = user[15] != null ? user[15] : ''; // text
-        newUser.surveyFace = user[16] != null ? user[16] : ''; // text
-        newUser.training = user[7] != null ? user[7].replaceAll('/', '-') : ''; // date
-        newUser.second = user[8] != null ? user[8].replaceAll('/', '-') : ''; // date
+        newUser.gender =
+          user[2] != null ? filter(genericList?.gender, user[2]) : '';
+        newUser.employment =
+          user[3] != null ? filter(genericList?.ocupation, user[3]) : '';
+        newUser.birthyear =
+          user[4] != null ? filter(genericList?.years, user[4].toString()) : '';
+        newUser.introductionOption =
+          user[13] != null ? filter(genericList?.options, user[13]) : '';
 
-        newUser.community =
-          user[10] != null ? user[10].replaceAll('/', '-') : ''; // date
+        newUser.name = user[0] != null ? user[0] : ''; // text
+        newUser.followed = user[1] + ''; // text
+        newUser.surveyLink = user[5] != null ? user[5] : ''; // text
+        newUser.surveyFriend = user[6] != null ? user[6] : ''; // text
+        newUser.surveyFace = user[7] != null ? user[7] : ''; // text
+        newUser.country = user[8] != null ? user[8] : ''; // text
+        newUser.trelloCard = user[9] != null ? user[9] : ''; // text
+
+        newUser.explainAlphaCafe =
+          user[10] != null ? ExcelDateToJSDate(user[10]) : ''; // date
+        newUser.training = user[11] != null ? ExcelDateToJSDate(user[11]) : ''; // date
+        newUser.second = user[12] != null ? ExcelDateToJSDate(user[12]) : ''; // date
+        newUser.community = user[14] != null ? ExcelDateToJSDate(user[14]) : ''; // date
         newUser.firstActivity =
-          user[11] != null ? user[11].replaceAll('/', '-') : ''; // date
+          user[15] != null ? ExcelDateToJSDate(user[15]) : ''; // date
         newUser.surveyDate =
-          user[12] != null ? user[12].replaceAll('/', '-') : ''; // date
+          user[16] != null ? ExcelDateToJSDate(user[16]) : ''; // date
+
+        /*
+        newUser.explainAlphaCafe =
+          user[10] != null ? user[10].replaceAll('/', '-') : ''; // date
+        newUser.training =
+          user[11] != null ? user[11].replaceAll('/', '-') : ''; // date
+        newUser.second = user[12] != null ? user[12].replaceAll('/', '-') : ''; // date
+        newUser.community =
+          user[14] != null ? user[14].replaceAll('/', '-') : ''; // date
+        newUser.firstActivity =
+          user[15] != null ? user[15].replaceAll('/', '-') : ''; // date
+        newUser.surveyDate =
+          user[16] != null ? user[16].replaceAll('/', '-') : ''; // date
         newUser.baseAmbit =
           user[13] != null ? user[13].replaceAll('/', '-') : ''; // date
-
-        newUser.gender =
-          user[1] != null ? filter(genericList?.gender, user[1]) : '';
-
-        newUser.employment =
-          user[2] != null ? filter(genericList?.ocupation, user[2]) : '';
-
-        newUser.birthyear =
-          user[3] != null ? filter(genericList?.years, user[3].toString()) : '';
-
-        newUser.introductionOption =
-          user[9] != null ? filter(genericList?.options, user[9]) : '';
+        */
 
         if (newUser.name !== '') {
           execute(newUser);

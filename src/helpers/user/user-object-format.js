@@ -21,6 +21,7 @@ const userFormat = {
   socialInfo: '',
   trelloCard: '',
   baseAmbit: '',
+  explainAlphaCafe: '',
 };
 
 export default userFormat;

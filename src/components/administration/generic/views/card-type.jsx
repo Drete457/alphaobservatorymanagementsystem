@@ -12,6 +12,7 @@ const CardType = ({
   setWasModified,
   genericList,
   setGeneric,
+  originalData,
 }) => {
   const [t] = useTranslation();
   const [errorsCard, setErrorsCard] = useState([]);
@@ -29,6 +30,7 @@ const CardType = ({
           genericList={genericList}
           setGeneric={setGeneric}
           create={{ id: '', name: '', color: '#ffffff', body: '' }}
+          originalData={originalData}
         />
       </header>
 

@@ -15,6 +15,7 @@ const Generic = ({
   setWasModified,
   genericList,
   setGeneric,
+  originalData,
 }) => {
   const [errorsGeneric, setErrorsGeneric] = useState([]);
 
@@ -31,6 +32,7 @@ const Generic = ({
           genericList={genericList}
           setGeneric={setGeneric}
           create={true}
+          originalData={originalData}
         />
       </header>
 

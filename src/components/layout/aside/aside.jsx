@@ -36,7 +36,7 @@ const Aside = () => {
       onShowChange={(state) => setAsideShow(state)}
     >
       <CSidebarClose onClick={() => setAsideShow(false)} />
-      {/*aside content*/}
+
       <div className="nav-underline">
         <div className="nav nav-tabs">
           <div className="nav-item">

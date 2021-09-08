@@ -54,6 +54,7 @@ const Generic = () => {
               options={generic?.options}
               genericList={generic}
               setGeneric={setGeneric}
+              originalData={data}
             />
           )}
           {active === 1 && (
@@ -64,6 +65,7 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
+              originalData={data}
             />
           )}
           {active === 2 && (
@@ -78,6 +80,7 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
+              originalData={data}
             />
           )}
           {active === 3 && (
@@ -92,6 +95,7 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
+              originalData={data}
             />
           )}
           {active === 4 && (
@@ -106,6 +110,7 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
+              originalData={data}
             />
           )}
           {active === 5 && (
@@ -120,6 +125,7 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
+              originalData={data}
             />
           )}
         </>

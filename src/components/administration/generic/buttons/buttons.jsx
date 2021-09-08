@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 //import uniqueId from 'helpers/id-generator';
 import Button from 'components/button';
@@ -11,8 +11,9 @@ const Buttons = ({
   genericList,
   setGeneric,
   create,
+  originalData,
 }) => {
-  const history = useHistory();
+  //const history = useHistory();
   const [t] = useTranslation();
 
   return (
@@ -37,7 +38,17 @@ const Buttons = ({
           <Button
             name={t('btn.create-edit.cancel')}
             isDanger={true}
-            onClick={() => {}}
+            onClick={() => {
+              setIsEdit({
+                ...isEdit,
+                [type]: false,
+              });
+
+              setGeneric({
+                ...genericList,
+                [type]: originalData[type],
+              });
+            }}
           />
 
           <Button

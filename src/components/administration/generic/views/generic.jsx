@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CForm, CButton } from '@coreui/react';
 import { InputField } from 'components/administration/input';
 import Buttons from 'components/administration/generic/buttons';
+import genericHandler from 'helpers/generic';
 import CIcon from '@coreui/icons-react';
 
 const Generic = ({
@@ -73,6 +74,13 @@ const Generic = ({
                       value={generic?.name}
                       errorMsg={errorsGeneric[index]?.name}
                       onChange={(event) => {
+                        genericHandler.inputHandler(
+                          setGeneric,
+                          genericList,
+                          type,
+                          index,
+                          event,
+                        );
                         setWasModified(true);
                       }}
                       className="country-input-format"
@@ -86,6 +94,12 @@ const Generic = ({
                         size="sm"
                         color="danger"
                         onClick={() => {
+                          genericHandler.genericDelete(
+                            setGeneric,
+                            genericList,
+                            type,
+                            index,
+                          );
                           setWasModified(true);
                         }}
                       >

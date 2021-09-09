@@ -1,9 +1,17 @@
 import { CTextarea } from '@coreui/react';
 
-const TextAreaField = ({ rows, placeholder, value, onChange, disabled }) => {
+const TextAreaField = ({
+  name,
+  rows,
+  placeholder,
+  value,
+  onChange,
+  disabled,
+}) => {
   return (
     <div>
       <CTextarea
+        name={name}
         type="type"
         rows={rows}
         placeholder={placeholder}

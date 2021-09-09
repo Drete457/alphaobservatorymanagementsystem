@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { CForm, CButton } from '@coreui/react';
 import { InputField, TextAreaField } from 'components/administration/input';
 import Buttons from 'components/administration/generic/buttons';
+import genericHandler from 'helpers/generic';
 import CIcon from '@coreui/icons-react';
 
 const CardType = ({
@@ -91,6 +92,13 @@ const CardType = ({
                       value={card?.name}
                       errorMsg={errorsCard[index]?.name}
                       onChange={(event) => {
+                        genericHandler.inputHandler(
+                          setGeneric,
+                          genericList,
+                          type,
+                          index,
+                          event,
+                        );
                         setWasModified(true);
                       }}
                       className="country-input-format"
@@ -103,6 +111,13 @@ const CardType = ({
                       value={card?.color}
                       errorMsg={errorsCard[index]?.color}
                       onChange={(event) => {
+                        genericHandler.inputHandler(
+                          setGeneric,
+                          genericList,
+                          type,
+                          index,
+                          event,
+                        );
                         setWasModified(true);
                       }}
                       className="country-input-format"
@@ -116,6 +131,12 @@ const CardType = ({
                         size="sm"
                         color="danger"
                         onClick={() => {
+                          genericHandler.genericDelete(
+                            setGeneric,
+                            genericList,
+                            type,
+                            index,
+                          );
                           setWasModified(true);
                         }}
                       >
@@ -125,10 +146,20 @@ const CardType = ({
                   </div>
 
                   <TextAreaField
+                    name="body"
                     rows={card?.body?.split(/\r\n|\r|\n/).length}
                     placeholder={t('generic.card-type.placeholder-body')}
                     value={card?.body}
-                    onChange={(event) => {}}
+                    onChange={(event) => {
+                      genericHandler.bodyHandler(
+                        setGeneric,
+                        genericList,
+                        type,
+                        index,
+                        event,
+                      );
+                      setWasModified(true);
+                    }}
                   />
                 </div>
               );

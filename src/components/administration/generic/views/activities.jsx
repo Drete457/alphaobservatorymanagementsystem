@@ -6,6 +6,7 @@ import {
   SelectFieldComponent,
 } from 'components/administration/input';
 import Buttons from 'components/administration/generic/buttons';
+import genericHandler from 'helpers/generic';
 import CIcon from '@coreui/icons-react';
 
 const option = (options, value, t) => {
@@ -102,6 +103,13 @@ const Activities = ({
                       value={activity?.name}
                       errorMsg={errorsActivities[index]?.name}
                       onChange={(event) => {
+                        genericHandler.inputHandler(
+                          setGeneric,
+                          genericList,
+                          type,
+                          index,
+                          event,
+                        );
                         setWasModified(true);
                       }}
                       className="country-input-format"
@@ -115,7 +123,14 @@ const Activities = ({
                       )}
                       value={option(options, activity?.extra, t)}
                       errorMsg={errorsActivities[index]?.extra}
-                      onChange={(value) => {
+                      onChange={(event) => {
+                        genericHandler.selectHandler(
+                          setGeneric,
+                          genericList,
+                          type,
+                          index,
+                          event,
+                        );
                         setWasModified(true);
                       }}
                       options={options}
@@ -130,6 +145,12 @@ const Activities = ({
                         size="sm"
                         color="danger"
                         onClick={() => {
+                          genericHandler.genericDelete(
+                            setGeneric,
+                            genericList,
+                            type,
+                            index,
+                          );
                           setWasModified(true);
                         }}
                       >

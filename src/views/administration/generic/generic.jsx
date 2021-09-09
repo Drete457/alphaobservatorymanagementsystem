@@ -48,6 +48,7 @@ const Generic = () => {
           {active === 0 && (
             <TabsViews.Activities
               activities={generic?.activitiesType}
+              type="activitiesType"
               isEdit={isEdit}
               setIsEdit={setIsEdit}
               setWasModified={setWasModified}
@@ -60,6 +61,7 @@ const Generic = () => {
           {active === 1 && (
             <TabsViews.CardType
               cards={generic?.cardTypes}
+              type="cardTypes"
               isEdit={isEdit}
               setIsEdit={setIsEdit}
               setWasModified={setWasModified}

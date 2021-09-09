@@ -1,6 +1,7 @@
 //import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 //import uniqueId from 'helpers/id-generator';
+import genericHandler from 'helpers/generic';
 import Button from 'components/button';
 
 const Buttons = ({
@@ -44,10 +45,12 @@ const Buttons = ({
                 [type]: false,
               });
 
-              setGeneric({
-                ...genericList,
-                [type]: originalData[type],
-              });
+              genericHandler.genericCancel(
+                setGeneric,
+                genericList,
+                type,
+                originalData,
+              );
             }}
           />
 
@@ -61,16 +64,12 @@ const Buttons = ({
             name={t('btn.create-edit.generic') + genericName}
             isDanger={false}
             onClick={() => {
-              const newArray = [...genericList[type]];
-
-              create
-                ? newArray.push({ id: '', name: '' })
-                : newArray.push(create);
-
-              setGeneric({
-                ...genericList,
-                [type]: newArray,
-              });
+              genericHandler.genericCreate(
+                setGeneric,
+                genericList,
+                type,
+                create,
+              );
             }}
           />
         </div>

@@ -22,6 +22,7 @@ const option = (options, value, t) => {
 
 const Activities = ({
   activities,
+  type,
   isEdit,
   setIsEdit,
   setWasModified,
@@ -41,7 +42,7 @@ const Activities = ({
         <Buttons
           isEdit={isEdit}
           setIsEdit={setIsEdit}
-          type="activitiesType"
+          type={type}
           genericName={t('pages.generic.activities-types.title')}
           genericList={genericList}
           setGeneric={setGeneric}

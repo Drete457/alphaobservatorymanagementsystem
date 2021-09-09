@@ -7,6 +7,7 @@ import CIcon from '@coreui/icons-react';
 
 const CardType = ({
   cards,
+  type,
   isEdit,
   setIsEdit,
   setWasModified,
@@ -25,7 +26,7 @@ const CardType = ({
         <Buttons
           isEdit={isEdit}
           setIsEdit={setIsEdit}
-          type="cardTypes"
+          type={type}
           genericName={t('pages.generic.card-types.title')}
           genericList={genericList}
           setGeneric={setGeneric}

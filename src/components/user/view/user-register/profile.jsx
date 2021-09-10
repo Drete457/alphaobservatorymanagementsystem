@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { CForm } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
+import { InputField } from 'components/user/input';
 import Button from 'components/button';
+import userHandler from 'helpers/user';
 
-const ProfilePage = ({ user, setUser }) => {
+const ProfilePage = ({ user, setUser, setWasModified }) => {
   const [t] = useTranslation();
   const [pdfFile, setPdfFile] = useState(null);
 
@@ -33,6 +35,18 @@ const ProfilePage = ({ user, setUser }) => {
       </header>
 
       <main className="main-body">
+        <InputField
+          title={t('user.fields.profile.title')}
+          name="profileUrl"
+          placeholder={t('user.fields.profile.placeholder')}
+          type="url"
+          value={user?.profileUrl}
+          onChange={(event) => {
+            userHandler.userInputHandler(event, setUser, user);
+            setWasModified(true);
+          }}
+          className="profile-input-format"
+        />
         <input
           type="file"
           name="upload"
@@ -49,6 +63,7 @@ const ProfilePage = ({ user, setUser }) => {
             }
           }}
         />
+
         <div className="profile-button">
           <Button
             name={

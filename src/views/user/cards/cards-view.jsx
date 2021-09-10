@@ -103,6 +103,7 @@ const CardsView = ({ match }) => {
       ) : user && userList && countriesList && genericList ? (
         <>
           <Tabs active={active} setActive={setActive} />
+          <View user={user} />
           {active === 0 && (
             <UserViewer
               user={user}
@@ -116,7 +117,6 @@ const CardsView = ({ match }) => {
           )}
           {active === 2 && <UserCards user={user} userList={userList} />}
           {active === 3 && <ProfilePage user={user} />}
-          <View user={user} />
         </>
       ) : (
         <>

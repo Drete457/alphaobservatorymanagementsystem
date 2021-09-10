@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { CForm, CProgress } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { download } from 'hooks/files';
+import { InputField } from 'components/user/input';
 import ErrorInfo from 'components/error';
 
 const ProfilePage = ({ user }) => {
@@ -26,6 +27,14 @@ const ProfilePage = ({ user }) => {
           </header>
 
           <main className="main-body">
+            <InputField
+              title={t('user.fields.profile.title')}
+              name="profileUrl"
+              type="url"
+              value={user?.profileUrl}
+              className="profile-input-format"
+              disabled
+            />
             <CForm>
               {!data && (
                 <CProgress animated value={progress} className="mb-3" />

@@ -146,7 +146,7 @@
                     "error": "Choose The Date correctly"
                 },
                 "link": {
-                    "title": "Survey Link",
+                    "title": "Survey Link Online",
                     "placeholder": "Write The Survey Link Of The User",
                     "error": "Missing The Personal Link"
                 },
@@ -165,23 +165,27 @@
                 "first": "Entry Into First Ambit",
                 "entry": "Entry Into Base Ambit"
             },
-            "activities":{
+            "activities": {
                 "title": "Number of Activities"
             },
             "groupAge": {
                 "title": "Group Age"
             },
-            "social":{
+            "social": {
                 "title": "Social Media",
                 "placeholder": "Choose The Social Media User Have",
                 "placeholdersocialnetwork": "Write The User Name Use In This Social Media",
                 "error": "Don't Forget To Write User Name Used In This Social Media"
             },
-            "cards" : {
+            "cards": {
                 "placeholder": "Choose The Type Of Card",
                 "bodyplaceholder": "Don't Delete The Text",
                 "error": "It Is Necessary To Complete The Card",
                 "trainer": "Choose The Trainer Name"
+            },
+            "profile": {
+                "title": "Profile Url",
+                "placeholder": "Write The Profile Url"
             }
         }
     },
@@ -291,8 +295,8 @@
         },
         "users": {
             "title": "All Users",
-            "no-info": "No Users",
-            "table-title": "Registers"
+            "numberUsers": "Number of Registered Users",
+            "no-info": "No Users"
         },
         "myprofile": {
             "title": "Profile Page",

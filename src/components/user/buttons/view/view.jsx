@@ -8,7 +8,7 @@ const View = ({ user }) => {
 
   return (
     <>
-      <div className="user-submit-buttons">
+      <div className="user-submit-buttons mt-3">
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}

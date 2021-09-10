@@ -41,6 +41,12 @@ const UserRegistration = () => {
             message={() => t('pages.user.leaving-the-page')}
           />
           <Tabs active={active} setActive={setActive} />
+          <Submit
+            user={user}
+            setErrorMsg={setErrorMsg}
+            setError={setError}
+            setWasModified={setWasModified}
+          />
           {active === 0 && (
             <UserRegister
               user={user}
@@ -70,13 +76,13 @@ const UserRegistration = () => {
               userList={userList}
             />
           )}
-          {active === 3 && <ProfilePage user={user} setUser={setUser} />}
-          <Submit
-            user={user}
-            setErrorMsg={setErrorMsg}
-            setError={setError}
-            setWasModified={setWasModified}
-          />
+          {active === 3 && (
+            <ProfilePage
+              user={user}
+              setUser={setUser}
+              setWasModified={setWasModified}
+            />
+          )}
         </>
       )}
     </>

@@ -9,10 +9,15 @@ const DataTable = ({ users, isLoading }) => {
   const [t] = useTranslation();
   const history = useHistory();
 
+  //put all none to the end of the list
+  const usersListSort = users.sort?.((user1, user2) =>
+    homeHandler.sortList(user1, user2, 'followed'),
+  );
+
   return (
     <CDataTable
       addTableClasses="users-table"
-      items={users}
+      items={usersListSort}
       fields={homeHandler.fields(t)}
       columnFilter
       tableFilter

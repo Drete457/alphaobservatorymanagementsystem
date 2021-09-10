@@ -19,7 +19,6 @@ const userFormat = {
   surveyFriend: '',
   social: '',
   socialInfo: '',
-  trelloCard: '',
   baseAmbit: '',
   explainAlphaCafe: '',
 };

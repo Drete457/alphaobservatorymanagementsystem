@@ -58,6 +58,12 @@ const UserEdition = ({ match }) => {
             message={() => t('pages.user.leaving-the-page')}
           />
           <Tabs active={active} setActive={setActive} />
+          <Submit
+            user={user}
+            setErrorMsg={setErrorMsg}
+            setError={setError}
+            setWasModified={setWasModified}
+          />
           {active === 0 && (
             <UserEdit
               user={user}
@@ -88,14 +94,13 @@ const UserEdition = ({ match }) => {
             />
           )}
           {active === 3 && (
-            <ProfilePage user={user} setUser={setUser} setError={setError} />
+            <ProfilePage
+              user={user}
+              setUser={setUser}
+              setError={setError}
+              setWasModified={setWasModified}
+            />
           )}
-          <Submit
-            user={user}
-            setErrorMsg={setErrorMsg}
-            setError={setError}
-            setWasModified={setWasModified}
-          />
         </>
       ) : (
         <>

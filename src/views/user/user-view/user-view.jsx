@@ -50,6 +50,7 @@ const UserView = ({ match }) => {
       ) : user ? (
         <>
           <Tabs active={active} setActive={setActive} />
+          <View user={user} />
           {active === 0 && (
             <UserViewer
               user={user}
@@ -63,7 +64,6 @@ const UserView = ({ match }) => {
           )}
           {active === 2 && <UserCards user={user} userList={userList} />}
           {active === 3 && <ProfilePage user={user} />}
-          <View user={user} />
         </>
       ) : (
         <>

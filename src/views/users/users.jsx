@@ -138,7 +138,7 @@ const Users = () => {
           <main>
             <hr />
             <nav className="users-nav h3">
-              {t('pages.users.table-title')}
+              {t('pages.users.numberUsers') + ': ' + users.length}
               <div className="users-button">
                 <Button
                   name={t('btn.create.excel')}

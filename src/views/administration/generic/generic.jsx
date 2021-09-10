@@ -11,6 +11,7 @@ const Generic = () => {
   const [t] = useTranslation();
 
   const [generic, setGeneric] = useState({});
+  const [originalData, setOriginalData] = useState({});
   const [active, setActive] = useState(0);
   const [isEdit, setIsEdit] = useState({});
   const [wasModified, setWasModified] = useState(false);
@@ -31,6 +32,7 @@ const Generic = () => {
 
       setIsEdit(isEditBuild);
       setGeneric(data);
+      setOriginalData(data);
     }
   }, [data]);
 
@@ -55,7 +57,8 @@ const Generic = () => {
               options={generic?.options}
               genericList={generic}
               setGeneric={setGeneric}
-              originalData={data}
+              originalData={originalData}
+              setOriginalData={setOriginalData}
             />
           )}
           {active === 1 && (
@@ -67,7 +70,8 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
-              originalData={data}
+              originalData={originalData}
+              setOriginalData={setOriginalData}
             />
           )}
           {active === 2 && (
@@ -82,7 +86,8 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
-              originalData={data}
+              originalData={originalData}
+              setOriginalData={setOriginalData}
             />
           )}
           {active === 3 && (
@@ -97,7 +102,8 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
-              originalData={data}
+              originalData={originalData}
+              setOriginalData={setOriginalData}
             />
           )}
           {active === 4 && (
@@ -112,7 +118,8 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
-              originalData={data}
+              originalData={originalData}
+              setOriginalData={setOriginalData}
             />
           )}
           {active === 5 && (
@@ -127,7 +134,8 @@ const Generic = () => {
               setWasModified={setWasModified}
               genericList={generic}
               setGeneric={setGeneric}
-              originalData={data}
+              originalData={originalData}
+              setOriginalData={setOriginalData}
             />
           )}
         </>

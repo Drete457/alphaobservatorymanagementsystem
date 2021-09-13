@@ -19,7 +19,7 @@ const useNavigation = (t) => {
         },
       ],
     },
-    {
+    /*  {
       _tag: 'CSidebarNavDropdown',
       name: t('sidebar.administration.title'),
       route: '/administration',
@@ -53,7 +53,7 @@ const useNavigation = (t) => {
           ],
         },
       ],
-    },
+    }, */
   ];
 
   return array;

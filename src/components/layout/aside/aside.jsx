@@ -37,7 +37,7 @@ const Aside = () => {
     >
       <CSidebarClose onClick={() => setAsideShow(false)} />
 
-      <div className="nav-underline">
+      {/* <div className="nav-underline">
         <div className="nav nav-tabs">
           <div className="nav-item">
             <div className="nav-link">{t('sidebar.aside.title')}</div>
@@ -50,7 +50,7 @@ const Aside = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </CSidebar>
   );
 };

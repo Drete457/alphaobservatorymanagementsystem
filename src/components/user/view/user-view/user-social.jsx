@@ -5,11 +5,12 @@ import { InputField } from 'components/user/input';
 
 const UserSocial = ({ user, socialList }) => {
   const [t] = useTranslation();
-  const [social, setSocial] = useState('');
+  const [social, setSocial] = useState([]);
 
   useLayoutEffect(() => {
     if (user.social) {
-      const userSocialList = user.social?.map(
+      console.log('entrou');
+      const userSocialList = user.social?.map?.(
         (social) => socialList.find((value) => value.id === social).name,
       );
 
@@ -38,7 +39,7 @@ const UserSocial = ({ user, socialList }) => {
             />
           </div>
 
-          {Array.from(user.socialInfo)?.map((social) => {
+          {Array.from(user.socialInfo)?.map?.((social) => {
             const socialMedia = socialList.find(
               (socialMedia) => socialMedia.id === social.id,
             );

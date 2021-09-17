@@ -19,11 +19,11 @@ import Submit from 'components/user/buttons/submit';
 const UserEdition = ({ match }) => {
   const [t] = useTranslation();
   const [user, setUser] = useState(null);
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(parseInt(match.params.page));
   const [wasModified, setWasModified] = useState(false);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
-
+  console.log(active);
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
   const userList = useRecoilValue(listUsers);
@@ -32,6 +32,7 @@ const UserEdition = ({ match }) => {
 
   useLayoutEffect(() => {
     const userID = match.params.id;
+
     execute(userID);
   }, [execute, match]);
 

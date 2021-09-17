@@ -34,7 +34,7 @@ const routes = [
     component: UserRegistraion,
   },
   {
-    path: '/user/edition/:id',
+    path: '/user/edition/:page/:id',
     exact: true,
     name: 'Colaborator Edit',
     component: UserEdition,

@@ -62,11 +62,13 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
       </header>
 
       <main className="main-body">
-        <ButtonCards
-          setCardsArray={setCardsArray}
-          cardArray={cardArray}
-          cardsLimit={cardsLimit}
-        />
+        {!rotation && (
+          <ButtonCards
+            setCardsArray={setCardsArray}
+            cardArray={cardArray}
+            cardsLimit={cardsLimit}
+          />
+        )}
         <CForm>
           {user?.cards && rotation ? (
             <div className="device-rotation" />

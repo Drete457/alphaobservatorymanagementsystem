@@ -29,10 +29,10 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   );
 
   window.screen.orientation.onchange = () =>
-    userHandler.screenOrientation(setRotation);
+    userHandler.screenOrientation(true, setRotation);
 
   useLayoutEffect(() => {
-    const result = userHandler.screenOrientation(setRotation);
+    const result = userHandler.screenOrientation(true, setRotation);
 
     setIsDraggable(result);
   }, []);

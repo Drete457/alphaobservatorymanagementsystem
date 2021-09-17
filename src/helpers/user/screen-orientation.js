@@ -1,6 +1,6 @@
 import deviceOrientation from './device-orientation';
 
-const screenOrientation = (setRotation) => {
+const screenOrientation = (verification, setRotation) => {
   //verify if  the user is using mobile device
   const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -10,7 +10,9 @@ const screenOrientation = (setRotation) => {
   ) {
     const result = deviceOrientation() === 'portrait';
 
-    setRotation(result);
+    if (verification) {
+      setRotation(result);
+    }
 
     return false;
   }

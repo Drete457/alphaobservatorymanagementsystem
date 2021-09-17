@@ -25,10 +25,10 @@ const UserCards = ({ user, userList }) => {
     : userHandler.layouts;
 
   window.screen.orientation.onchange = () =>
-    userHandler.screenOrientation(setRotation);
+    userHandler.screenOrientation(true, setRotation);
 
   useLayoutEffect(() => {
-    userHandler.screenOrientation(setRotation);
+    userHandler.screenOrientation(true, setRotation);
   }, []);
 
   return (

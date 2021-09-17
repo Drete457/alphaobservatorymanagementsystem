@@ -20,7 +20,7 @@ const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
   { path: '/construction', exact: true, name: 'Build', component: Build },
   { path: '/cards/:id', exact: true, name: 'Cards', component: CardsView },
-  { path: '/users', exact: true, name: 'Users', component: Users },
+  { path: '/users', exact: true, name: 'Colaborators', component: Users },
   {
     path: '/my-profile',
     exact: true,
@@ -30,19 +30,19 @@ const routes = [
   {
     path: '/user/new_user',
     exact: true,
-    name: 'User Registration',
+    name: 'Colaborator Registration',
     component: UserRegistraion,
   },
   {
     path: '/user/edition/:id',
     exact: true,
-    name: 'User Edit',
+    name: 'Colaborator Edit',
     component: UserEdition,
   },
   {
     path: '/user/view/:id',
     exact: true,
-    name: 'User View',
+    name: 'Colaborator View',
     component: UserView,
   },
   {

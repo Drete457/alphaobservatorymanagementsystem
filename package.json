@@ -60,7 +60,9 @@
         "files": [
           "**/*.js?(x)"
         ],
-        "rules": {}
+        "rules": {
+          "screen": "off"
+        }
       }
     ]
   },

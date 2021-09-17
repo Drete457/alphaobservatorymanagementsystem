@@ -8,8 +8,7 @@ const UserSocial = ({ user, socialList }) => {
   const [social, setSocial] = useState([]);
 
   useLayoutEffect(() => {
-    if (user.social) {
-      console.log('entrou');
+    if (user?.social) {
       const userSocialList = user.social?.map?.(
         (social) => socialList.find((value) => value.id === social).name,
       );

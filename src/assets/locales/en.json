@@ -6,7 +6,7 @@
         "home":{
             "title": "Home",
             "children":{
-                "users": "User",
+                "users": "Collaborator",
                 "activities": "Activities"
             }
         },
@@ -37,7 +37,7 @@
         },
         "view": "View",
         "create": {
-            "user": "Create New User",
+            "user": "Create New Collaborator",
             "activities": "Create New Activities",
             "excel": "Export To Excel"
         },
@@ -66,40 +66,40 @@
             "generic": "Create a New "
         },
         "table-import": {
-            "button": "Import Users Table",
+            "button": "Import Collaborators Table",
             "button-import": "Import Table"
         }
     },
     "user": {
         "fields": {
             "name": {
-                "title": "Full Name",
+                "title": "Full Name*",
                 "placeholder": "Enter The Full Name",
                 "error": "Field Needs To Have Full Name"
             },
             "followed": {
-                "title": "Followed By",
-                "placeholder": "Choose The Person That Follow This User"
+                "title": "Followed By*",
+                "placeholder": "Choose The Person That Follow This Collaborator"
             },
             "country": {
-                "title": "Country",
-                "placeholder": "Choose The Country Of The User"
+                "title": "Country*",
+                "placeholder": "Choose The Country Of The Collaborator"
             },
             "contacted": {
-                "title": "Contacted By",
-                "placeholder": "Choose The Person That Contact This User"
+                "title": "Contacted By*",
+                "placeholder": "Choose The Person That Contact This Collaborator"
             },
             "gender": {
-                "title": "Gender",
-                "placeholder": "Select The Gender Of The User"
+                "title": "Gender*",
+                "placeholder": "Select The Gender Of The Collaborator"
             },
             "employment": {
-                "title": "Employment",
-                "placeholder": "Choose One Of Status Of The User"
+                "title": "Employment*",
+                "placeholder": "Choose One Of Status Of The Collaborator"
             },
             "birthyear": {
-                "title": "Birthyear",
-                "placeholder": "Write the Year The User Have Born"
+                "title": "Birthyear*",
+                "placeholder": "Write the Year The Collaborator Have Born"
             },
             "age": {
                 "title": "age"
@@ -115,8 +115,8 @@
                 "error": "Choose The Date correctly"
             },
             "personality": {
-                "title": "Profile",
-                "placeholder": "Select The User Profile"
+                "title": "Profile*",
+                "placeholder": "Select The Collaborator Profile"
             },
             "second": {
                 "title": "Second Survey",
@@ -126,7 +126,7 @@
             "introduction": {
                 "option": {
                     "title": "Suitable Introductive Meeting",
-                    "placeholder": "Choose If The User Is Suitable For Introductive Meeting"
+                    "placeholder": "Choose If The Collaborator Is Suitable For Introductive Meeting"
                 },
                 "date": {
                     "title": "Introductory Meeting Date",
@@ -146,18 +146,18 @@
                     "error": "Choose The Date correctly"
                 },
                 "link": {
-                    "title": "Survey Link Online",
+                    "title": "Survey Link Online*",
                     "placeholder": "Write The Survey Link Of The User",
                     "error": "Missing The Personal Link"
                 },
                 "face": {
                     "title": "Survey Face To Face",
-                    "placeholder": "Write The Survey Face to Face Of The User",
+                    "placeholder": "Write The Survey Face to Face Of The Collaborator",
                     "error": "Missing The Face to Face Link"
                 },
                 "friend": {
-                    "title": "Survey Friend",
-                    "placeholder": "Write The Survey Friend Link Of The User",
+                    "title": "Survey Friend*",
+                    "placeholder": "Write The Survey Friend Link Of The Collaborator",
                     "error": "Missing The Friend Link"
                 }
             },
@@ -172,10 +172,10 @@
                 "title": "Group Age"
             },
             "social": {
-                "title": "Social Media",
-                "placeholder": "Choose The Social Media User Have",
-                "placeholdersocialnetwork": "Write The User Name Use In This Social Media",
-                "error": "Don't Forget To Write User Name Used In This Social Media"
+                "title": "Media Contacted",
+                "placeholder": "Choose The Social Media Collaborator Have",
+                "placeholdersocialnetwork": "Write The Collaborator Name Use In This Social Media",
+                "error": "Don't Forget To Write Collaborator Name Used In This Social Media"
             },
             "cards": {
                 "placeholder": "Choose The Type Of Card",
@@ -221,8 +221,8 @@
         "country": {
             "title": "Country Name",
             "placeholder": "Write The Name Of The Country",
-            "error": "Need To Write The Name Of The Country" 
-        }, 
+            "error": "Need To Write The Name Of The Country"
+        },
         "gmt": {
             "title": "GMT",
             "placeholder": "Write The GMT of The Country",
@@ -236,7 +236,7 @@
     "header": {
         "profile": "Profile",
         "logout": "Logout",
-        "alt": "User Profile Photo"
+        "alt": "Collaborator Profile Photo"
     },
     "generic": {
         "options": {
@@ -294,9 +294,9 @@
             "calendar": "Google Calendar"
         },
         "users": {
-            "title": "All Users",
-            "numberUsers": "Number of Registered Users",
-            "no-info": "No Users"
+            "title": "All Collaborators",
+            "numberUsers": "Number of Registered Collaborators",
+            "no-info": "No Collaborators"
         },
         "myprofile": {
             "title": "Profile Page",
@@ -307,55 +307,55 @@
         },
         "user": {
             "registration": {
-                "title": "User Registration",
+                "title": "Collaborator Registration",
                 "social": {
-                    "title": "User Registration Social Media"
+                    "title": "Collaborator Registration Social Media"
                 },
                 "cards": {
-                    "title": "User Registration Cards",
+                    "title": "Collaborator Registration Cards",
                     "delete": "Are you sure you want to erase the card?"
                 },
                 "profile": {
-                    "title": "User Registration Profile"
+                    "title": "Registration Survey him/her link or file"
                 }
             },
             "view": {
-                "title": "User View",
+                "title": "Collaborator View",
                 "social": {
-                    "title": "User View Social Media"
+                    "title": "Collaborator View Social Media"
                 },
                 "cards": {
-                    "title": "User View Cards",
+                    "title": "Collaborator View Cards",
                     "hascopy": "The Link Has Been Copied To Memory "
                 },
                 "profile": {
-                    "title": "User View Profile"
+                    "title": "View Survey him/her link or file"
                 },
                 "notfound": {
-                    "title": "User Not Found"
+                    "title": "Collaborator Not Found"
                 }
             },
             "edit":{
-                "title": "User Edit",
+                "title": "Collaborator Edit",
                 "social": {
-                    "title": "User Edit Social Media"
+                    "title": "Collaborator Edit Social Media"
                 },
                 "cards": {
-                    "title": "User Edit Cards",
+                    "title": "Collaborator Edit Cards",
                     "delete": "Are you sure you want to erase the card?"
                 },
                 "profile": {
-                    "title": "User Edit Profile"
+                    "title": "Edit Survey him/her link or file"
                 },
                 "notfound": {
-                    "title": "User Not Found"
+                    "title": "Collaborator Not Found"
                 }
             },
             "tabs": {
-                "user": "User",
-                "social": "Social",
+                "user": "Collaborator",
+                "social": "Contact",
                 "cards": "Cards",
-                "profile": "Profile"
+                "profile": "Survey"
             },
             "leaving-the-page": "You have unsaved information, do you want to leave the page?"
         },
@@ -374,7 +374,7 @@
             }
         },
         "table-import": {
-            "title": "Import Users Table"
+            "title": "Import Collaborators Table"
         },
         "countries": {
             "title": "Countries Management"

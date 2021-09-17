@@ -19,7 +19,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const ResponsiveGridLayout = WidthProvider(Responsive);
   const cardsLimit = userHandler.layouts['xl'].length;
 
-  const [cardArray, setCardsArray] = useState(user.cards || []);
+  const [cardArray, setCardsArray] = useState(user?.cards || []);
 
   const [rotation, setRotation] = useState(false);
 
@@ -28,19 +28,13 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
       JSON.stringify(userHandler.layouts),
   );
 
+  window.screen.orientation.onchange = () =>
+    userHandler.screenOrientation(setRotation);
+
   useLayoutEffect(() => {
-    //verify if  the user is using mobile device
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const result = userHandler.screenOrientation(setRotation);
 
-    if (
-      /android/i.test(userAgent) ||
-      (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
-    ) {
-      setIsDraggable(false);
-
-      const result = userHandler.deviceOrientation() === 'portrait';
-      setRotation(result);
-    }
+    setIsDraggable(result);
   }, []);
 
   useEffect(() => {

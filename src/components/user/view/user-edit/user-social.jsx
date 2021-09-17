@@ -6,10 +6,10 @@ import userHandler from 'helpers/user';
 const UserSocial = ({ socialList, user, setUser, errorMsg }) => {
   const [t] = useTranslation();
 
-  if (!user.social) {
+  if (!user?.social) {
     user.social = '';
   }
-  if (!user.socialInfo) {
+  if (!user?.socialInfo) {
     user.socialInfo = '';
   }
 

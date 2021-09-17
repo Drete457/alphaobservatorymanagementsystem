@@ -11,6 +11,7 @@ import countryNameAndGmt from './country-name-gmt';
 import updateCardsPosition from './save-cards-position';
 import cardsIdToPutDate from './properties-receive-date';
 import deviceOrientation from './device-orientation';
+import screenOrientation from '../user/screen-orientation';
 
 const userHandler = {
   userFormat,
@@ -24,6 +25,7 @@ const userHandler = {
   updateCardsPosition,
   cardsIdToPutDate,
   deviceOrientation,
+  screenOrientation,
 };
 
 export default userHandler;

@@ -22,7 +22,7 @@ const ProfilePage = ({ user, setUser, setWasModified }) => {
   };
 
   useEffect(() => {
-    if (user.profile) {
+    if (user?.profile) {
       const fileUrl = URL.createObjectURL(user.profile);
       setPdfFile(fileUrl);
     }

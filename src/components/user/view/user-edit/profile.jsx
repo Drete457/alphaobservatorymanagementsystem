@@ -24,7 +24,7 @@ const ProfilePage = ({ user, setUser, setError, setWasModified }) => {
   };
 
   useLayoutEffect(() => {
-    if (user && user.profile) {
+    if (user && user?.profile) {
       const ref = 'profile/' + user.id + '.pdf';
       execute(ref);
     }

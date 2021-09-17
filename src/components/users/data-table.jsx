@@ -10,9 +10,7 @@ const DataTable = ({ users, isLoading }) => {
   const history = useHistory();
 
   //put all none to the end of the list
-  const usersListSort = users.sort?.((user1, user2) =>
-    homeHandler.sortList(user1, user2, 'followed'),
-  );
+  const usersListSort = homeHandler.mainTableSortList(users);
 
   return (
     <CDataTable

@@ -22,25 +22,18 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const [cardArray, setCardsArray] = useState(user.cards ?? []);
 
   const [rotation, setRotation] = useState(false);
-
   let cardsPositions =
     JSON.parse(localStorage.getItem('cardsPosition')) ||
     user.cardsPosition ||
     userHandler.layouts;
 
+  window.screen.orientation.onchange = () =>
+    userHandler.screenOrientation(setRotation);
+
   useLayoutEffect(() => {
-    //verify if  the user is using mobile device
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const result = userHandler.screenOrientation(setRotation);
 
-    if (
-      /android/i.test(userAgent) ||
-      (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
-    ) {
-      setIsDraggable(false);
-
-      const result = userHandler.deviceOrientation() === 'portrait';
-      setRotation(result);
-    }
+    setIsDraggable(result);
   }, []);
 
   useEffect(() => {

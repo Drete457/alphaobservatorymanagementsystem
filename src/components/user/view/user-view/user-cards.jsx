@@ -1,3 +1,4 @@
+import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
@@ -14,6 +15,7 @@ const UserCards = ({ user, userList }) => {
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
+  const [rotation, setRotation] = useState(false);
   let cardsPositions = user.cardsPosition
     ? {
         xl: user.cardsPosition['xl']?.map((value) => {
@@ -22,7 +24,12 @@ const UserCards = ({ user, userList }) => {
       }
     : userHandler.layouts;
 
-  const rotation = userHandler.deviceOrientation() === 'portrait';
+  window.screen.orientation.onchange = () =>
+    userHandler.screenOrientation(setRotation);
+
+  useLayoutEffect(() => {
+    userHandler.screenOrientation(setRotation);
+  }, []);
 
   return (
     <>
@@ -31,7 +38,7 @@ const UserCards = ({ user, userList }) => {
 
         <GenerateLink id={user.id} />
       </header>
-
+      {rotation}
       <main className="main-body">
         <CForm>
           {user?.cards && rotation ? (

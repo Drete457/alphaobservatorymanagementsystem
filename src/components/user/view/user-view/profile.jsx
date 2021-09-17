@@ -10,7 +10,7 @@ const ProfilePage = ({ user }) => {
   const { progress, error, data, execute } = download();
 
   useEffect(() => {
-    if (user && user.profile) {
+    if (user && user?.profile) {
       const ref = 'profile/' + user.id + '.pdf';
       execute(ref);
     }

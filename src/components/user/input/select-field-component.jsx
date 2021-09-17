@@ -98,6 +98,7 @@ const SelectFieldComponent = ({
         className="select-style"
         isMulti={isMulti}
         isSearchable={isSearchable}
+        isClearable={false}
       />
       {isInvalid && <p className="user-input-error">{errorMsg}</p>}
     </div>

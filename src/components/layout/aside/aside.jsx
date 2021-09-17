@@ -37,20 +37,20 @@ const Aside = () => {
     >
       <CSidebarClose onClick={() => setAsideShow(false)} />
 
-      {/* <div className="nav-underline">
+      <div className="nav-underline">
         <div className="nav nav-tabs">
           <div className="nav-item">
             <div className="nav-link">{t('sidebar.aside.title')}</div>
             <div id="google_translate_element"></div>
             <hr />
-            <Button
+            {/* <Button
               name={t('btn.table-import.button')}
               onClick={() => history.push(`/table_import`)}
               className="button-font-weight"
-            />
+            /> */}
           </div>
         </div>
-      </div> */}
+      </div>
     </CSidebar>
   );
 };

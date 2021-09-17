@@ -12,25 +12,25 @@ const Tabs = ({ active, setActive }) => {
           <CNavItem>
             <CNavLink>
               <CIcon name="cil-user" />
-              {active === 0 && ' ' + t('pages.user.tabs.user')}
+              {' ' + t('pages.user.tabs.user')}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
               <CIcon name="cil-contact" />
-              {active === 1 && ' ' + t('pages.user.tabs.social')}
+              {' ' + t('pages.user.tabs.social')}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
               <CIcon name="cil-notes" />
-              {active === 2 && ' ' + t('pages.user.tabs.cards')}
+              {' ' + t('pages.user.tabs.cards')}
             </CNavLink>
           </CNavItem>
           <CNavItem>
             <CNavLink>
               <CIcon name="cil-contact" />
-              {active === 3 && ' ' + t('pages.user.tabs.profile')}
+              {' ' + t('pages.user.tabs.profile')}
             </CNavLink>
           </CNavItem>
         </CNav>

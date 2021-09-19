@@ -62,7 +62,7 @@ const TableImport = () => {
   useEffect(() => {
     if (tableFile.length > 0) {
       let count = 0;
-
+      const table = [];
       tableFile.forEach((user) => {
         const newUser = {
           ...userHandler.userFormat,
@@ -76,7 +76,7 @@ const TableImport = () => {
         newUser.birthyear =
           user[4] != null ? filter(genericList?.years, user[4].toString()) : '';
         newUser.introductionOption =
-          user[13] != null ? filter(genericList?.options, user[13]) : '';
+          user[12] != null ? filter(genericList?.options, user[12]) : '';
 
         newUser.name = user[0] != null ? user[0] : ''; // text
         newUser.followed = user[1] + ''; // text
@@ -84,17 +84,16 @@ const TableImport = () => {
         newUser.surveyFriend = user[6] != null ? user[6] : ''; // text
         newUser.surveyFace = user[7] != null ? user[7] : ''; // text
         newUser.country = user[8] != null ? user[8] : ''; // text
-        newUser.trelloCard = user[9] != null ? user[9] : ''; // text
 
         newUser.explainAlphaCafe =
-          user[10] != null ? ExcelDateToJSDate(user[10]) : ''; // date
-        newUser.training = user[11] != null ? ExcelDateToJSDate(user[11]) : ''; // date
-        newUser.second = user[12] != null ? ExcelDateToJSDate(user[12]) : ''; // date
-        newUser.community = user[14] != null ? ExcelDateToJSDate(user[14]) : ''; // date
+          user[9] != null ? ExcelDateToJSDate(user[9]) : ''; // date
+        newUser.training = user[10] != null ? ExcelDateToJSDate(user[10]) : ''; // date
+        newUser.second = user[11] != null ? ExcelDateToJSDate(user[11]) : ''; // date
+        newUser.community = user[13] != null ? ExcelDateToJSDate(user[13]) : ''; // date
         newUser.firstActivity =
-          user[15] != null ? ExcelDateToJSDate(user[15]) : ''; // date
+          user[14] != null ? ExcelDateToJSDate(user[14]) : ''; // date
         newUser.surveyDate =
-          user[16] != null ? ExcelDateToJSDate(user[16]) : ''; // date
+          user[15] != null ? ExcelDateToJSDate(user[15]) : ''; // date
 
         /*
         newUser.explainAlphaCafe =
@@ -114,12 +113,14 @@ const TableImport = () => {
 
         if (newUser.name !== '') {
           execute(newUser);
+          table.push(newUser);
           count++;
         }
       });
 
       if (count === tableFile.length) {
         history.push('/users');
+        console.table(table);
       }
     }
   }, [tableFile, genericList, countriesList, execute, history]);

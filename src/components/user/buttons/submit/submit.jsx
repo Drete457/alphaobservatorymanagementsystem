@@ -21,8 +21,8 @@ const submit = (
     setWasModified(false);
 
     //put the position of the cards in the user before sending them to the back-end
-    user.cardsPosition = JSON.parse(localStorage.getItem('cardsPosition'));
-    localStorage.removeItem('cardsPosition');
+    user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
+    sessionStorage.removeItem('cardsPosition');
 
     //if the user have a file send to backend
     if (user.profile) {

@@ -24,7 +24,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const [rotation, setRotation] = useState(false);
 
   let cardsPositions = JSON.parse(
-    localStorage.getItem('cardsPosition') ||
+    sessionStorage.getItem('cardsPosition') ||
       JSON.stringify(userHandler.layouts),
   );
 

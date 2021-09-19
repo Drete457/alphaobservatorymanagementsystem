@@ -43,7 +43,7 @@ const Aside = () => {
             <div className="nav-link">{t('sidebar.aside.title')}</div>
             <div id="google_translate_element"></div>
             <hr />
-            {/* <Button
+            {/*             <Button
               name={t('btn.table-import.button')}
               onClick={() => history.push(`/table_import`)}
               className="button-font-weight"

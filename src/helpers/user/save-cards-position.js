@@ -11,7 +11,7 @@ const updateCardsPosition = (layout, cardPositions) => {
     }
     return value;
   });
-  localStorage.setItem('cardsPosition', JSON.stringify({ xl: newPosition }));
+  sessionStorage.setItem('cardsPosition', JSON.stringify({ xl: newPosition }));
 };
 
 export default updateCardsPosition;

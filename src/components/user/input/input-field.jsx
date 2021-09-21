@@ -10,6 +10,7 @@ const InputField = ({
   onChange,
   className,
   disabled,
+  validName,
 }) => {
   const isInvalid = errorMsg ? true : false;
 
@@ -30,6 +31,7 @@ const InputField = ({
           placeholder={placeholder}
           autoComplete="off"
           invalid={isInvalid}
+          valid={validName}
           onChange={(event) => {
             onChange(event);
           }}

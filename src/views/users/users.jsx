@@ -65,7 +65,11 @@ const Users = () => {
 
       //query how many ativities each user have
       const arrayData = Object.values(data);
-      arrayData.forEach((user) => executeUserActivity(user.id));
+      arrayData.forEach((user) => {
+        if (user?.followed !== 'None') {
+          executeUserActivity(user.id);
+        }
+      });
     }
 
     if (countriesList) {

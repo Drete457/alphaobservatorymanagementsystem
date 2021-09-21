@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { Prompt } from 'react-router-dom';
 import {
   UserRegister,
@@ -25,10 +25,21 @@ const UserRegistration = () => {
   const [wasModified, setWasModified] = useState(false);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
+  const [validName, setValidName] = useState(false);
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const userList = useRecoilValue(listUsers);
+  const usersList = useRecoilValue(listUsers);
+
+  useLayoutEffect(() => {
+    if (user.name) {
+      const result = userHandler.validName(user?.name, usersList);
+
+      setErrorMsg(!result === false ? { name: true } : { name: false });
+
+      setValidName(!result);
+    }
+  }, [user.name, usersList]);
 
   return (
     <>
@@ -46,6 +57,7 @@ const UserRegistration = () => {
             setErrorMsg={setErrorMsg}
             setError={setError}
             setWasModified={setWasModified}
+            validName={validName}
           />
           {active === 0 && (
             <UserRegister
@@ -54,8 +66,9 @@ const UserRegistration = () => {
               errorMsg={errorMsg}
               countriesList={countriesList}
               genericList={genericList}
-              userList={userList}
+              userList={usersList}
               setWasModified={setWasModified}
+              validName={validName}
             />
           )}
           {active === 1 && (
@@ -73,7 +86,7 @@ const UserRegistration = () => {
               setUser={setUser}
               errorMsg={errorMsg}
               cardsTypes={genericList?.cardTypes}
-              userList={userList}
+              userList={usersList}
             />
           )}
           {active === 3 && (

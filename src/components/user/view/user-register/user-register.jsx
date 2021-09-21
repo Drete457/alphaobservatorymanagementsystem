@@ -11,6 +11,7 @@ const UserRegister = ({
   genericList,
   userList,
   setWasModified,
+  validName,
 }) => {
   const [t] = useTranslation();
   const countriesNames = countriesList?.map((country) => {
@@ -38,6 +39,7 @@ const UserRegister = ({
                 setWasModified(true);
               }}
               className="user-input-format"
+              validName={validName}
             />
 
             <SelectFieldComponent

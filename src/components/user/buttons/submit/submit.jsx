@@ -40,7 +40,13 @@ const submit = (
   }
 };
 
-const Submit = ({ user, setErrorMsg, setError, setWasModified }) => {
+const Submit = ({
+  user,
+  setErrorMsg,
+  setError,
+  setWasModified,
+  validName = true,
+}) => {
   const history = useHistory();
   const [t] = useTranslation();
   const { isLoading, error, data, execute } = usePostUser();
@@ -73,21 +79,23 @@ const Submit = ({ user, setErrorMsg, setError, setWasModified }) => {
           isDanger={true}
           onClick={() => history.push('/users/')}
         />
-        <Button
-          name={t('btn.create-edit.submit')}
-          isDanger={false}
-          onClick={() =>
-            submit(
-              user,
-              setErrorMsg,
-              t,
-              execute,
-              setWasModified,
-              executeUpload,
-              executeDelete,
-            )
-          }
-        />
+        {validName && (
+          <Button
+            name={t('btn.create-edit.submit')}
+            isDanger={false}
+            onClick={() =>
+              submit(
+                user,
+                setErrorMsg,
+                t,
+                execute,
+                setWasModified,
+                executeUpload,
+                executeDelete,
+              )
+            }
+          />
+        )}
       </div>
       {isLoading && <Loading />}
     </>

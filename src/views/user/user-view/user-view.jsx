@@ -22,7 +22,7 @@ const UserView = ({ match }) => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const userList = useRecoilValue(listUsers);
+  const usersList = useRecoilValue(listUsers);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
@@ -56,13 +56,13 @@ const UserView = ({ match }) => {
               user={user}
               countriesList={countriesList}
               genericList={genericList}
-              userList={userList}
+              userList={usersList}
             />
           )}
           {active === 1 && (
             <UserSocial user={user} socialList={genericList?.socialmedia} />
           )}
-          {active === 2 && <UserCards user={user} userList={userList} />}
+          {active === 2 && <UserCards user={user} userList={usersList} />}
           {active === 3 && <ProfilePage user={user} />}
         </>
       ) : (

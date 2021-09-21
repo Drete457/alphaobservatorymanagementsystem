@@ -12,6 +12,7 @@ import updateCardsPosition from './save-cards-position';
 import cardsIdToPutDate from './properties-receive-date';
 import deviceOrientation from './device-orientation';
 import screenOrientation from '../user/screen-orientation';
+import validName from './validName';
 
 const userHandler = {
   userFormat,
@@ -26,6 +27,7 @@ const userHandler = {
   cardsIdToPutDate,
   deviceOrientation,
   screenOrientation,
+  validName,
 };
 
 export default userHandler;

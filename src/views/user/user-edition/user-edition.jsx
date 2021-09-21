@@ -23,10 +23,10 @@ const UserEdition = ({ match }) => {
   const [wasModified, setWasModified] = useState(false);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
-  console.log(active);
+
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const userList = useRecoilValue(listUsers);
+  const usersList = useRecoilValue(listUsers);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
@@ -72,7 +72,7 @@ const UserEdition = ({ match }) => {
               errorMsg={errorMsg}
               countriesList={countriesList}
               genericList={genericList}
-              userList={userList}
+              userList={usersList}
               setWasModified={setWasModified}
             />
           )}
@@ -91,7 +91,7 @@ const UserEdition = ({ match }) => {
               setUser={setUser}
               errorMsg={errorMsg}
               cardsTypes={genericList?.cardTypes}
-              userList={userList}
+              userList={usersList}
             />
           )}
           {active === 3 && (

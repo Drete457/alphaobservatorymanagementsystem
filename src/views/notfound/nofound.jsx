@@ -1,3 +1,4 @@
+import { useLayoutEffect } from 'react';
 import {
   CCard,
   CCardBody,
@@ -7,10 +8,21 @@ import {
   CRow,
 } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
+import { usePostError } from 'hooks/errors';
 import Button from 'components/button';
 
-const NotFound = () => {
+const NotFound = ({ error, errorIn }) => {
   const [t] = useTranslation();
+  const { execute } = usePostError();
+
+  useLayoutEffect(() => {
+    const errorBody = {
+      code: error.toString(),
+      message: errorIn,
+    };
+
+    execute(errorBody);
+  }, [execute, error, errorIn]);
 
   return (
     <div className="c-app c-default-layout flex-row align-items-center">

@@ -141,10 +141,10 @@ const Card = ({
                 ''
               )
             ) : (
-              <>
+              <div>
                 {trainers && <div>{selfCard?.date + ' ' + trainers}</div>}
                 <div className="text-line">{selfCard?.body}</div>
-              </>
+              </div>
             )}
           </CCardBody>
           <div className="cards-button">

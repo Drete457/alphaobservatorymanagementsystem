@@ -45,8 +45,8 @@ const Header = () => {
       .auth()
       .signOut()
       .then(() => {
-        localStorage.clear();
         sessionStorage.clear();
+        localStorage.clear();
         window.location.reload();
       });
   };

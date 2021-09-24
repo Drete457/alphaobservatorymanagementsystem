@@ -16,6 +16,7 @@ import DataTable from 'components/users';
 const Users = () => {
   //delete the remain of cards positions on localStorage
   sessionStorage.removeItem('cardsPosition');
+  localStorage.removeItem('cardsPosition');
 
   const [t] = useTranslation();
   const history = useHistory();

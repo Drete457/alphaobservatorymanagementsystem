@@ -21,6 +21,7 @@ import View from 'components/user/buttons/view';
 const CardsView = ({ match }) => {
   //delete the remain of cards positions on sessionStorage
   sessionStorage.removeItem('cardsPosition');
+  localStorage.removeItem('cardsPosition');
 
   const [t] = useTranslation();
   const [user, setUser] = useState(null);

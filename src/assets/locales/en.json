@@ -246,38 +246,32 @@
         "activities-type": {
             "name": "Activity Name",
             "placeholder": "Write The Name of The Activity",
-            "error": "Need To Write Activity Name",
             "extra": "Need To Write Number?",
             "placeholderExtra": "Choose The Option"
         },
         "card-type": {
             "name": "Card Type",
             "placeholder": "Write The Card Type Name",
-            "error": "Need To Write a Card Type Name",
             "color": "Color",
-            "placeholder-body": "Write The Text For The Body",
-            "error-body": "Need To Write a Text For The Body"
+            "placeholder-body": "Write The Text For The Body"
         },
         "ocupation": {
             "name": "Ocupation Name",
-            "placeholder": "Write The Name of The Ocupation",
-            "error": "Need To Write Ocupation Name"
+            "placeholder": "Write The Name of The Ocupation"
         },
         "personality": {
             "name": "Personality Name",
-            "placeholder": "Write The Name of The Personality",
-            "error": "Need To Write Personality Name"
+            "placeholder": "Write The Name of The Personality"
         },
         "social-media": {
             "name": "Social Media Name",
-            "placeholder": "Write The Name of The Social Media",
-            "error": "Need To Write Social Media Name"
+            "placeholder": "Write The Name of The Social Media"
         },
         "years": {
             "name": "Year",
-            "placeholder": "Write The Year",
-            "error": "Need To Write a Year"
-        }
+            "placeholder": "Write The Year"
+        },
+        "error": "Need To Write a Name"
     },
     "pages": {
         "constrution": "Still under construction",

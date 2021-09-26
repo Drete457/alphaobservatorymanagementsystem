@@ -13,6 +13,8 @@ const Buttons = ({
   setGeneric,
   create,
   originalData,
+  setError,
+  setOriginalData,
 }) => {
   //const history = useHistory();
   const [t] = useTranslation();
@@ -57,7 +59,23 @@ const Buttons = ({
           <Button
             name={t('btn.create-edit.save')}
             isDanger={false}
-            onClick={() => {}}
+            onClick={() => {
+              if (
+                !genericHandler.validateGeneric(genericList[type], setError, t)
+              ) {
+                genericHandler.genericSave(
+                  setGeneric,
+                  genericList,
+                  type,
+                  setOriginalData,
+                );
+
+                setIsEdit({
+                  ...isEdit,
+                  [type]: false,
+                });
+              }
+            }}
           />
 
           <Button

@@ -83,6 +83,13 @@ const EditActivity = ({ match }) => {
           />
           <header>
             <h1 className="title">{t('pages.activities.edit.title')}</h1>
+            <Submit
+              newActivity={activity}
+              setError={setError}
+              setErrorActivity={setErrorActivity}
+              haveExtra={haveExtra}
+              setWasModified={setWasModified}
+            />
           </header>
 
           <main className="main-body">
@@ -190,13 +197,6 @@ const EditActivity = ({ match }) => {
                 );
               })}
             </CForm>
-            <Submit
-              newActivity={activity}
-              setError={setError}
-              setErrorActivity={setErrorActivity}
-              haveExtra={haveExtra}
-              setWasModified={setWasModified}
-            />
           </main>
         </>
       )}

@@ -23,7 +23,7 @@ const Aside = () => {
   const history = useHistory();
 
   //TODO: Delete the moment security is done
-  const securityIsDone = !process.env.REACT_APP_IS_SECURITY_DONE === 'false';
+  const securityIsDone = process.env.REACT_APP_IS_SECURITY_DONE === 'true';
 
   useLayoutEffect(() => {
     window.googleTranslateElementInit = googleTranslateElementInit();

@@ -61,6 +61,7 @@ const ViewActivity = ({ match }) => {
         <>
           <header>
             <h1 className="title">{t('pages.activities.view.title')}</h1>
+            <View activity={activity} />
           </header>
 
           <main className="main-body">
@@ -126,7 +127,6 @@ const ViewActivity = ({ match }) => {
                 );
               })}
             </CForm>
-            <View activity={activity} />
           </main>
           {isLoading && <Loading />}
         </>

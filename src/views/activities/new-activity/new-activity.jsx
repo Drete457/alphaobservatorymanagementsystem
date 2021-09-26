@@ -68,6 +68,13 @@ const NewActivity = () => {
             <h1 className="title">
               {t('pages.activities.registration.title')}
             </h1>
+            <Submit
+              newActivity={newActivity}
+              setError={setError}
+              setErrorActivity={setErrorActivity}
+              haveExtra={haveExtra}
+              setWasModified={setWasModified}
+            />
           </header>
 
           <main className="main-body">
@@ -174,13 +181,6 @@ const NewActivity = () => {
                 );
               })}
             </CForm>
-            <Submit
-              newActivity={newActivity}
-              setError={setError}
-              setErrorActivity={setErrorActivity}
-              haveExtra={haveExtra}
-              setWasModified={setWasModified}
-            />
           </main>
         </>
       )}

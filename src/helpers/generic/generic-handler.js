@@ -1,3 +1,5 @@
+import homeHandler from 'helpers/users';
+
 const genericHandler = (setGeneric, genericList, type, newArray) => {
   setGeneric({
     ...genericList,
@@ -8,7 +10,20 @@ const genericHandler = (setGeneric, genericList, type, newArray) => {
 const genericCreate = (setGeneric, genericList, type, create) => {
   const newArray = [...genericList[type]];
 
-  create ? newArray.push({ id: '', name: '' }) : newArray.push(create);
+  create === true ? newArray.push({ id: '', name: '' }) : newArray.push(create);
+
+  genericHandler(setGeneric, genericList, type, newArray);
+};
+
+const genericSave = (setGeneric, genericList, type, setOriginalData) => {
+  const newArray = genericList[type].sort?.((generic1, generic2) =>
+    homeHandler.sortList(generic1, generic2, 'name'),
+  );
+
+  setOriginalData({
+    ...genericList,
+    [type]: newArray,
+  });
 
   genericHandler(setGeneric, genericList, type, newArray);
 };
@@ -67,6 +82,7 @@ const selectHandler = (setGeneric, genericList, type, index, event) => {
 
 export {
   genericCreate,
+  genericSave,
   genericCancel,
   genericDelete,
   inputHandler,

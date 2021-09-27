@@ -11,7 +11,7 @@ const fields = (t) => {
       label: t('user.fields.introduction.option.title'),
     },
     { key: 'baseAmbit', label: t('user.fields.ambit.entry') },
-    { key: 'activities', label: t('user.fields.activities.title') },
+    { key: 'cardsInfo', label: t('user.fields.cards.title') },
     {
       key: 'view',
       label: '',

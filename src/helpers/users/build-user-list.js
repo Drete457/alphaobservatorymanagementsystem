@@ -62,8 +62,28 @@ const buildUserList = (
       user.introductionOption = introductionOption;
     }
 
+    user.cardsInfo = '';
+    if (user.cards) {
+      const cardsNamesArray = user.cards.map((card) => {
+        const cardInfo = genericList?.cardTypes.find(
+          (value) => value.id === card.id,
+        );
+
+        return cardInfo?.name;
+      });
+
+      user.cardsInfo = cardsNamesArray.join(', ');
+
+      delete user.cards;
+    }
+
+    if (user?.cardsPosition) {
+      delete user.cardsPosition;
+    }
+
+    //TODO: Clean  this
     //undefinied for each user on the table
-    user.activities = '';
+    //user.activities = '';
 
     return user;
   });

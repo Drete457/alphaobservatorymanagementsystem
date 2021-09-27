@@ -6,7 +6,7 @@ import { countries, generic, listUsers } from 'state/atoms';
 import { useGetCountries } from 'hooks/countries';
 import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
-import useGetUserActivities from 'hooks/activities/useGetUserActivities';
+//import useGetUserActivities from 'hooks/activities/useGetUserActivities';
 import homeHandler from 'helpers/users';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
@@ -42,11 +42,13 @@ const Users = () => {
     data: genericList,
     execute: executeGeneric,
   } = useGetGeneric();
-  const {
+
+  //TODO: Clean This
+  /*   const {
     error: errorGetUserActivity,
     data: userGetActivity,
     execute: executeUserActivity,
-  } = useGetUserActivities();
+  } = useGetUserActivities(); */
 
   useLayoutEffect(() => {
     execute();
@@ -64,13 +66,14 @@ const Users = () => {
         setUsers,
       );
 
+      //TODO: Clean This
       //query how many ativities each user have
-      const arrayData = Object.values(data);
+      /*   const arrayData = Object.values(data);
       arrayData.forEach((user) => {
         if (user?.followed !== 'None') {
           executeUserActivity(user.id);
         }
-      });
+      }); */
     }
 
     if (countriesList) {
@@ -88,10 +91,10 @@ const Users = () => {
     setCountries,
     setGeneric,
     setListUsers,
-    executeUserActivity,
   ]);
 
-  useLayoutEffect(() => {
+  //TODO: Clean This
+  /*  useLayoutEffect(() => {
     if (userGetActivity && users) {
       let newValue = false;
 
@@ -111,16 +114,15 @@ const Users = () => {
         setUsers(newUsersArray);
       }
     }
-  }, [userGetActivity, users]);
+  }, [userGetActivity, users]); */
 
   useLayoutEffect(() => {
-    const errorInfo =
-      errorUsers || errorCountries || errorGeneric || errorGetUserActivity;
+    const errorInfo = errorUsers || errorCountries || errorGeneric;
 
     if (errorInfo) {
       setError(errorInfo);
     }
-  }, [errorUsers, errorCountries, errorGeneric, errorGetUserActivity]);
+  }, [errorUsers, errorCountries, errorGeneric]);
 
   useLayoutEffect(() => {
     const loadingInfo = isLoading || isLoadingCountries || isLoadingGeneric;

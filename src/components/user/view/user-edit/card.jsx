@@ -27,6 +27,7 @@ const newObjCard = (event, cardsTypes, selfCard) => {
 const Card = ({
   t,
   card,
+  cardBasicInfo,
   index,
   cardArray,
   setCardsArray,
@@ -64,8 +65,11 @@ const Card = ({
   const updateCards = () => {
     if (edit) {
       const newArray = [...cardArray];
+      const newCard = selfCard;
+      delete newCard?.name;
+      delete newCard?.color;
 
-      newArray[index] = selfCard;
+      newArray[index] = newCard;
 
       setCardsArray(newArray);
     }
@@ -101,7 +105,7 @@ const Card = ({
                 isSearchable={false}
               />
             )}
-            {!edit && selfCard?.name}
+            {!edit && cardBasicInfo?.name}
           </CCardHeader>
 
           <CCardBody>

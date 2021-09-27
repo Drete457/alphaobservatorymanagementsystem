@@ -8,7 +8,7 @@ import userHandler from 'helpers/user';
 import Card from './card';
 import 'react-grid-layout/css/styles.css';
 
-const UserCards = ({ user, userList }) => {
+const UserCards = ({ user, userList, cardsTypes }) => {
   const [t] = useTranslation();
   const breakPoints = {
     xl: parseInt(getStyle('--breakpoint-xl'), 10),
@@ -57,15 +57,23 @@ const UserCards = ({ user, userList }) => {
                 <div className="device-rotation" />
               ) : (
                 user?.cards?.map((card, index) => {
+                  const cardBasicInfo = cardsTypes.find(
+                    (cardInfo) => cardInfo.id === card.id,
+                  );
+
                   return (
                     <CCard key={index + ''} accentColor="primary">
                       <span
                         style={{
-                          background: card?.color,
+                          background: cardBasicInfo?.color,
                         }}
                         className="card-header-banner-color"
                       ></span>
-                      <Card card={card} userList={userList} />
+                      <Card
+                        card={card}
+                        userList={userList}
+                        cardBasicInfo={cardBasicInfo}
+                      />
                     </CCard>
                   );
                 })

@@ -87,17 +87,22 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
               isDraggable={isDraggable}
             >
               {cardArray?.map((card, index) => {
+                const cardBasicInfo = cardsTypes.find(
+                  (cardInfo) => cardInfo.id === card.id,
+                );
+
                 return (
                   <CCard key={index + ''} accentColor="primary">
                     <span
                       style={{
-                        background: card?.color,
+                        background: cardBasicInfo?.color,
                       }}
                       className="card-header-banner-color"
                     ></span>
                     <Card
                       t={t}
                       card={card}
+                      cardBasicInfo={cardBasicInfo}
                       index={index}
                       cardArray={cardArray}
                       setCardsArray={setCardsArray}

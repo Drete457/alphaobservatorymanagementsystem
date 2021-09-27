@@ -1,6 +1,7 @@
-//import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-//import uniqueId from 'helpers/id-generator';
+import { usePostGeneric } from 'hooks/generic';
+import uniqueId from 'helpers/id-generator';
 import genericHandler from 'helpers/generic';
 import Button from 'components/button';
 
@@ -15,9 +16,19 @@ const Buttons = ({
   originalData,
   setError,
   setOriginalData,
+  wasModified,
+  setWasModified,
 }) => {
   //const history = useHistory();
   const [t] = useTranslation();
+
+  const { data, execute } = usePostGeneric();
+
+  useEffect(() => {
+    if (data) {
+      setWasModified(false);
+    }
+  }, [data, setWasModified]);
 
   return (
     <>
@@ -33,6 +44,37 @@ const Buttons = ({
               })
             }
           />
+
+          {wasModified && (
+            <Button
+              name={t('btn.create-edit.submit')}
+              isDanger={false}
+              onClick={() => {
+                if (
+                  !genericHandler.validateGeneric(
+                    genericList[type],
+                    setError,
+                    t,
+                  ) &&
+                  !Object.values(isEdit).some((value) => value === true)
+                ) {
+                  const newGeneric = {};
+
+                  for (let attr in genericList) {
+                    newGeneric[attr] = genericList[attr].map?.((newAttr) => {
+                      if (newAttr?.id === '') {
+                        newAttr.id = uniqueId();
+                      }
+
+                      return newAttr;
+                    });
+                  }
+
+                  execute(newGeneric);
+                }
+              }}
+            />
+          )}
         </div>
       )}
 

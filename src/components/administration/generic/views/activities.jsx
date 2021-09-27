@@ -32,6 +32,7 @@ const Activities = ({
   setGeneric,
   originalData,
   setOriginalData,
+  wasModified,
 }) => {
   const [t] = useTranslation();
   const [errorsActivities, setErrorsActivities] = useState([]);
@@ -52,6 +53,8 @@ const Activities = ({
           originalData={originalData}
           setError={setErrorsActivities}
           setOriginalData={setOriginalData}
+          wasModified={wasModified}
+          setWasModified={setWasModified}
         />
       </header>
 

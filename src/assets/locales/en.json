@@ -162,8 +162,10 @@
                 }
             },
             "ambit": {
+                "title": "Base Ambit",
                 "first": "Entry Into First Ambit",
-                "entry": "Entry Into Base Ambit"
+                "entry": "Entry Into Base Ambit",
+                "error": "Choose The Date Correctly"
             },
             "activities": {
                 "title": "Number of Activities"

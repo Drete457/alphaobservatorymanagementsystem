@@ -209,6 +209,17 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               disabled
             />
           </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.ambit.title')}
+              name="baseAmbit"
+              type="date"
+              value={user?.baseAmbit}
+              className="user-input-format"
+              disabled
+            />
+          </div>
         </CForm>
       </main>
     </>

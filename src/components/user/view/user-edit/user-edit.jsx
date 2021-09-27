@@ -310,6 +310,21 @@ const UserEdit = ({
               disabled
             />
           </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.ambit.title')}
+              name="baseAmbit"
+              type="date"
+              value={user?.baseAmbit}
+              errorMsg={errorMsg?.baseAmbit}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
+              className="user-input-format"
+            />
+          </div>
         </CForm>
       </main>
     </>

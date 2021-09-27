@@ -47,6 +47,11 @@ const validateTotalUser = (user, setError, t) => {
     haveErrors = true;
   }
 
+  if (user?.baseAmbit !== '' && yearValidation(user.baseAmbit)) {
+    errors.baseAmbit = t('user.fields.ambit.error');
+    haveErrors = true;
+  }
+
   if (user?.socialInfo) {
     const isOk = Array.from(user.socialInfo).filter((social) => !social.name);
 

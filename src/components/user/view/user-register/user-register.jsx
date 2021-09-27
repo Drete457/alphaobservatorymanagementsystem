@@ -87,7 +87,7 @@ const UserRegister = ({
                 );
                 setWasModified(true);
               }}
-              options={userList}
+              options={userHandler.contactByFilter(userList)}
               className="user-input-format"
             />
           </div>

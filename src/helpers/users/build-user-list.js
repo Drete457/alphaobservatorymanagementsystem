@@ -30,9 +30,13 @@ const buildUserList = (
     }
 
     if (user.contacted) {
-      const contactBy = userList.find(
+      let contactBy = userList.find(
         (value) => value.id === user.contacted,
       )?.name;
+
+      if (contactBy === 'None') {
+        contactBy = 'Training';
+      }
 
       user.contacted = contactBy;
     }

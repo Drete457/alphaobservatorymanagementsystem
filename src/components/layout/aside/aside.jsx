@@ -22,6 +22,9 @@ const Aside = () => {
   const [t] = useTranslation();
   const history = useHistory();
 
+  //TODO: Delete the moment security is done
+  const securityIsDone = process.env.REACT_APP_IS_SECURITY_DONE === 'true';
+
   useLayoutEffect(() => {
     window.googleTranslateElementInit = googleTranslateElementInit();
   }, []);
@@ -36,18 +39,20 @@ const Aside = () => {
       onShowChange={(state) => setAsideShow(state)}
     >
       <CSidebarClose onClick={() => setAsideShow(false)} />
-      {/*aside content*/}
+
       <div className="nav-underline">
         <div className="nav nav-tabs">
           <div className="nav-item">
             <div className="nav-link">{t('sidebar.aside.title')}</div>
             <div id="google_translate_element"></div>
             <hr />
-            <Button
-              name={t('btn.table-import.button')}
-              onClick={() => history.push(`/table_import`)}
-              className="button-font-weight"
-            />
+            {securityIsDone && (
+              <Button
+                name={t('btn.table-import.button')}
+                onClick={() => history.push(`/table_import`)}
+                className="button-font-weight"
+              />
+            )}
           </div>
         </div>
       </div>

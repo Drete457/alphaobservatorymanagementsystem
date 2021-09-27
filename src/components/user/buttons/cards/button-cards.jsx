@@ -17,7 +17,7 @@ const ButtonCards = ({ setCardsArray, cardArray, cardsLimit }) => {
           const newDate = dateGenerator();
 
           setCardsArray([
-            { name: '', body: '', date: newDate, trainer: '' },
+            { body: '', date: newDate, trainer: '' },
             ...cardArray,
           ]);
         }}

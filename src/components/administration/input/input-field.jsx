@@ -11,8 +11,9 @@ const InputField = ({
   onChange,
   className,
   disabled,
+  style,
 }) => {
-  const isInvalid = errorMsg;
+  const isInvalid = errorMsg && !value;
 
   return (
     <div className={className}>
@@ -22,6 +23,7 @@ const InputField = ({
           defaultValue={value}
           className="input-style"
           readOnly={disabled}
+          style={style}
         />
       ) : (
         <CInput

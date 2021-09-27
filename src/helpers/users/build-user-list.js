@@ -18,6 +18,7 @@ const buildUserList = (
   const userListSort = userList.sort((user1, user2) =>
     sortList(user1, user2, 'name'),
   );
+  userListSort.unshift({ id: '1', name: 'None' });
 
   const fillArrayData = sortedList?.map((user) => {
     if (user.followed) {
@@ -61,9 +62,28 @@ const buildUserList = (
       user.introductionOption = introductionOption;
     }
 
+    user.cardsInfo = '';
+    if (user.cards) {
+      const cardsNamesArray = user.cards.map((card) => {
+        const cardInfo = genericList?.cardTypes.find(
+          (value) => value.id === card.id,
+        );
+
+        return cardInfo?.name;
+      });
+
+      user.cardsInfo = cardsNamesArray.join(', ');
+
+      delete user.cards;
+    }
+
+    if (user?.cardsPosition) {
+      delete user.cardsPosition;
+    }
+
+    //TODO: Clean  this
     //undefinied for each user on the table
-    user.ambitEntry = '';
-    user.activities = '';
+    //user.activities = '';
 
     return user;
   });

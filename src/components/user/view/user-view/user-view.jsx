@@ -72,6 +72,15 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
 
           <div className="user-input">
             <InputField
+              title={t('user.fields.personality.title')}
+              name="personality"
+              type="text"
+              value={personality?.name}
+              className="user-input-format"
+              disabled
+            />
+
+            <InputField
               title={t('user.fields.gender.title')}
               name="gender"
               type="text"
@@ -79,12 +88,23 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
+          </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.training.title')}
+              name="training"
+              type="date"
+              value={user?.training}
+              className="user-input-format"
+              disabled
+            />
 
             <InputField
-              title={t('user.fields.employment.title')}
-              name="employment"
-              type="text"
-              value={employment?.name}
+              title={t('user.fields.firstActivity.title')}
+              name="firstActivity"
+              type="date"
+              value={user?.firstActivity}
               className="user-input-format"
               disabled
             />
@@ -92,19 +112,19 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
 
           <div className="user-input">
             <InputField
-              title={t('user.fields.survey.date.title')}
-              name="surveyDate"
-              type="date"
-              value={user?.surveyDate}
+              title={t('user.fields.survey.link.title')}
+              name="surveyLink"
+              type="text"
+              value={user?.surveyLink}
               className="user-input-format"
               disabled
             />
 
             <InputField
-              title={t('user.fields.survey.link.title')}
-              name="surveyLink"
+              title={t('user.fields.survey.friend.title')}
+              name="surveyFriend"
               type="text"
-              value={user?.surveyLink}
+              value={user?.surveyFriend}
               className="user-input-format"
               disabled
             />
@@ -121,10 +141,10 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
             />
 
             <InputField
-              title={t('user.fields.survey.friend.title')}
-              name="surveyFriend"
-              type="text"
-              value={user?.surveyFriend}
+              title={t('user.fields.survey.date.title')}
+              name="surveyDate"
+              type="date"
+              value={user?.surveyDate}
               className="user-input-format"
               disabled
             />
@@ -152,26 +172,6 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
 
           <div className="user-input">
             <InputField
-              title={t('user.fields.training.title')}
-              name="training"
-              type="date"
-              value={user?.training}
-              className="user-input-format"
-              disabled
-            />
-
-            <InputField
-              title={t('user.fields.second.title')}
-              name="second"
-              type="date"
-              value={user?.second}
-              className="user-input-format"
-              disabled
-            />
-          </div>
-
-          <div className="user-input">
-            <InputField
               title={t('user.fields.introduction.option.title')}
               name="introductionOption"
               type="text"
@@ -192,19 +192,19 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
 
           <div className="user-input">
             <InputField
-              title={t('user.fields.firstActivity.title')}
-              name="firstActivity"
-              type="date"
-              value={user?.firstActivity}
+              title={t('user.fields.employment.title')}
+              name="employment"
+              type="text"
+              value={employment?.name}
               className="user-input-format"
               disabled
             />
 
             <InputField
-              title={t('user.fields.personality.title')}
-              name="personality"
-              type="text"
-              value={personality?.name}
+              title={t('user.fields.second.title')}
+              name="second"
+              type="date"
+              value={user?.second}
               className="user-input-format"
               disabled
             />

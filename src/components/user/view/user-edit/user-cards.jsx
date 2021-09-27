@@ -22,25 +22,18 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const [cardArray, setCardsArray] = useState(user.cards ?? []);
 
   const [rotation, setRotation] = useState(false);
-
   let cardsPositions =
-    JSON.parse(localStorage.getItem('cardsPosition')) ||
+    JSON.parse(sessionStorage.getItem('cardsPosition')) ||
     user.cardsPosition ||
     userHandler.layouts;
 
+  window.screen.orientation.onchange = () =>
+    userHandler.screenOrientation(true, setRotation);
+
   useLayoutEffect(() => {
-    //verify if  the user is using mobile device
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const result = userHandler.screenOrientation(true, setRotation);
 
-    if (
-      /android/i.test(userAgent) ||
-      (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream)
-    ) {
-      setIsDraggable(false);
-
-      const result = userHandler.deviceOrientation() === 'portrait';
-      setRotation(result);
-    }
+    setIsDraggable(result);
   }, []);
 
   useEffect(() => {
@@ -69,11 +62,13 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
       </header>
 
       <main className="main-body">
-        <ButtonCards
-          setCardsArray={setCardsArray}
-          cardArray={cardArray}
-          cardsLimit={cardsLimit}
-        />
+        {!rotation && (
+          <ButtonCards
+            setCardsArray={setCardsArray}
+            cardArray={cardArray}
+            cardsLimit={cardsLimit}
+          />
+        )}
         <CForm>
           {user?.cards && rotation ? (
             <div className="device-rotation" />
@@ -92,17 +87,22 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
               isDraggable={isDraggable}
             >
               {cardArray?.map((card, index) => {
+                const cardBasicInfo = cardsTypes.find(
+                  (cardInfo) => cardInfo.id === card.id,
+                );
+
                 return (
                   <CCard key={index + ''} accentColor="primary">
                     <span
                       style={{
-                        background: card?.color,
+                        background: cardBasicInfo?.color,
                       }}
                       className="card-header-banner-color"
                     ></span>
                     <Card
                       t={t}
                       card={card}
+                      cardBasicInfo={cardBasicInfo}
                       index={index}
                       cardArray={cardArray}
                       setCardsArray={setCardsArray}

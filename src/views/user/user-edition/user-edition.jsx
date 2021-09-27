@@ -19,19 +19,20 @@ import Submit from 'components/user/buttons/submit';
 const UserEdition = ({ match }) => {
   const [t] = useTranslation();
   const [user, setUser] = useState(null);
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(parseInt(match.params.page));
   const [wasModified, setWasModified] = useState(false);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const userList = useRecoilValue(listUsers);
+  const usersList = useRecoilValue(listUsers);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
   useLayoutEffect(() => {
     const userID = match.params.id;
+
     execute(userID);
   }, [execute, match]);
 
@@ -58,6 +59,12 @@ const UserEdition = ({ match }) => {
             message={() => t('pages.user.leaving-the-page')}
           />
           <Tabs active={active} setActive={setActive} />
+          <Submit
+            user={user}
+            setErrorMsg={setErrorMsg}
+            setError={setError}
+            setWasModified={setWasModified}
+          />
           {active === 0 && (
             <UserEdit
               user={user}
@@ -65,7 +72,7 @@ const UserEdition = ({ match }) => {
               errorMsg={errorMsg}
               countriesList={countriesList}
               genericList={genericList}
-              userList={userList}
+              userList={usersList}
               setWasModified={setWasModified}
             />
           )}
@@ -84,18 +91,17 @@ const UserEdition = ({ match }) => {
               setUser={setUser}
               errorMsg={errorMsg}
               cardsTypes={genericList?.cardTypes}
-              userList={userList}
+              userList={usersList}
             />
           )}
           {active === 3 && (
-            <ProfilePage user={user} setUser={setUser} setError={setError} />
+            <ProfilePage
+              user={user}
+              setUser={setUser}
+              setError={setError}
+              setWasModified={setWasModified}
+            />
           )}
-          <Submit
-            user={user}
-            setErrorMsg={setErrorMsg}
-            setError={setError}
-            setWasModified={setWasModified}
-          />
         </>
       ) : (
         <>

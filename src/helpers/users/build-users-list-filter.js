@@ -3,7 +3,6 @@ const buildUsersListFilter = (userList) => {
   const userListFilter = arrayData?.map((user) => {
     return { id: user.id, name: user.name };
   });
-  userListFilter.unshift({ id: '1', name: 'None' });
 
   return userListFilter;
 };

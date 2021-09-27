@@ -7,7 +7,10 @@
 }
 
 .text-line {
-    white-space: pre-line;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 28vh;
+  white-space: pre-line;
 }
 
 .card-warning {
@@ -19,7 +22,7 @@
     display: flex;
 }
 
-.card-input-format { 
+.card-input-format {
     width: 45%;
     margin: -1rem 0.5rem 0.5rem 0.5rem;
 }
@@ -52,3 +55,22 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+@media screen and ( max-width: 1000px) {
+  .text-line {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 25vh;
+    white-space: pre-line;
+  }
+}
+
+@media screen and ( max-width: 768px) {
+  .text-line {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 20vh;
+    white-space: pre-line;
+  }
+}
+

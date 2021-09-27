@@ -28,7 +28,7 @@ const exportToExcel = (data, generic) => {
     newUser.personality = generic.personality.find(
       (value) => value.id === user.personality,
     )?.name;
-    newUser.socialInfo.forEach((value) => {
+    newUser.socialInfo.forEach?.((value) => {
       const socialName = generic.socialmedia.find(
         (social) => social.id === value.id,
       )?.name;

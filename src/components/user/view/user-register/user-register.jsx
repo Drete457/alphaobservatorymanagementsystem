@@ -11,6 +11,7 @@ const UserRegister = ({
   genericList,
   userList,
   setWasModified,
+  validName,
 }) => {
   const [t] = useTranslation();
   const countriesNames = countriesList?.map((country) => {
@@ -38,6 +39,7 @@ const UserRegister = ({
                 setWasModified(true);
               }}
               className="user-input-format"
+              validName={validName}
             />
 
             <SelectFieldComponent
@@ -92,6 +94,25 @@ const UserRegister = ({
 
           <div className="user-input">
             <SelectFieldComponent
+              title={t('user.fields.personality.title')}
+              name="personality"
+              placeholder={t('user.fields.personality.placeholder')}
+              value={user?.personality}
+              errorMsg={errorMsg?.personality}
+              onChange={(value) => {
+                setWasModified(true);
+                userHandler.userSelectHandler(
+                  'personality',
+                  value,
+                  setUser,
+                  user,
+                );
+              }}
+              options={genericList?.personality}
+              className="user-input-format"
+            />
+
+            <SelectFieldComponent
               title={t('user.fields.gender.title')}
               name="gender"
               placeholder={t('user.fields.gender.placeholder')}
@@ -104,35 +125,43 @@ const UserRegister = ({
               options={genericList?.gender}
               className="user-input-format"
             />
+          </div>
 
-            <SelectFieldComponent
-              title={t('user.fields.employment.title')}
-              name="employment"
-              placeholder={t('user.fields.employment.placeholder')}
-              value={user?.employment}
-              errorMsg={errorMsg?.employment}
-              onChange={(value) => {
-                userHandler.userSelectHandler(
-                  'employment',
-                  value,
-                  setUser,
-                  user,
-                );
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.training.title')}
+              name="training"
+              placeholder={t('user.fields.training.placeholder')}
+              type="date"
+              value={user?.training}
+              errorMsg={errorMsg?.training}
+              className="user-input-format"
+              disabled
+            />
+
+            <InputField
+              title={t('user.fields.firstActivity.title')}
+              name="firstActivity"
+              placeholder={t('user.fields.firstActivity.placeholder')}
+              type="date"
+              value={user?.firstActivity}
+              errorMsg={errorMsg?.firstActivity}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
                 setWasModified(true);
               }}
-              options={genericList?.ocupation}
               className="user-input-format"
             />
           </div>
 
           <div className="user-input">
             <InputField
-              title={t('user.fields.survey.date.title')}
-              name="surveyDate"
-              placeholder={t('user.fields.survey.date.placeholder')}
-              type="date"
-              value={user?.surveyDate}
-              errorMsg={errorMsg?.surveyDate}
+              title={t('user.fields.survey.link.title')}
+              name="surveyLink"
+              placeholder={t('user.fields.survey.link.placeholder')}
+              type="url"
+              value={user?.surveyLink}
+              errorMsg={errorMsg?.surveyLink}
               onChange={(event) => {
                 userHandler.userInputHandler(event, setUser, user);
                 setWasModified(true);
@@ -141,12 +170,12 @@ const UserRegister = ({
             />
 
             <InputField
-              title={t('user.fields.survey.link.title')}
-              name="surveyLink"
-              placeholder={t('user.fields.survey.link.placeholder')}
+              title={t('user.fields.survey.friend.title')}
+              name="surveyFriend"
+              placeholder={t('user.fields.survey.friend.placeholder')}
               type="url"
-              value={user?.surveyLink}
-              errorMsg={errorMsg?.surveyLink}
+              value={user?.surveyFriend}
+              errorMsg={errorMsg?.surveyFriend}
               onChange={(event) => {
                 userHandler.userInputHandler(event, setUser, user);
                 setWasModified(true);
@@ -171,12 +200,12 @@ const UserRegister = ({
             />
 
             <InputField
-              title={t('user.fields.survey.friend.title')}
-              name="surveyFriend"
-              placeholder={t('user.fields.survey.friend.placeholder')}
-              type="url"
-              value={user?.surveyFriend}
-              errorMsg={errorMsg?.surveyFriend}
+              title={t('user.fields.survey.date.title')}
+              name="surveyDate"
+              placeholder={t('user.fields.survey.date.placeholder')}
+              type="date"
+              value={user?.surveyDate}
+              errorMsg={errorMsg?.surveyDate}
               onChange={(event) => {
                 userHandler.userInputHandler(event, setUser, user);
                 setWasModified(true);
@@ -221,30 +250,6 @@ const UserRegister = ({
           </div>
 
           <div className="user-input">
-            <InputField
-              title={t('user.fields.training.title')}
-              name="training"
-              placeholder={t('user.fields.training.placeholder')}
-              type="date"
-              value={user?.training}
-              errorMsg={errorMsg?.training}
-              className="user-input-format"
-              disabled
-            />
-
-            <InputField
-              title={t('user.fields.second.title')}
-              name="second"
-              placeholder={t('user.fields.second.placeholder')}
-              type="date"
-              value={user?.second}
-              errorMsg={errorMsg?.second}
-              className="user-input-format"
-              disabled
-            />
-          </div>
-
-          <div className="user-input">
             <SelectFieldComponent
               title={t('user.fields.introduction.option.title')}
               name="introductionOption"
@@ -277,37 +282,34 @@ const UserRegister = ({
           </div>
 
           <div className="user-input">
-            <InputField
-              title={t('user.fields.firstActivity.title')}
-              name="firstActivity"
-              placeholder={t('user.fields.firstActivity.placeholder')}
-              type="date"
-              value={user?.firstActivity}
-              errorMsg={errorMsg?.firstActivity}
-              onChange={(event) => {
-                userHandler.userInputHandler(event, setUser, user);
-                setWasModified(true);
-              }}
-              className="user-input-format"
-            />
-
             <SelectFieldComponent
-              title={t('user.fields.personality.title')}
-              name="personality"
-              placeholder={t('user.fields.personality.placeholder')}
-              value={user?.personality}
-              errorMsg={errorMsg?.personality}
+              title={t('user.fields.employment.title')}
+              name="employment"
+              placeholder={t('user.fields.employment.placeholder')}
+              value={user?.employment}
+              errorMsg={errorMsg?.employment}
               onChange={(value) => {
-                setWasModified(true);
                 userHandler.userSelectHandler(
-                  'personality',
+                  'employment',
                   value,
                   setUser,
                   user,
                 );
+                setWasModified(true);
               }}
-              options={genericList?.personality}
+              options={genericList?.ocupation}
               className="user-input-format"
+            />
+
+            <InputField
+              title={t('user.fields.second.title')}
+              name="second"
+              placeholder={t('user.fields.second.placeholder')}
+              type="date"
+              value={user?.second}
+              errorMsg={errorMsg?.second}
+              className="user-input-format"
+              disabled
             />
           </div>
         </CForm>

@@ -19,6 +19,8 @@ const userFormat = {
   surveyFriend: '',
   social: '',
   socialInfo: '',
+  baseAmbit: '',
+  explainAlphaCafe: '',
 };
 
 export default userFormat;

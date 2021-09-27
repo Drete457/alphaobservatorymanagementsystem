@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useRecoilState } from 'recoil';
 import {
   CHeader,
@@ -8,16 +9,21 @@ import {
   CBreadcrumbRouter,
 } from '@coreui/react';
 import HeaderAccountDropdown from '../header-drop-down';
+import { fb } from 'api';
 import CIcon from '@coreui/icons-react';
 
 import { sidebarShow, asideShow } from 'state/atoms';
 
 // routes config
 import routes from 'routes';
+import userHandler from 'helpers/user';
+import Button from 'components/button/button';
 
 const Header = () => {
+  const [t] = useTranslation();
   const [isSidebarShow, setIsSidebarShow] = useRecoilState(sidebarShow);
   const [isAsideShow, setAsideShow] = useRecoilState(asideShow);
+  const isMobile = !userHandler.screenOrientation(false);
 
   const toggleSidebar = () => {
     const val = [true, 'responsive'].includes(isSidebarShow)
@@ -31,6 +37,18 @@ const Header = () => {
       ? true
       : 'responsive';
     setIsSidebarShow(val);
+  };
+
+  const logOut = async () => {
+    const firebase = await fb();
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        sessionStorage.clear();
+        localStorage.clear();
+        window.location.reload();
+      });
   };
 
   return (
@@ -54,7 +72,7 @@ const Header = () => {
         >
           <CIcon className="mr-2" size="lg" name="cil-applications-settings" />
         </CToggler>
-        <HeaderAccountDropdown />
+        <HeaderAccountDropdown logOut={logOut} />
       </CHeaderNav>
 
       <CSubheader className="px-3 justify-content-between">
@@ -62,6 +80,9 @@ const Header = () => {
           className="border-0 c-subheader-nav m-0 px-0 px-md-3"
           routes={routes}
         />
+        {isMobile && (
+          <Button name={t('header.logout')} isDanger={false} onClick={logOut} />
+        )}
       </CSubheader>
     </CHeader>
   );

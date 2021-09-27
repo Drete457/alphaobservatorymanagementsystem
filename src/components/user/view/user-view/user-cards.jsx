@@ -1,3 +1,4 @@
+import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
@@ -7,13 +8,14 @@ import userHandler from 'helpers/user';
 import Card from './card';
 import 'react-grid-layout/css/styles.css';
 
-const UserCards = ({ user, userList }) => {
+const UserCards = ({ user, userList, cardsTypes }) => {
   const [t] = useTranslation();
   const breakPoints = {
     xl: parseInt(getStyle('--breakpoint-xl'), 10),
   };
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
+  const [rotation, setRotation] = useState(false);
   let cardsPositions = user.cardsPosition
     ? {
         xl: user.cardsPosition['xl']?.map((value) => {
@@ -22,7 +24,12 @@ const UserCards = ({ user, userList }) => {
       }
     : userHandler.layouts;
 
-  const rotation = userHandler.deviceOrientation() === 'portrait';
+  window.screen.orientation.onchange = () =>
+    userHandler.screenOrientation(true, setRotation);
+
+  useLayoutEffect(() => {
+    userHandler.screenOrientation(true, setRotation);
+  }, []);
 
   return (
     <>
@@ -31,7 +38,7 @@ const UserCards = ({ user, userList }) => {
 
         <GenerateLink id={user.id} />
       </header>
-
+      {rotation}
       <main className="main-body">
         <CForm>
           {user?.cards && rotation ? (
@@ -50,15 +57,23 @@ const UserCards = ({ user, userList }) => {
                 <div className="device-rotation" />
               ) : (
                 user?.cards?.map((card, index) => {
+                  const cardBasicInfo = cardsTypes.find(
+                    (cardInfo) => cardInfo.id === card.id,
+                  );
+
                   return (
                     <CCard key={index + ''} accentColor="primary">
                       <span
                         style={{
-                          background: card?.color,
+                          background: cardBasicInfo?.color,
                         }}
                         className="card-header-banner-color"
                       ></span>
-                      <Card card={card} userList={userList} />
+                      <Card
+                        card={card}
+                        userList={userList}
+                        cardBasicInfo={cardBasicInfo}
+                      />
                     </CCard>
                   );
                 })

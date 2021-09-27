@@ -21,8 +21,8 @@ const submit = (
     setWasModified(false);
 
     //put the position of the cards in the user before sending them to the back-end
-    user.cardsPosition = JSON.parse(localStorage.getItem('cardsPosition'));
-    localStorage.removeItem('cardsPosition');
+    user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
+    sessionStorage.removeItem('cardsPosition');
 
     //if the user have a file send to backend
     if (user.profile) {
@@ -40,7 +40,13 @@ const submit = (
   }
 };
 
-const Submit = ({ user, setErrorMsg, setError, setWasModified }) => {
+const Submit = ({
+  user,
+  setErrorMsg,
+  setError,
+  setWasModified,
+  validName = true,
+}) => {
   const history = useHistory();
   const [t] = useTranslation();
   const { isLoading, error, data, execute } = usePostUser();
@@ -73,21 +79,23 @@ const Submit = ({ user, setErrorMsg, setError, setWasModified }) => {
           isDanger={true}
           onClick={() => history.push('/users/')}
         />
-        <Button
-          name={t('btn.create-edit.submit')}
-          isDanger={false}
-          onClick={() =>
-            submit(
-              user,
-              setErrorMsg,
-              t,
-              execute,
-              setWasModified,
-              executeUpload,
-              executeDelete,
-            )
-          }
-        />
+        {validName && (
+          <Button
+            name={t('btn.create-edit.submit')}
+            isDanger={false}
+            onClick={() =>
+              submit(
+                user,
+                setErrorMsg,
+                t,
+                execute,
+                setWasModified,
+                executeUpload,
+                executeDelete,
+              )
+            }
+          />
+        )}
       </div>
       {isLoading && <Loading />}
     </>

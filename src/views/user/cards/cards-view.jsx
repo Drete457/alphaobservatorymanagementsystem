@@ -19,6 +19,10 @@ import Tabs from 'components/user/tabs';
 import View from 'components/user/buttons/view';
 
 const CardsView = ({ match }) => {
+  //delete the remain of cards positions on sessionStorage
+  sessionStorage.removeItem('cardsPosition');
+  localStorage.removeItem('cardsPosition');
+
   const [t] = useTranslation();
   const [user, setUser] = useState(null);
   const [userList, setUserList] = useState(null);
@@ -103,6 +107,7 @@ const CardsView = ({ match }) => {
       ) : user && userList && countriesList && genericList ? (
         <>
           <Tabs active={active} setActive={setActive} />
+          <View user={user} active={active} />
           {active === 0 && (
             <UserViewer
               user={user}
@@ -116,7 +121,6 @@ const CardsView = ({ match }) => {
           )}
           {active === 2 && <UserCards user={user} userList={userList} />}
           {active === 3 && <ProfilePage user={user} />}
-          <View user={user} />
         </>
       ) : (
         <>

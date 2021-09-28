@@ -1,406 +1,407 @@
 {
-    "sidebar": {
-        "aside": {
-            "title": "Tools"
-        },
-        "home":{
-            "title": "Home",
-            "children":{
-                "users": "Collaborators",
-                "activities": "Activities"
-            }
-        },
-        "administration":{
-            "title": "Administration",
-            "countries": {
-                "title": "Countries",
-                "children": {
-                    "manage": "Manage Countries"
-                }
-            },
-            "generic": {
-                "title": "Generic",
-                "children":{
-                    "manage": "Manage Generic Information"
-                }
-            }
-        }
+  "sidebar": {
+    "aside": {
+      "title": "Tools"
     },
-    "btn": {
-        "maintenance": "Refresh Page",
-        "notfound": "Return Home",
-        "login": {
-            "google-button": "Google Account"
-        },
-        "home": {
-            "calendar-button": "Open SpreadSheat Calendar"
-        },
-        "view": "View",
-        "create": {
-            "user": "Create New Collaborator",
-            "activities": "Create New Activities",
-            "excel": "Export To Excel"
-        },
-        "create-edit":{
-            "submit": "Submit",
-            "edit": "Edit",
-            "cancel": "Cancel",
-            "save": "Save",
-            "cards": {
-                "add": "Add A New Card",
-                "edit": "Edit The Card",
-                "save": "Save The Card",
-                "delete": "Delete",
-                "yes": "Yes",
-                "no": "No"
-            },
-            "profile": {
-                "insert": "Upload The Profile",
-                "delete": "Delete The Profile"
-            },
-            "generate-link": {
-                "title": "Generate Link",
-                "copy": "Copy Link"
-            },
-            "countries": "Create New Country",
-            "generic": "Create a New "
-        },
-        "table-import": {
-            "button": "Import Collaborators Table",
-            "button-import": "Import Table"
+    "home": {
+      "title": "Home",
+      "children": {
+        "users": "Collaborators",
+        "activities": "Activities"
+      }
+    },
+    "administration": {
+      "title": "Administration",
+      "countries": {
+        "title": "Countries",
+        "children": {
+          "manage": "Manage Countries"
         }
+      },
+      "generic": {
+        "title": "Generic",
+        "children": {
+          "manage": "Manage Generic Information"
+        }
+      }
+    }
+  },
+  "btn": {
+    "maintenance": "Refresh Page",
+    "notfound": "Return Home",
+    "login": {
+      "google-button": "Google Account"
+    },
+    "home": {
+      "calendar-button": "Open SpreadSheat Calendar"
+    },
+    "view": "View",
+    "create": {
+      "user": "Create New Collaborator",
+      "activities": "Create New Activities",
+      "excel": "Export To Excel"
+    },
+    "create-edit": {
+      "submit": "Submit",
+      "edit": "Edit",
+      "cancel": "Cancel",
+      "save": "Save",
+      "cards": {
+        "add": "Add A New Card",
+        "edit": "Edit The Card",
+        "save": "Save The Card",
+        "delete": "Delete",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "profile": {
+        "insert": "Upload The Profile",
+        "delete": "Delete The Profile"
+      },
+      "generate-link": {
+        "title": "Generate Link",
+        "copy": "Copy Link"
+      },
+      "countries": "Create New Country",
+      "generic": "Create a New "
+    },
+    "table-import": {
+      "button": "Import Collaborators Table",
+      "button-import": "Import Table"
+    }
+  },
+  "user": {
+    "fields": {
+      "name": {
+        "title": "Full Name*",
+        "placeholder": "Enter The Full Name",
+        "error": "Field Needs To Have Full Name"
+      },
+      "followed": {
+        "title": "Followed By*",
+        "placeholder": "Choose The Person That Follow This Collaborator"
+      },
+      "country": {
+        "title": "Country*",
+        "placeholder": "Choose The Country Of The Collaborator"
+      },
+      "contacted": {
+        "title": "Contacted By*",
+        "placeholder": "Choose The Person That Contact This Collaborator"
+      },
+      "gender": {
+        "title": "Gender*",
+        "placeholder": "Select The Gender Of The Collaborator"
+      },
+      "employment": {
+        "title": "Employment*",
+        "placeholder": "Choose One Of Status Of The Collaborator"
+      },
+      "birthyear": {
+        "title": "Birthyear*",
+        "placeholder": "Write the Year The Collaborator Have Born"
+      },
+      "age": {
+        "title": "age"
+      },
+      "training": {
+        "title": "Training Date",
+        "placeholder": "Choose The Day Of The Training",
+        "error": "Choose The Date correctly"
+      },
+      "firstActivity": {
+        "title": "First Activity Date",
+        "placeholder": "Choose The Day Of The First Activity",
+        "error": "Choose The Date correctly"
+      },
+      "personality": {
+        "title": "Profile*",
+        "placeholder": "Select The Collaborator Profile"
+      },
+      "second": {
+        "title": "Second Survey",
+        "placeholder": "Choose The Day Of The Second Training",
+        "error": "Choose The Date correctly"
+      },
+      "introduction": {
+        "option": {
+          "title": "Suitable Introductive Meeting",
+          "placeholder": "Choose If The Collaborator Is Suitable For Introductive Meeting"
+        },
+        "date": {
+          "title": "Introductory Meeting Date",
+          "placeholder": "Choose The Day Of The Meeting Date",
+          "error": "Choose The Date correctly"
+        }
+      },
+      "community": {
+        "title": "Joined The Community",
+        "placeholder": "Choose The Day That The Enter In The Community",
+        "error": "Choose The Date correctly"
+      },
+      "survey": {
+        "date": {
+          "title": "Survey Activation",
+          "placeholder": "Choose The Day That The First Survey Was Done",
+          "error": "Choose The Date correctly"
+        },
+        "link": {
+          "title": "Survey Link Online*",
+          "placeholder": "Write The Survey Link Of The User",
+          "error": "Missing The Personal Link"
+        },
+        "face": {
+          "title": "Survey Face To Face",
+          "placeholder": "Write The Survey Face to Face Of The Collaborator",
+          "error": "Missing The Face to Face Link"
+        },
+        "friend": {
+          "title": "Survey Friend*",
+          "placeholder": "Write The Survey Friend Link Of The Collaborator",
+          "error": "Missing The Friend Link"
+        }
+      },
+      "ambit": {
+        "title": "Base Ambit",
+        "first": "Entry Into First Ambit",
+        "entry": "Entry Into Base Ambit",
+        "error": "Choose The Date Correctly"
+      },
+      "activities": {
+        "title": "Number of Activities"
+      },
+      "groupAge": {
+        "title": "Group Age"
+      },
+      "social": {
+        "title": "Media Contacted",
+        "placeholder": "Choose The Social Media Collaborator Have",
+        "placeholdersocialnetwork": "Write The Collaborator Name Use In This Social Media",
+        "error": "Don't Forget To Write Collaborator Name Used In This Social Media"
+      },
+      "cards": {
+        "placeholder": "Choose The Type Of Card",
+        "bodyplaceholder": "Don't Delete The Text",
+        "error": "It Is Necessary To Complete The Card",
+        "trainer": "Choose The Trainer Name",
+        "title": "Cards"
+      },
+      "profile": {
+        "title": "Profile Url",
+        "placeholder": "Write The Profile Url"
+      }
+    }
+  },
+  "activities": {
+    "fields": {
+      "name": {
+        "title": "Name Of Activity"
+      },
+      "type": {
+        "title": "Type Of Activitie",
+        "placeholder": "Choose The Type Of Activity",
+        "error": "Need To Choose The type Of Activity"
+      },
+      "participants": {
+        "title": "Number Of Participants"
+      },
+      "date": {
+        "title": "Day Of The Activity",
+        "error": "Need To Choose a Date"
+      },
+      "list": {
+        "title": "Activity Participants",
+        "placeholder": "Choose Who Participated In The Activity",
+        "error": "Need To Choose Who Participated In The Activity"
+      },
+      "listInfo": {
+        "placeholder": "Enter The Number",
+        "error": "Need To Write a Number Here"
+      }
+    }
+  },
+  "countries": {
+    "country": {
+      "title": "Country Name",
+      "placeholder": "Write The Name Of The Country",
+      "error": "Need To Write The Name Of The Country"
+    },
+    "gmt": {
+      "title": "GMT",
+      "placeholder": "Write The GMT of The Country",
+      "error": "Need To Write The GMT ex: +01:00"
+    }
+  },
+  "login": {
+    "title": "Login",
+    "signin": "Sign In with your Google Account"
+  },
+  "header": {
+    "profile": "Profile",
+    "logout": "Logout",
+    "alt": "Collaborator Profile Photo"
+  },
+  "generic": {
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "activities-type": {
+      "name": "Activity Name",
+      "placeholder": "Write The Name of The Activity",
+      "extra": "Need To Write Number?",
+      "placeholderExtra": "Choose The Option"
+    },
+    "card-type": {
+      "name": "Card Type",
+      "placeholder": "Write The Card Type Name",
+      "color": "Color",
+      "placeholder-body": "Write The Text For The Body"
+    },
+    "ocupation": {
+      "name": "Ocupation Name",
+      "placeholder": "Write The Name of The Ocupation"
+    },
+    "personality": {
+      "name": "Personality Name",
+      "placeholder": "Write The Name of The Personality"
+    },
+    "social-media": {
+      "name": "Social Media Name",
+      "placeholder": "Write The Name of The Social Media"
+    },
+    "years": {
+      "name": "Year",
+      "placeholder": "Write The Year"
+    },
+    "error": "Need To Write a Name"
+  },
+  "pages": {
+    "safari": "Please don't use Safari Browser, use alternative (Ex: Chrome, Firebox, Edge, Opera, etc)",
+    "constrution": "Still under construction",
+    "nointernet": "No Internet Connection",
+    "maintenance": {
+      "title": "The Site Is Undergoing Maintenance"
+    },
+    "notfound": {
+      "lost": "Look like you're lost",
+      "page": "The Page you are looking is not avaible right now!"
+    },
+    "home": {
+      "title": "Alpha Observatory Calendar",
+      "calendar": "Google Calendar"
+    },
+    "users": {
+      "title": "All Collaborators",
+      "numberUsers": "Number of Registered Collaborators",
+      "no-info": "No Collaborators"
+    },
+    "myprofile": {
+      "title": "Profile Page",
+      "name": "Name",
+      "email": "Email",
+      "create": "Account Create",
+      "last": "Last Visited"
     },
     "user": {
-        "fields": {
-            "name": {
-                "title": "Full Name*",
-                "placeholder": "Enter The Full Name",
-                "error": "Field Needs To Have Full Name"
-            },
-            "followed": {
-                "title": "Followed By*",
-                "placeholder": "Choose The Person That Follow This Collaborator"
-            },
-            "country": {
-                "title": "Country*",
-                "placeholder": "Choose The Country Of The Collaborator"
-            },
-            "contacted": {
-                "title": "Contacted By*",
-                "placeholder": "Choose The Person That Contact This Collaborator"
-            },
-            "gender": {
-                "title": "Gender*",
-                "placeholder": "Select The Gender Of The Collaborator"
-            },
-            "employment": {
-                "title": "Employment*",
-                "placeholder": "Choose One Of Status Of The Collaborator"
-            },
-            "birthyear": {
-                "title": "Birthyear*",
-                "placeholder": "Write the Year The Collaborator Have Born"
-            },
-            "age": {
-                "title": "age"
-            },
-            "training": {
-                "title": "Training Date",
-                "placeholder": "Choose The Day Of The Training",
-                "error": "Choose The Date correctly"
-            },
-            "firstActivity": {
-                "title": "First Activity Date",
-                "placeholder": "Choose The Day Of The First Activity",
-                "error": "Choose The Date correctly"
-            },
-            "personality": {
-                "title": "Profile*",
-                "placeholder": "Select The Collaborator Profile"
-            },
-            "second": {
-                "title": "Second Survey",
-                "placeholder": "Choose The Day Of The Second Training",
-                "error": "Choose The Date correctly"
-            },
-            "introduction": {
-                "option": {
-                    "title": "Suitable Introductive Meeting",
-                    "placeholder": "Choose If The Collaborator Is Suitable For Introductive Meeting"
-                },
-                "date": {
-                    "title": "Introductory Meeting Date",
-                    "placeholder": "Choose The Day Of The Meeting Date",
-                    "error": "Choose The Date correctly"
-                }
-            },
-            "community": {
-                "title": "Joined The Community",
-                "placeholder": "Choose The Day That The Enter In The Community",
-                "error": "Choose The Date correctly"
-            },
-            "survey": {
-                "date": {
-                    "title": "Survey Activation",
-                    "placeholder": "Choose The Day That The First Survey Was Done",
-                    "error": "Choose The Date correctly"
-                },
-                "link": {
-                    "title": "Survey Link Online*",
-                    "placeholder": "Write The Survey Link Of The User",
-                    "error": "Missing The Personal Link"
-                },
-                "face": {
-                    "title": "Survey Face To Face",
-                    "placeholder": "Write The Survey Face to Face Of The Collaborator",
-                    "error": "Missing The Face to Face Link"
-                },
-                "friend": {
-                    "title": "Survey Friend*",
-                    "placeholder": "Write The Survey Friend Link Of The Collaborator",
-                    "error": "Missing The Friend Link"
-                }
-            },
-            "ambit": {
-                "title": "Base Ambit",
-                "first": "Entry Into First Ambit",
-                "entry": "Entry Into Base Ambit",
-                "error": "Choose The Date Correctly"
-            },
-            "activities": {
-                "title": "Number of Activities"
-            },
-            "groupAge": {
-                "title": "Group Age"
-            },
-            "social": {
-                "title": "Media Contacted",
-                "placeholder": "Choose The Social Media Collaborator Have",
-                "placeholdersocialnetwork": "Write The Collaborator Name Use In This Social Media",
-                "error": "Don't Forget To Write Collaborator Name Used In This Social Media"
-            },
-            "cards": {
-                "placeholder": "Choose The Type Of Card",
-                "bodyplaceholder": "Don't Delete The Text",
-                "error": "It Is Necessary To Complete The Card",
-                "trainer": "Choose The Trainer Name",
-                "title": "Cards"
-            },
-            "profile": {
-                "title": "Profile Url",
-                "placeholder": "Write The Profile Url"
-            }
+      "registration": {
+        "title": "Collaborator Registration",
+        "social": {
+          "title": "Collaborator Registration Social Media"
+        },
+        "cards": {
+          "title": "Collaborator Registration Cards",
+          "delete": "Are you sure you want to erase the card?"
+        },
+        "profile": {
+          "title": "Registration Survey him/her link or file"
         }
-    },
-    "activities": {
-        "fields": {
-            "name": {
-                "title": "Name Of Activity"
-            },
-            "type": {
-                "title": "Type Of Activitie",
-                "placeholder": "Choose The Type Of Activity",
-                "error": "Need To Choose The type Of Activity"
-            },
-            "participants": {
-                "title": "Number Of Participants"
-            },
-            "date": {
-                "title": "Day Of The Activity",
-                "error": "Need To Choose a Date"
-            },
-            "list": {
-                "title": "Activity Participants",
-                "placeholder": "Choose Who Participated In The Activity",
-                "error": "Need To Choose Who Participated In The Activity"
-            },
-            "listInfo": {
-                "placeholder": "Enter The Number",
-                "error": "Need To Write a Number Here"
-            }
-        }
-    },
-    "countries" : {
-        "country": {
-            "title": "Country Name",
-            "placeholder": "Write The Name Of The Country",
-            "error": "Need To Write The Name Of The Country"
+      },
+      "view": {
+        "title": "Collaborator View",
+        "social": {
+          "title": "Collaborator View Social Media"
         },
-        "gmt": {
-            "title": "GMT",
-            "placeholder": "Write The GMT of The Country",
-            "error": "Need To Write The GMT ex: +01:00"
-        }
-    },
-    "login": {
-        "title": "Login",
-        "signin": "Sign In with your Google Account"
-    },
-    "header": {
-        "profile": "Profile",
-        "logout": "Logout",
-        "alt": "Collaborator Profile Photo"
-    },
-    "generic": {
-        "options": {
-            "yes": "Yes",
-            "no": "No"
+        "cards": {
+          "title": "Collaborator View Cards",
+          "hascopy": "The Link Has Been Copied To Memory "
         },
-        "activities-type": {
-            "name": "Activity Name",
-            "placeholder": "Write The Name of The Activity",
-            "extra": "Need To Write Number?",
-            "placeholderExtra": "Choose The Option"
-        },
-        "card-type": {
-            "name": "Card Type",
-            "placeholder": "Write The Card Type Name",
-            "color": "Color",
-            "placeholder-body": "Write The Text For The Body"
-        },
-        "ocupation": {
-            "name": "Ocupation Name",
-            "placeholder": "Write The Name of The Ocupation"
-        },
-        "personality": {
-            "name": "Personality Name",
-            "placeholder": "Write The Name of The Personality"
-        },
-        "social-media": {
-            "name": "Social Media Name",
-            "placeholder": "Write The Name of The Social Media"
-        },
-        "years": {
-            "name": "Year",
-            "placeholder": "Write The Year"
-        },
-        "error": "Need To Write a Name"
-    },
-    "pages": {
-        "constrution": "Still under construction",
-        "nointernet": "No Internet Connection",
-        "maintenance": {
-            "title": "The Site Is Undergoing Maintenance"
+        "profile": {
+          "title": "View Survey him/her link or file"
         },
         "notfound": {
-            "lost": "Look like you're lost",
-            "page": "The Page you are looking is not avaible right now!"
-        },
-        "home": {
-            "title": "Alpha Observatory Calendar",
-            "calendar": "Google Calendar"
-        },
-        "users": {
-            "title": "All Collaborators",
-            "numberUsers": "Number of Registered Collaborators",
-            "no-info": "No Collaborators"
-        },
-        "myprofile": {
-            "title": "Profile Page",
-            "name": "Name",
-            "email": "Email",
-            "create": "Account Create",
-            "last": "Last Visited"
-        },
-        "user": {
-            "registration": {
-                "title": "Collaborator Registration",
-                "social": {
-                    "title": "Collaborator Registration Social Media"
-                },
-                "cards": {
-                    "title": "Collaborator Registration Cards",
-                    "delete": "Are you sure you want to erase the card?"
-                },
-                "profile": {
-                    "title": "Registration Survey him/her link or file"
-                }
-            },
-            "view": {
-                "title": "Collaborator View",
-                "social": {
-                    "title": "Collaborator View Social Media"
-                },
-                "cards": {
-                    "title": "Collaborator View Cards",
-                    "hascopy": "The Link Has Been Copied To Memory "
-                },
-                "profile": {
-                    "title": "View Survey him/her link or file"
-                },
-                "notfound": {
-                    "title": "Collaborator Not Found"
-                }
-            },
-            "edit":{
-                "title": "Collaborator Edit",
-                "social": {
-                    "title": "Collaborator Edit Social Media"
-                },
-                "cards": {
-                    "title": "Collaborator Edit Cards",
-                    "delete": "Are you sure you want to erase the card?"
-                },
-                "profile": {
-                    "title": "Edit Survey him/her link or file"
-                },
-                "notfound": {
-                    "title": "Collaborator Not Found"
-                }
-            },
-            "tabs": {
-                "user": "Collaborator",
-                "social": "Contact",
-                "cards": "Cards",
-                "profile": "Survey"
-            },
-            "leaving-the-page": "You have unsaved information, do you want to leave the page?"
-        },
-        "activities" : {
-            "title" : "Activities",
-            "no-info" : "No Activities",
-            "table-title": "Activities Registration",
-            "registration": {
-                "title": "New Activity"
-            },
-            "view": {
-                "title": "View Activity"
-            },
-            "edit": {
-                "title": "Edit Activity"
-            }
-        },
-        "table-import": {
-            "title": "Import Collaborators Table"
-        },
-        "countries": {
-            "title": "Countries Management"
-        },
-        "generic": {
-            "activities-types": {
-                "tab": "Activities Types",
-                "title": "Activities Types"
-            },
-            "card-types": {
-                "tab": "Card Types",
-                "title": "Card Types"
-            },
-            "ocupation": {
-                "tab": "Ocupation",
-                "title": "Ocupation"
-            },
-            "personality": {
-                "tab": "Personality",
-                "title": "Personality"
-            },
-            "social-media": {
-                "tab": "Social Media",
-                "title": "Social Media"
-            },
-            "years": {
-                "tab": "Years",
-                "title": "Years"
-            }
+          "title": "Collaborator Not Found"
         }
+      },
+      "edit": {
+        "title": "Collaborator Edit",
+        "social": {
+          "title": "Collaborator Edit Social Media"
+        },
+        "cards": {
+          "title": "Collaborator Edit Cards",
+          "delete": "Are you sure you want to erase the card?"
+        },
+        "profile": {
+          "title": "Edit Survey him/her link or file"
+        },
+        "notfound": {
+          "title": "Collaborator Not Found"
+        }
+      },
+      "tabs": {
+        "user": "Collaborator",
+        "social": "Contact",
+        "cards": "Cards",
+        "profile": "Survey"
+      },
+      "leaving-the-page": "You have unsaved information, do you want to leave the page?"
+    },
+    "activities": {
+      "title": "Activities",
+      "no-info": "No Activities",
+      "table-title": "Activities Registration",
+      "registration": {
+        "title": "New Activity"
+      },
+      "view": {
+        "title": "View Activity"
+      },
+      "edit": {
+        "title": "Edit Activity"
+      }
+    },
+    "table-import": {
+      "title": "Import Collaborators Table"
+    },
+    "countries": {
+      "title": "Countries Management"
+    },
+    "generic": {
+      "activities-types": {
+        "tab": "Activities Types",
+        "title": "Activities Types"
+      },
+      "card-types": {
+        "tab": "Card Types",
+        "title": "Card Types"
+      },
+      "ocupation": {
+        "tab": "Ocupation",
+        "title": "Ocupation"
+      },
+      "personality": {
+        "tab": "Personality",
+        "title": "Personality"
+      },
+      "social-media": {
+        "tab": "Social Media",
+        "title": "Social Media"
+      },
+      "years": {
+        "tab": "Years",
+        "title": "Years"
+      }
     }
+  }
 }

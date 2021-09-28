@@ -17,7 +17,7 @@ const NotFound = ({ error, errorIn }) => {
 
   useLayoutEffect(() => {
     const errorBody = {
-      code: error.toString(),
+      code: error,
       message: errorIn,
     };
 

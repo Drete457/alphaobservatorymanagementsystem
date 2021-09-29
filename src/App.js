@@ -20,7 +20,7 @@ const App = () => {
   const [isUser, setIsUser] = useRecoilState(user);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
-  const [isSafariDesktop, setIsSafariDesktop] = useState(true);
+  const [isSafariDesktop, setIsSafariDesktop] = useState(false);
 
   useLayoutEffect(() => {
     buildLogin(setIsUser);
@@ -62,9 +62,9 @@ const App = () => {
       );
     };
 
-    let isMobile = isMobileDevice();
+    const isDesktop = !isMobileDevice();
 
-    if (!isMobile) {
+    if (isDesktop) {
       //defect if is safari
       const isSafari = navigator.userAgent.indexOf('Safari') > -1;
       //chrome brownser on MacOs came with Safari word to

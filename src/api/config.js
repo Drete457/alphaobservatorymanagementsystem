@@ -23,6 +23,9 @@ async function getFirebaseClient() {
 
   firebase.initializeApp(config);
 
+  //enabled presistence cache
+  firebase.firestore().enablePersistence();
+
   return firebase;
 }
 

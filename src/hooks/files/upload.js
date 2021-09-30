@@ -1,13 +1,19 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
+import { getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 
-export const upload = async (ref, file, setProgress, setError, setData) => {
-  const firebase = await fb();
+export const upload = async (
+  reference,
+  file,
+  setProgress,
+  setError,
+  setData,
+) => {
   //create store ref
-  const storageRef = firebase.storage().ref(ref);
+  const storage = getStorage();
+  const storageRef = ref(storage, reference);
 
   //upload the file
-  const task = storageRef.put(file);
+  const task = uploadBytesResumable(storageRef, file);
 
   //update the progress bar
   task.on(

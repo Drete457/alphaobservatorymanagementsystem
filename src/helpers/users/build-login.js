@@ -1,8 +1,9 @@
-import { fb } from 'api';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const buildLogin = async (setUser) => {
-  const firebase = await fb();
-  firebase.auth().onAuthStateChanged((result) => {
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (result) => {
     if (result?.displayName) {
       const userInfo = {
         name: result.displayName,

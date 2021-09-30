@@ -22,7 +22,15 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <NotFound error={this.state.error} errorIn={this.state.errorIn} />;
+      const errorUrl = window.location.href;
+
+      return (
+        <NotFound
+          error={this.state.error}
+          errorIn={this.state.errorIn}
+          url={errorUrl}
+        />
+      );
     }
 
     return this.props.children;

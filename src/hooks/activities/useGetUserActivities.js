@@ -1,9 +1,9 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
-import { ref } from 'components/activities';
+/* import { fb } from 'api';
+import { ref } from 'components/activities'; */
 
 export const getActivities = async (id, setData) => {
-  const firebase = await fb();
+  /*  const firebase = await fb();
   const firestore = firebase.firestore();
   const callCollection = firestore.collection(ref);
 
@@ -16,7 +16,7 @@ export const getActivities = async (id, setData) => {
 
         setData({ id: id, number: howManyActivities });
       }
-    });
+    }); */
 };
 
 const useGetUserActivities = () => {

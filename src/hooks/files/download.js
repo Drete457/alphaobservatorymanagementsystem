@@ -1,20 +1,13 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
-export const download = async (
-  ref,
-  setProgress,
-  setError,
-  setData,
-  setPdfFile,
-) => {
-  const firebase = await fb();
+export const download = async (reference, setProgress, setError, setData) => {
+  const storage = getStorage();
   //create store ref
-  const storageRef = firebase.storage().ref(ref);
+  const storageRef = ref(storage, reference);
 
   //download file
-  storageRef
-    .getDownloadURL()
+  await getDownloadURL(storageRef)
     .then((url) => {
       //download function
       let xhr = new XMLHttpRequest();

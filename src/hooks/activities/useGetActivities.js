@@ -1,29 +1,26 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
-import { ref } from 'components/activities';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { ref as reference } from 'components/activities';
 
 export const getActivities = async (setData) => {
-  const firebase = await fb();
-  const firestore = firebase.firestore();
-  const callCollection = firestore.collection(ref);
+  const database = getFirestore();
+  const callCollection = collection(database, reference);
+  const snapshot = await getDocs(callCollection);
+  const newActivitiesArray = [];
 
-  await callCollection.get().then((snapshot) => {
-    const newActivitiesArray = [];
+  snapshot?.forEach((doc) => {
+    const activity = doc.data();
 
-    snapshot?.forEach((doc) => {
-      const activity = doc.data();
-
-      newActivitiesArray.push({
-        id: doc.id,
-        date: activity.date,
-        list: activity.list,
-        listInfo: activity.listInfo,
-        type: activity.type,
-      });
+    newActivitiesArray.push({
+      id: doc.id,
+      date: activity.date,
+      list: activity.list,
+      listInfo: activity.listInfo,
+      type: activity.type,
     });
-
-    setData(newActivitiesArray);
   });
+
+  setData(newActivitiesArray);
 };
 
 const useGetActivaties = () => {

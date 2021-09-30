@@ -4,6 +4,7 @@ import { CFade } from '@coreui/react';
 import { useRecoilState } from 'recoil';
 import { user } from 'state/atoms';
 import { noInternetImg } from 'assets/images';
+import { fb } from 'api/config';
 import { buildLogin } from 'helpers/users';
 import Loading from 'components/loading';
 import NoInternet from 'views/offline';
@@ -23,7 +24,13 @@ const App = () => {
   const [isSafariDesktop, setIsSafariDesktop] = useState(false);
 
   useLayoutEffect(() => {
-    buildLogin(setIsUser);
+    //iniciate firebase sdk
+    const startFirebase = async () => {
+      await fb();
+      await buildLogin(setIsUser);
+    };
+
+    startFirebase();
   }, [setIsUser]);
 
   useLayoutEffect(() => {

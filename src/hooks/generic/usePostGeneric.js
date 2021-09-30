@@ -1,14 +1,11 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
-import { generic as ref } from 'components/user';
+import { getDatabase, ref, child, set } from 'firebase/database';
+import { generic as reference } from 'components/user';
 
 export const postSocial = async (generic, setData) => {
-  const firebase = await fb();
-  await firebase
-    .database()
-    .ref(ref)
-    .update(generic)
-    .then(() => setData(true));
+  const database = getDatabase();
+  const dbRef = ref(database);
+  await set(child(dbRef, reference), generic).then(() => setData(true));
 };
 
 const usePostSocial = () => {

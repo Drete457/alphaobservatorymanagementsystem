@@ -2,11 +2,10 @@ import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
+import { countries, generic, listUsers, usersWithFollowers } from 'state/atoms';
 import { useGetCountries } from 'hooks/countries';
 import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
-//import useGetUserActivities from 'hooks/activities/useGetUserActivities';
 import homeHandler from 'helpers/users';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
@@ -25,6 +24,7 @@ const Users = () => {
   const setCountries = useSetRecoilState(countries);
   const setGeneric = useSetRecoilState(generic);
   const setListUsers = useSetRecoilState(listUsers);
+  const setUsersWithFollowers = useSetRecoilState(usersWithFollowers);
 
   const [users, setUsers] = useState([]);
   const [genericHome, setGenericHome] = useState({});
@@ -43,13 +43,6 @@ const Users = () => {
     execute: executeGeneric,
   } = useGetGeneric();
 
-  //TODO: Clean This
-  /*   const {
-    error: errorGetUserActivity,
-    data: userGetActivity,
-    execute: executeUserActivity,
-  } = useGetUserActivities(); */
-
   useLayoutEffect(() => {
     execute();
     executeCountries();
@@ -64,16 +57,8 @@ const Users = () => {
         genericList,
         setListUsers,
         setUsers,
+        setUsersWithFollowers,
       );
-
-      //TODO: Clean This
-      //query how many ativities each user have
-      /*   const arrayData = Object.values(data);
-      arrayData.forEach((user) => {
-        if (user?.followed !== 'None') {
-          executeUserActivity(user.id);
-        }
-      }); */
     }
 
     if (countriesList) {
@@ -91,30 +76,8 @@ const Users = () => {
     setCountries,
     setGeneric,
     setListUsers,
+    setUsersWithFollowers,
   ]);
-
-  //TODO: Clean This
-  /*  useLayoutEffect(() => {
-    if (userGetActivity && users) {
-      let newValue = false;
-
-      const newUsersArray = users.map((user) => {
-        if (
-          user.id === userGetActivity.id &&
-          user.activities !== userGetActivity.number
-        ) {
-          user.activities = userGetActivity.number;
-          newValue = true;
-        }
-
-        return user;
-      });
-
-      if (newValue) {
-        setUsers(newUsersArray);
-      }
-    }
-  }, [userGetActivity, users]); */
 
   useLayoutEffect(() => {
     const errorInfo = errorUsers || errorCountries || errorGeneric;

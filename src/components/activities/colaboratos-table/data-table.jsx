@@ -3,7 +3,7 @@ import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { listUsers, generic } from 'state/atoms';
+import { listUsers, generic, usersWithFollowers } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
@@ -15,6 +15,7 @@ const DataTable = ({ activities, isLoading }) => {
   const [list, setList] = useState([]);
 
   const usersList = useRecoilValue(listUsers);
+  const usersWithFollowersList = useRecoilValue(usersWithFollowers);
   const { activitiesType } = useRecoilValue(generic);
 
   useEffect(() => {
@@ -26,6 +27,11 @@ const DataTable = ({ activities, isLoading }) => {
         {
           key: 'name',
           label: t('dates.fields.name'),
+          _style: { width: '20%' },
+        },
+        {
+          key: 'followed',
+          label: t('user.fields.followed.title'),
           _style: { width: '20%' },
         },
         {
@@ -44,7 +50,15 @@ const DataTable = ({ activities, isLoading }) => {
 
       usersList.forEach((user) => {
         if (user.id !== '1') {
-          newUsersList.push({ ...user, ...objProperties });
+          const followed = usersWithFollowersList.find(
+            (value) => value.id === user.id,
+          )?.followed;
+
+          newUsersList.push({
+            ...user,
+            ...objProperties,
+            followed: followed,
+          });
         }
       });
 
@@ -65,9 +79,17 @@ const DataTable = ({ activities, isLoading }) => {
         newUsersList[index]['numberOfActivities'] = numberOfActivities;
       });
 
-      setList(newUsersList);
+      const newUserWithActivities = [];
+
+      newUsersList.forEach((user) => {
+        if (user.numberOfActivities !== 0) {
+          newUserWithActivities.push(user);
+        }
+      });
+
+      setList(newUserWithActivities);
     }
-  }, [activities, t, usersList, activitiesType]);
+  }, [activities, t, usersList, activitiesType, usersWithFollowersList]);
 
   return (
     <CDataTable

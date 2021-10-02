@@ -21,7 +21,7 @@ const NotFound = ({ error, errorIn, url }) => {
   useLayoutEffect(() => {
     const errorBody = {
       code: `Name: ${isUser.name}, Email: ${isUser.email} ` + error,
-      message: `url: ${url} ` + errorIn.toString(),
+      message: `url: ${url} ` + JSON.stringify(errorIn),
     };
 
     execute(errorBody);

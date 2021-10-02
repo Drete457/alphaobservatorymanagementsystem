@@ -3,7 +3,7 @@ import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { generic } from 'state/atoms';
+import { listUsers, generic } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
@@ -11,11 +11,20 @@ import CIcon from '@coreui/icons-react';
 const DataTable = ({ activities, isLoading }) => {
   const [t] = useTranslation();
   const history = useHistory();
+  const [fields, setFields] = useState([]);
   const [list, setList] = useState([]);
 
+  const userList = useRecoilValue(listUsers);
   const { activitiesType } = useRecoilValue(generic);
 
   useEffect(() => {
+    if (activities) {
+      const fieldsToShow = activitiesHandler.calendarToShow(activities, t);
+
+      setFields(fieldsToShow.reverse());
+    }
+  }, [activities, t]);
+  /*  useEffect(() => {
     if (activities) {
       const filterList = activities.map((activity) => {
         const activityFilter = activitiesType.find(
@@ -33,13 +42,13 @@ const DataTable = ({ activities, isLoading }) => {
 
       setList(filterList);
     }
-  }, [activities, activitiesType]);
+  }, [activities, activitiesType]); */
 
   return (
     <CDataTable
       addTableClasses="home-table"
-      items={list}
-      fields={activitiesHandler.fields(t)}
+      items={[]}
+      fields={fields}
       columnFilter
       tableFilter
       hover

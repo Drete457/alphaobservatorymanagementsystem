@@ -4,10 +4,18 @@
       "title": "Tools"
     },
     "home": {
-      "title": "Home",
-      "children": {
-        "users": "Collaborators",
-        "activities": "Activities"
+      "users": {
+        "title": "Collaborators",
+        "children": {
+          "table": "Table"
+        }
+      },
+      "activities": {
+        "title": "Activities",
+        "children": {
+          "table": "Table",
+          "user": "Collaborators Activities"
+        }
       }
     },
     "administration": {
@@ -361,6 +369,7 @@
       "title": "Activities",
       "no-info": "No Activities",
       "table-title": "Activities Registration",
+      "colaborators-table-title": "Colaborators Activities",
       "registration": {
         "title": "New Activity"
       },

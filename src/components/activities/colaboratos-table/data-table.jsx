@@ -26,7 +26,11 @@ const DataTable = ({ activities, isLoading }) => {
         {
           key: 'name',
           label: t('dates.fields.name'),
-          _style: { width: '15%' },
+          _style: { width: '20%' },
+        },
+        {
+          key: 'numberOfActivities',
+          label: t('user.fields.activities.title'),
         },
         ...fieldsToShow.reverse(),
       ]);
@@ -58,7 +62,7 @@ const DataTable = ({ activities, isLoading }) => {
             }
           });
         });
-        newUsersList[index][numberOfActivities] = numberOfActivities;
+        newUsersList[index]['numberOfActivities'] = numberOfActivities;
       });
 
       setList(newUsersList);

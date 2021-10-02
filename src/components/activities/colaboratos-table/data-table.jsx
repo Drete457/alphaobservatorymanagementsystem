@@ -14,40 +14,61 @@ const DataTable = ({ activities, isLoading }) => {
   const [fields, setFields] = useState([]);
   const [list, setList] = useState([]);
 
-  const userList = useRecoilValue(listUsers);
+  const usersList = useRecoilValue(listUsers);
   const { activitiesType } = useRecoilValue(generic);
 
   useEffect(() => {
     if (activities) {
+      //generate the fields for the table
       const fieldsToShow = activitiesHandler.calendarToShow(activities, t);
 
-      setFields(fieldsToShow.reverse());
-    }
-  }, [activities, t]);
-  /*  useEffect(() => {
-    if (activities) {
-      const filterList = activities.map((activity) => {
-        const activityFilter = activitiesType.find(
-          (value) => value.id === activity.type,
-        );
+      setFields([
+        {
+          key: 'name',
+          label: t('dates.fields.name'),
+          _style: { width: '15%' },
+        },
+        ...fieldsToShow.reverse(),
+      ]);
 
-        return {
-          id: activity.id,
-          name: activityFilter.name + ' ' + activity.date,
-          type: activityFilter.name,
-          participants: activity.list.length,
-          date: activity.date,
-        };
+      const newProperties = fieldsToShow.map((field) => {
+        const property = field.key;
+        return [property, ''];
+      });
+      const objProperties = Object.fromEntries(newProperties);
+      const newUsersList = [];
+
+      usersList.forEach((user) => {
+        if (user.id !== '1') {
+          newUsersList.push({ ...user, ...objProperties });
+        }
       });
 
-      setList(filterList);
+      newUsersList.forEach((user, index) => {
+        let numberOfActivities = 0;
+
+        activities.forEach((activity) => {
+          activity.list.forEach((userId) => {
+            if (userId === user.id) {
+              const typeName = activitiesType.find(
+                (value) => value.id === activity.type,
+              ).name;
+              newUsersList[index][activity.date] = typeName;
+              numberOfActivities++;
+            }
+          });
+        });
+        newUsersList[index][numberOfActivities] = numberOfActivities;
+      });
+
+      setList(newUsersList);
     }
-  }, [activities, activitiesType]); */
+  }, [activities, t, usersList, activitiesType]);
 
   return (
     <CDataTable
       addTableClasses="home-table"
-      items={[]}
+      items={list}
       fields={fields}
       columnFilter
       tableFilter

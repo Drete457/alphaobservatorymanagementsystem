@@ -414,6 +414,9 @@
     }
   },
   "dates": {
+    "fields": {
+      "name": "Name"
+    },
     "week": {
       "sunday": "Sunday",
       "monday": "Monday",

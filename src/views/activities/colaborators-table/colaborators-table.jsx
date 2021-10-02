@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useGetActivities } from 'hooks/activities';
 import DataTable from 'components/activities/colaboratos-table';
 import ErrorInfo from 'components/error';
-import Button from 'components/button';
 
 const ColaboratorsTable = () => {
   const [t] = useTranslation();
@@ -28,11 +27,6 @@ const ColaboratorsTable = () => {
             <hr />
             <nav className="activity-nav h3">
               {t('pages.activities.colaborators-table-title')}
-              <Button
-                name={t('btn.create.excel')}
-                onClick={() => {}}
-                className="activity-button"
-              />
             </nav>
             <hr />
             <DataTable activities={data} isLoading={isLoading} />

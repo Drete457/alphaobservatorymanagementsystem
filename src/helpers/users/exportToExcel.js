@@ -9,12 +9,6 @@ const download = (data) => {
 
 const exportToExcel = (data, generic) => {
   const newData = data.map((user) => {
-    delete user.cardsPosition;
-    delete user.cards;
-    delete user.activities;
-    delete user.social;
-    delete user.id;
-
     const newUser = { ...user };
     newUser.birthyear = generic.years.find(
       (value) => value.id === user.birthyear,
@@ -36,6 +30,11 @@ const exportToExcel = (data, generic) => {
     });
 
     delete newUser.socialInfo;
+    delete newUser.cardsPosition;
+    delete newUser.cards;
+    delete newUser.activities;
+    delete newUser.social;
+    delete newUser.id;
 
     return newUser;
   });

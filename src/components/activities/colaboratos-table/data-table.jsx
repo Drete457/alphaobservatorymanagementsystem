@@ -1,19 +1,15 @@
 import { useState, useEffect } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { listUsers, generic, usersWithFollowers } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
-import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
 
 const DataTable = ({ activities, isLoading }) => {
   const [t] = useTranslation();
-  const history = useHistory();
   const [fields, setFields] = useState([]);
   const [list, setList] = useState([]);
-
   const usersList = useRecoilValue(listUsers);
   const usersWithFollowersList = useRecoilValue(usersWithFollowers);
   const { activitiesType } = useRecoilValue(generic);
@@ -23,28 +19,12 @@ const DataTable = ({ activities, isLoading }) => {
       //generate the fields for the table
       const fieldsToShow = activitiesHandler.calendarToShow(activities, t);
 
-      setFields([
-        {
-          key: 'name',
-          label: t('dates.fields.name'),
-          _style: { width: '20%' },
-        },
-        {
-          key: 'followed',
-          label: t('user.fields.followed.title'),
-          _style: { width: '20%' },
-        },
-        {
-          key: 'numberOfActivities',
-          label: t('user.fields.activities.title'),
-        },
-        ...fieldsToShow.reverse(),
-      ]);
-
       const newProperties = fieldsToShow.map((field) => {
         const property = field.key;
         return [property, ''];
       });
+
+      //will use to track what fields have activities to show
       const objProperties = Object.fromEntries(newProperties);
       const newUsersList = [];
 
@@ -72,6 +52,7 @@ const DataTable = ({ activities, isLoading }) => {
                 (value) => value.id === activity.type,
               ).name;
               newUsersList[index][activity.date] = typeName;
+              objProperties[activity.date] = true;
               numberOfActivities++;
             }
           });
@@ -86,6 +67,33 @@ const DataTable = ({ activities, isLoading }) => {
           newUserWithActivities.push(user);
         }
       });
+
+      //have the final fields the table will show
+      const finalFields = [];
+
+      fieldsToShow.forEach((field) => {
+        if (objProperties[field.key] === true) {
+          finalFields.push(field);
+        }
+      });
+
+      setFields([
+        {
+          key: 'name',
+          label: t('dates.fields.name'),
+          _style: { width: '20%' },
+        },
+        {
+          key: 'followed',
+          label: t('user.fields.followed.title'),
+          _style: { width: '20%' },
+        },
+        {
+          key: 'numberOfActivities',
+          label: t('user.fields.activities.title'),
+        },
+        ...finalFields.reverse(),
+      ]);
 
       setList(newUserWithActivities);
     }
@@ -115,21 +123,7 @@ const DataTable = ({ activities, isLoading }) => {
           </h2>
         </div>
       }
-      scopedSlots={{
-        view: (item) => {
-          return (
-            <td>
-              <Button
-                name={t('btn.view')}
-                onClick={() =>
-                  history.push(`/activities_table/view/${item.id}`)
-                }
-                className="home-button"
-              />
-            </td>
-          );
-        },
-      }}
+      scopedSlots={{}}
     />
   );
 };

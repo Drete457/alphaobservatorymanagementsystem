@@ -59,6 +59,7 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: first,
       label: `${t('dates.week.sunday')} \n ${convertAndRemoveYear(first)}`,
+      sorter: false,
       filter: false,
     });
 
@@ -66,6 +67,7 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: second,
       label: `${t('dates.week.monday')} \n ${convertAndRemoveYear(second)}`,
+      sorter: false,
       filter: false,
     });
 
@@ -73,6 +75,7 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: third,
       label: `${t('dates.week.tuesday')} \n ${convertAndRemoveYear(third)}`,
+      sorter: false,
       filter: false,
     });
 
@@ -80,6 +83,7 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: fourth,
       label: `${t('dates.week.wednesday')} \n ${convertAndRemoveYear(fourth)}`,
+      sorter: false,
       filter: false,
     });
 
@@ -87,6 +91,7 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: fifth,
       label: `${t('dates.week.thursday')} \n ${convertAndRemoveYear(fifth)}`,
+      sorter: false,
       filter: false,
     });
 
@@ -94,6 +99,7 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: sixth,
       label: `${t('dates.week.friday')} \n ${convertAndRemoveYear(sixth)}`,
+      sorter: false,
       filter: false,
     });
 
@@ -101,6 +107,7 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: seventh,
       label: `${t('dates.week.saturday')} \n ${convertAndRemoveYear(seventh)}`,
+      sorter: false,
       filter: false,
     });
 

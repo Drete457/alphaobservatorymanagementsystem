@@ -1,18 +1,17 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
-import { countries as ref } from 'components/user';
+import { getDatabase, ref, update } from 'firebase/database';
+import { countries as referecence } from 'components/user';
 
 export const postCountries = async (countries, setData) => {
-  const firebase = await fb();
+  const database = getDatabase();
+  const dbRef = ref(database);
+  const updates = {};
 
   countries?.forEach((country, index) => {
-    firebase
-      .database()
-      .ref(ref + index)
-      .update(country);
+    updates[referecence + index] = country;
   });
 
-  setData(true);
+  await update(dbRef, updates).then(() => setData(true));
 };
 
 const usePostCountries = () => {

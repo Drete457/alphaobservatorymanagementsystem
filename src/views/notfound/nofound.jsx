@@ -8,21 +8,24 @@ import {
   CRow,
 } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
+import { useRecoilValue } from 'recoil';
+import { user } from 'state/atoms';
 import { usePostError } from 'hooks/errors';
 import Button from 'components/button';
 
-const NotFound = ({ error, errorIn }) => {
+const NotFound = ({ error, errorIn, url }) => {
   const [t] = useTranslation();
+  const isUser = useRecoilValue(user);
   const { execute } = usePostError();
 
   useLayoutEffect(() => {
     const errorBody = {
-      code: error.toString(),
-      message: errorIn,
+      code: `Name: ${isUser.name}, Email: ${isUser.email} ` + error,
+      message: `url: ${url} ` + JSON.stringify(errorIn),
     };
 
     execute(errorBody);
-  }, [execute, error, errorIn]);
+  }, [execute, error, errorIn, url, isUser]);
 
   return (
     <div className="c-app c-default-layout flex-row align-items-center">

@@ -8,6 +8,7 @@ const buildUserList = (
   genericList,
   setListUsers,
   setUsers,
+  setUsersWithFollowers,
 ) => {
   const arrayData = Object.values(data);
   const sortedList = arrayData.sort((user1, user2) =>
@@ -30,9 +31,13 @@ const buildUserList = (
     }
 
     if (user.contacted) {
-      const contactBy = userList.find(
+      let contactBy = userList.find(
         (value) => value.id === user.contacted,
       )?.name;
+
+      if (contactBy === 'None') {
+        contactBy = 'Training';
+      }
 
       user.contacted = contactBy;
     }
@@ -81,10 +86,6 @@ const buildUserList = (
       delete user.cardsPosition;
     }
 
-    //TODO: Clean  this
-    //undefinied for each user on the table
-    //user.activities = '';
-
     return user;
   });
 
@@ -93,6 +94,7 @@ const buildUserList = (
   }
 
   setUsers(fillArrayData);
+  setUsersWithFollowers(fillArrayData);
 };
 
 export default buildUserList;

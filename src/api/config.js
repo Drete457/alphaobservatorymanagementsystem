@@ -1,15 +1,6 @@
+import { initializeApp } from 'firebase/app';
+
 async function getFirebaseClient() {
-  const { default: firebase } = await import('firebase/app');
-
-  //make all the imports need
-  await Promise.all([
-    import('firebase/auth'),
-    import('firebase/database'),
-    import('firebase/analytics'),
-    import('firebase/storage'),
-    import('firebase/firestore'),
-  ]);
-
   const config = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -21,7 +12,7 @@ async function getFirebaseClient() {
     measurementId: process.env.REACT_APP_MEASUREMENT_ID,
   };
 
-  firebase.initializeApp(config);
+  const firebase = initializeApp(config);
 
   return firebase;
 }

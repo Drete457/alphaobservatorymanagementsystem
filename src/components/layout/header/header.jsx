@@ -8,8 +8,8 @@ import {
   CToggler,
   CBreadcrumbRouter,
 } from '@coreui/react';
+import { getAuth, signOut } from 'firebase/auth';
 import HeaderAccountDropdown from '../header-drop-down';
-import { fb } from 'api';
 import CIcon from '@coreui/icons-react';
 
 import { sidebarShow, asideShow } from 'state/atoms';
@@ -40,15 +40,13 @@ const Header = () => {
   };
 
   const logOut = async () => {
-    const firebase = await fb();
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        sessionStorage.clear();
-        localStorage.clear();
-        window.location.reload();
-      });
+    const auth = getAuth();
+
+    await signOut(auth).then(() => {
+      sessionStorage.clear();
+      localStorage.clear();
+      window.location.reload();
+    });
   };
 
   return (

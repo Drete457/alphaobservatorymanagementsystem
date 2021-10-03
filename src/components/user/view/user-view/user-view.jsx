@@ -6,7 +6,9 @@ import userHandler from 'helpers/user';
 const UserViewer = ({ user, countriesList, genericList, userList }) => {
   const [t] = useTranslation();
   const followedBy = userList.find((value) => value.id === user.followed)?.name;
-  const contactBy = userList.find((value) => value.id === user.contacted)?.name;
+  const contactBy = userHandler
+    .contactByFilter(userList)
+    .find((value) => value.id === user.contacted)?.name;
   const country = countriesList.find((country) => country.id === user.country);
   const gender = genericList.gender.find((gender) => gender.id === user.gender);
   const employment = genericList.ocupation.find(
@@ -205,6 +207,17 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               name="second"
               type="date"
               value={user?.second}
+              className="user-input-format"
+              disabled
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.ambit.title')}
+              name="baseAmbit"
+              type="date"
+              value={user?.baseAmbit}
               className="user-input-format"
               disabled
             />

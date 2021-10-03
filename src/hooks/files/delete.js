@@ -1,17 +1,15 @@
 import { useCallback } from 'react';
-import { fb } from 'api';
+import { getStorage, ref, deleteObject } from 'firebase/storage';
 
-export const deleteF = async (ref) => {
-  const firebase = await fb();
-
+export const deleteF = async (reference) => {
   //create store ref
-  firebase
-    .storage()
-    .ref(ref)
-    .delete() //delete the file
-    .catch((e) => {
-      /* if the file doesn't exist, it doesn't matter to inform the user. */
-    });
+  const storage = getStorage();
+  const storageRef = ref(storage, reference);
+
+  //delete the file
+  await deleteObject(storageRef).catch((e) => {
+    /* if the file doesn't exist, it doesn't matter to inform the user. */
+  });
 };
 
 const useDelete = () => {

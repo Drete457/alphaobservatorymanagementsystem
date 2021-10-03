@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import { fb } from 'api';
-import { error as ref } from 'components/user';
+import { getDatabase, ref, child, set } from 'firebase/database';
+import { error as reference } from 'components/user';
 
 export const postError = async (error) => {
   const errorBody = {
@@ -8,13 +8,10 @@ export const postError = async (error) => {
     message: error?.message,
     time: new Date(),
   };
-  const firebase = await fb();
+  const database = getDatabase();
+  const dbRef = ref(database);
 
-  await firebase
-    .database()
-    .ref(ref + errorBody.time)
-    .update(errorBody)
-    .catch((error) => {});
+  await set(child(dbRef, reference + errorBody.time), errorBody);
 };
 
 const usePostError = () => {

@@ -1,14 +1,14 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
-import { ref } from 'components/activities';
+import { getFirestore, collection, doc, getDoc } from 'firebase/firestore';
+import { ref as reference } from 'components/activities';
 
 export const getActivity = async (id, setData) => {
-  const firebase = await fb();
-  const firestore = firebase.firestore();
-  const callDoc = firestore.collection(ref).doc(id);
+  const database = getFirestore();
+  const callCollection = collection(database, reference);
+  const callDoc = doc(callCollection, id);
 
-  await callDoc.get().then((doc) => {
-    if (doc.exists) {
+  await getDoc(callDoc).then((doc) => {
+    if (doc.exists()) {
       const activity = doc.data();
 
       setData(activity);

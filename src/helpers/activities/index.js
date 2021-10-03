@@ -6,6 +6,7 @@ import {
 } from './activities-handler';
 import fields from './fields';
 import validateActivities from './validation';
+import calendarToShow from './old-newest-activities';
 
 const activitiesHandler = {
   activityInputHandler,
@@ -14,6 +15,7 @@ const activitiesHandler = {
   activityMultiInputHandler,
   fields,
   validateActivities,
+  calendarToShow,
 };
 
 export default activitiesHandler;

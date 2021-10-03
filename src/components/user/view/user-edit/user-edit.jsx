@@ -85,7 +85,7 @@ const UserEdit = ({
                 );
                 setWasModified(true);
               }}
-              options={userList}
+              options={userHandler.contactByFilter(userList)}
               className="user-input-format"
             />
           </div>
@@ -308,6 +308,21 @@ const UserEdit = ({
               errorMsg={errorMsg?.second}
               className="user-input-format"
               disabled
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.ambit.title')}
+              name="baseAmbit"
+              type="date"
+              value={user?.baseAmbit}
+              errorMsg={errorMsg?.baseAmbit}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
+              className="user-input-format"
             />
           </div>
         </CForm>

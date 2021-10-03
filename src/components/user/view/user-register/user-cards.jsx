@@ -12,7 +12,7 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
   const [t] = useTranslation();
 
   const [isDraggable, setIsDraggable] = useState(true);
-  console.log(user.cards);
+
   const breakPoints = {
     xl: parseInt(getStyle('--breakpoint-xl'), 10),
   };

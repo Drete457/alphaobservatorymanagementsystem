@@ -1,10 +1,11 @@
 import { useState, useCallback } from 'react';
-import { ref } from 'components/user';
-import { fb } from 'api';
+import { getDatabase, ref, child, get } from 'firebase/database';
+import { ref as reference } from 'components/user';
 
 export const getUsers = async (set) => {
-  const firebase = await fb();
-  const response = await firebase.database().ref(ref).get('value');
+  const database = getDatabase();
+  const dbRef = ref(database);
+  const response = await get(child(dbRef, reference));
 
   set(response.val());
 };

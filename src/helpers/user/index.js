@@ -13,6 +13,7 @@ import cardsIdToPutDate from './properties-receive-date';
 import deviceOrientation from './device-orientation';
 import screenOrientation from '../user/screen-orientation';
 import validName from './validName';
+import contactByFilter from './contactbyfilter';
 
 const userHandler = {
   userFormat,
@@ -28,6 +29,7 @@ const userHandler = {
   deviceOrientation,
   screenOrientation,
   validName,
+  contactByFilter,
 };
 
 export default userHandler;

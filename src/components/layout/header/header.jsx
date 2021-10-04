@@ -45,7 +45,7 @@ const Header = () => {
     await signOut(auth).then(() => {
       sessionStorage.clear();
       localStorage.clear();
-      window.location.reload();
+      window.location.href = '/';
     });
   };
 

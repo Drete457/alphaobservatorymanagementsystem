@@ -6,13 +6,22 @@ import { listUsers, generic, usersWithFollowers } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
 import CIcon from '@coreui/icons-react';
 
-const DataTable = ({ activities, isLoading }) => {
+const DataTable = ({ activities, isLoading, list, setList }) => {
   const [t] = useTranslation();
   const [fields, setFields] = useState([]);
-  const [list, setList] = useState([]);
+  const newUserWithActivities = [];
+
   const usersList = useRecoilValue(listUsers);
   const usersWithFollowersList = useRecoilValue(usersWithFollowers);
   const { activitiesType } = useRecoilValue(generic);
+
+  if (list.length > 0) {
+    list.forEach?.((user) => {
+      if (user.numberOfActivities !== 0) {
+        newUserWithActivities.push(user);
+      }
+    });
+  }
 
   useEffect(() => {
     if (activities) {
@@ -60,14 +69,6 @@ const DataTable = ({ activities, isLoading }) => {
         newUsersList[index]['numberOfActivities'] = numberOfActivities;
       });
 
-      const newUserWithActivities = [];
-
-      newUsersList.forEach((user) => {
-        if (user.numberOfActivities !== 0) {
-          newUserWithActivities.push(user);
-        }
-      });
-
       //have the final fields the table will show
       const finalFields = [];
 
@@ -95,14 +96,21 @@ const DataTable = ({ activities, isLoading }) => {
         ...finalFields.reverse(),
       ]);
 
-      setList(newUserWithActivities);
+      setList(newUsersList);
     }
-  }, [activities, t, usersList, activitiesType, usersWithFollowersList]);
+  }, [
+    activities,
+    t,
+    usersList,
+    activitiesType,
+    usersWithFollowersList,
+    setList,
+  ]);
 
   return (
     <CDataTable
       addTableClasses="home-table"
-      items={list}
+      items={newUserWithActivities}
       fields={fields}
       columnFilter
       tableFilter

@@ -30,18 +30,6 @@ const buildUserList = (
       user.followed = followedBy;
     }
 
-    if (user.contacted) {
-      let contactBy = userList.find(
-        (value) => value.id === user.contacted,
-      )?.name;
-
-      if (contactBy === 'None') {
-        contactBy = 'Training';
-      }
-
-      user.contacted = contactBy;
-    }
-
     if (user.country) {
       const countryName = countriesList.find(
         (country) => country.id === user.country,
@@ -50,13 +38,31 @@ const buildUserList = (
       user.country = userHandler.countryNameAndGmt(countryName);
     }
 
-    if (user.birthyear) {
-      const year = genericList?.years.find(
-        (year) => year.id === user.birthyear,
-      );
-      user.groupAge = homeHandler.groupAge(year.name, genericList?.groupAge);
-    } else {
-      user.groupAge = '';
+    if (user?.social && user?.socialInfo) {
+      const contactList = user.social.map((userSocial) => {
+        const socialName = genericList?.socialmedia.find(
+          (social) => social.id === userSocial,
+        );
+
+        return socialName?.name;
+      });
+
+      if (contactList.includes('Whatsapp')) {
+        const position = contactList.indexOf('Whatsapp');
+        const number = user.socialInfo[position]?.name;
+
+        user.socialInfo = `Whatsapp: ${number}`;
+      } else {
+        user.socialInfo = `${contactList[0]}: ${user.socialInfo[0]?.name}`;
+      }
+    }
+
+    if (user.personality) {
+      const personalityName = genericList?.personality.find(
+        (value) => value.id === user.personality,
+      )?.name;
+
+      user.personality = personalityName;
     }
 
     if (user.introductionOption) {
@@ -84,6 +90,43 @@ const buildUserList = (
 
     if (user?.cardsPosition) {
       delete user.cardsPosition;
+    }
+
+    if (user.contacted) {
+      let contactBy = userList.find(
+        (value) => value.id === user.contacted,
+      )?.name;
+
+      if (contactBy === 'None') {
+        contactBy = 'Training';
+      }
+
+      user.contacted = contactBy;
+    }
+
+    if (user.gender) {
+      const profileName = genericList?.gender.find(
+        (value) => value.id === user.gender,
+      )?.name;
+
+      user.gender = profileName;
+    }
+
+    if (user.birthyear) {
+      const year = genericList?.years.find(
+        (year) => year.id === user.birthyear,
+      );
+      user.groupAge = homeHandler.groupAge(year.name, genericList?.groupAge);
+    } else {
+      user.groupAge = '';
+    }
+
+    if (user.employment) {
+      const employmentName = genericList?.ocupation.find(
+        (value) => value.id === user.employment,
+      )?.name;
+
+      user.employment = employmentName;
     }
 
     return user;

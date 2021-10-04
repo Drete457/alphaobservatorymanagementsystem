@@ -93,12 +93,12 @@ const SelectFieldComponent = ({
         autoComplete="off"
         onChange={(event) => {
           setCurrent(event);
-          onChange(event);
+          event ? onChange(event) : onChange({ label: '', value: '' });
         }}
         className="select-style"
         isMulti={isMulti}
         isSearchable={isSearchable}
-        isClearable={false}
+        isClearable={true}
       />
       {isInvalid && <p className="user-input-error">{errorMsg}</p>}
     </div>

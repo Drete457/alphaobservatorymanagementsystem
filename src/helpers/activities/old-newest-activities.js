@@ -58,7 +58,7 @@ const calendarToShow = (activities, t) => {
     const first = addDaysFormat(currentDate, 0);
     dates.push({
       key: first,
-      label: `${t('dates.week.sunday')} \n ${convertAndRemoveYear(first)}`,
+      label: `${t('dates.week.sunday')} ${convertAndRemoveYear(first)}`,
       sorter: false,
       filter: false,
     });
@@ -66,7 +66,7 @@ const calendarToShow = (activities, t) => {
     const second = addDaysFormat(currentDate, 1);
     dates.push({
       key: second,
-      label: `${t('dates.week.monday')} \n ${convertAndRemoveYear(second)}`,
+      label: `${t('dates.week.monday')} ${convertAndRemoveYear(second)}`,
       sorter: false,
       filter: false,
     });
@@ -74,7 +74,7 @@ const calendarToShow = (activities, t) => {
     const third = addDaysFormat(currentDate, 2);
     dates.push({
       key: third,
-      label: `${t('dates.week.tuesday')} \n ${convertAndRemoveYear(third)}`,
+      label: `${t('dates.week.tuesday')} ${convertAndRemoveYear(third)}`,
       sorter: false,
       filter: false,
     });
@@ -82,7 +82,7 @@ const calendarToShow = (activities, t) => {
     const fourth = addDaysFormat(currentDate, 3);
     dates.push({
       key: fourth,
-      label: `${t('dates.week.wednesday')} \n ${convertAndRemoveYear(fourth)}`,
+      label: `${t('dates.week.wednesday')} ${convertAndRemoveYear(fourth)}`,
       sorter: false,
       filter: false,
     });
@@ -90,7 +90,7 @@ const calendarToShow = (activities, t) => {
     const fifth = addDaysFormat(currentDate, 4);
     dates.push({
       key: fifth,
-      label: `${t('dates.week.thursday')} \n ${convertAndRemoveYear(fifth)}`,
+      label: `${t('dates.week.thursday')} ${convertAndRemoveYear(fifth)}`,
       sorter: false,
       filter: false,
     });
@@ -98,7 +98,7 @@ const calendarToShow = (activities, t) => {
     const sixth = addDaysFormat(currentDate, 5);
     dates.push({
       key: sixth,
-      label: `${t('dates.week.friday')} \n ${convertAndRemoveYear(sixth)}`,
+      label: `${t('dates.week.friday')} ${convertAndRemoveYear(sixth)}`,
       sorter: false,
       filter: false,
     });
@@ -106,7 +106,7 @@ const calendarToShow = (activities, t) => {
     const seventh = addDaysFormat(currentDate, 6);
     dates.push({
       key: seventh,
-      label: `${t('dates.week.saturday')} \n ${convertAndRemoveYear(seventh)}`,
+      label: `${t('dates.week.saturday')} ${convertAndRemoveYear(seventh)}`,
       sorter: false,
       filter: false,
     });

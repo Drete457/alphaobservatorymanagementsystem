@@ -31,7 +31,7 @@ const ColaboratorsTable = () => {
               {t('pages.activities.colaborators-table-title')}
               <Button
                 name={t('btn.create.excel')}
-                onClick={() => activitiesHandler.exportToExcel(list)}
+                onClick={() => activitiesHandler.exportToExcel(list, t)}
                 className="activity-button"
               />
             </nav>

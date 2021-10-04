@@ -1,7 +1,7 @@
 import exportFromJSON from 'export-from-json';
 
 const download = (data) => {
-  const fileName = 'alphaList';
+  const fileName = 'Colaborators_List';
   const exportType = 'xls';
 
   exportFromJSON({ data, fileName, exportType });
@@ -9,32 +9,26 @@ const download = (data) => {
 
 const exportToExcel = (data, generic) => {
   const newData = data.map((user) => {
-    const newUser = { ...user };
-    newUser.birthyear = generic.years.find(
+    const newUser = {};
+
+    newUser.Name = user.name;
+    newUser.Followed = user.followed;
+    newUser.Country = user.country;
+    newUser.Contact = user.socialInfo;
+    newUser.First_Acitivity = user.firstAcitivity;
+    newUser.Training = user.training;
+    newUser.Personality = user.personality;
+    newUser.Second_Survey = user.second;
+    newUser.Suitable_Introductive_Meeting = user.introductionOption;
+    newUser.Cards = user.cardsInfo;
+    newUser.Base_Ambit = user.baseAmbit;
+    newUser.Contacted = user.contact;
+    newUser.Gender = user.gender;
+    newUser.Group_Age = user.groupAge;
+    newUser.Birthyear = generic.years.find(
       (value) => value.id === user.birthyear,
     )?.name;
-    newUser.employment = generic.ocupation.find(
-      (value) => value.id === user.employment,
-    )?.name;
-    newUser.gender = generic.gender.find(
-      (value) => value.id === user.gender,
-    )?.name;
-    newUser.personality = generic.personality.find(
-      (value) => value.id === user.personality,
-    )?.name;
-    newUser.socialInfo.forEach?.((value) => {
-      const socialName = generic.socialmedia.find(
-        (social) => social.id === value.id,
-      )?.name;
-      newUser[socialName] = value.name;
-    });
-
-    delete newUser.socialInfo;
-    delete newUser.cardsPosition;
-    delete newUser.cards;
-    delete newUser.activities;
-    delete newUser.social;
-    delete newUser.id;
+    newUser.Employment = user.employment;
 
     return newUser;
   });

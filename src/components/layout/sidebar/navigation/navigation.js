@@ -6,20 +6,33 @@ const useNavigation = (t) => {
     const array = [
       {
         _tag: 'CSidebarNavDropdown',
-        name: t('sidebar.home.title'),
+        name: t('sidebar.home.users.title'),
         route: '/',
         _children: [
           {
             _tag: 'CSidebarNavItem',
-            name: t('sidebar.home.children.users'),
+            name: t('sidebar.home.users.children.table'),
             to: '/users',
             icon: 'cil-group',
           },
+        ],
+      },
+      {
+        _tag: 'CSidebarNavDropdown',
+        name: t('sidebar.home.activities.title'),
+        route: '/',
+        _children: [
           {
             _tag: 'CSidebarNavItem',
-            name: t('sidebar.home.children.activities'),
+            name: t('sidebar.home.activities.children.table'),
             to: '/activities_table',
             icon: 'cil-chart-pie',
+          },
+          {
+            _tag: 'CSidebarNavItem',
+            name: t('sidebar.home.activities.children.user'),
+            to: '/colaborators_activities_table',
+            icon: 'cil-coffee',
           },
         ],
       },

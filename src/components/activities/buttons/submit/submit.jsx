@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { usePostActivitie } from 'hooks/activities';
+import { useGetUsers } from 'hooks/users';
 import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 import Loading from 'components/loading';
@@ -16,12 +17,16 @@ const Submit = ({
   const history = useHistory();
   const [t] = useTranslation();
   const { isLoading, error, data, execute } = usePostActivitie();
+  const { data: usersData, execute: getUsers } = useGetUsers();
 
   useEffect(() => {
-    if (data) {
-      history.push(`/activities/activities_table`);
+    if (usersData) {
+      console.log(newActivity);
+      console.log('completo');
+      console.log(usersData);
+      //history.push(`/activities/activities_table`);
     }
-  }, [data, history, setWasModified]);
+  }, [newActivity, data, usersData, history, setWasModified]);
 
   useEffect(() => {
     if (error) {
@@ -53,7 +58,8 @@ const Submit = ({
                 newActivity.listInfo = [];
               }
 
-              execute(newActivity);
+              getUsers();
+              // execute(newActivity);
               setWasModified(false);
             }
           }}

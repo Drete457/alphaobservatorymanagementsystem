@@ -1,11 +1,12 @@
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   CDropdown,
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
 } from '@coreui/react';
-import { useHistory } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { user } from 'state/atoms';
 import CIcon from '@coreui/icons-react';
@@ -14,6 +15,17 @@ const HeaderAccountDropdown = ({ logOut }) => {
   const [t] = useTranslation();
   const history = useHistory();
   const isUser = useRecoilValue(user);
+
+  useEffect(() => {
+    if (isUser) {
+      //Wellcome the User
+      const speakUserName = new SpeechSynthesisUtterance();
+      speakUserName.lang = 'en';
+      speakUserName.volume = 0.5;
+      speakUserName.text = `Wellcome to the Alpha Observatory Management System, ${isUser.name}`;
+      window.speechSynthesis.speak(speakUserName);
+    }
+  }, [isUser]);
 
   return (
     <>

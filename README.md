@@ -33,7 +33,6 @@ yarn start
 - React-Avatar
 - React-Grid-Layout
 - FireBase SDK
-- FireBase Tools
 - Export From Json
 
 ## License

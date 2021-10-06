@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { usePostActivitie } from 'hooks/activities';
+import { useGetUsers, usePostUser } from 'hooks/users';
 import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 import Loading from 'components/loading';
@@ -16,12 +17,26 @@ const Submit = ({
   const history = useHistory();
   const [t] = useTranslation();
   const { isLoading, error, data, execute } = usePostActivitie();
+  const { data: usersData, execute: getUsers } = useGetUsers();
+  const { execute: postUser } = usePostUser();
 
   useEffect(() => {
-    if (data) {
-      history.push(`/activities_table`);
+    if (usersData) {
+      const usersListArray = Object.values(usersData);
+
+      newActivity.list.forEach?.((userId) => {
+        const newUser = usersListArray.find((value) => value.id === userId);
+
+        if (!newUser?.firstActivity) {
+          newUser.firstActivity = newActivity.date;
+
+          postUser(newUser);
+        }
+      });
+
+      history.push(`/activities/activities_table`);
     }
-  }, [data, history, setWasModified]);
+  }, [newActivity, data, usersData, postUser, history, setWasModified]);
 
   useEffect(() => {
     if (error) {
@@ -35,7 +50,7 @@ const Submit = ({
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}
-          onClick={() => history.push('/activities_table')}
+          onClick={() => history.push('/activities/activities_table')}
         />
         <Button
           name={t('btn.create-edit.submit')}
@@ -53,6 +68,7 @@ const Submit = ({
                 newActivity.listInfo = [];
               }
 
+              getUsers();
               execute(newActivity);
               setWasModified(false);
             }

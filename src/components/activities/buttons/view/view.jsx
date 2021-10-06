@@ -12,13 +12,15 @@ const View = ({ activity }) => {
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}
-          onClick={() => history.push('/activities_table')}
+          onClick={() => history.push('/activities/activities_table')}
         />
 
         <Button
           name={t('btn.create-edit.edit')}
           isDanger={false}
-          onClick={() => history.push(`/activities_table/edit/${activity.id}`)}
+          onClick={() =>
+            history.push(`/activities/activities_table/edit/${activity.id}`)
+          }
         />
       </div>
     </>

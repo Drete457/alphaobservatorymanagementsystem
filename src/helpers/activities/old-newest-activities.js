@@ -5,6 +5,7 @@ const oldAndNewestActivities = (activities) => {
   const activitiesArraySort = activities.sort((activity1, activity2) =>
     homeHandler.sortList(activity1, activity2, 'date'),
   );
+
   //date of the old activity
   const oldActivity = activitiesArraySort[0].date;
   const newestActivity =
@@ -59,7 +60,6 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: first,
       label: `${t('dates.week.sunday')} ${convertAndRemoveYear(first)}`,
-      sorter: false,
       filter: false,
     });
 
@@ -67,7 +67,6 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: second,
       label: `${t('dates.week.monday')} ${convertAndRemoveYear(second)}`,
-      sorter: false,
       filter: false,
     });
 
@@ -75,7 +74,6 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: third,
       label: `${t('dates.week.tuesday')} ${convertAndRemoveYear(third)}`,
-      sorter: false,
       filter: false,
     });
 
@@ -83,7 +81,6 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: fourth,
       label: `${t('dates.week.wednesday')} ${convertAndRemoveYear(fourth)}`,
-      sorter: false,
       filter: false,
     });
 
@@ -91,7 +88,6 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: fifth,
       label: `${t('dates.week.thursday')} ${convertAndRemoveYear(fifth)}`,
-      sorter: false,
       filter: false,
     });
 
@@ -99,7 +95,6 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: sixth,
       label: `${t('dates.week.friday')} ${convertAndRemoveYear(sixth)}`,
-      sorter: false,
       filter: false,
     });
 
@@ -107,7 +102,6 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: seventh,
       label: `${t('dates.week.saturday')} ${convertAndRemoveYear(seventh)}`,
-      sorter: false,
       filter: false,
     });
 

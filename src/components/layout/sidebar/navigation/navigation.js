@@ -6,20 +6,33 @@ const useNavigation = (t) => {
     const array = [
       {
         _tag: 'CSidebarNavDropdown',
-        name: t('sidebar.home.title'),
+        name: t('sidebar.home.users.title'),
         route: '/',
         _children: [
           {
             _tag: 'CSidebarNavItem',
-            name: t('sidebar.home.children.users'),
+            name: t('sidebar.home.users.children.table'),
             to: '/users',
             icon: 'cil-group',
           },
+        ],
+      },
+      {
+        _tag: 'CSidebarNavDropdown',
+        name: t('sidebar.home.activities.title'),
+        route: '/activities',
+        _children: [
           {
             _tag: 'CSidebarNavItem',
-            name: t('sidebar.home.children.activities'),
-            to: '/activities_table',
+            name: t('sidebar.home.activities.children.table'),
+            to: '/activities/activities_table',
             icon: 'cil-chart-pie',
+          },
+          {
+            _tag: 'CSidebarNavItem',
+            name: t('sidebar.home.activities.children.user'),
+            to: '/activities/colaborators_activities_table',
+            icon: 'cil-coffee',
           },
         ],
       },
@@ -79,18 +92,18 @@ const useNavigation = (t) => {
       {
         _tag: 'CSidebarNavDropdown',
         name: t('sidebar.home.activities.title'),
-        route: '/',
+        route: '/activities',
         _children: [
           {
             _tag: 'CSidebarNavItem',
             name: t('sidebar.home.activities.children.table'),
-            to: '/activities_table',
+            to: '/activities/activities_table',
             icon: 'cil-chart-pie',
           },
           {
             _tag: 'CSidebarNavItem',
             name: t('sidebar.home.activities.children.user'),
-            to: '/colaborators_activities_table',
+            to: '/activities/colaborators_activities_table',
             icon: 'cil-coffee',
           },
         ],

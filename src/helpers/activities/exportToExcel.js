@@ -43,7 +43,7 @@ const exportToExcel = (data, t) => {
 
     return newUser;
   });
-  console.log(newData);
+
   download(newData);
 };
 

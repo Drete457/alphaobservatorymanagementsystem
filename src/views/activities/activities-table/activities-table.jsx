@@ -32,7 +32,7 @@ const ActivitiesTable = () => {
               {t('pages.activities.table-title')}
               <Button
                 name={t('btn.create.activities')}
-                onClick={() => history.push(`/activities_table/new`)}
+                onClick={() => history.push(`/activities/activities_table/new`)}
                 className="activity-button"
               />
             </nav>

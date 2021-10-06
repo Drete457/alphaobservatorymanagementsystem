@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { usePostActivitie } from 'hooks/activities';
-import { useGetUsers } from 'hooks/users';
+import { useGetUsers, usePostUser } from 'hooks/users';
 import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 import Loading from 'components/loading';
@@ -18,15 +18,25 @@ const Submit = ({
   const [t] = useTranslation();
   const { isLoading, error, data, execute } = usePostActivitie();
   const { data: usersData, execute: getUsers } = useGetUsers();
+  const { execute: postUser } = usePostUser();
 
   useEffect(() => {
     if (usersData) {
-      console.log(newActivity);
-      console.log('completo');
-      console.log(usersData);
-      //history.push(`/activities/activities_table`);
+      const usersListArray = Object.values(usersData);
+
+      newActivity.list.forEach?.((userId) => {
+        const newUser = usersListArray.find((value) => value.id === userId);
+
+        if (!newUser?.firstActivity) {
+          newUser.firstActivity = newActivity.date;
+
+          postUser(newUser);
+        }
+      });
+
+      history.push(`/activities/activities_table`);
     }
-  }, [newActivity, data, usersData, history, setWasModified]);
+  }, [newActivity, data, usersData, postUser, history, setWasModified]);
 
   useEffect(() => {
     if (error) {
@@ -59,7 +69,7 @@ const Submit = ({
               }
 
               getUsers();
-              // execute(newActivity);
+              execute(newActivity);
               setWasModified(false);
             }
           }}

@@ -19,7 +19,7 @@ const Submit = ({
 
   useEffect(() => {
     if (data) {
-      history.push(`/activities_table`);
+      history.push(`/activities/activities_table`);
     }
   }, [data, history, setWasModified]);
 
@@ -35,7 +35,7 @@ const Submit = ({
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}
-          onClick={() => history.push('/activities_table')}
+          onClick={() => history.push('/activities/activities_table')}
         />
         <Button
           name={t('btn.create-edit.submit')}

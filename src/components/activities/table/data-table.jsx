@@ -66,7 +66,7 @@ const DataTable = ({ activities, isLoading }) => {
               <Button
                 name={t('btn.view')}
                 onClick={() =>
-                  history.push(`/activities_table/view/${item.id}`)
+                  history.push(`/activities/activities_table/view/${item.id}`)
                 }
                 className="home-button"
               />

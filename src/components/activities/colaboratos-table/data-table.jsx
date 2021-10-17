@@ -39,14 +39,13 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
 
       usersList.forEach((user) => {
         if (user.id !== '1') {
-          const followed = usersWithFollowersList.find(
+          const userInfo = usersWithFollowersList.find(
             (value) => value.id === user.id,
-          )?.followed;
+          );
 
           newUsersList.push({
-            ...user,
+            ...userInfo,
             ...objProperties,
-            followed: followed,
           });
         }
       });

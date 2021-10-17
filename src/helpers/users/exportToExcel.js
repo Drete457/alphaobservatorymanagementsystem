@@ -25,9 +25,7 @@ const exportToExcel = (data, generic) => {
     newUser.Contacted = user.contact;
     newUser.Gender = user.gender;
     newUser.Group_Age = user.groupAge;
-    newUser.Birthyear = generic.years.find(
-      (value) => value.id === user.birthyear,
-    )?.name;
+    newUser.Birthyear = user.birthyear;
     newUser.Employment = user.employment;
 
     return newUser;

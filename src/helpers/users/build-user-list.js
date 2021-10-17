@@ -15,15 +15,15 @@ const buildUserList = (
     sortList(user1, user2, 'name'),
   );
 
-  const userList = homeHandler.buildUsersListFilter(data);
-  const userListSort = userList.sort((user1, user2) =>
+  const usersList = homeHandler.buildUsersListFilter(data);
+  const usersListSort = usersList.sort((user1, user2) =>
     sortList(user1, user2, 'name'),
   );
-  userListSort.unshift({ id: '1', name: 'None' });
+  usersListSort.unshift({ id: '1', name: 'None' });
 
   const fillArrayData = sortedList?.map((user) => {
     if (user.followed) {
-      const followedBy = userListSort.find(
+      const followedBy = usersListSort.find(
         (value) => value.id === user.followed,
       )?.name;
 
@@ -93,7 +93,7 @@ const buildUserList = (
     }
 
     if (user.contacted) {
-      let contactBy = userList.find(
+      let contactBy = usersList.find(
         (value) => value.id === user.contacted,
       )?.name;
 
@@ -116,6 +116,7 @@ const buildUserList = (
       const year = genericList?.years.find(
         (year) => year.id === user.birthyear,
       );
+      user.birthyear = year.name;
       user.groupAge = homeHandler.groupAge(year.name, genericList?.groupAge);
     } else {
       user.groupAge = '';
@@ -132,8 +133,8 @@ const buildUserList = (
     return user;
   });
 
-  if (userList.length > 0) {
-    setListUsers(userList);
+  if (usersList.length > 0) {
+    setListUsers(usersList);
   }
 
   setUsers(fillArrayData);

@@ -34,3 +34,8 @@ export const usersWithFollowers = atom({
   key: 'usersWithFollowers',
   default: [],
 });
+
+export const usersInfo = atom({
+  key: 'usersInfo',
+  default: [],
+});

@@ -15,7 +15,7 @@ const exportToExcel = (data, generic) => {
     newUser.Followed = user.followed;
     newUser.Country = user.country;
     newUser.Contact = user.socialInfo;
-    newUser.First_Acitivity = user.firstAcitivity;
+    newUser.First_Acitivity = user.firstActivity;
     newUser.Training = user.training;
     newUser.Personality = user.personality;
     newUser.Second_Survey = user.second;

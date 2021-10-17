@@ -7,6 +7,7 @@ import { generic } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
+import homeHandler from 'helpers/users';
 
 const DataTable = ({ activities, isLoading }) => {
   const [t] = useTranslation();
@@ -31,7 +32,11 @@ const DataTable = ({ activities, isLoading }) => {
         };
       });
 
-      setList(filterList);
+      const filterListSort = filterList.sort?.((val1, val2) =>
+        homeHandler.sortList(val1, val2, 'date'),
+      );
+
+      setList(filterListSort.reverse());
     }
   }, [activities, activitiesType]);
 

@@ -9,7 +9,9 @@ const buildUserList = (
   setListUsers,
   setUsers,
   setUsersWithFollowers,
+  setLogs,
 ) => {
+  const logsArray = [];
   const arrayData = Object.values(data);
   const sortedList = arrayData.sort((user1, user2) =>
     sortList(user1, user2, 'name'),
@@ -130,6 +132,12 @@ const buildUserList = (
       user.employment = employmentName;
     }
 
+    if (user?.lastModification) {
+      user.lastModification.forEach((log) =>
+        logsArray.push({ ...log, name: user.name }),
+      );
+    }
+
     return user;
   });
 
@@ -139,6 +147,7 @@ const buildUserList = (
 
   setUsers(fillArrayData);
   setUsersWithFollowers(fillArrayData);
+  setLogs(logsArray);
 };
 
 export default buildUserList;

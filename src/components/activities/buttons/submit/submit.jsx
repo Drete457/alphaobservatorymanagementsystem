@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useRecoilValue } from 'recoil';
+import { user as userInfo } from 'state/atoms';
 import { usePostActivitie } from 'hooks/activities';
 import { useGetUsers, usePostUser } from 'hooks/users';
 import activitiesHandler from 'helpers/activities';
 import Button from 'components/button';
 import Loading from 'components/loading';
+import dateGenerator from 'helpers/date-generator';
 
 const Submit = ({
   newActivity,
@@ -16,6 +19,7 @@ const Submit = ({
 }) => {
   const history = useHistory();
   const [t] = useTranslation();
+  const isUser = useRecoilValue(userInfo);
   const { isLoading, error, data, execute } = usePostActivitie();
   const { data: usersData, execute: getUsers } = useGetUsers();
   const { execute: postUser } = usePostUser();
@@ -67,6 +71,15 @@ const Submit = ({
               if (!haveExtra) {
                 newActivity.listInfo = [];
               }
+
+              if (!newActivity?.lastModification) {
+                newActivity.lastModification = [];
+              }
+
+              newActivity.lastModification.push({
+                email: isUser.email,
+                date: dateGenerator(),
+              });
 
               getUsers();
               execute(newActivity);

@@ -2,7 +2,13 @@ import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import { countries, generic, listUsers, usersWithFollowers } from 'state/atoms';
+import {
+  countries,
+  generic,
+  listUsers,
+  usersWithFollowers,
+  logs,
+} from 'state/atoms';
 import { useGetCountries } from 'hooks/countries';
 import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
@@ -25,6 +31,7 @@ const Users = () => {
   const setGeneric = useSetRecoilState(generic);
   const setListUsers = useSetRecoilState(listUsers);
   const setUsersWithFollowers = useSetRecoilState(usersWithFollowers);
+  const setLogs = useSetRecoilState(logs);
 
   const [users, setUsers] = useState([]);
   const [genericHome, setGenericHome] = useState({});
@@ -58,6 +65,7 @@ const Users = () => {
         setListUsers,
         setUsers,
         setUsersWithFollowers,
+        setLogs,
       );
     }
 
@@ -77,6 +85,7 @@ const Users = () => {
     setGeneric,
     setListUsers,
     setUsersWithFollowers,
+    setLogs,
   ]);
 
   useLayoutEffect(() => {

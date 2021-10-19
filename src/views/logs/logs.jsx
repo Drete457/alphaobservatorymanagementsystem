@@ -4,7 +4,7 @@ import { logs } from 'state/atoms';
 
 const ViewLogs = () => {
   const [t] = useTranslation();
-  const LogsArray = useRecoilValue(logs);
+  const logsArray = useRecoilValue(logs);
 
   return (
     <>
@@ -12,7 +12,15 @@ const ViewLogs = () => {
         <h1 className="title">{t('pages.logs.title')}</h1>
       </header>
 
-      <main></main>
+      <main>
+        <ol className="text-center">
+          {logsArray.map((log, index) => (
+            <li
+              key={index}
+            >{`Colaborator: ${log.name} was modified by ${log.email} on date ${log.date}`}</li>
+          ))}
+        </ol>
+      </main>
     </>
   );
 };

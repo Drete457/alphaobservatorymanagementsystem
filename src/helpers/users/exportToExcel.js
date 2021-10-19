@@ -27,6 +27,8 @@ const exportToExcel = (data, generic) => {
     newUser.Group_Age = user.groupAge;
     newUser.Birthyear = user.birthyear;
     newUser.Employment = user.employment;
+    newUser.CreateDate = user.createDate;
+    newUser.CreateBy = user.createUser;
 
     return newUser;
   });

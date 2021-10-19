@@ -76,7 +76,8 @@
     "table-import": {
       "button": "Import Collaborators Table",
       "button-import": "Import Table"
-    }
+    },
+    "logs": "View Logs"
   },
   "user": {
     "fields": {
@@ -411,6 +412,9 @@
         "tab": "Years",
         "title": "Years"
       }
+    },
+    "logs": {
+      "title": "View Logs"
     }
   },
   "dates": {

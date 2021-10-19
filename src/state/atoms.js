@@ -39,3 +39,8 @@ export const usersInfo = atom({
   key: 'usersInfo',
   default: [],
 });
+
+export const logs = atom({
+  key: 'logs',
+  default: [],
+});

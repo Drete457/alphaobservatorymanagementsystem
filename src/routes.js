@@ -18,6 +18,7 @@ const EditActivity = lazy(() => import('views/activities/edit-activity'));
 const TableImport = lazy(() => import('views/table-import'));
 const Countries = lazy(() => import('views/administration/countries'));
 const Generic = lazy(() => import('views/administration/generic'));
+const Logs = lazy(() => import('views/logs'));
 
 const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
@@ -83,6 +84,12 @@ const routes = [
     exact: true,
     name: 'Table Import',
     component: TableImport,
+  },
+  {
+    path: '/logs',
+    exact: true,
+    name: 'View Logs',
+    component: Logs,
   },
   {
     path: '/administration/countries',

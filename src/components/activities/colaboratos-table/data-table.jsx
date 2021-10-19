@@ -92,6 +92,7 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
           key: 'numberOfActivities',
           label: t('user.fields.activities.title'),
         },
+
         ...finalFields.reverse(),
       ]);
 

@@ -6,9 +6,9 @@ import { user as userInfo } from 'state/atoms';
 import { usePostActivitie } from 'hooks/activities';
 import { useGetUsers, usePostUser } from 'hooks/users';
 import activitiesHandler from 'helpers/activities';
+import dateGenerator from 'helpers/date-generator';
 import Button from 'components/button';
 import Loading from 'components/loading';
-import dateGenerator from 'helpers/date-generator';
 
 const Submit = ({
   newActivity,

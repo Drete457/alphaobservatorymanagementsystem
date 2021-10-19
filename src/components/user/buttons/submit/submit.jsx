@@ -7,8 +7,8 @@ import { user as userInfo } from 'state/atoms';
 import { usePostUser } from 'hooks/users';
 import { upload, deleteF } from 'hooks/files';
 import Button from 'components/button';
-import userHandler from 'helpers/user';
 import Loading from 'components/loading';
+import userHandler from 'helpers/user';
 import dateGenerator from 'helpers/date-generator';
 
 const submit = (

@@ -1,3 +1,4 @@
+import homeHandler from 'helpers/users';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { logs } from 'state/atoms';
@@ -5,6 +6,9 @@ import { logs } from 'state/atoms';
 const ViewLogs = () => {
   const [t] = useTranslation();
   const logsArray = useRecoilValue(logs);
+  const logsArraySort = logsArray.sort((val1, val2) =>
+    homeHandler.sortList(val1, val2, 'date'),
+  );
 
   return (
     <>
@@ -14,7 +18,7 @@ const ViewLogs = () => {
 
       <main>
         <ol className="text-center">
-          {logsArray.map((log, index) => (
+          {logsArraySort.map((log, index) => (
             <li
               key={index}
             >{`Colaborator: ${log.name} was modified by ${log.email} on date ${log.date}`}</li>

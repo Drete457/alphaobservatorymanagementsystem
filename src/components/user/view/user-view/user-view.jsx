@@ -221,6 +221,15 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
+
+            <InputField
+              title={t('user.fields.introductionAlphaCafe.title')}
+              name="introductionAlphaCafe"
+              type="date"
+              value={user?.introductionAlphaCafe}
+              className="user-input-format"
+              disabled
+            />
           </div>
         </CForm>
       </main>

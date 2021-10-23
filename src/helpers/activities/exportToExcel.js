@@ -67,6 +67,12 @@ const exportToExcel = (data, t) => {
     newUser.Group_Age = user.groupAge;
     newUser.Birthyear = user.birthyear;
     newUser.Employment = user.employment;
+    newUser.IntroductionAlphaCafe = '';
+
+    if ('introductionAlphaCafe' in user) {
+      newUser.IntroductionAlphaCafe = user.introductionAlphaCafe;
+    }
+
     newUser.CreateDate = user.createDate;
     newUser.CreateBy = user.createUser;
 

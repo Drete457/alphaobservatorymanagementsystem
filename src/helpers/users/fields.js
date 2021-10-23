@@ -62,6 +62,11 @@ const fields = (t) => {
       _style: { width: '6%' },
     },
     {
+      key: 'introductionAlphaCafe',
+      label: t('user.fields.introductionAlphaCafe.entry'),
+      _style: { width: '6%' },
+    },
+    {
       key: 'contacted',
       label: t('user.fields.contacted.title'),
       _style: { width: '6%' },

@@ -6,9 +6,10 @@ import { logs } from 'state/atoms';
 const ViewLogs = () => {
   const [t] = useTranslation();
   const logsArray = useRecoilValue(logs);
-  const logsArraySort = logsArray.sort((val1, val2) =>
+  const logsArraySort = Array.from(logsArray).sort((val1, val2) =>
     homeHandler.sortList(val1, val2, 'date'),
   );
+  const logsArraySortReverse = logsArraySort.reverse();
 
   return (
     <>
@@ -18,7 +19,7 @@ const ViewLogs = () => {
 
       <main>
         <ol className="text-center">
-          {logsArraySort.map((log, index) => (
+          {logsArraySortReverse.map((log, index) => (
             <li
               key={index}
             >{`Colaborator: ${log.name} was modified by ${log.email} on date ${log.date}`}</li>

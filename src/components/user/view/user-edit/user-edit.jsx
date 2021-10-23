@@ -324,6 +324,17 @@ const UserEdit = ({
               }}
               className="user-input-format"
             />
+
+            <InputField
+              title={t('user.fields.introductionAlphaCafe.title')}
+              name="introductionAlphaCafe"
+              placeholder={t('user.fields.introductionAlphaCafe.placeholder')}
+              type="date"
+              value={user?.introductionAlphaCafe}
+              errorMsg={errorMsg?.introductionAlphaCafe}
+              className="user-input-format"
+              disabled
+            />
           </div>
         </CForm>
       </main>

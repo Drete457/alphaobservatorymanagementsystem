@@ -34,6 +34,19 @@ const useNavigation = (t) => {
     },
     {
       _tag: 'CSidebarNavDropdown',
+      name: t('sidebar.reception.title'),
+      route: '/reception',
+      _children: [
+        {
+          _tag: 'CSidebarNavItem',
+          name: t('sidebar.reception.children.registration'),
+          to: '/reception/reception_registration',
+          icon: 'cil-voice-over-record',
+        },
+      ],
+    },
+    {
+      _tag: 'CSidebarNavDropdown',
       name: t('sidebar.administration.title'),
       route: '/administration',
       _children: [

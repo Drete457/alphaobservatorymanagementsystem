@@ -1,21 +1,20 @@
 import { useState, useLayoutEffect } from 'react';
 import { Prompt } from 'react-router-dom';
 import {
-  UserRegister,
-  UserSocial,
-  UserCards,
+  ReceptionRegister,
+  ReceptionSocial,
   ProfilePage,
-} from 'components/user/view/user-register';
+} from 'components/reception/view/reception-register';
 import { useRecoilValue } from 'recoil';
 import { countries, generic, listUsers } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
 import ErrorInfo from 'components/error';
-import Submit from 'components/user/buttons/submit';
-import Tabs from 'components/user/tabs';
+import Tabs from 'components/reception/tabs';
+import Submit from 'components/reception/buttons/submit';
 import userHandler from 'helpers/user';
 import uniqueId from 'helpers/id-generator';
 
-const UserRegistration = () => {
+const ReceptionRegistration = () => {
   const [t] = useTranslation();
   const [user, setUser] = useState({
     ...userHandler.userFormat,
@@ -60,7 +59,7 @@ const UserRegistration = () => {
             validName={validName}
           />
           {active === 0 && (
-            <UserRegister
+            <ReceptionRegister
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}
@@ -72,7 +71,7 @@ const UserRegistration = () => {
             />
           )}
           {active === 1 && (
-            <UserSocial
+            <ReceptionSocial
               socialList={genericList?.socialmedia}
               user={user}
               setUser={setUser}
@@ -81,15 +80,6 @@ const UserRegistration = () => {
             />
           )}
           {active === 2 && (
-            <UserCards
-              user={user}
-              setUser={setUser}
-              errorMsg={errorMsg}
-              cardsTypes={genericList?.cardTypes}
-              userList={usersList}
-            />
-          )}
-          {active === 3 && (
             <ProfilePage
               user={user}
               setUser={setUser}
@@ -102,4 +92,4 @@ const UserRegistration = () => {
   );
 };
 
-export default UserRegistration;
+export default ReceptionRegistration;

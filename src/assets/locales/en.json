@@ -18,6 +18,12 @@
         }
       }
     },
+    "reception": {
+      "title": "Reception",
+      "children": {
+        "registration": "Register New Entry"
+      }
+    },
     "administration": {
       "title": "Administration",
       "countries": {

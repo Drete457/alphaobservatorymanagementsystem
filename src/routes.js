@@ -19,6 +19,9 @@ const TableImport = lazy(() => import('views/table-import'));
 const Countries = lazy(() => import('views/administration/countries'));
 const Generic = lazy(() => import('views/administration/generic'));
 const Logs = lazy(() => import('views/logs'));
+const RepectionRegistration = lazy(() =>
+  import('views/reception/reception-registration'),
+);
 
 const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
@@ -102,6 +105,17 @@ const routes = [
     exact: true,
     name: 'Generic',
     component: Generic,
+  },
+  {
+    path: '/reception',
+    exact: true,
+    name: 'Reception',
+  },
+  {
+    path: '/reception/reception_registration',
+    exact: true,
+    name: 'Registration',
+    component: RepectionRegistration,
   },
 ];
 

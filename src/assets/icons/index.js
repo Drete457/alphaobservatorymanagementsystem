@@ -15,6 +15,7 @@ import {
   cilSitemap,
   cilTrash,
   cilUser,
+  cilVoiceOverRecord,
   cilWindow,
 } from '@coreui/icons';
 
@@ -37,6 +38,7 @@ export const icons = Object.assign(
     cilSitemap,
     cilTrash,
     cilUser,
+    cilVoiceOverRecord,
     cilWindow,
   },
 );

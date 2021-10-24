@@ -22,15 +22,15 @@ const exportToExcel = (data, generic) => {
     newUser.Suitable_Introductive_Meeting = user.introductionOption;
     newUser.Cards = user.cardsInfo;
     newUser.Base_Ambit = user.baseAmbit;
-    newUser.Contacted = user.contact;
+    newUser.Contacted = user.contacted;
     newUser.Gender = user.gender;
     newUser.Group_Age = user.groupAge;
     newUser.Birthyear = user.birthyear;
     newUser.Employment = user.employment;
-    newUser.IntroductionAlphaCafe = '';
+    newUser.InvitationAlphaCafe = '';
 
-    if ('introductionAlphaCafe' in user) {
-      newUser.IntroductionAlphaCafe = user.introductionAlphaCafe;
+    if ('invitationAlphaCafe' in user) {
+      newUser.InvitationAlphaCafe = user.invitationAlphaCafe;
     }
 
     newUser.CreateDate = user.createDate;

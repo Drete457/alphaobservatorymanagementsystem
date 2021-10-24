@@ -326,12 +326,11 @@ const UserEdit = ({
             />
 
             <InputField
-              title={t('user.fields.introductionAlphaCafe.title')}
-              name="introductionAlphaCafe"
-              placeholder={t('user.fields.introductionAlphaCafe.placeholder')}
+              title={t('user.fields.invitationAlphaCafe.title')}
+              name="invitationAlphaCafe"
               type="date"
-              value={user?.introductionAlphaCafe}
-              errorMsg={errorMsg?.introductionAlphaCafe}
+              value={user?.invitationAlphaCafe}
+              errorMsg={errorMsg?.invitationAlphaCafe}
               className="user-input-format"
               disabled
             />

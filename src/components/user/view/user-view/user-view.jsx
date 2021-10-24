@@ -223,10 +223,10 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
             />
 
             <InputField
-              title={t('user.fields.introductionAlphaCafe.title')}
-              name="introductionAlphaCafe"
+              title={t('user.fields.invitationAlphaCafe.title')}
+              name="invitationAlphaCafe"
               type="date"
-              value={user?.introductionAlphaCafe}
+              value={user?.invitationAlphaCafe}
               className="user-input-format"
               disabled
             />

@@ -12,7 +12,7 @@ const cardsIdToPutDate = () => {
 
     //introdution alpha cafe
     'c8151bb8ed7e-e364f6a3-de4b39dc-8bc64dce-42b96c083e1bcdb3':
-      'introductionAlphaCafe',
+      'invitationAlphaCafe',
   };
 
   return haveCardCreated;

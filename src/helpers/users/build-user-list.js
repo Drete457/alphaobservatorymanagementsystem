@@ -94,6 +94,10 @@ const buildUserList = (
       delete user.cardsPosition;
     }
 
+    if (!user?.invitationAlphaCafe) {
+      user.invitationAlphaCafe = '';
+    }
+
     if (user.contacted) {
       let contactBy = usersList.find(
         (value) => value.id === user.contacted,

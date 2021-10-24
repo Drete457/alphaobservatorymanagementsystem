@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
@@ -26,24 +26,61 @@ const Submit = ({
   const { data: usersData, execute: getUsers } = useGetUsers();
   const { execute: postUser } = usePostUser();
 
-  const [a, seta] = useState(false);
-
   useEffect(() => {
-    if (a && activitiesData) {
-      console.log(a, activitiesData);
-      /*  const usersListArray = Object.values(usersData);
+    if (data && usersData && activitiesData) {
+      const usersListArray = Object.values(usersData);
+      const alphaCafeArray = activitiesData.filter(
+        (activity) =>
+          activity.type ===
+          'b6fddec71394-0fc4f603-af3b986f-026fa186-b0f57c47439ac15c',
+      );
+      const surveySessionArray = activitiesData.filter(
+        (activity) =>
+          activity.type ===
+          '5fe99008264a-cdda524c-2f527cde-f32714c5-5382d15fe52bd910',
+      );
 
       newActivity.list.forEach?.((userId) => {
         const newUser = usersListArray.find((value) => value.id === userId);
+        let alphaCafe = 0;
+        let surveySession = 0;
+        let wasChange = false;
 
         if (!newUser?.firstActivity) {
           newUser.firstActivity = newActivity.date;
-
-          //postUser(newUser);
+          wasChange = true;
         }
-      }); */
 
-      //history.push(`/activities/activities_table`);
+        alphaCafeArray.forEach((value) => {
+          if (value.list.indexOf(userId) !== -1) {
+            alphaCafe++;
+          }
+        });
+
+        surveySessionArray.forEach((value) => {
+          if (value.list.indexOf(userId) !== -1) {
+            surveySession++;
+          }
+        });
+
+        if (newUser?.baseAmbit === '') {
+          if (alphaCafe >= 3 && surveySession >= 3) {
+            newUser.baseAmbit = newActivity.date;
+            wasChange = true;
+          }
+        } else {
+          if (alphaCafe < 3 || surveySession < 3) {
+            newUser.baseAmbit = '';
+            wasChange = true;
+          }
+        }
+
+        if (wasChange) {
+          postUser(newUser);
+        }
+      });
+
+      history.push(`/activities/activities_table`);
     }
   }, [
     newActivity,
@@ -53,7 +90,6 @@ const Submit = ({
     postUser,
     history,
     setWasModified,
-    a,
   ]);
 
   useEffect(() => {
@@ -95,14 +131,13 @@ const Submit = ({
                 date: dateGenerator(),
               });
 
-              //get the day and month 30 day ago
+              //get the day and month 31 day ago
               const today = new Date();
-              const priorDate = new Date().setDate(today.getDate() - 30);
-              console.log(priorDate);
+              const priorDate = activitiesHandler.subtractDaysFormat(today, 31);
+
               getActivities(priorDate);
-              //getUsers();
-              seta(true);
-              //execute(newActivity);
+              getUsers();
+              execute(newActivity);
               setWasModified(false);
             }
           }}

@@ -6,7 +6,10 @@ import {
 } from './activities-handler';
 import fields from './fields';
 import validateActivities from './validation';
-import calendarToShow from './old-newest-activities';
+import calendarToShow, {
+  addDaysFormat,
+  subtractDaysFormat,
+} from './old-newest-activities';
 import exportToExcel from './exportToExcel';
 
 const activitiesHandler = {
@@ -18,6 +21,8 @@ const activitiesHandler = {
   validateActivities,
   calendarToShow,
   exportToExcel,
+  addDaysFormat,
+  subtractDaysFormat,
 };
 
 export default activitiesHandler;

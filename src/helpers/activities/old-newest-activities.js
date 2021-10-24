@@ -37,6 +37,21 @@ const addDaysFormat = (date, days) => {
   return year + '-' + monthFormating + '-' + dayFormating;
 };
 
+const subtractDaysFormat = (date, days) => {
+  let newDate = new Date(date);
+
+  newDate.setDate(newDate.getDate() - days);
+
+  const year = newDate.getFullYear();
+  const month = newDate.getMonth() + 1;
+  const day = newDate.getDate();
+
+  const monthFormating = month.toString().length > 1 ? month : '0' + month;
+  const dayFormating = day.toLocaleString().length > 1 ? day : '0' + day;
+
+  return year + '-' + monthFormating + '-' + dayFormating;
+};
+
 const convertAndRemoveYear = (string) => {
   const array = string.split('-').reverse();
   array.pop();
@@ -112,3 +127,5 @@ const calendarToShow = (activities, t) => {
 };
 
 export default calendarToShow;
+
+export { addDaysFormat, subtractDaysFormat };

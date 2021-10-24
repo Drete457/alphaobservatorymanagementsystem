@@ -5,9 +5,9 @@ import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { generic } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
+import homeHandler from 'helpers/users';
 import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
-import homeHandler from 'helpers/users';
 
 const DataTable = ({ activities, isLoading }) => {
   const [t] = useTranslation();

@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { user as userInfo } from 'state/atoms';
-import { usePostActivitie } from 'hooks/activities';
+import { useGetLast30DaysActivities, usePostActivity } from 'hooks/activities';
 import { useGetUsers, usePostUser } from 'hooks/users';
 import activitiesHandler from 'helpers/activities';
 import dateGenerator from 'helpers/date-generator';
@@ -20,13 +20,18 @@ const Submit = ({
   const history = useHistory();
   const [t] = useTranslation();
   const isUser = useRecoilValue(userInfo);
-  const { isLoading, error, data, execute } = usePostActivitie();
+  const { isLoading, error, data, execute } = usePostActivity();
+  const { data: activitiesData, execute: getActivities } =
+    useGetLast30DaysActivities();
   const { data: usersData, execute: getUsers } = useGetUsers();
   const { execute: postUser } = usePostUser();
 
+  const [a, seta] = useState(false);
+
   useEffect(() => {
-    if (usersData) {
-      const usersListArray = Object.values(usersData);
+    if (a && activitiesData) {
+      console.log(a, activitiesData);
+      /*  const usersListArray = Object.values(usersData);
 
       newActivity.list.forEach?.((userId) => {
         const newUser = usersListArray.find((value) => value.id === userId);
@@ -34,13 +39,22 @@ const Submit = ({
         if (!newUser?.firstActivity) {
           newUser.firstActivity = newActivity.date;
 
-          postUser(newUser);
+          //postUser(newUser);
         }
-      });
+      }); */
 
-      history.push(`/activities/activities_table`);
+      //history.push(`/activities/activities_table`);
     }
-  }, [newActivity, data, usersData, postUser, history, setWasModified]);
+  }, [
+    newActivity,
+    data,
+    usersData,
+    activitiesData,
+    postUser,
+    history,
+    setWasModified,
+    a,
+  ]);
 
   useEffect(() => {
     if (error) {
@@ -81,8 +95,14 @@ const Submit = ({
                 date: dateGenerator(),
               });
 
-              getUsers();
-              execute(newActivity);
+              //get the day and month 30 day ago
+              const today = new Date();
+              const priorDate = new Date().setDate(today.getDate() - 30);
+              console.log(priorDate);
+              getActivities(priorDate);
+              //getUsers();
+              seta(true);
+              //execute(newActivity);
               setWasModified(false);
             }
           }}

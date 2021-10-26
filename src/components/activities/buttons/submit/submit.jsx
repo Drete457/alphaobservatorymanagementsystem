@@ -40,25 +40,28 @@ const Submit = ({
           '5fe99008264a-cdda524c-2f527cde-f32714c5-5382d15fe52bd910',
       );
 
-      newActivity.list.forEach?.((userId) => {
-        const newUser = usersListArray.find((value) => value.id === userId);
+      usersListArray.forEach?.((user) => {
+        const newUser = { ...user };
+        const findUserOnTheActivityList = newActivity.list.find(
+          (value) => value.id === user.Id,
+        );
         let alphaCafe = 0;
         let surveySession = 0;
         let wasChange = false;
 
-        if (!newUser?.firstActivity) {
+        if (findUserOnTheActivityList && !newUser?.firstActivity) {
           newUser.firstActivity = newActivity.date;
           wasChange = true;
         }
 
         alphaCafeArray.forEach((value) => {
-          if (value.list.indexOf(userId) !== -1) {
+          if (value.list.indexOf(user.id) !== -1) {
             alphaCafe++;
           }
         });
 
         surveySessionArray.forEach((value) => {
-          if (value.list.indexOf(userId) !== -1) {
+          if (value.list.indexOf(user.id) !== -1) {
             surveySession++;
           }
         });

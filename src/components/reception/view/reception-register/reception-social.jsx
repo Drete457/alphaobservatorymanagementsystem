@@ -15,7 +15,9 @@ const ReceptionSocial = ({
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.user.registration.social.title')}</h1>
+        <h1 className="title">
+          {t('pages.reception.registration-edit.social.title')}
+        </h1>
       </header>
 
       <main className="main-body">

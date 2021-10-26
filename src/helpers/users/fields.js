@@ -1,13 +1,6 @@
 const fields = (t) => {
   return [
     {
-      key: 'view',
-      label: '',
-      _style: { width: '5%' },
-      sorter: false,
-      filter: false,
-    },
-    {
       key: 'name',
       label: t('user.fields.name.title'),
       _style: { width: '10%' },

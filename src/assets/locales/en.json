@@ -21,6 +21,7 @@
     "reception": {
       "title": "Reception",
       "children": {
+        "view": "View Entries",
         "registration": "Register New Entry"
       }
     },
@@ -58,6 +59,8 @@
     "create-edit": {
       "submit": "Submit",
       "edit": "Edit",
+      "convert": "Convert",
+      "delete": "Delete",
       "cancel": "Cancel",
       "save": "Save",
       "cards": {
@@ -207,6 +210,9 @@
       },
       "invitationAlphaCafe": {
         "title": "Invitation Alpha Cafe"
+      },
+      "createDate": {
+        "title": "Contact Alpha"
       }
     }
   },
@@ -298,6 +304,24 @@
     "safari": "Please don't use Safari Browser, use alternative (Ex: Chrome, Firebox, Edge, Opera, etc)",
     "constrution": "Still under construction",
     "nointernet": "No Internet Connection",
+    "reception": {
+      "title": "Entries View",
+      "delete": "Are you sure you want to delete this entry?",
+      "registration-edit": {
+        "colaborator": {
+          "title": "Entry Registration"
+        },
+        "social": {
+          "title": "Entry Registration Social Media"
+        },
+        "profile": {
+          "title": "Entry Survey him/her link or file"
+        },
+        "modal": {
+          "title": "Choose Option"
+        }
+      }
+    },
     "maintenance": {
       "title": "The Site Is Undergoing Maintenance"
     },

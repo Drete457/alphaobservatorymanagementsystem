@@ -1,14 +1,11 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
+import { getDatabase, ref, child, remove } from 'firebase/database';
 import { reception } from 'components/user';
 
-export const deleteReceptionCard = async (receptionCard, setData) => {
-  const firebase = await fb();
-  await firebase
-    .database()
-    .ref(reception + receptionCard.name)
-    .remove()
-    .then(() => setData(true));
+export const deleteReceptionCard = async (id, setData) => {
+  const database = getDatabase();
+  const dbRef = ref(database);
+  await remove(child(dbRef, reception + id)).then(() => setData(true));
 };
 
 const useDeleteReceptionCard = () => {
@@ -16,10 +13,10 @@ const useDeleteReceptionCard = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
-  const execute = async (receptionCard) => {
+  const execute = async (id) => {
     try {
       setIsLoading(true);
-      deleteReceptionCard(receptionCard, setData);
+      deleteReceptionCard(id, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);

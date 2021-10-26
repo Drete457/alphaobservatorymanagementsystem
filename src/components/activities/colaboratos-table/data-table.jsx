@@ -131,7 +131,6 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
           </h2>
         </div>
       }
-      scopedSlots={{}}
     />
   );
 };

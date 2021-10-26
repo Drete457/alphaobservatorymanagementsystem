@@ -1,1 +1,1 @@
-export { default } from './recepetion-register';
+export { default } from './reception-register';

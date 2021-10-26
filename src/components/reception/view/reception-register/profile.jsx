@@ -31,7 +31,9 @@ const ProfilePage = ({ user, setUser, setWasModified }) => {
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.user.registration.profile.title')}</h1>
+        <h1 className="title">
+          {t('pages.reception.registration-edit.profile.title')}
+        </h1>
       </header>
 
       <main className="main-body">

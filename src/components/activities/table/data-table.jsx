@@ -6,7 +6,6 @@ import { useRecoilValue } from 'recoil';
 import { generic } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
 import homeHandler from 'helpers/users';
-import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
 
 const DataTable = ({ activities, isLoading }) => {
@@ -45,6 +44,7 @@ const DataTable = ({ activities, isLoading }) => {
       addTableClasses="home-table"
       items={list}
       fields={activitiesHandler.fields(t)}
+      clickableRows
       columnFilter
       tableFilter
       hover
@@ -64,21 +64,9 @@ const DataTable = ({ activities, isLoading }) => {
           </h2>
         </div>
       }
-      scopedSlots={{
-        view: (item) => {
-          return (
-            <td>
-              <Button
-                name={t('btn.view')}
-                onClick={() =>
-                  history.push(`/activities/activities_table/view/${item.id}`)
-                }
-                className="home-button"
-              />
-            </td>
-          );
-        },
-      }}
+      onRowClick={(item) =>
+        history.push(`/activities/activities_table/view/${item.id}`)
+      }
     />
   );
 };

@@ -63,6 +63,7 @@ const Header = () => {
       />
 
       <CHeaderNav className="d-md-down-none ml-auto">
+        <HeaderAccountDropdown logOut={logOut} />
         <CToggler
           inHeader
           className="d-md-down-none"
@@ -70,7 +71,6 @@ const Header = () => {
         >
           <CIcon className="mr-2" size="lg" name="cil-applications-settings" />
         </CToggler>
-        <HeaderAccountDropdown logOut={logOut} />
       </CHeaderNav>
 
       <CSubheader className="px-3 justify-content-between">

@@ -1,13 +1,13 @@
 import { useState, useLayoutEffect } from 'react';
 import { Prompt } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { countries, generic, listUsers } from 'state/atoms';
+import { useTranslation } from 'react-i18next';
 import {
   ReceptionRegister,
   ReceptionSocial,
   ProfilePage,
 } from 'components/reception/view/reception-register';
-import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
-import { useTranslation } from 'react-i18next';
 import ErrorInfo from 'components/error';
 import Tabs from 'components/reception/tabs';
 import Submit from 'components/reception/buttons/submit';

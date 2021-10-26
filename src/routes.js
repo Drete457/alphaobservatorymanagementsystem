@@ -22,6 +22,8 @@ const Logs = lazy(() => import('views/logs'));
 const RepectionRegistration = lazy(() =>
   import('views/reception/reception-registration'),
 );
+const RepectionEdit = lazy(() => import('views/reception/reception-edit'));
+const RepectionView = lazy(() => import('views/reception/reception-view'));
 
 const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
@@ -116,6 +118,18 @@ const routes = [
     exact: true,
     name: 'Registration',
     component: RepectionRegistration,
+  },
+  {
+    path: '/reception/reception_edit/:id',
+    exact: true,
+    name: 'Edition',
+    component: RepectionEdit,
+  },
+  {
+    path: '/reception/view',
+    exact: true,
+    name: 'View',
+    component: RepectionView,
   },
 ];
 

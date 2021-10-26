@@ -2,7 +2,6 @@ import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import homeHandler from 'helpers/users';
-import Button from 'components/button';
 import CIcon from '@coreui/icons-react';
 
 const DataTable = ({ users, isLoading }) => {
@@ -17,6 +16,7 @@ const DataTable = ({ users, isLoading }) => {
       addTableClasses="users-table"
       items={usersListSort}
       fields={homeHandler.fields(t)}
+      clickableRows
       columnFilter
       tableFilter
       hover
@@ -36,19 +36,7 @@ const DataTable = ({ users, isLoading }) => {
           </h2>
         </div>
       }
-      scopedSlots={{
-        view: (item) => {
-          return (
-            <td>
-              <Button
-                name={t('btn.view')}
-                onClick={() => history.push(`/user/view/${item.id}`)}
-                className="home-button"
-              />
-            </td>
-          );
-        },
-      }}
+      onRowClick={(item) => history.push(`/user/view/${item.id}`)}
     />
   );
 };

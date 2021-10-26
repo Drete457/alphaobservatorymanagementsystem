@@ -39,6 +39,12 @@ const useNavigation = (t) => {
       _children: [
         {
           _tag: 'CSidebarNavItem',
+          name: t('sidebar.reception.children.view'),
+          to: '/reception/view',
+          icon: 'cil-view-quilt',
+        },
+        {
+          _tag: 'CSidebarNavItem',
           name: t('sidebar.reception.children.registration'),
           to: '/reception/reception_registration',
           icon: 'cil-voice-over-record',

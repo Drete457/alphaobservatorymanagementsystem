@@ -1,8 +1,10 @@
 import { CButton } from '@coreui/react';
+import { deleteF } from 'hooks/files/delete';
 import { useDeleteReceptionCard } from 'hooks/reception';
 
 const DeleteReceptionWarming = ({ t, id, setDelete, setChange }) => {
   const { execute: deleteEntry } = useDeleteReceptionCard();
+  const { execute: executeDelete } = deleteF();
 
   return (
     <>
@@ -16,6 +18,8 @@ const DeleteReceptionWarming = ({ t, id, setDelete, setChange }) => {
           size="sm"
           color="danger"
           onClick={() => {
+            const ref = 'profile/' + id + '.pdf';
+            executeDelete(ref);
             deleteEntry(id);
             setChange(id);
           }}

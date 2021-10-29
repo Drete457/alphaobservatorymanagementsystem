@@ -7,7 +7,7 @@ import {
   ProfilePage,
 } from 'components/user/view/user-register';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
+import { countries, generic, users } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
 import ErrorInfo from 'components/error';
 import Submit from 'components/user/buttons/submit';
@@ -29,7 +29,7 @@ const UserRegistration = () => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const usersList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
 
   useLayoutEffect(() => {
     if (user.name) {

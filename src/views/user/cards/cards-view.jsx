@@ -7,10 +7,8 @@ import {
   ProfilePage,
 } from 'components/user/view/user-view';
 import { useTranslation } from 'react-i18next';
-import { useGetUsers } from 'hooks/users';
-import { buildUsersListFilter } from 'helpers/users';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
+import { useRecoilValue } from 'recoil';
+import { countries, generic, users } from 'state/atoms';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
@@ -19,59 +17,38 @@ import View from 'components/user/buttons/view';
 const CardsView = ({ match }) => {
   const [t] = useTranslation();
   const [user, setUser] = useState(null);
-  const [userList, setUserList] = useState(null);
   const [active, setActive] = useState(0);
   const [error, setError] = useState(null);
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
+  const { usersDataInfo: dataUserList } = useRecoilValue(users);
 
-  //Save the information on memory state
-  const setListUsers = useSetRecoilState(listUsers);
-
-  const {
-    isLoading: isLoadingUserList,
-    error: errorUsers,
-    data: dataUserList,
-    execute: executeUsersList,
-  } = useGetUsers();
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
   useLayoutEffect(() => {
     const userID = match.params.id;
+
     execute(userID);
   }, [execute, match]);
 
   useLayoutEffect(() => {
     if (data) {
       setUser(data);
-      executeUsersList();
     }
-  }, [data, executeUsersList]);
+  }, [data]);
 
   useLayoutEffect(() => {
-    if (dataUserList) {
-      const usersList = buildUsersListFilter(dataUserList);
-
-      //for the page
-      setUserList(usersList);
-
-      //for the edit page
-      setListUsers(usersList);
-    }
-  }, [dataUserList, setListUsers]);
-
-  useLayoutEffect(() => {
-    if (errorServer || errorUsers) {
+    if (errorServer) {
       setError(errorServer);
     }
-  }, [errorServer, errorUsers]);
+  }, [errorServer]);
 
   return (
     <>
       {error ? (
         <ErrorInfo error={error} />
-      ) : user && userList && countriesList && genericList ? (
+      ) : user && dataUserList && countriesList && genericList ? (
         <>
           <Tabs active={active} setActive={setActive} />
           <View user={user} active={active} />
@@ -80,7 +57,7 @@ const CardsView = ({ match }) => {
               user={user}
               countriesList={countriesList}
               genericList={genericList}
-              userList={userList}
+              userList={dataUserList}
             />
           )}
           {active === 1 && (
@@ -89,7 +66,7 @@ const CardsView = ({ match }) => {
           {active === 2 && (
             <UserCards
               user={user}
-              userList={userList}
+              userList={dataUserList}
               cardsTypes={genericList?.cardTypes}
             />
           )}
@@ -101,7 +78,6 @@ const CardsView = ({ match }) => {
         </>
       )}
       {isLoading && <Loading />}
-      {isLoadingUserList && <Loading />}
     </>
   );
 };

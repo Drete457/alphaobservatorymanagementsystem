@@ -8,7 +8,7 @@ import {
   ProfilePage,
 } from 'components/user/view/user-edit';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
+import { countries, generic, users } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
 import userHandler from 'helpers/user';
 import ErrorInfo from 'components/error';
@@ -26,7 +26,7 @@ const UserEdition = ({ match }) => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const usersList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 

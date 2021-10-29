@@ -1,12 +1,12 @@
 import homeHandler from 'helpers/users';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { logs } from 'state/atoms';
+import { users } from 'state/atoms';
 
 const ViewLogs = () => {
   const [t] = useTranslation();
-  const logsArray = useRecoilValue(logs);
-  const logsArraySort = Array.from(logsArray).sort((val1, val2) =>
+  const { logs } = useRecoilValue(users);
+  const logsArraySort = Array.from(logs).sort((val1, val2) =>
     homeHandler.sortList(val1, val2, 'date'),
   );
   const logsArraySortReverse = logsArraySort.reverse();

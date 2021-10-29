@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import homeHandler from 'helpers/users';
 import CIcon from '@coreui/icons-react';
 
-const DataTable = ({ users, isLoading }) => {
+const DataTable = ({ users }) => {
   const [t] = useTranslation();
   const history = useHistory();
 
@@ -27,7 +27,6 @@ const DataTable = ({ users, isLoading }) => {
       itemsPerPageSelect
       itemsPerPage={25}
       pagination={true}
-      isLoading={isLoading}
       noItemsViewSlot={
         <div className="text-center my-5">
           <h2>

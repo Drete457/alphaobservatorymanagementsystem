@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import { Prompt } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
+import { countries, generic, users } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
 import {
   ReceptionRegister,
@@ -28,7 +28,7 @@ const ReceptionRegistration = () => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const usersList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
 
   useLayoutEffect(() => {
     if (user.name) {

@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from 'react';
 import { Prompt } from 'react-router-dom';
-import { countries, generic, listUsers } from 'state/atoms';
+import { countries, generic, users } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import {
@@ -26,7 +26,7 @@ const ReceptionEdit = ({ match }) => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const usersList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
 
   const {
     isLoading,

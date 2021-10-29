@@ -4,7 +4,7 @@ const mainTableSortList = (usersList) => {
   const arrayListFollowed = [];
   const arrayListNoneFollowed = [];
 
-  usersList.forEach?.((element) => {
+  usersList?.forEach?.((element) => {
     if (element?.followed === 'None') {
       arrayListNoneFollowed.push(element);
     } else {

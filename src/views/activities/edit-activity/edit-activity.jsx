@@ -2,7 +2,7 @@ import { useState, useLayoutEffect, useEffect } from 'react';
 import { useHistory, Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { listUsers, generic } from 'state/atoms';
+import { users, generic } from 'state/atoms';
 import { CForm } from '@coreui/react';
 import { useGetActivity } from 'hooks/activities';
 import { SelectFieldComponent, InputField } from 'components/activities/input';
@@ -22,7 +22,7 @@ const EditActivity = ({ match }) => {
   const [wasModified, setWasModified] = useState(false);
   const [error, setError] = useState(null);
 
-  const userList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
   const { activitiesType } = useRecoilValue(generic);
 
   const {
@@ -33,10 +33,10 @@ const EditActivity = ({ match }) => {
   } = useGetActivity();
 
   useLayoutEffect(() => {
-    if (userList.length === 0) {
+    if (usersList.length === 0) {
       history.push('/users');
     }
-  }, [userList, activitiesType, history]);
+  }, [usersList, activitiesType, history]);
 
   useLayoutEffect(() => {
     const id = match.params.id;
@@ -150,7 +150,7 @@ const EditActivity = ({ match }) => {
                       setErrorActivity({});
                       setWasModified(true);
                     }}
-                    options={userList}
+                    options={usersList}
                     className="activity-input-format-users"
                     isMulti={true}
                   />
@@ -158,7 +158,7 @@ const EditActivity = ({ match }) => {
               )}
 
               {activity?.list?.map((activityInfo) => {
-                const participant = userList.find(
+                const participant = usersList.find(
                   (user) => user.id === activityInfo,
                 );
                 return (

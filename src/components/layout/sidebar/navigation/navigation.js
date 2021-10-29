@@ -3,7 +3,7 @@ const useNavigation = (t) => {
     {
       _tag: 'CSidebarNavDropdown',
       name: t('sidebar.home.users.title'),
-      route: '/',
+      route: '/users',
       _children: [
         {
           _tag: 'CSidebarNavItem',

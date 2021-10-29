@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
+import { countries, generic, users } from 'state/atoms';
 import {
   useDeleteReceptionCard,
   useGetReceptionCard,
@@ -20,7 +20,7 @@ const ReceptionView = () => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const usersList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
 
   const { isLoading, error, data, execute } = useGetReceptionCards();
   const { data: entryData, execute: getEntry } = useGetReceptionCard();

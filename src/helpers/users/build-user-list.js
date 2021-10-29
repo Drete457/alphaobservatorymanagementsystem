@@ -2,15 +2,7 @@ import homeHandler from '.';
 import userHandler from 'helpers/user';
 import sortList from './sort-list';
 
-const buildUserList = (
-  data,
-  countriesList,
-  genericList,
-  setListUsers,
-  setUsers,
-  setUsersWithFollowers,
-  setLogs,
-) => {
+const buildUserList = (data, countriesList, genericList, setListUsers) => {
   const logsArray = [];
   const arrayData = Object.values(data);
   const sortedList = arrayData.sort((user1, user2) =>
@@ -146,12 +138,14 @@ const buildUserList = (
   });
 
   if (usersList.length > 0) {
-    setListUsers(usersList);
-  }
+    const obj = {
+      usersDataInfo: fillArrayData,
+      usersWithFollowers: usersListSort,
+      logs: logsArray,
+    };
 
-  setUsers(fillArrayData);
-  setUsersWithFollowers(fillArrayData);
-  setLogs(logsArray);
+    setListUsers(obj);
+  }
 };
 
 export default buildUserList;

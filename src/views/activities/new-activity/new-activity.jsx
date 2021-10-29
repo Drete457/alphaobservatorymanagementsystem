@@ -2,7 +2,7 @@ import { useState, useLayoutEffect } from 'react';
 import { useHistory, Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { listUsers, generic } from 'state/atoms';
+import { users, generic } from 'state/atoms';
 import { CForm } from '@coreui/react';
 import { SelectFieldComponent, InputField } from 'components/activities/input';
 import activitiesHandler from 'helpers/activities';
@@ -35,14 +35,14 @@ const NewActivity = () => {
   const [wasModified, setWasModified] = useState(false);
   const [error, setError] = useState(null);
 
-  const userList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
   const { activitiesType } = useRecoilValue(generic);
 
   useLayoutEffect(() => {
-    if (userList.length === 0) {
+    if (usersList.length === 0) {
       history.push('/users');
     }
-  }, [userList, activitiesType, history]);
+  }, [usersList, activitiesType, history]);
 
   useLayoutEffect(() => {
     if (newActivity.type) {
@@ -134,7 +134,7 @@ const NewActivity = () => {
                       );
                       setErrorActivity({});
                     }}
-                    options={userList}
+                    options={usersList}
                     className="activity-input-format-users"
                     isMulti={true}
                   />
@@ -142,7 +142,7 @@ const NewActivity = () => {
               )}
 
               {Array.from(newActivity.list)?.map((activity, index) => {
-                const participant = userList.find(
+                const participant = usersList.find(
                   (user) => user.id === activity,
                 );
                 return (

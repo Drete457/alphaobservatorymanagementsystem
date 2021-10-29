@@ -7,7 +7,7 @@ import {
   ProfilePage,
 } from 'components/user/view/user-view';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, listUsers } from 'state/atoms';
+import { countries, generic, users } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
@@ -22,7 +22,7 @@ const UserView = ({ match }) => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const usersList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 

@@ -19,7 +19,7 @@ const Layout = () => {
   const setCountries = useSetRecoilState(countries);
   const setGeneric = useSetRecoilState(generic);
   const setListUsers = useSetRecoilState(users);
-  const setGlobalList = useSetRecoilState(users);
+  const setGlobalList = useSetRecoilState(globalList);
 
   const { data, execute } = useGetUsers();
   const { data: dataEntry, execute: executeEntry } = useGetReceptionCards();

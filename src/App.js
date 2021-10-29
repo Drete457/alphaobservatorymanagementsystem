@@ -3,8 +3,6 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import { CFade } from '@coreui/react';
 import { useRecoilState } from 'recoil';
 import { user } from 'state/atoms';
-import { noInternetImg } from 'assets/images';
-import { fb } from 'api/config';
 import { buildLogin } from 'helpers/users';
 import Loading from 'components/loading';
 import NoInternet from 'views/offline';
@@ -24,9 +22,7 @@ const App = () => {
   const [isSafariDesktop, setIsSafariDesktop] = useState(false);
 
   useLayoutEffect(() => {
-    //iniciate firebase sdk
     const startFirebase = async () => {
-      await fb();
       await buildLogin(setIsUser);
     };
 
@@ -38,28 +34,6 @@ const App = () => {
       setIsAuthenticated(true);
     }
   }, [isUser]);
-
-  useLayoutEffect(() => {
-    const image = localStorage.getItem('offline');
-
-    if (!image) {
-      //converte the imagem em string to be safe on localStorage
-      let xhr = new XMLHttpRequest();
-      xhr.open('GET', noInternetImg, true);
-      xhr.responseType = 'blob';
-      xhr.onload = function (e) {
-        let reader = new FileReader();
-        reader.onload = function (event) {
-          let res = event.target.result;
-
-          localStorage.setItem('offline', res);
-        };
-        var file = this.response;
-        reader.readAsDataURL(file);
-      };
-      xhr.send();
-    }
-  }, []);
 
   useLayoutEffect(() => {
     const isMobileDevice = () => {
@@ -90,13 +64,6 @@ const App = () => {
   window.onoffline = () => {
     setIsOnline(false);
   };
-
-  //refresh the page and send to the original homepage
-  const refreshPage = () => {
-    window.location.href = '/';
-  };
-  //every 12 hours
-  setTimeout(refreshPage, 1000 * 60 * 60 * 12);
 
   return (
     <>

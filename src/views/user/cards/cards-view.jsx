@@ -7,11 +7,9 @@ import {
   ProfilePage,
 } from 'components/user/view/user-view';
 import { useTranslation } from 'react-i18next';
-import { useGetCountries } from 'hooks/countries';
-import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
 import { buildUsersListFilter } from 'helpers/users';
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { countries, generic, listUsers } from 'state/atoms';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
@@ -19,21 +17,16 @@ import Tabs from 'components/user/tabs';
 import View from 'components/user/buttons/view';
 
 const CardsView = ({ match }) => {
-  //delete the remain of cards positions on sessionStorage
-  sessionStorage.removeItem('cardsPosition');
-  localStorage.removeItem('cardsPosition');
-
   const [t] = useTranslation();
   const [user, setUser] = useState(null);
   const [userList, setUserList] = useState(null);
-  const [countriesList, setCountriesList] = useState(null);
-  const [genericList, setGenericList] = useState(null);
   const [active, setActive] = useState(0);
   const [error, setError] = useState(null);
 
+  const countriesList = useRecoilValue(countries);
+  const genericList = useRecoilValue(generic);
+
   //Save the information on memory state
-  const setCountries = useSetRecoilState(countries);
-  const setGeneric = useSetRecoilState(generic);
   const setListUsers = useSetRecoilState(listUsers);
 
   const {
@@ -42,19 +35,6 @@ const CardsView = ({ match }) => {
     data: dataUserList,
     execute: executeUsersList,
   } = useGetUsers();
-  const {
-    isLoading: isLoadingCountries,
-    error: errorCountries,
-    data: dataCountriesList,
-    execute: executeCountries,
-  } = useGetCountries();
-  const {
-    isLoading: isLoadingGeneric,
-    error: errorGeneric,
-    data: dataGenericList,
-    execute: executeGeneric,
-  } = useGetGeneric();
-
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
   useLayoutEffect(() => {
@@ -65,40 +45,27 @@ const CardsView = ({ match }) => {
   useLayoutEffect(() => {
     if (data) {
       setUser(data);
-      executeCountries();
-      executeGeneric();
       executeUsersList();
     }
-  }, [data, executeCountries, executeGeneric, executeUsersList]);
+  }, [data, executeUsersList]);
 
   useLayoutEffect(() => {
-    if (dataCountriesList && dataGenericList && dataUserList) {
+    if (dataUserList) {
       const usersList = buildUsersListFilter(dataUserList);
 
       //for the page
-      setCountriesList(dataCountriesList);
-      setGenericList(dataGenericList);
       setUserList(usersList);
 
       //for the edit page
-      setCountries(dataCountriesList);
-      setGeneric(dataGenericList);
       setListUsers(usersList);
     }
-  }, [
-    dataCountriesList,
-    dataGenericList,
-    dataUserList,
-    setCountries,
-    setGeneric,
-    setListUsers,
-  ]);
+  }, [dataUserList, setListUsers]);
 
   useLayoutEffect(() => {
-    if (errorServer || errorGeneric || errorCountries || errorUsers) {
+    if (errorServer || errorUsers) {
       setError(errorServer);
     }
-  }, [errorServer, errorGeneric, errorCountries, errorUsers]);
+  }, [errorServer, errorUsers]);
 
   return (
     <>
@@ -133,10 +100,8 @@ const CardsView = ({ match }) => {
           <h1>{t('pages.user.view.notfound.title')}</h1>
         </>
       )}
-      {isLoading ||
-        isLoadingCountries ||
-        isLoadingGeneric ||
-        (isLoadingUserList && <Loading />)}
+      {isLoading && <Loading />}
+      {isLoadingUserList && <Loading />}
     </>
   );
 };

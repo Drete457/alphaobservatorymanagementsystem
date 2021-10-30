@@ -117,23 +117,49 @@ const Card = ({
                       name="date"
                       type="date"
                       value={selfCard?.date}
-                      errorMsg={errorMsg?.community}
                       onChange={(event) =>
                         updateCard('date', event.target.value)
                       }
                       className="card-input-format"
                     />
+                    {selfCard.id ===
+                      '6d2921e88a9f-d886fc90-b3dcf229-67033952-fcf54ae2ba55bacf' && (
+                      <InputField
+                        name="reservation"
+                        type="date"
+                        value={selfCard?.reservation}
+                        onChange={(event) =>
+                          updateCard('reservation', event.target.value)
+                        }
+                        className="card-input-format"
+                      />
+                    )}
+                    {selfCard.id !==
+                      '6d2921e88a9f-d886fc90-b3dcf229-67033952-fcf54ae2ba55bacf' && (
+                      <SelectFieldComponent
+                        placeholder={t('user.fields.cards.trainer')}
+                        name="trainer"
+                        value={selfCard?.trainer}
+                        onChange={(event) => updateCard('trainer', event)}
+                        options={newUserList}
+                        className="card-input-format"
+                        isMulti={true}
+                      />
+                    )}
+                  </div>
 
+                  {selfCard.id ===
+                    '6d2921e88a9f-d886fc90-b3dcf229-67033952-fcf54ae2ba55bacf' && (
                     <SelectFieldComponent
                       placeholder={t('user.fields.cards.trainer')}
                       name="trainer"
                       value={selfCard?.trainer}
                       onChange={(event) => updateCard('trainer', event)}
                       options={newUserList}
-                      className="card-input-format"
+                      className="card-input-format-second"
                       isMulti={true}
                     />
-                  </div>
+                  )}
 
                   <TextAreaField
                     placeholder={t('user.fields.cards.bodyplaceholder')}

@@ -42,14 +42,19 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
 
     //write the dates in the correct properties of the user
     const cardsIdToPutDate = userHandler.cardsIdToPutDate();
-    const cardsWithId = cardArray.filter((card) => card.id);
+    const cardsWithId = cardArray;
 
-    for (var value in cardsWithId) {
+    for (let value in cardsWithId) {
       const id = cardsWithId[value].id;
+      const reservation = cardsWithId[value]?.reservation;
 
       if (id in cardsIdToPutDate) {
         const propertie = cardsIdToPutDate[id];
         user[propertie] = cardsWithId[value].date;
+      }
+
+      if (reservation) {
+        user['introductionDate'] = reservation;
       }
     }
 

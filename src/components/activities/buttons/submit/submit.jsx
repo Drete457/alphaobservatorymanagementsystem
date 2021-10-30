@@ -43,7 +43,7 @@ const Submit = ({
       usersListArray.forEach?.((user) => {
         const newUser = { ...user };
         const findUserOnTheActivityList = newActivity.list.find(
-          (value) => value.id === user.Id,
+          (value) => value.id === user.id,
         );
         let alphaCafe = 0;
         let surveySession = 0;

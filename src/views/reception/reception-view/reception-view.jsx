@@ -8,6 +8,7 @@ import {
   useGetReceptionCards,
 } from 'hooks/reception';
 import { usePostUser } from 'hooks/users';
+import { deleteF } from 'hooks/files';
 import receptionHandler from 'helpers/repection';
 import ErrorInfo from 'components/error/error';
 import DataTable from 'components/reception/view/reception-view';
@@ -16,7 +17,6 @@ const ReceptionView = () => {
   const [t] = useTranslation();
   const [entry, setEntry] = useState([]);
   const [errorInfo, setErrorInfo] = useState({});
-  const [change, setChange] = useState('');
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
@@ -26,14 +26,24 @@ const ReceptionView = () => {
   const { data: entryData, execute: getEntry } = useGetReceptionCard();
   const { execute: deleteEntry } = useDeleteReceptionCard();
   const { execute: postUser } = usePostUser();
+  const { execute: executeDelete } = deleteF();
 
   const convertEntry = (id) => {
     getEntry(id);
+    execute();
+  };
+
+  const deleteEntryFunction = (id) => {
+    const ref = 'profile/' + id + '.pdf';
+
+    executeDelete(ref);
+    deleteEntry(id);
+    execute();
   };
 
   useEffect(() => {
     execute();
-  }, [execute, change]);
+  }, [execute]);
 
   useLayoutEffect(() => {
     if (entryData) {
@@ -41,9 +51,9 @@ const ReceptionView = () => {
 
       postUser(entryData);
       deleteEntry(id);
-      setChange(id);
+      execute();
     }
-  }, [entryData, postUser, deleteEntry]);
+  }, [entryData, postUser, deleteEntry, execute]);
 
   useLayoutEffect(() => {
     if (data) {
@@ -72,13 +82,14 @@ const ReceptionView = () => {
           <header>
             <h1 className="title">{t('pages.reception.title')}</h1>
           </header>
+
           <main className="main-body">
             <hr />
             <DataTable
               entries={entry}
               isLoading={isLoading}
               convertEntry={convertEntry}
-              setChange={setChange}
+              deleteEntryFunction={deleteEntryFunction}
             />
           </main>
         </>

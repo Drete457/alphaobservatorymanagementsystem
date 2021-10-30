@@ -307,7 +307,6 @@
     "nointernet": "No Internet Connection",
     "reception": {
       "title": "Entries View",
-      "delete": "Are you sure you want to delete this entry?",
       "registration-edit": {
         "colaborator": {
           "title": "Entry Registration"

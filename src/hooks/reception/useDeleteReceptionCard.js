@@ -5,6 +5,7 @@ import { reception } from 'components/user';
 export const deleteReceptionCard = async (id, setData) => {
   const database = getDatabase();
   const dbRef = ref(database);
+
   await remove(child(dbRef, reception + id)).then(() => setData(true));
 };
 

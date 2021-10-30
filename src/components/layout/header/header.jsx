@@ -18,6 +18,7 @@ import { sidebarShow, asideShow } from 'state/atoms';
 import routes from 'routes';
 import userHandler from 'helpers/user';
 import Button from 'components/button/button';
+import Search from 'components/layout/search';
 
 const Header = () => {
   const [t] = useTranslation();
@@ -61,6 +62,10 @@ const Header = () => {
         className="ml-3 d-md-down-none"
         onClick={toggleSidebar}
       />
+
+      <form className="w-25 mt-2">
+        <Search />
+      </form>
 
       <CHeaderNav className="d-md-down-none ml-auto">
         <HeaderAccountDropdown logOut={logOut} />

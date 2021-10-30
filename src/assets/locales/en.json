@@ -301,6 +301,7 @@
     "error": "Need To Write a Name"
   },
   "pages": {
+    "search": "Search",
     "safari": "Please don't use Safari Browser, use alternative (Ex: Chrome, Firebox, Edge, Opera, etc)",
     "constrution": "Still under construction",
     "nointernet": "No Internet Connection",

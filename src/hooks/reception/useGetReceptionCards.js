@@ -6,8 +6,11 @@ export const getReceptionCards = async (set) => {
   const database = getDatabase();
   const dbRef = ref(database);
   const response = await get(child(dbRef, reception));
-
-  set(response.val());
+  if (response.val() === null) {
+    set([]);
+  } else {
+    set(response.val());
+  }
 };
 
 const useGetReceptionCards = () => {

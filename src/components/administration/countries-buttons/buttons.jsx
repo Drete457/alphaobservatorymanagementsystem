@@ -63,7 +63,7 @@ const Buttons = ({
 
                 countriesSort?.forEach((country) => {
                   newCountriesArray.push({
-                    country: country.country,
+                    country: country.country.trim(),
                     gmt: country.gmt,
                     id: country.id,
                   });

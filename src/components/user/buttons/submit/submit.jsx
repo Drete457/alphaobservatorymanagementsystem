@@ -28,6 +28,8 @@ const submit = (
     user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
     sessionStorage.removeItem('cardsPosition');
 
+    user.name = user.name.trim();
+
     //if the user have a file send to backend
     if (user.profile) {
       const ref = 'profile/' + user.id + '.pdf';

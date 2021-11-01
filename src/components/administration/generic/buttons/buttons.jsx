@@ -67,6 +67,8 @@ const Buttons = ({
                         newAttr.id = uniqueId();
                       }
 
+                      newAttr.name = newAttr.name.trim();
+
                       return newAttr;
                     });
                   }

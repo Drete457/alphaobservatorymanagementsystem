@@ -28,6 +28,8 @@ const exportToExcel = (data, t) => {
     delete currentUser.personality;
     delete currentUser.second;
     delete currentUser.introductionOption;
+    delete currentUser.reservation;
+    delete currentUser.introductionDate;
     delete currentUser.cardsInfo;
     delete currentUser.baseAmbit;
     delete currentUser.contact;
@@ -60,6 +62,8 @@ const exportToExcel = (data, t) => {
     newUser.Personality = user.personality;
     newUser.Second_Survey = user.second;
     newUser.Suitable_Introductive_Meeting = user.introductionOption;
+    newUser.Reservation_Date = user.reservation;
+    newUser.Introdution_Date = user.introductionDate;
     newUser.Cards = user.cardsInfo;
     newUser.Base_Ambit = user.baseAmbit;
     newUser.Contacted = user.contacted;

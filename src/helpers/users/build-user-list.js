@@ -68,11 +68,16 @@ const buildUserList = (data, countriesList, genericList, setListUsers) => {
     }
 
     user.cardsInfo = '';
+    user.reservation = '';
     if (user.cards) {
       const cardsNamesArray = user.cards.map((card) => {
         const cardInfo = genericList?.cardTypes.find(
           (value) => value.id === card.id,
         );
+
+        if ('reservation' in card) {
+          user.reservation = card.reservation;
+        }
 
         return cardInfo?.name;
       });

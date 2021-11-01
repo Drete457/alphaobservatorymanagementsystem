@@ -20,6 +20,8 @@ const exportToExcel = (data, generic) => {
     newUser.Personality = user.personality;
     newUser.Second_Survey = user.second;
     newUser.Suitable_Introductive_Meeting = user.introductionOption;
+    newUser.Reservation_Date = user.reservation;
+    newUser.Introdution_Date = user.introductionDate;
     newUser.Cards = user.cardsInfo;
     newUser.Base_Ambit = user.baseAmbit;
     newUser.Contacted = user.contacted;

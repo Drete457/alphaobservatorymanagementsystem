@@ -73,6 +73,7 @@ const UserCards = ({ user, userList, cardsTypes }) => {
                         card={card}
                         userList={userList}
                         cardBasicInfo={cardBasicInfo}
+                        t={t}
                       />
                     </CCard>
                   );

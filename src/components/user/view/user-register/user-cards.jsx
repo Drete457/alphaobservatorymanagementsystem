@@ -46,15 +46,10 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
 
     for (let value in cardsWithId) {
       const id = cardsWithId[value].id;
-      const reservation = cardsWithId[value]?.reservation;
 
       if (id in cardsIdToPutDate) {
         const propertie = cardsIdToPutDate[id];
         user[propertie] = cardsWithId[value].date;
-      }
-
-      if (reservation) {
-        user['introductionDate'] = reservation;
       }
     }
 

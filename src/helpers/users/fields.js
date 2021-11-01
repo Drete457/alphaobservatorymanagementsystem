@@ -41,6 +41,10 @@ const fields = (t) => {
       _style: { width: '6%' },
     },
     {
+      key: 'reservation',
+      label: t('user.fields.cards.reservation'),
+    },
+    {
       key: 'introductionOption',
       label: t('user.fields.introduction.option.title'),
     },

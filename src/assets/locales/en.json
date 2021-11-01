@@ -69,7 +69,8 @@
         "save": "Save The Card",
         "delete": "Delete",
         "yes": "Yes",
-        "no": "No"
+        "no": "No",
+        "reservation": "Reservation Date"
       },
       "profile": {
         "insert": "Upload The Profile",
@@ -202,7 +203,8 @@
         "bodyplaceholder": "Don't Delete The Text",
         "error": "It Is Necessary To Complete The Card",
         "trainer": "Choose The Trainer Name",
-        "title": "Cards"
+        "title": "Cards",
+        "reservation": "Reservation Date"
       },
       "profile": {
         "title": "Profile Url",

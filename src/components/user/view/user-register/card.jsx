@@ -6,6 +6,7 @@ import {
   InputField,
 } from 'components/user/input';
 import DeleteWarning from 'components/user/view/delete-card-warning';
+import Button from 'components/button/button';
 import CIcon from '@coreui/icons-react';
 
 const newObjCard = (event, cardsTypes, selfCard) => {
@@ -38,6 +39,7 @@ const Card = ({
   const [selfCard, setSelfCard] = useState(card);
   const [edit, setEdit] = useState(false);
   const [deleteCardState, setDeleteCardState] = useState(false);
+  const [haveReservation, setHaveReservation] = useState(card?.reservation);
   const trainers = selfCard?.trainer.map?.(
     (value) => ' ' + userList.find((user) => user.id === value)?.name,
   );
@@ -122,18 +124,30 @@ const Card = ({
                       }
                       className="card-input-format"
                     />
+
                     {selfCard.id ===
                       '6d2921e88a9f-d886fc90-b3dcf229-67033952-fcf54ae2ba55bacf' && (
-                      <InputField
-                        name="reservation"
-                        type="date"
-                        value={selfCard?.reservation}
-                        onChange={(event) =>
-                          updateCard('reservation', event.target.value)
-                        }
-                        className="card-input-format"
-                      />
+                      <>
+                        {!haveReservation && (
+                          <Button
+                            onClick={() => setHaveReservation(true)}
+                            name={t('btn.create-edit.cards.reservation')}
+                          />
+                        )}
+                        {haveReservation && (
+                          <InputField
+                            name="reservation"
+                            type="date"
+                            value={selfCard?.reservation}
+                            onChange={(event) =>
+                              updateCard('reservation', event.target.value)
+                            }
+                            className="card-input-format"
+                          />
+                        )}
+                      </>
                     )}
+
                     {selfCard.id !==
                       '6d2921e88a9f-d886fc90-b3dcf229-67033952-fcf54ae2ba55bacf' && (
                       <SelectFieldComponent
@@ -172,7 +186,12 @@ const Card = ({
               )
             ) : (
               <div>
-                {trainers && <div>{selfCard?.date + ' ' + trainers}</div>}
+                {trainers && <div>{`${selfCard?.date} ${trainers}`}</div>}
+                {selfCard?.reservation && (
+                  <div>{`${selfCard?.reservation} ${t(
+                    'user.fields.cards.reservation',
+                  )}`}</div>
+                )}
                 <div className="text-line">{selfCard?.body}</div>
               </div>
             )}

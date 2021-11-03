@@ -30,6 +30,7 @@ const DataTable = ({
       clickableRows
       columnFilter
       tableFilter
+      footer
       hover
       striped
       sorter

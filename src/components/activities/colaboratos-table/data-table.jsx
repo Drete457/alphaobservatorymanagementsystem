@@ -102,6 +102,7 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
       fields={fields}
       columnFilter
       tableFilter
+      footer
       hover
       striped
       sorter

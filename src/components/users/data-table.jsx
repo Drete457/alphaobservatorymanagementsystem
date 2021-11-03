@@ -19,6 +19,7 @@ const DataTable = ({ users }) => {
       clickableRows
       columnFilter
       tableFilter
+      footer
       hover
       striped
       sorter

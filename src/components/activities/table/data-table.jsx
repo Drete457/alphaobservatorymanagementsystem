@@ -47,6 +47,7 @@ const DataTable = ({ activities, isLoading }) => {
       clickableRows
       columnFilter
       tableFilter
+      footer
       hover
       striped
       sorter

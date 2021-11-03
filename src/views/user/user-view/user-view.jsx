@@ -26,8 +26,15 @@ const UserView = ({ match }) => {
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
+  const resetPage = () => {
+    setUser(null);
+    setActive(0);
+  };
+
   useLayoutEffect(() => {
     const userID = match.params.id;
+
+    resetPage();
     execute(userID);
   }, [execute, match]);
 

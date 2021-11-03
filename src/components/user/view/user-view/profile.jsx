@@ -2,19 +2,7 @@ import { useEffect } from 'react';
 import { CForm, CProgress } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { download } from 'hooks/files';
-import { InputField } from 'components/user/input';
 import ErrorInfo from 'components/error';
-
-{
-  /* <InputField
-  title={t('user.fields.profile.title')}
-  name="profileUrl"
-  type="url"
-  value={user?.profileUrl}
-  className="profile-input-format"
-  disabled
-/> */
-}
 
 const ProfilePage = ({ user }) => {
   const link = user?.profileUrl ? user.profileUrl : '';

@@ -1,5 +1,6 @@
 import { useState, useLayoutEffect, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { countries, generic, users } from 'state/atoms';
 import {
@@ -15,6 +16,7 @@ import DataTable from 'components/reception/view/reception-view';
 
 const ReceptionView = () => {
   const [t] = useTranslation();
+  const history = useHistory();
   const [entry, setEntry] = useState([]);
   const [errorInfo, setErrorInfo] = useState({});
 
@@ -30,7 +32,6 @@ const ReceptionView = () => {
 
   const convertEntry = (id) => {
     getEntry(id);
-    execute();
   };
 
   const deleteEntryFunction = (id) => {
@@ -48,12 +49,13 @@ const ReceptionView = () => {
   useLayoutEffect(() => {
     if (entryData) {
       const id = entryData.id;
+      const link = `/user/view/${id}`;
 
       postUser(entryData);
       deleteEntry(id);
-      execute();
+      history.push(link);
     }
-  }, [entryData, postUser, deleteEntry, execute]);
+  }, [entryData, postUser, deleteEntry, history]);
 
   useLayoutEffect(() => {
     if (data) {

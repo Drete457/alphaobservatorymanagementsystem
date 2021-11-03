@@ -1,14 +1,15 @@
 import { useState, useLayoutEffect } from 'react';
-import { Prompt } from 'react-router-dom';
-import { countries, generic, users } from 'state/atoms';
+import { Prompt, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { countries, generic, users } from 'state/atoms';
 import { useRecoilValue } from 'recoil';
 import {
   ReceptionRegister,
   ReceptionSocial,
   ProfilePage,
 } from 'components/reception/view/reception-register';
-import { useGetReceptionCard } from 'hooks/reception';
+import { useGetReceptionCard, useDeleteReceptionCard } from 'hooks/reception';
+import { usePostUser } from 'hooks/users';
 import ErrorInfo from 'components/error';
 import Tabs from 'components/reception/tabs';
 import Submit from 'components/reception/buttons/submit';
@@ -16,6 +17,7 @@ import Loading from 'components/loading';
 import userHandler from 'helpers/user';
 
 const ReceptionEdit = ({ match }) => {
+  const history = useHistory();
   const [t] = useTranslation();
   const [user, setUser] = useState({});
   const [active, setActive] = useState(0);
@@ -27,13 +29,23 @@ const ReceptionEdit = ({ match }) => {
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
   const { usersWithFollowers: usersList } = useRecoilValue(users);
-
   const {
     isLoading,
     error: errorServer,
     data,
     execute,
   } = useGetReceptionCard();
+  const { execute: postUser } = usePostUser();
+  const { execute: deleteEntry } = useDeleteReceptionCard();
+
+  const convertEntry = () => {
+    const id = user?.id;
+    const link = `/user/view/${id}`;
+
+    postUser(user);
+    deleteEntry(id);
+    history.push(link);
+  };
 
   useLayoutEffect(() => {
     const userID = match.params.id;
@@ -80,6 +92,7 @@ const ReceptionEdit = ({ match }) => {
             setError={setError}
             setWasModified={setWasModified}
             validName={validName}
+            convertEntry={convertEntry}
           />
           {active === 0 && (
             <ReceptionRegister

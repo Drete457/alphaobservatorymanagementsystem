@@ -61,6 +61,7 @@ const Submit = ({
   setError,
   setWasModified,
   validName = true,
+  convertEntry,
 }) => {
   const history = useHistory();
   const [t] = useTranslation();
@@ -90,6 +91,14 @@ const Submit = ({
     <>
       {!dataUpload && <CProgress animated value={progress} className="mb-3" />}
       <div className="user-submit-buttons">
+        {validName && convertEntry && (
+          <Button
+            name={t('btn.create-edit.convert')}
+            onClick={() => {
+              convertEntry();
+            }}
+          />
+        )}
         <Button
           name={t('btn.create-edit.cancel')}
           isDanger={true}

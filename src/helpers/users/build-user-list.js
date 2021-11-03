@@ -15,7 +15,9 @@ const buildUserList = (data, countriesList, genericList, setListUsers) => {
   );
   usersListSort.unshift({ id: '1', name: 'None' });
 
-  const fillArrayData = sortedList?.map((user) => {
+  const fillArrayData = sortedList?.map((value) => {
+    let user = { ...value };
+
     if (user.followed) {
       const followedBy = usersListSort.find(
         (value) => value.id === user.followed,

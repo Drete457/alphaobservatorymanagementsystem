@@ -1,16 +1,18 @@
 import { useState, useCallback } from 'react';
-import { getDatabase, ref, child, get } from 'firebase/database';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import { reception } from 'components/user';
 
 export const getReceptionCards = async (set) => {
   const database = getDatabase();
-  const dbRef = ref(database);
-  const response = await get(child(dbRef, reception));
-  if (response.val() === null) {
-    set([]);
-  } else {
-    set(response.val());
-  }
+  const dbRef = ref(database, reception);
+
+  onValue(dbRef, (snapshot) => {
+    if (snapshot.val() !== null) {
+      set(snapshot.val());
+    } else {
+      set({});
+    }
+  });
 };
 
 const useGetReceptionCards = () => {

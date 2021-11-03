@@ -106,7 +106,6 @@ const TableImport = () => {
 
       if (count === tableFile.length) {
         history.push('/users');
-        console.table(table);
       }
     }
   }, [tableFile, genericList, countriesList, execute, history]);

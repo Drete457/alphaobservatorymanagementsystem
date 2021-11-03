@@ -24,7 +24,6 @@ const DataTable = ({
 
   return (
     <CDataTable
-      addTableClasses="users-table"
       items={entriesSort}
       fields={receptionHandler.fields(t)}
       clickableRows
@@ -60,7 +59,7 @@ const DataTable = ({
                 <CModal show={modal} onClose={setModal} centered size="sm">
                   <CRow
                     md="12"
-                    className="d-flex flex-row justify-content-center"
+                    className="d-flex flex-row justify-content-center text-center"
                   >
                     <>
                       <header>

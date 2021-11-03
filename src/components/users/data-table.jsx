@@ -22,7 +22,6 @@ const DataTable = ({ users }) => {
       hover
       striped
       sorter
-      size="sm"
       responsive
       itemsPerPageSelect
       itemsPerPage={25}

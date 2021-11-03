@@ -78,12 +78,10 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
         {
           key: 'name',
           label: t('dates.fields.name'),
-          _style: { width: '20%' },
         },
         {
           key: 'followed',
           label: t('user.fields.followed.title'),
-          _style: { width: '20%' },
         },
         {
           key: 'numberOfActivities',
@@ -99,7 +97,7 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
 
   return (
     <CDataTable
-      addTableClasses="home-table"
+      addTableClasses="users-table"
       items={newUserWithActivities}
       fields={fields}
       columnFilter

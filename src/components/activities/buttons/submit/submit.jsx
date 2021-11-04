@@ -137,8 +137,16 @@ const Submit = ({
               //get the day and month 31 day ago
               const today = new Date();
               const priorDate = activitiesHandler.subtractDaysFormat(today, 31);
+              const weeks = activitiesHandler.weeksBetweenDates(
+                priorDate,
+                today,
+              );
 
-              getActivities(priorDate);
+              if (weeks.length > 4) {
+                weeks.shift();
+              }
+
+              getActivities(weeks[0]);
               getUsers();
               execute(newActivity);
               setWasModified(false);

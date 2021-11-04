@@ -126,6 +126,22 @@ const calendarToShow = (activities, t) => {
   return dates;
 };
 
+//function return weeks between two dates
+const weeksBetweenDates = (startDate, endDate) => {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  let weeks = [];
+  let currentDate = start;
+
+  while (currentDate <= end) {
+    weeks.push(`${currentDate.toISOString().substring(0, 10)}`);
+    currentDate = addDays(currentDate, 7);
+  }
+
+  return weeks;
+};
+
 export default calendarToShow;
 
-export { addDaysFormat, subtractDaysFormat };
+export { addDaysFormat, subtractDaysFormat, weeksBetweenDates };

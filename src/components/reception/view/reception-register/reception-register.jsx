@@ -153,6 +153,25 @@ const ReceptionRegister = ({
               options={genericList?.personality}
               className="user-input-format"
             />
+
+            <SelectFieldComponent
+              title={t('user.fields.survey.type.title')}
+              name="typeSurvey"
+              placeholder={t('user.fields.survey.type.placeholder')}
+              value={user?.typeSurvey}
+              errorMsg={errorMsg?.typeSurvey}
+              onChange={(value) => {
+                userHandler.userSelectHandler(
+                  'typeSurvey',
+                  value,
+                  setUser,
+                  user,
+                );
+                setWasModified(true);
+              }}
+              options={genericList?.survey}
+              className="user-input-format"
+            />
           </div>
         </CForm>
       </main>

@@ -35,6 +35,7 @@ const exportToExcel = (data, generic) => {
       newUser.InvitationAlphaCafe = user.invitationAlphaCafe;
     }
 
+    newUser.SurveyType = user?.typeSurvey;
     newUser.CreateDate = user.createDate;
     newUser.CreateBy = user.createUser;
 

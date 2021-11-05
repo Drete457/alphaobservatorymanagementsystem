@@ -145,7 +145,7 @@
       "introduction": {
         "option": {
           "title": "Suitable Introductive Meeting",
-          "placeholder": "Choose If The Collaborator Is Suitable For Introductive Meeting"
+          "placeholder": "Choose If The Collaborator Is Suitable"
         },
         "date": {
           "title": "Introductory Meeting Date",
@@ -178,6 +178,11 @@
           "title": "Survey Friend*",
           "placeholder": "Write The Survey Friend Link Of The Collaborator",
           "error": "Missing The Friend Link"
+        },
+        "type": {
+          "title": "Survey Type*",
+          "placeholder": "Choose The Survey Type Of The Collaborator",
+          "error": "Missing The Survey Type"
         }
       },
       "ambit": {
@@ -299,6 +304,10 @@
     "years": {
       "name": "Year",
       "placeholder": "Write The Year"
+    },
+    "survey": {
+      "name": "Survey",
+      "placeholder": "Write The Survey Name"
     },
     "error": "Need To Write a Name"
   },
@@ -446,6 +455,10 @@
       "years": {
         "tab": "Years",
         "title": "Years"
+      },
+      "survey": {
+        "tab": "Survey",
+        "title": "Survey"
       }
     },
     "logs": {

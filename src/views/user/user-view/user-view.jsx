@@ -23,7 +23,6 @@ const UserView = ({ match }) => {
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
   const { usersWithFollowers: usersList } = useRecoilValue(users);
-
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
   const resetPage = () => {

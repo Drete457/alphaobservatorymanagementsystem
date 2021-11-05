@@ -68,6 +68,10 @@ const fields = (t) => {
       key: 'employment',
       label: t('user.fields.employment.title'),
     },
+    {
+      key: 'typeSurvey',
+      label: t('user.fields.survey.type.title'),
+    },
   ];
 };
 

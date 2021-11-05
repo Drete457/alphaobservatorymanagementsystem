@@ -23,6 +23,10 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
   const personality = genericList.personality.find(
     (options) => options.id === user.personality,
   );
+  const reservation = user?.cards?.find?.((card) => card.reservation);
+  const typeSurvey = genericList.survey.find(
+    (options) => options.id === user?.typeSurvey,
+  );
 
   return (
     <>
@@ -154,19 +158,19 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
 
           <div className="user-input">
             <InputField
-              title={t('user.fields.birthyear.title')}
-              name="birthyear"
+              title={t('user.fields.cards.reservation')}
+              name="reservation"
               type="text"
-              value={birthyear?.name}
+              value={reservation ? reservation.reservation : ''}
               className="user-input-format"
               disabled
             />
 
             <InputField
-              title={t('user.fields.community.title')}
-              name="community"
+              title={t('user.fields.survey.type.title')}
+              name="typeSurvey"
               type="date"
-              value={user?.community}
+              value={typeSurvey?.name}
               className="user-input-format"
               disabled
             />
@@ -227,6 +231,26 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               name="invitationAlphaCafe"
               type="date"
               value={user?.invitationAlphaCafe}
+              className="user-input-format"
+              disabled
+            />
+          </div>
+
+          <div className="user-input">
+            <InputField
+              title={t('user.fields.birthyear.title')}
+              name="birthyear"
+              type="text"
+              value={birthyear?.name}
+              className="user-input-format"
+              disabled
+            />
+
+            <InputField
+              title={t('user.fields.community.title')}
+              name="community"
+              type="date"
+              value={user?.community}
               className="user-input-format"
               disabled
             />

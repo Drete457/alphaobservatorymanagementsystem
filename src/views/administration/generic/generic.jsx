@@ -35,7 +35,7 @@ const Generic = () => {
       setOriginalData(data);
     }
   }, [data]);
-  console.log(generic);
+
   return (
     <>
       {error ? (

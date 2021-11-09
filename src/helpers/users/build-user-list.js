@@ -142,11 +142,10 @@ const buildUserList = (data, countriesList, genericList, setListUsers) => {
     }
 
     if (user?.typeSurvey) {
-      console.log(genericList);
       const typeSurvey = genericList.survey.find(
         (value) => value.id === user?.typeSurvey,
       )?.name;
-      console.log(typeSurvey);
+
       user.typeSurvey = typeSurvey;
     } else {
       user.typeSurvey = '';

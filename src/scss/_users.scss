@@ -1,69 +1,74 @@
 //users page
 .users-nav {
-    display: flex;
-    margin: 1rem;
+  display: flex;
+  margin: 1rem;
 }
 
 .users-button {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .button-font-weight {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .users-table {
-    font-size: small;
-    text-align: center;
-    width: max-content;
-  }
+  font-size: small;
+  text-align: center;
+  width: max-content;
+}
+
+.entries-table {
+  font-size: small;
+  text-align: left;
+}
 
 //users pages
 .input-style,
 select-style {
-    height: 2.45rem;
+  height: 2.45rem;
 }
 
 .input-style {
-    border: 0.01rem solid $borderColor;
+  border: 0.01rem solid $borderColor;
 }
 
 .input-style:hover {
-    border: 0.02rem solid $borderColorHover;
+  border: 0.02rem solid $borderColorHover;
 }
 
 .input-style:focus {
-    border-color: 0 0 0 0.2rem rgba(0, 0, 139, 1);
-    box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
-    -moz-box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
-    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
+  border-color: 0 0 0 0.2rem rgba(0, 0, 139, 1);
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
+  -moz-box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 0, 139, 1);
 }
 
 .main-body {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .user-input {
-    margin: auto;
+  margin: auto;
 }
 
 .user-input-error {
-    color: $errorMessageColor;
+  color: $errorMessageColor;
 }
 
 .user-input-format {
-    display: inline-block;
-    width: 45%;
-    margin: 1rem;
+  display: inline-block;
+  width: 45%;
+  margin: 1rem;
 }
 
 .user-submit-buttons {
-    display: flex;
-    width: 95%;
-    justify-content: flex-end;
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
 }
 
 .profile-input-format {
-    display: flex;
-    margin-right: 1rem;
+  display: flex;
+  margin-right: 1rem;
 }

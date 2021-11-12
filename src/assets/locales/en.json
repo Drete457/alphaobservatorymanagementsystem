@@ -318,6 +318,7 @@
     "nointernet": "No Internet Connection",
     "reception": {
       "title": "Entries View",
+      "numberUsers": "Number Of Entries",
       "registration-edit": {
         "colaborator": {
           "title": "Entry Registration"

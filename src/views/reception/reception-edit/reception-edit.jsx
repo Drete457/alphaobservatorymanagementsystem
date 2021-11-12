@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect } from 'react';
-import { Prompt, useHistory } from 'react-router-dom';
+import { useHistory, Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { countries, generic, users } from 'state/atoms';
 import { useRecoilValue } from 'recoil';

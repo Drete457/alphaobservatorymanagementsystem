@@ -85,7 +85,11 @@ const ReceptionView = () => {
             <h1 className="title">{t('pages.reception.title')}</h1>
           </header>
 
-          <main className="main-body">
+          <main>
+            <hr />
+            <nav className="users-nav h3">
+              {t('pages.reception.numberUsers') + ': ' + entry?.length}
+            </nav>
             <hr />
             <DataTable
               entries={entry}

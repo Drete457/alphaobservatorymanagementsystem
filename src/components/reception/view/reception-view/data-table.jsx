@@ -24,6 +24,7 @@ const DataTable = ({
 
   return (
     <CDataTable
+      addTableClasses="entries-table"
       items={entriesSort}
       fields={receptionHandler.fields(t)}
       clickableRows

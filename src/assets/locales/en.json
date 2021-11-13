@@ -104,6 +104,9 @@
         "title": "Country*",
         "placeholder": "Choose The Country Of The Collaborator"
       },
+      "hour": {
+        "title": "Local Hour"
+      },
       "contacted": {
         "title": "Contacted By*",
         "placeholder": "Choose The Person That Contact This Collaborator"

@@ -16,6 +16,10 @@ const fields = (t) => {
       _style: { width: '10%' },
     },
     {
+      key: 'timezone',
+      label: t('user.fields.hour.title'),
+    },
+    {
       key: 'socialInfo',
       label: t('user.fields.social.title'),
       _style: { width: '10%' },

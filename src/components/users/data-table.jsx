@@ -2,11 +2,14 @@ import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import homeHandler from 'helpers/users';
+import moment from 'moment-timezone';
 import CIcon from '@coreui/icons-react';
 
 const DataTable = ({ users }) => {
   const [t] = useTranslation();
   const history = useHistory();
+  const localTime = new Date().toISOString();
+  const globalHour = moment(localTime);
 
   //put all none to the end of the list
   const usersListSort = homeHandler.mainTableSortList(users);
@@ -36,6 +39,17 @@ const DataTable = ({ users }) => {
         </div>
       }
       onRowClick={(item) => history.push(`/user/view/${item.id}`)}
+      scopedSlots={{
+        timezone: (item) => {
+          let hour = '';
+
+          if (item.timezone) {
+            hour = globalHour.tz(item.timezone).format('HH:mm');
+          }
+
+          return <td>{hour}</td>;
+        },
+      }}
     />
   );
 };

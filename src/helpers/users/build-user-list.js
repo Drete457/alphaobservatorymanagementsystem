@@ -26,11 +26,13 @@ const buildUserList = (data, countriesList, genericList, setListUsers) => {
       user.followed = followedBy;
     }
 
+    user.timezone = '';
     if (user.country) {
       const countryName = countriesList.find(
         (country) => country.id === user.country,
       );
 
+      user.timezone = countryName?.timezone;
       user.country = userHandler.countryNameAndGmt(countryName);
     }
 

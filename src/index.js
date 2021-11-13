@@ -24,7 +24,7 @@ const refreshPage = () => {
 startFirebase();
 
 //every 12 hours
-setTimeout(refreshPage, 1000 * 60 * 60 * 12);
+setTimeout(refreshPage, 3000 * 60 * 60 * 12);
 
 //use this if you need to have big fix and the site has to be offline
 const isUpdating = false;

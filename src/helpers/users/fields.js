@@ -13,6 +13,10 @@ const fields = (t) => {
       label: t('user.fields.country.title'),
     },
     {
+      key: 'timezone',
+      label: t('user.fields.hour.title'),
+    },
+    {
       key: 'socialInfo',
       label: t('user.fields.social.title'),
     },

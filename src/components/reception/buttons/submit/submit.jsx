@@ -62,6 +62,8 @@ const Submit = ({
   setWasModified,
   validName = true,
   convertEntry,
+  hour,
+  timeZone,
 }) => {
   const history = useHistory();
   const [t] = useTranslation();
@@ -91,6 +93,11 @@ const Submit = ({
     <>
       {!dataUpload && <CProgress animated value={progress} className="mb-3" />}
       <div className="user-submit-buttons">
+        {timeZone && hour && (
+          <span className="align-self-center">
+            {t('user.fields.hour.title')}: {hour.tz(timeZone).format('HH:mm')}h
+          </span>
+        )}
         {validName && convertEntry && (
           <Button
             name={t('btn.create-edit.convert')}

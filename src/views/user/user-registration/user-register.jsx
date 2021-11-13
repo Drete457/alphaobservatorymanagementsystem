@@ -14,6 +14,7 @@ import Submit from 'components/user/buttons/submit';
 import Tabs from 'components/user/tabs';
 import userHandler from 'helpers/user';
 import uniqueId from 'helpers/id-generator';
+import homeHandler from 'helpers/users';
 
 const UserRegistration = () => {
   const [t] = useTranslation();
@@ -26,6 +27,8 @@ const UserRegistration = () => {
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
   const [validName, setValidName] = useState(false);
+  const [hour, setHour] = useState('');
+  const [timeZone, setTimeZone] = useState('');
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
@@ -40,6 +43,17 @@ const UserRegistration = () => {
       setValidName(!result);
     }
   }, [user.name, usersList]);
+
+  useLayoutEffect(() => {
+    if (user.country) {
+      const zone = countriesList.find(
+        (country) => country.id === user.country,
+      )?.timezone;
+
+      homeHandler.minuteUpdate(setHour);
+      setTimeZone(zone);
+    }
+  }, [user.country, countriesList]);
 
   return (
     <>
@@ -58,6 +72,8 @@ const UserRegistration = () => {
             setError={setError}
             setWasModified={setWasModified}
             validName={validName}
+            hour={hour}
+            timeZone={timeZone}
           />
           {active === 0 && (
             <UserRegister

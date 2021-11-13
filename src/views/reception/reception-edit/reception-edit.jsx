@@ -15,6 +15,7 @@ import Tabs from 'components/reception/tabs';
 import Submit from 'components/reception/buttons/submit';
 import Loading from 'components/loading';
 import userHandler from 'helpers/user';
+import homeHandler from 'helpers/users';
 
 const ReceptionEdit = ({ match }) => {
   const history = useHistory();
@@ -25,6 +26,8 @@ const ReceptionEdit = ({ match }) => {
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
   const [validName, setValidName] = useState(false);
+  const [hour, setHour] = useState('');
+  const [timeZone, setTimeZone] = useState('');
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
@@ -75,6 +78,17 @@ const ReceptionEdit = ({ match }) => {
     }
   }, [user.name, usersList]);
 
+  useLayoutEffect(() => {
+    if (user?.country) {
+      const zone = countriesList.find(
+        (country) => country.id === user.country,
+      )?.timezone;
+
+      homeHandler.minuteUpdate(setHour);
+      setTimeZone(zone);
+    }
+  }, [user?.country, countriesList]);
+
   return (
     <>
       {error ? (
@@ -93,6 +107,8 @@ const ReceptionEdit = ({ match }) => {
             setWasModified={setWasModified}
             validName={validName}
             convertEntry={convertEntry}
+            hour={hour}
+            timeZone={timeZone}
           />
           {active === 0 && (
             <ReceptionRegister

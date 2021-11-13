@@ -11,6 +11,7 @@ import { useRecoilValue } from 'recoil';
 import { countries, generic, users } from 'state/atoms';
 import { useTranslation } from 'react-i18next';
 import userHandler from 'helpers/user';
+import homeHandler from 'helpers/users';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
@@ -23,6 +24,8 @@ const UserEdition = ({ match }) => {
   const [wasModified, setWasModified] = useState(false);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
+  const [hour, setHour] = useState('');
+  const [timeZone, setTimeZone] = useState('');
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
@@ -48,6 +51,17 @@ const UserEdition = ({ match }) => {
     }
   }, [errorServer]);
 
+  useLayoutEffect(() => {
+    if (user?.country) {
+      const zone = countriesList.find(
+        (country) => country.id === user.country,
+      )?.timezone;
+
+      homeHandler.minuteUpdate(setHour);
+      setTimeZone(zone);
+    }
+  }, [user?.country, countriesList]);
+
   return (
     <>
       {error ? (
@@ -64,6 +78,8 @@ const UserEdition = ({ match }) => {
             setErrorMsg={setErrorMsg}
             setError={setError}
             setWasModified={setWasModified}
+            hour={hour}
+            timeZone={timeZone}
           />
           {active === 0 && (
             <UserEdit

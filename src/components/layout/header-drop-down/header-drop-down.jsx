@@ -19,11 +19,11 @@ const HeaderAccountDropdown = ({ logOut }) => {
   useEffect(() => {
     if (isUser) {
       //Wellcome the User
-      const speakUserName = new SpeechSynthesisUtterance();
+      /*   const speakUserName = new SpeechSynthesisUtterance();
       speakUserName.lang = 'en';
       speakUserName.volume = 0.5;
       speakUserName.text = `Wellcome to the Alpha Observatory Management System, ${isUser.name}`;
-      window.speechSynthesis.speak(speakUserName);
+      window.speechSynthesis.speak(speakUserName); */
     }
   }, [isUser]);
 

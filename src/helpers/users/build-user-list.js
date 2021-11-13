@@ -2,39 +2,37 @@ import homeHandler from '.';
 import userHandler from 'helpers/user';
 import sortList from './sort-list';
 
-const buildUserList = (
-  data,
-  countriesList,
-  genericList,
-  setListUsers,
-  setUsers,
-  setUsersWithFollowers,
-) => {
+const buildUserList = (data, countriesList, genericList, setListUsers) => {
+  const logsArray = [];
   const arrayData = Object.values(data);
   const sortedList = arrayData.sort((user1, user2) =>
     sortList(user1, user2, 'name'),
   );
 
-  const userList = homeHandler.buildUsersListFilter(data);
-  const userListSort = userList.sort((user1, user2) =>
+  const usersList = homeHandler.buildUsersListFilter(data);
+  const usersListSort = usersList.sort((user1, user2) =>
     sortList(user1, user2, 'name'),
   );
-  userListSort.unshift({ id: '1', name: 'None' });
+  usersListSort.unshift({ id: '1', name: 'None' });
 
-  const fillArrayData = sortedList?.map((user) => {
+  const fillArrayData = sortedList?.map((value) => {
+    let user = { ...value };
+
     if (user.followed) {
-      const followedBy = userListSort.find(
+      const followedBy = usersListSort.find(
         (value) => value.id === user.followed,
       )?.name;
 
       user.followed = followedBy;
     }
 
+    user.timezone = '';
     if (user.country) {
       const countryName = countriesList.find(
         (country) => country.id === user.country,
       );
 
+      user.timezone = countryName?.timezone;
       user.country = userHandler.countryNameAndGmt(countryName);
     }
 
@@ -74,11 +72,16 @@ const buildUserList = (
     }
 
     user.cardsInfo = '';
+    user.reservation = '';
     if (user.cards) {
       const cardsNamesArray = user.cards.map((card) => {
         const cardInfo = genericList?.cardTypes.find(
           (value) => value.id === card.id,
         );
+
+        if ('reservation' in card) {
+          user.reservation = card.reservation;
+        }
 
         return cardInfo?.name;
       });
@@ -92,8 +95,12 @@ const buildUserList = (
       delete user.cardsPosition;
     }
 
+    if (!user?.invitationAlphaCafe) {
+      user.invitationAlphaCafe = '';
+    }
+
     if (user.contacted) {
-      let contactBy = userList.find(
+      let contactBy = usersList.find(
         (value) => value.id === user.contacted,
       )?.name;
 
@@ -116,6 +123,7 @@ const buildUserList = (
       const year = genericList?.years.find(
         (year) => year.id === user.birthyear,
       );
+      user.birthyear = year.name;
       user.groupAge = homeHandler.groupAge(year.name, genericList?.groupAge);
     } else {
       user.groupAge = '';
@@ -129,15 +137,34 @@ const buildUserList = (
       user.employment = employmentName;
     }
 
+    if (user?.lastModification) {
+      user.lastModification.forEach((log) =>
+        logsArray.push({ ...log, name: user.name }),
+      );
+    }
+
+    if (user?.typeSurvey) {
+      const typeSurvey = genericList.survey.find(
+        (value) => value.id === user?.typeSurvey,
+      )?.name;
+
+      user.typeSurvey = typeSurvey;
+    } else {
+      user.typeSurvey = '';
+    }
+
     return user;
   });
 
-  if (userList.length > 0) {
-    setListUsers(userList);
-  }
+  if (usersList.length > 0) {
+    const obj = {
+      usersDataInfo: fillArrayData,
+      usersWithFollowers: usersListSort,
+      logs: logsArray,
+    };
 
-  setUsers(fillArrayData);
-  setUsersWithFollowers(fillArrayData);
+    setListUsers(obj);
+  }
 };
 
 export default buildUserList;

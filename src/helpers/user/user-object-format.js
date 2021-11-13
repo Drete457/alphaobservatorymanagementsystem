@@ -21,6 +21,9 @@ const userFormat = {
   socialInfo: '',
   baseAmbit: '',
   explainAlphaCafe: '',
+  createDate: '',
+  createUser: '',
+  lastModification: [],
 };
 
 export default userFormat;

@@ -1,5 +1,5 @@
 const contactByFilter = (userList) => {
-  const newArray = userList.map?.((user) => {
+  const newArray = userList?.map?.((user) => {
     const newUser = { ...user };
 
     if (newUser.id === '1') {

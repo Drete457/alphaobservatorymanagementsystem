@@ -38,6 +38,8 @@ const filter = (list, valueToSearch) => {
 };
 
 const TableImport = () => {
+  //TODO: Delete the moment security is done
+  const securityIsDone = process.env.REACT_APP_IS_SECURITY_DONE === 'true';
   const [t] = useTranslation();
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
@@ -95,22 +97,6 @@ const TableImport = () => {
         newUser.surveyDate =
           user[15] != null ? ExcelDateToJSDate(user[15]) : ''; // date
 
-        /*
-        newUser.explainAlphaCafe =
-          user[10] != null ? user[10].replaceAll('/', '-') : ''; // date
-        newUser.training =
-          user[11] != null ? user[11].replaceAll('/', '-') : ''; // date
-        newUser.second = user[12] != null ? user[12].replaceAll('/', '-') : ''; // date
-        newUser.community =
-          user[14] != null ? user[14].replaceAll('/', '-') : ''; // date
-        newUser.firstActivity =
-          user[15] != null ? user[15].replaceAll('/', '-') : ''; // date
-        newUser.surveyDate =
-          user[16] != null ? user[16].replaceAll('/', '-') : ''; // date
-        newUser.baseAmbit =
-          user[13] != null ? user[13].replaceAll('/', '-') : ''; // date
-        */
-
         if (newUser.name !== '') {
           execute(newUser);
           table.push(newUser);
@@ -120,7 +106,6 @@ const TableImport = () => {
 
       if (count === tableFile.length) {
         history.push('/users');
-        console.table(table);
       }
     }
   }, [tableFile, genericList, countriesList, execute, history]);
@@ -150,10 +135,12 @@ const TableImport = () => {
                 });
               }}
             />
-            <Button
-              name={t('btn.table-import.button-import')}
-              onClick={onButtonClick}
-            />
+            {securityIsDone && (
+              <Button
+                name={t('btn.table-import.button-import')}
+                onClick={onButtonClick}
+              />
+            )}
           </div>
         )}
 

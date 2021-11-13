@@ -144,6 +144,23 @@ const Generic = () => {
               wasModified={wasModified}
             />
           )}
+          {active === 6 && (
+            <TabsViews.Generic
+              generic={generic?.survey}
+              type="survey"
+              title={t('pages.generic.survey.title')}
+              inputTitle={t('generic.survey.name')}
+              inputPlaceHolder={t('generic.survey.placeholder')}
+              isEdit={isEdit}
+              setIsEdit={setIsEdit}
+              setWasModified={setWasModified}
+              genericList={generic}
+              setGeneric={setGeneric}
+              originalData={originalData}
+              setOriginalData={setOriginalData}
+              wasModified={wasModified}
+            />
+          )}
         </>
       )}
       {isLoading && <Loading />}

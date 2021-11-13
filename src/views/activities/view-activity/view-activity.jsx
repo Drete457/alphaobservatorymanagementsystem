@@ -2,7 +2,7 @@ import { useState, useLayoutEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { listUsers, generic } from 'state/atoms';
+import { users, generic } from 'state/atoms';
 import { CForm } from '@coreui/react';
 import { useGetActivity } from 'hooks/activities';
 import { InputField } from 'components/activities/input';
@@ -19,16 +19,16 @@ const ViewActivity = ({ match }) => {
   const [activityType, setActivityType] = useState('');
   const [haveExtra, setHaveExtra] = useState(false);
 
-  const userList = useRecoilValue(listUsers);
+  const { usersWithFollowers: usersList } = useRecoilValue(users);
   const { activitiesType } = useRecoilValue(generic);
 
   const { isLoading, error, data, execute } = useGetActivity();
 
   useLayoutEffect(() => {
-    if (userList.length === 0) {
+    if (usersList.length === 0) {
       history.push('/users');
     }
-  }, [userList, activitiesType, history]);
+  }, [usersList, activitiesType, history]);
 
   useLayoutEffect(() => {
     const id = match.params.id;
@@ -41,7 +41,7 @@ const ViewActivity = ({ match }) => {
         (activity) => activity.id === data.type,
       );
       const userListNames = data?.list.map((userId) => {
-        const participant = userList.find((user) => user.id === userId);
+        const participant = usersList.find((user) => user.id === userId);
 
         return ' ' + participant.name;
       });
@@ -51,7 +51,7 @@ const ViewActivity = ({ match }) => {
       setActivityType(haveExtra?.name);
       setHaveExtra(haveExtra?.extra);
     }
-  }, [data, userList, activitiesType]);
+  }, [data, usersList, activitiesType]);
 
   return (
     <>
@@ -100,7 +100,9 @@ const ViewActivity = ({ match }) => {
               )}
 
               {activity?.list?.map((userId, index) => {
-                const participant = userList.find((user) => user.id === userId);
+                const participant = usersList.find(
+                  (user) => user.id === userId,
+                );
 
                 return (
                   <div className="activity-input" key={participant.id}>

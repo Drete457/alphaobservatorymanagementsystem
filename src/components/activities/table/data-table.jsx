@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { generic } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
-import Button from 'components/button';
+import homeHandler from 'helpers/users';
 import CIcon from '@coreui/icons-react';
 
 const DataTable = ({ activities, isLoading }) => {
@@ -31,7 +31,11 @@ const DataTable = ({ activities, isLoading }) => {
         };
       });
 
-      setList(filterList);
+      const filterListSort = filterList.sort?.((val1, val2) =>
+        homeHandler.sortList(val1, val2, 'date'),
+      );
+
+      setList(filterListSort.reverse());
     }
   }, [activities, activitiesType]);
 
@@ -40,8 +44,10 @@ const DataTable = ({ activities, isLoading }) => {
       addTableClasses="home-table"
       items={list}
       fields={activitiesHandler.fields(t)}
+      clickableRows
       columnFilter
       tableFilter
+      footer
       hover
       striped
       sorter
@@ -59,21 +65,9 @@ const DataTable = ({ activities, isLoading }) => {
           </h2>
         </div>
       }
-      scopedSlots={{
-        view: (item) => {
-          return (
-            <td>
-              <Button
-                name={t('btn.view')}
-                onClick={() =>
-                  history.push(`/activities/activities_table/view/${item.id}`)
-                }
-                className="home-button"
-              />
-            </td>
-          );
-        },
-      }}
+      onRowClick={(item) =>
+        history.push(`/activities/activities_table/view/${item.id}`)
+      }
     />
   );
 };

@@ -17,20 +17,20 @@ export const user = atom({
 
 export const countries = atom({
   key: 'countries',
-  default: null,
+  default: [],
 });
 
 export const generic = atom({
   key: 'generic',
-  default: null,
-});
-
-export const listUsers = atom({
-  key: 'listUser',
   default: [],
 });
 
-export const usersWithFollowers = atom({
-  key: 'usersWithFollowers',
+export const users = atom({
+  key: 'users',
+  default: [],
+});
+
+export const globalList = atom({
+  key: 'globalList',
   default: [],
 });

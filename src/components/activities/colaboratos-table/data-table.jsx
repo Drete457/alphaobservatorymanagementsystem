@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { listUsers, generic, usersWithFollowers } from 'state/atoms';
+import { users, generic } from 'state/atoms';
 import activitiesHandler from 'helpers/activities';
 import CIcon from '@coreui/icons-react';
 
@@ -11,8 +11,7 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
   const [fields, setFields] = useState([]);
   const newUserWithActivities = [];
 
-  const usersList = useRecoilValue(listUsers);
-  const usersWithFollowersList = useRecoilValue(usersWithFollowers);
+  const { usersDataInfo: usersList } = useRecoilValue(users);
   const { activitiesType } = useRecoilValue(generic);
 
   if (list.length > 0) {
@@ -37,16 +36,13 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
       const objProperties = Object.fromEntries(newProperties);
       const newUsersList = [];
 
-      usersList.forEach((user) => {
+      usersList?.forEach((user) => {
         if (user.id !== '1') {
-          const followed = usersWithFollowersList.find(
-            (value) => value.id === user.id,
-          )?.followed;
+          const userInfo = usersList.find((value) => value.id === user.id);
 
           newUsersList.push({
-            ...user,
+            ...userInfo,
             ...objProperties,
-            followed: followed,
           });
         }
       });
@@ -82,38 +78,31 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
         {
           key: 'name',
           label: t('dates.fields.name'),
-          _style: { width: '20%' },
         },
         {
           key: 'followed',
           label: t('user.fields.followed.title'),
-          _style: { width: '20%' },
         },
         {
           key: 'numberOfActivities',
           label: t('user.fields.activities.title'),
         },
+
         ...finalFields.reverse(),
       ]);
 
       setList(newUsersList);
     }
-  }, [
-    activities,
-    t,
-    usersList,
-    activitiesType,
-    usersWithFollowersList,
-    setList,
-  ]);
+  }, [activities, t, usersList, activitiesType, setList]);
 
   return (
     <CDataTable
-      addTableClasses="home-table"
+      addTableClasses="users-table"
       items={newUserWithActivities}
       fields={fields}
       columnFilter
       tableFilter
+      footer
       hover
       striped
       sorter
@@ -131,7 +120,6 @@ const DataTable = ({ activities, isLoading, list, setList }) => {
           </h2>
         </div>
       }
-      scopedSlots={{}}
     />
   );
 };

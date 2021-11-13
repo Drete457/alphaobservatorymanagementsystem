@@ -18,6 +18,13 @@
         }
       }
     },
+    "reception": {
+      "title": "Reception",
+      "children": {
+        "view": "View Entries",
+        "registration": "Register New Entry"
+      }
+    },
     "administration": {
       "title": "Administration",
       "countries": {
@@ -52,6 +59,8 @@
     "create-edit": {
       "submit": "Submit",
       "edit": "Edit",
+      "convert": "Convert",
+      "delete": "Delete",
       "cancel": "Cancel",
       "save": "Save",
       "cards": {
@@ -60,7 +69,8 @@
         "save": "Save The Card",
         "delete": "Delete",
         "yes": "Yes",
-        "no": "No"
+        "no": "No",
+        "reservation": "Reservation Date"
       },
       "profile": {
         "insert": "Upload The Profile",
@@ -76,7 +86,8 @@
     "table-import": {
       "button": "Import Collaborators Table",
       "button-import": "Import Table"
-    }
+    },
+    "logs": "View Logs"
   },
   "user": {
     "fields": {
@@ -92,6 +103,9 @@
       "country": {
         "title": "Country*",
         "placeholder": "Choose The Country Of The Collaborator"
+      },
+      "hour": {
+        "title": "Local Hour"
       },
       "contacted": {
         "title": "Contacted By*",
@@ -134,7 +148,7 @@
       "introduction": {
         "option": {
           "title": "Suitable Introductive Meeting",
-          "placeholder": "Choose If The Collaborator Is Suitable For Introductive Meeting"
+          "placeholder": "Choose If The Collaborator Is Suitable"
         },
         "date": {
           "title": "Introductory Meeting Date",
@@ -167,6 +181,11 @@
           "title": "Survey Friend*",
           "placeholder": "Write The Survey Friend Link Of The Collaborator",
           "error": "Missing The Friend Link"
+        },
+        "type": {
+          "title": "Survey Type*",
+          "placeholder": "Choose The Survey Type Of The Collaborator",
+          "error": "Missing The Survey Type"
         }
       },
       "ambit": {
@@ -192,11 +211,18 @@
         "bodyplaceholder": "Don't Delete The Text",
         "error": "It Is Necessary To Complete The Card",
         "trainer": "Choose The Trainer Name",
-        "title": "Cards"
+        "title": "Cards",
+        "reservation": "Reservation Date"
       },
       "profile": {
         "title": "Profile Url",
         "placeholder": "Write The Profile Url"
+      },
+      "invitationAlphaCafe": {
+        "title": "Invitation Alpha Cafe"
+      },
+      "createDate": {
+        "title": "Contact Alpha"
       }
     }
   },
@@ -282,12 +308,35 @@
       "name": "Year",
       "placeholder": "Write The Year"
     },
+    "survey": {
+      "name": "Survey",
+      "placeholder": "Write The Survey Name"
+    },
     "error": "Need To Write a Name"
   },
   "pages": {
+    "search": "Search",
     "safari": "Please don't use Safari Browser, use alternative (Ex: Chrome, Firebox, Edge, Opera, etc)",
     "constrution": "Still under construction",
     "nointernet": "No Internet Connection",
+    "reception": {
+      "title": "Entries View",
+      "numberUsers": "Number Of Entries",
+      "registration-edit": {
+        "colaborator": {
+          "title": "Entry Registration"
+        },
+        "social": {
+          "title": "Entry Registration Social Media"
+        },
+        "profile": {
+          "title": "Entry Survey him/her link or file"
+        },
+        "modal": {
+          "title": "Choose Option"
+        }
+      }
+    },
     "maintenance": {
       "title": "The Site Is Undergoing Maintenance"
     },
@@ -410,7 +459,14 @@
       "years": {
         "tab": "Years",
         "title": "Years"
+      },
+      "survey": {
+        "tab": "Survey",
+        "title": "Survey"
       }
+    },
+    "logs": {
+      "title": "View Logs"
     }
   },
   "dates": {

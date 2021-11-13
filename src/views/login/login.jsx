@@ -3,7 +3,7 @@ import {
   CButton,
   CCard,
   CCardBody,
-  CCardGroup,
+  CCardHeader,
   CCol,
   CContainer,
   CRow,
@@ -54,44 +54,37 @@ const Login = () => {
     <div className="c-app c-default-layout flex-row align-items-center">
       <CContainer>
         <CRow className="d-flex justify-content-center">
-          <CCol md="8">
-            <CCardGroup>
-              <CCard className="p-4">
-                <CCardBody md="12" className="d-flex justify-content-center">
-                  <CCol>
-                    <h1>{t('login.title')}</h1>
-                    <p className="text-muted">{t('login.signin')}</p>
-                  </CCol>
-                  <CRow>
-                    <CCol>
-                      <CButton
-                        color="primary"
-                        className="mt-4"
-                        onClick={() => {
-                          onSubmit(setUser, setError);
-                        }}
-                      >
-                        {t('btn.login.google-button')}
-                      </CButton>
-                    </CCol>
-                  </CRow>
-                </CCardBody>
-              </CCard>
-            </CCardGroup>
-            {error.code && (
-              <CCard className="p-4">
-                <CCardBody md="12" className="d-flex justify-content-center">
-                  <CCol>
-                    <h1>Error</h1>
-                    <p>Code: {error.code}</p>
-                    <p>Message: {error.message}</p>
-                    <p>User: {error.email}</p>
-                    <p>Credential: {error.credential}</p>
-                  </CCol>
-                </CCardBody>
-              </CCard>
-            )}
-          </CCol>
+          <CCard className="p-4">
+            <CCardHeader className="text-center">
+              <h1>{t('login.title')}</h1>
+              <p className="text-muted">{t('login.signin')}</p>
+            </CCardHeader>
+            <CCardBody className="d-flex justify-content-center">
+              <CButton
+                color="primary"
+                className="mt-4"
+                onClick={() => {
+                  onSubmit(setUser, setError);
+                }}
+              >
+                {t('btn.login.google-button')}
+              </CButton>
+            </CCardBody>
+          </CCard>
+
+          {error.code && (
+            <CCard className="p-4">
+              <CCardBody md="12" className="d-flex justify-content-center">
+                <CCol>
+                  <h1>Error</h1>
+                  <p>Code: {error.code}</p>
+                  <p>Message: {error.message}</p>
+                  <p>User: {error.email}</p>
+                  <p>Credential: {error.credential}</p>
+                </CCol>
+              </CCardBody>
+            </CCard>
+          )}
         </CRow>
       </CContainer>
     </div>

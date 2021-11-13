@@ -37,6 +37,21 @@ const addDaysFormat = (date, days) => {
   return year + '-' + monthFormating + '-' + dayFormating;
 };
 
+const subtractDaysFormat = (date, days) => {
+  let newDate = new Date(date);
+
+  newDate.setDate(newDate.getDate() - days);
+
+  const year = newDate.getFullYear();
+  const month = newDate.getMonth() + 1;
+  const day = newDate.getDate();
+
+  const monthFormating = month.toString().length > 1 ? month : '0' + month;
+  const dayFormating = day.toLocaleString().length > 1 ? day : '0' + day;
+
+  return year + '-' + monthFormating + '-' + dayFormating;
+};
+
 const convertAndRemoveYear = (string) => {
   const array = string.split('-').reverse();
   array.pop();
@@ -50,6 +65,8 @@ const calendarToShow = (activities, t) => {
 
   let currentDate = new Date(oldActivity);
   const endDate = new Date(newestActivity);
+  //the endday is always the next dauy after the newest activity
+  endDate.setDate(endDate.getDate() + 1);
 
   while (currentDate <= endDate) {
     if (currentDate.getDay() > 0) {
@@ -111,4 +128,22 @@ const calendarToShow = (activities, t) => {
   return dates;
 };
 
+//function return weeks between two dates
+const weeksBetweenDates = (startDate, endDate) => {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
+  let weeks = [];
+  let currentDate = start;
+
+  while (currentDate <= end) {
+    weeks.push(`${currentDate.toISOString().substring(0, 10)}`);
+    currentDate = addDays(currentDate, 7);
+  }
+
+  return weeks;
+};
+
 export default calendarToShow;
+
+export { addDaysFormat, subtractDaysFormat, weeksBetweenDates };

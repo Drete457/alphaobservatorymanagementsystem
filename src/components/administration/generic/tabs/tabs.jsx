@@ -44,6 +44,12 @@ const Tabs = ({ active, setActive }) => {
               {active === 5}
             </CNavLink>
           </CNavItem>
+          <CNavItem>
+            <CNavLink>
+              {t('pages.generic.survey.tab')}
+              {active === 6}
+            </CNavLink>
+          </CNavItem>
         </CNav>
       </CTabs>
     </>

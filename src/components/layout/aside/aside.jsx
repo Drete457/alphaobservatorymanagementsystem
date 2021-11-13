@@ -22,9 +22,6 @@ const Aside = () => {
   const [t] = useTranslation();
   const history = useHistory();
 
-  //TODO: Delete the moment security is done
-  const securityIsDone = process.env.REACT_APP_IS_SECURITY_DONE === 'true';
-
   useLayoutEffect(() => {
     window.googleTranslateElementInit = googleTranslateElementInit();
   }, []);
@@ -46,13 +43,18 @@ const Aside = () => {
             <div className="nav-link">{t('sidebar.aside.title')}</div>
             <div id="google_translate_element"></div>
             <hr />
-            {securityIsDone && (
-              <Button
-                name={t('btn.table-import.button')}
-                onClick={() => history.push(`/table_import`)}
-                className="button-font-weight"
-              />
-            )}
+            <Button
+              name={t('btn.table-import.button')}
+              onClick={() => history.push(`/table_import`)}
+              className="button-font-weight"
+            />
+            <hr />
+            <Button
+              name={t('btn.logs')}
+              onClick={() => history.push(`/logs`)}
+              className="button-font-weight"
+            />
+            <hr />
           </div>
         </div>
       </div>

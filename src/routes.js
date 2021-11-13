@@ -18,6 +18,12 @@ const EditActivity = lazy(() => import('views/activities/edit-activity'));
 const TableImport = lazy(() => import('views/table-import'));
 const Countries = lazy(() => import('views/administration/countries'));
 const Generic = lazy(() => import('views/administration/generic'));
+const Logs = lazy(() => import('views/logs'));
+const RepectionRegistration = lazy(() =>
+  import('views/reception/reception-registration'),
+);
+const RepectionEdit = lazy(() => import('views/reception/reception-edit'));
+const RepectionView = lazy(() => import('views/reception/reception-view'));
 
 const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
@@ -85,6 +91,12 @@ const routes = [
     component: TableImport,
   },
   {
+    path: '/logs',
+    exact: true,
+    name: 'View Logs',
+    component: Logs,
+  },
+  {
     path: '/administration/countries',
     exact: true,
     name: 'Countries',
@@ -95,6 +107,29 @@ const routes = [
     exact: true,
     name: 'Generic',
     component: Generic,
+  },
+  {
+    path: '/reception',
+    exact: true,
+    name: 'Reception',
+  },
+  {
+    path: '/reception/reception_registration',
+    exact: true,
+    name: 'Registration',
+    component: RepectionRegistration,
+  },
+  {
+    path: '/reception/reception_edit/:id',
+    exact: true,
+    name: 'Edition',
+    component: RepectionEdit,
+  },
+  {
+    path: '/reception/view',
+    exact: true,
+    name: 'View',
+    component: RepectionView,
   },
 ];
 

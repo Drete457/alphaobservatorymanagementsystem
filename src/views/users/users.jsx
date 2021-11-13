@@ -1,134 +1,47 @@
-import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { countries, generic, listUsers, usersWithFollowers } from 'state/atoms';
-import { useGetCountries } from 'hooks/countries';
-import { useGetGeneric } from 'hooks/generic';
-import { useGetUsers } from 'hooks/users';
+import { useRecoilValue } from 'recoil';
+import { generic, users } from 'state/atoms';
 import homeHandler from 'helpers/users';
-import ErrorInfo from 'components/error';
-import Loading from 'components/loading';
 import Button from 'components/button';
 import DataTable from 'components/users';
 
 const Users = () => {
-  //delete the remain of cards positions on localStorage
-  sessionStorage.removeItem('cardsPosition');
-  localStorage.removeItem('cardsPosition');
-
   const [t] = useTranslation();
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const setCountries = useSetRecoilState(countries);
-  const setGeneric = useSetRecoilState(generic);
-  const setListUsers = useSetRecoilState(listUsers);
-  const setUsersWithFollowers = useSetRecoilState(usersWithFollowers);
 
-  const [users, setUsers] = useState([]);
-  const [genericHome, setGenericHome] = useState({});
-
-  const { isLoading, error: errorUsers, data, execute } = useGetUsers();
-  const {
-    isLoading: isLoadingCountries,
-    error: errorCountries,
-    data: countriesList,
-    execute: executeCountries,
-  } = useGetCountries();
-  const {
-    isLoading: isLoadingGeneric,
-    error: errorGeneric,
-    data: genericList,
-    execute: executeGeneric,
-  } = useGetGeneric();
-
-  useLayoutEffect(() => {
-    execute();
-    executeCountries();
-    executeGeneric();
-  }, [execute, executeCountries, executeGeneric]);
-
-  useLayoutEffect(() => {
-    if (data && genericList && countriesList) {
-      homeHandler.buildUserList(
-        data,
-        countriesList,
-        genericList,
-        setListUsers,
-        setUsers,
-        setUsersWithFollowers,
-      );
-    }
-
-    if (countriesList) {
-      setCountries(countriesList);
-    }
-
-    if (genericList) {
-      setGeneric(genericList);
-      setGenericHome(genericList);
-    }
-  }, [
-    data,
-    countriesList,
-    genericList,
-    setCountries,
-    setGeneric,
-    setListUsers,
-    setUsersWithFollowers,
-  ]);
-
-  useLayoutEffect(() => {
-    const errorInfo = errorUsers || errorCountries || errorGeneric;
-
-    if (errorInfo) {
-      setError(errorInfo);
-    }
-  }, [errorUsers, errorCountries, errorGeneric]);
-
-  useLayoutEffect(() => {
-    const loadingInfo = isLoading || isLoadingCountries || isLoadingGeneric;
-
-    if (loadingInfo) {
-      setLoading(loadingInfo);
-    }
-  }, [isLoading, isLoadingCountries, isLoadingGeneric]);
+  const genericList = useRecoilValue(generic);
+  const { usersDataInfo } = useRecoilValue(users);
 
   return (
     <>
-      {error ? (
-        <ErrorInfo error={error} />
-      ) : (
-        <>
-          <header>
-            <h1 className="title">{t('pages.users.title')}</h1>
-          </header>
+      <header>
+        <h1 className="title">{t('pages.users.title')}</h1>
+      </header>
 
-          <main>
-            <hr />
-            <nav className="users-nav h3">
-              {t('pages.users.numberUsers') + ': ' + users.length}
-              <div className="users-button">
-                <Button
-                  name={t('btn.create.excel')}
-                  onClick={() => homeHandler.exportToExcel(users, genericHome)}
-                  className="button-font-weight"
-                />
-                <Button
-                  name={t('btn.create.user')}
-                  onClick={() => history.push(`/user/new_user`)}
-                  className="button-font-weight"
-                />
-              </div>
-            </nav>
-            <hr />
+      <main>
+        <hr />
+        <nav className="users-nav h3">
+          {t('pages.users.numberUsers') + ': ' + usersDataInfo?.length}
+          <div className="users-button">
+            <Button
+              name={t('btn.create.excel')}
+              onClick={() =>
+                homeHandler.exportToExcel(usersDataInfo, genericList)
+              }
+              className="button-font-weight"
+            />
+            <Button
+              name={t('btn.create.user')}
+              onClick={() => history.push(`/user/new_user`)}
+              className="button-font-weight"
+            />
+          </div>
+        </nav>
+        <hr />
 
-            <DataTable users={users} isLoading={isLoading} />
-          </main>
-        </>
-      )}
-      {loading && <Loading />}
+        <DataTable users={usersDataInfo} />
+      </main>
     </>
   );
 };

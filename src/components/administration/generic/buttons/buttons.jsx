@@ -19,7 +19,8 @@ const Buttons = ({
   wasModified,
   setWasModified,
 }) => {
-  //const history = useHistory();
+  //TODO: Delete the moment security is done
+  const securityIsDone = process.env.REACT_APP_IS_SECURITY_DONE === 'true';
   const [t] = useTranslation();
 
   const { data, execute } = usePostGeneric();
@@ -32,7 +33,7 @@ const Buttons = ({
 
   return (
     <>
-      {!isEdit[type] && (
+      {!isEdit[type] && securityIsDone && (
         <div className="user-submit-buttons">
           <Button
             name={t('btn.create-edit.edit')}
@@ -65,6 +66,8 @@ const Buttons = ({
                       if (newAttr?.id === '') {
                         newAttr.id = uniqueId();
                       }
+
+                      newAttr.name = newAttr.name.trim();
 
                       return newAttr;
                     });

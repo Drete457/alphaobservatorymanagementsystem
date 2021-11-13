@@ -18,6 +18,7 @@ import { sidebarShow, asideShow } from 'state/atoms';
 import routes from 'routes';
 import userHandler from 'helpers/user';
 import Button from 'components/button/button';
+import Search from 'components/layout/search';
 
 const Header = () => {
   const [t] = useTranslation();
@@ -62,7 +63,12 @@ const Header = () => {
         onClick={toggleSidebar}
       />
 
+      <form className="w-25 mt-2">
+        <Search />
+      </form>
+
       <CHeaderNav className="d-md-down-none ml-auto">
+        <HeaderAccountDropdown logOut={logOut} />
         <CToggler
           inHeader
           className="d-md-down-none"
@@ -70,7 +76,6 @@ const Header = () => {
         >
           <CIcon className="mr-2" size="lg" name="cil-applications-settings" />
         </CToggler>
-        <HeaderAccountDropdown logOut={logOut} />
       </CHeaderNav>
 
       <CSubheader className="px-3 justify-content-between">

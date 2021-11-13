@@ -1,13 +1,15 @@
 import { useState, useCallback } from 'react';
-import { getDatabase, ref, child, get } from 'firebase/database';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import { ref as reference } from 'components/user';
 
 export const getUsers = async (set) => {
   const database = getDatabase();
-  const dbRef = ref(database);
-  const response = await get(child(dbRef, reference));
+  const dbRef = ref(database, reference);
 
-  set(response.val());
+  onValue(dbRef, (snapshot) => {
+    const data = snapshot.val();
+    set(data);
+  });
 };
 
 const useGetUsers = () => {

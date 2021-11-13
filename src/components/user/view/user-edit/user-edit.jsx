@@ -16,6 +16,7 @@ const UserEdit = ({
   const countriesNames = countriesList?.map((country) => {
     return { id: country.id, name: userHandler.countryNameAndGmt(country) };
   });
+  const reservation = user?.cards?.find?.((card) => card.reservation);
 
   return (
     <>
@@ -213,36 +214,31 @@ const UserEdit = ({
           </div>
 
           <div className="user-input">
+            <InputField
+              title={t('user.fields.cards.reservation')}
+              name="reservation"
+              type="date"
+              value={reservation ? reservation.reservation : ''}
+              className="user-input-format"
+              disabled
+            />
+
             <SelectFieldComponent
-              title={t('user.fields.birthyear.title')}
-              name="birthyear"
-              placeholder={t('user.fields.birthyear.placeholder')}
-              value={user?.birthyear}
-              errorMsg={errorMsg?.birthyear}
+              title={t('user.fields.survey.type.title')}
+              name="typeSurvey"
+              placeholder={t('user.fields.survey.type.placeholder')}
+              value={user?.typeSurvey}
+              errorMsg={errorMsg?.typeSurvey}
               onChange={(value) => {
                 userHandler.userSelectHandler(
-                  'birthyear',
+                  'typeSurvey',
                   value,
                   setUser,
                   user,
                 );
                 setWasModified(true);
               }}
-              options={genericList?.years}
-              className="user-input-format"
-            />
-
-            <InputField
-              title={t('user.fields.community.title')}
-              name="community"
-              placeholder={t('user.fields.community.placeholder')}
-              type="date"
-              value={user?.community}
-              errorMsg={errorMsg?.community}
-              onChange={(event) => {
-                userHandler.userInputHandler(event, setUser, user);
-                setWasModified(true);
-              }}
+              options={genericList?.survey}
               className="user-input-format"
             />
           </div>
@@ -318,6 +314,51 @@ const UserEdit = ({
               type="date"
               value={user?.baseAmbit}
               errorMsg={errorMsg?.baseAmbit}
+              onChange={(event) => {
+                userHandler.userInputHandler(event, setUser, user);
+                setWasModified(true);
+              }}
+              className="user-input-format"
+            />
+
+            <InputField
+              title={t('user.fields.invitationAlphaCafe.title')}
+              name="invitationAlphaCafe"
+              type="date"
+              value={user?.invitationAlphaCafe}
+              errorMsg={errorMsg?.invitationAlphaCafe}
+              className="user-input-format"
+              disabled
+            />
+          </div>
+
+          <div className="user-input">
+            <SelectFieldComponent
+              title={t('user.fields.birthyear.title')}
+              name="birthyear"
+              placeholder={t('user.fields.birthyear.placeholder')}
+              value={user?.birthyear}
+              errorMsg={errorMsg?.birthyear}
+              onChange={(value) => {
+                userHandler.userSelectHandler(
+                  'birthyear',
+                  value,
+                  setUser,
+                  user,
+                );
+                setWasModified(true);
+              }}
+              options={genericList?.years}
+              className="user-input-format"
+            />
+
+            <InputField
+              title={t('user.fields.community.title')}
+              name="community"
+              placeholder={t('user.fields.community.placeholder')}
+              type="date"
+              value={user?.community}
+              errorMsg={errorMsg?.community}
               onChange={(event) => {
                 userHandler.userInputHandler(event, setUser, user);
                 setWasModified(true);

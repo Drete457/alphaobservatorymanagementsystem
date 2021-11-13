@@ -66,10 +66,10 @@ const DataTable = ({
           let hour = '';
 
           if (item.timezone && globalHour) {
-            hour = globalHour.tz(item.timezone).format('HH:mm');
+            hour = `${globalHour.tz(item.timezone).format('HH:mm')}h`;
           }
 
-          return <td>{hour}h</td>;
+          return <td>{hour}</td>;
         },
         details: (item) => {
           return (

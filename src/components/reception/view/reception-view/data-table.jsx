@@ -17,6 +17,15 @@ const DataTable = ({
   const [t] = useTranslation();
   const [modalToShow, setModalToShow] = useState('');
   const [modal, setModal] = useState(false);
+  const [globalHour, setGlobalHour] = useState('');
+
+  //start the clock
+  if (globalHour === '') {
+    homeHandler.minuteUpdate(setGlobalHour);
+  }
+
+  //update clock 20 seconds
+  setInterval(homeHandler.minuteUpdate, 20000, setGlobalHour);
 
   const entriesSort = entries.sort((val1, val2) =>
     homeHandler.sortList(val1, val2, 'name'),
@@ -24,7 +33,7 @@ const DataTable = ({
 
   return (
     <CDataTable
-      addTableClasses="entries-table"
+      addTableClasses="users-table"
       items={entriesSort}
       fields={receptionHandler.fields(t)}
       clickableRows
@@ -53,6 +62,15 @@ const DataTable = ({
         setModal(!modal);
       }}
       scopedSlots={{
+        timezone: (item) => {
+          let hour = '';
+
+          if (item.timezone && globalHour) {
+            hour = globalHour.tz(item.timezone).format('HH:mm');
+          }
+
+          return <td>{hour}h</td>;
+        },
         details: (item) => {
           return (
             <>

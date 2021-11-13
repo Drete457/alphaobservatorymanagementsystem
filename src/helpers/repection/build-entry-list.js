@@ -26,11 +26,13 @@ const buildEntryList = (
       user.contacted = contactBy;
     }
 
+    user.timezone = '';
     if (user.country) {
       const countryName = countriesList.find(
         (country) => country.id === user.country,
       );
 
+      user.timezone = countryName?.timezone;
       user.country = userHandler.countryNameAndGmt(countryName);
     }
 

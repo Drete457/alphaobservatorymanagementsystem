@@ -13,7 +13,9 @@ const buildEntryList = (
     homeHandler.sortList(user1, user2, 'name'),
   );
 
-  const fillArrayData = sortedList?.map((user) => {
+  const fillArrayData = sortedList?.map((userInfo) => {
+    const user = { ...userInfo };
+
     if (user.contacted) {
       let contactBy = usersList.find(
         (value) => value.id === user.contacted,
@@ -59,6 +61,7 @@ const buildEntryList = (
       const year = genericList?.years.find(
         (year) => year.id === user.birthyear,
       );
+
       user.birthyear = year.name;
       user.groupAge = homeHandler.groupAge(year.name, genericList?.groupAge);
     } else {

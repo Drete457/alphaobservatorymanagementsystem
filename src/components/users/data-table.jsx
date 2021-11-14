@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { intervalIdClean } from 'state/atoms';
 import homeHandler from 'helpers/users';
 import CIcon from '@coreui/icons-react';
 
@@ -9,6 +11,7 @@ const DataTable = ({ users }) => {
   const [t] = useTranslation();
   const history = useHistory();
   const [globalHour, setGlobalHour] = useState('');
+  const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
   //start the clock
   if (globalHour === '') {
@@ -16,7 +19,9 @@ const DataTable = ({ users }) => {
   }
 
   //update clock 20 seconds
-  setInterval(homeHandler.minuteUpdate, 20000, setGlobalHour);
+  clearInterval(intervalId);
+  const id = setInterval(homeHandler.minuteUpdate, 20000, setGlobalHour);
+  setIntervalId(id);
 
   //put all none to the end of the list
   const usersListSort = homeHandler.mainTableSortList(users);

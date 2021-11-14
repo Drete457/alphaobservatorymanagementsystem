@@ -34,3 +34,8 @@ export const globalList = atom({
   key: 'globalList',
   default: [],
 });
+
+export const intervalIdClean = atom({
+  key: 'intervalIdClean',
+  default: 0,
+});

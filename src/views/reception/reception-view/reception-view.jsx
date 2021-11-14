@@ -1,8 +1,8 @@
 import { useState, useLayoutEffect, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { countries, generic, users } from 'state/atoms';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { countries, generic, users, intervalIdClean } from 'state/atoms';
 import {
   useDeleteReceptionCard,
   useGetReceptionCard,
@@ -11,6 +11,7 @@ import {
 import { usePostUser } from 'hooks/users';
 import { deleteF } from 'hooks/files';
 import receptionHandler from 'helpers/repection';
+import homeHandler from 'helpers/users';
 import ErrorInfo from 'components/error/error';
 import DataTable from 'components/reception/view/reception-view';
 
@@ -19,9 +20,11 @@ const ReceptionView = () => {
   const history = useHistory();
   const [entry, setEntry] = useState([]);
   const [errorInfo, setErrorInfo] = useState({});
+  const [globalHour, setGlobalHour] = useState('');
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
+  const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
   const { usersWithFollowers: usersList } = useRecoilValue(users);
 
   const { isLoading, error, data, execute } = useGetReceptionCards();
@@ -29,6 +32,11 @@ const ReceptionView = () => {
   const { execute: deleteEntry } = useDeleteReceptionCard();
   const { execute: postUser } = usePostUser();
   const { execute: executeDelete } = deleteF();
+
+  //start the clock
+  if (globalHour === '') {
+    homeHandler.minuteUpdate(setGlobalHour);
+  }
 
   const convertEntry = (id) => {
     getEntry(id);
@@ -75,6 +83,17 @@ const ReceptionView = () => {
     }
   }, [error]);
 
+  useLayoutEffect(() => {
+    clearInterval(intervalId);
+  }, [intervalId]);
+
+  useLayoutEffect(() => {
+    //update clock 20 seconds
+    const id = setInterval(homeHandler.minuteUpdate, 20000, setGlobalHour);
+
+    setIntervalId(id);
+  }, [setIntervalId]);
+
   return (
     <>
       {error ? (
@@ -96,6 +115,7 @@ const ReceptionView = () => {
               isLoading={isLoading}
               convertEntry={convertEntry}
               deleteEntryFunction={deleteEntryFunction}
+              globalHour={globalHour}
             />
           </main>
         </>

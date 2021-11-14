@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CDataTable, CRow, CModal } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
-import { useRecoilState } from 'recoil';
-import { intervalIdClean } from 'state/atoms';
 import Button from 'components/button/button';
 import receptionHandler from 'helpers/repection';
 import homeHandler from 'helpers/users';
@@ -14,23 +12,12 @@ const DataTable = ({
   isLoading,
   convertEntry,
   deleteEntryFunction,
+  globalHour,
 }) => {
   const history = useHistory();
   const [t] = useTranslation();
   const [modalToShow, setModalToShow] = useState('');
   const [modal, setModal] = useState(false);
-  const [globalHour, setGlobalHour] = useState('');
-  const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
-
-  //start the clock
-  if (globalHour === '') {
-    homeHandler.minuteUpdate(setGlobalHour);
-  }
-
-  //update clock 20 seconds
-  clearInterval(intervalId);
-  const id = setInterval(homeHandler.minuteUpdate, 20000, setGlobalHour);
-  setIntervalId(id);
 
   const entriesSort = entries.sort((val1, val2) =>
     homeHandler.sortList(val1, val2, 'name'),

@@ -1,7 +1,8 @@
+import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { generic, users } from 'state/atoms';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { generic, users, intervalIdClean } from 'state/atoms';
 import homeHandler from 'helpers/users';
 import Button from 'components/button';
 import DataTable from 'components/users';
@@ -9,9 +10,27 @@ import DataTable from 'components/users';
 const Users = () => {
   const [t] = useTranslation();
   const history = useHistory();
+  const [globalHour, setGlobalHour] = useState('');
+  const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
   const genericList = useRecoilValue(generic);
   const { usersDataInfo } = useRecoilValue(users);
+
+  //start the clock
+  if (globalHour === '') {
+    homeHandler.minuteUpdate(setGlobalHour);
+  }
+
+  useLayoutEffect(() => {
+    clearInterval(intervalId);
+  }, [intervalId]);
+
+  useLayoutEffect(() => {
+    //update clock 20 seconds
+    const id = setInterval(homeHandler.minuteUpdate, 20000, setGlobalHour);
+
+    setIntervalId(id);
+  }, [setIntervalId]);
 
   return (
     <>
@@ -40,7 +59,7 @@ const Users = () => {
         </nav>
         <hr />
 
-        <DataTable users={usersDataInfo} />
+        <DataTable users={usersDataInfo} globalHour={globalHour} />
       </main>
     </>
   );

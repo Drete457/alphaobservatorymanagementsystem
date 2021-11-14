@@ -10,6 +10,7 @@ import DataTable from 'components/users';
 const Users = () => {
   const [t] = useTranslation();
   const history = useHistory();
+  const [hasClean, setHasClean] = useState(false);
   const [globalHour, setGlobalHour] = useState('');
   const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
@@ -22,8 +23,11 @@ const Users = () => {
   }
 
   useLayoutEffect(() => {
-    clearInterval(intervalId);
-  }, [intervalId]);
+    if (!hasClean) {
+      clearInterval(intervalId);
+      setHasClean(true);
+    }
+  }, [intervalId, hasClean]);
 
   useLayoutEffect(() => {
     //update clock 20 seconds

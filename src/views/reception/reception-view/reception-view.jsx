@@ -20,6 +20,7 @@ const ReceptionView = () => {
   const history = useHistory();
   const [entry, setEntry] = useState([]);
   const [errorInfo, setErrorInfo] = useState({});
+  const [hasClean, setHasClean] = useState(false);
   const [globalHour, setGlobalHour] = useState('');
 
   const countriesList = useRecoilValue(countries);
@@ -84,8 +85,11 @@ const ReceptionView = () => {
   }, [error]);
 
   useLayoutEffect(() => {
-    clearInterval(intervalId);
-  }, [intervalId]);
+    if (!hasClean) {
+      clearInterval(intervalId);
+      setHasClean(true);
+    }
+  }, [intervalId, hasClean]);
 
   useLayoutEffect(() => {
     //update clock 20 seconds

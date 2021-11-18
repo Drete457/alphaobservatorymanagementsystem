@@ -28,7 +28,11 @@ const submit = (
     user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
     sessionStorage.removeItem('cardsPosition');
 
+    //delete all spaces after and before the name
     user.name = user.name.trim();
+
+    //convert all first letter of every word to uppercase
+    user.name = userHandler.firstLetterUppercaseOnArray(user.name);
 
     //if the user have a file send to backend
     if (user.profile) {

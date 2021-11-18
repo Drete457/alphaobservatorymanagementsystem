@@ -2,7 +2,7 @@ import exportFromJSON from 'export-from-json';
 import getDayName from './get-day-name';
 
 const download = (data) => {
-  const fileName = 'Colaborators_Activity_List';
+  const fileName = 'Collaborators_Activity_List';
   const exportType = 'xls';
 
   exportFromJSON({ data, fileName, exportType });

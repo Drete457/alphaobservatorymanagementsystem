@@ -1,7 +1,7 @@
 import exportFromJSON from 'export-from-json';
 
 const download = (data) => {
-  const fileName = 'Colaborators_List';
+  const fileName = 'Collaborators_List';
   const exportType = 'xls';
 
   exportFromJSON({ data, fileName, exportType });

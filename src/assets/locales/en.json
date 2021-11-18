@@ -87,7 +87,10 @@
       "button": "Import Collaborators Table",
       "button-import": "Import Table"
     },
-    "logs": "View Logs"
+    "logs": {
+      "collaborators": "View Logs Collaborators",
+      "entries": "View Logs Entries"
+    }
   },
   "user": {
     "fields": {
@@ -323,7 +326,7 @@
       "title": "Entries View",
       "numberUsers": "Number Of Entries",
       "registration-edit": {
-        "colaborator": {
+        "collaborator": {
           "title": "Entry Registration"
         },
         "social": {
@@ -418,7 +421,7 @@
       "title": "Activities",
       "no-info": "No Activities",
       "table-title": "Activities Registration",
-      "colaborators-table-title": "Colaborators Activities",
+      "collaborators-table-title": "Collaborators Activities",
       "registration": {
         "title": "New Activity"
       },

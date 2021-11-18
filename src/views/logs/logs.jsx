@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { users } from 'state/atoms';
 
-const ViewLogs = () => {
+const ViewLogs = ({ match }) => {
+  console.log(match);
   const [t] = useTranslation();
   const { logs } = useRecoilValue(users);
   const logsArraySort = Array.from(logs).sort((val1, val2) =>
@@ -22,7 +23,7 @@ const ViewLogs = () => {
           {logsArraySortReverse.map((log, index) => (
             <li
               key={index}
-            >{`Colaborator: ${log.name} was modified by ${log.email} on date ${log.date}`}</li>
+            >{`Collaborator: ${log.name} was modified by ${log.email} on date ${log.date}`}</li>
           ))}
         </ol>
       </main>

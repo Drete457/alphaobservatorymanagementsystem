@@ -27,7 +27,7 @@ const useNavigation = (t) => {
         {
           _tag: 'CSidebarNavItem',
           name: t('sidebar.home.activities.children.user'),
-          to: '/activities/colaborators_activities_table',
+          to: '/activities/collaborators_activities_table',
           icon: 'cil-coffee',
         },
       ],

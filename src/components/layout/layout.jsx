@@ -49,10 +49,10 @@ const Layout = () => {
     }
 
     if (data && dataEntry) {
-      const colaboratorsData = Object.values(data);
+      const collaboratorsData = Object.values(data);
       const receptionCardsData = Object.values(dataEntry);
 
-      const colaborators = colaboratorsData.map?.((user) => {
+      const collaborators = collaboratorsData.map?.((user) => {
         return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
       });
 
@@ -64,14 +64,14 @@ const Layout = () => {
         };
       });
 
-      setGlobalList([...colaborators, ...entries]);
+      setGlobalList([...collaborators, ...entries]);
     } else if (data) {
-      const colaboratorsData = Object.values(data);
-      const colaborators = colaboratorsData.map?.((user) => {
+      const collaboratorsData = Object.values(data);
+      const collaborators = collaboratorsData.map?.((user) => {
         return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
       });
 
-      setGlobalList(colaborators);
+      setGlobalList(collaborators);
     }
   }, [
     data,

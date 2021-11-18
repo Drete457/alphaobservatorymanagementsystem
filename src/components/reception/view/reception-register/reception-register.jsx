@@ -22,7 +22,7 @@ const ReceptionRegister = ({
     <>
       <header>
         <h1 className="title">
-          {t('pages.reception.registration-edit.colaborator.title')}
+          {t('pages.reception.registration-edit.collaborator.title')}
         </h1>
       </header>
 

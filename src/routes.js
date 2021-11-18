@@ -9,8 +9,8 @@ const UserEdition = lazy(() => import('views/user/user-edition'));
 const UserView = lazy(() => import('views/user/user-view'));
 const CardsView = lazy(() => import('views/user/cards'));
 const ActivitiesTable = lazy(() => import('views/activities/activities-table'));
-const ColaboratorsTable = lazy(() =>
-  import('views/activities/colaborators-table'),
+const CollaboratorsTable = lazy(() =>
+  import('views/activities/collaborators-table'),
 );
 const NewActivity = lazy(() => import('views/activities/new-activity'));
 const ViewActivity = lazy(() => import('views/activities/view-activity'));
@@ -29,7 +29,7 @@ const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
   { path: '/construction', exact: true, name: 'Build', component: Build },
   { path: '/cards/:id', exact: true, name: 'Cards', component: CardsView },
-  { path: '/users', exact: true, name: 'Colaborators', component: Users },
+  { path: '/users', exact: true, name: 'Collaborators', component: Users },
   {
     path: '/my-profile',
     exact: true,
@@ -39,19 +39,19 @@ const routes = [
   {
     path: '/user/new_user',
     exact: true,
-    name: 'Colaborator Registration',
+    name: 'Collaborator Registration',
     component: UserRegistraion,
   },
   {
     path: '/user/edition/:page/:id',
     exact: true,
-    name: 'Colaborator Edit',
+    name: 'Collaborator Edit',
     component: UserEdition,
   },
   {
     path: '/user/view/:id',
     exact: true,
-    name: 'Colaborator View',
+    name: 'Collaborator View',
     component: UserView,
   },
   {
@@ -79,10 +79,10 @@ const routes = [
     component: EditActivity,
   },
   {
-    path: '/activities/colaborators_activities_table',
+    path: '/activities/collaborators_activities_table',
     exact: true,
-    name: 'Colaborators Activities Table',
-    component: ColaboratorsTable,
+    name: 'Collaborators Activities Table',
+    component: CollaboratorsTable,
   },
   {
     path: '/table_import',
@@ -93,7 +93,13 @@ const routes = [
   {
     path: '/logs',
     exact: true,
-    name: 'View Logs',
+    name: 'View Logs Collaborators',
+    component: Logs,
+  },
+  {
+    path: '/entries',
+    exact: true,
+    name: 'View Logs Entries',
     component: Logs,
   },
   {

@@ -6,7 +6,7 @@ import ErrorInfo from 'components/error';
 import Button from 'components/button';
 import activitiesHandler from 'helpers/activities';
 
-const ColaboratorsTable = () => {
+const CollaboratorsTable = () => {
   const [t] = useTranslation();
   const [list, setList] = useState([]);
   const { isLoading, error, data, execute } = useGetActivities();
@@ -28,7 +28,7 @@ const ColaboratorsTable = () => {
           <main>
             <hr />
             <nav className="activity-nav h3">
-              {t('pages.activities.colaborators-table-title')}
+              {t('pages.activities.collaborators-table-title')}
               <Button
                 name={t('btn.create.excel')}
                 onClick={() => activitiesHandler.exportToExcel(list, t)}
@@ -49,4 +49,4 @@ const ColaboratorsTable = () => {
   );
 };
 
-export default ColaboratorsTable;
+export default CollaboratorsTable;

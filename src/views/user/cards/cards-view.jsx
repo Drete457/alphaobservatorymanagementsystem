@@ -13,12 +13,15 @@ import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
 import View from 'components/user/buttons/view';
+import homeHandler from 'helpers/users';
 
 const CardsView = ({ match }) => {
   const [t] = useTranslation();
   const [user, setUser] = useState(null);
   const [active, setActive] = useState(0);
   const [error, setError] = useState(null);
+  const [hour, setHour] = useState('');
+  const [timeZone, setTimeZone] = useState('');
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
@@ -44,6 +47,17 @@ const CardsView = ({ match }) => {
     }
   }, [errorServer]);
 
+  useLayoutEffect(() => {
+    if (user?.country) {
+      const zone = countriesList.find(
+        (country) => country.id === user.country,
+      )?.timezone;
+
+      homeHandler.minuteUpdate(setHour);
+      setTimeZone(zone);
+    }
+  }, [user?.country, countriesList]);
+
   return (
     <>
       {error ? (
@@ -51,7 +65,7 @@ const CardsView = ({ match }) => {
       ) : user && dataUserList && countriesList && genericList ? (
         <>
           <Tabs active={active} setActive={setActive} />
-          <View user={user} active={active} />
+          <View user={user} active={active} hour={hour} timeZone={timeZone} />
           {active === 0 && (
             <UserViewer
               user={user}

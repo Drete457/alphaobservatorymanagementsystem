@@ -51,7 +51,7 @@ const Aside = () => {
             <hr />
             <Button
               name={t('btn.logs.collaborators')}
-              onClick={() => history.push(`/logs`)}
+              onClick={() => history.push(`/collaborators`)}
               className="button-font-weight"
             />
             <hr />

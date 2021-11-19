@@ -16,7 +16,7 @@ const HeaderAccountDropdown = ({ logOut }) => {
   const history = useHistory();
   const isUser = useRecoilValue(user);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (isUser) {
       //Wellcome the User
       const speakUserName = new SpeechSynthesisUtterance();
@@ -25,7 +25,7 @@ const HeaderAccountDropdown = ({ logOut }) => {
       speakUserName.text = `Wellcome to the Alpha Observatory Management System, ${isUser.name}`;
       window.speechSynthesis.speak(speakUserName);
     }
-  }, [isUser]);
+  }, [isUser]); */
 
   return (
     <>

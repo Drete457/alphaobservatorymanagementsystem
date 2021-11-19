@@ -91,7 +91,7 @@ const routes = [
     component: TableImport,
   },
   {
-    path: '/logs',
+    path: '/collaborators',
     exact: true,
     name: 'View Logs Collaborators',
     component: Logs,

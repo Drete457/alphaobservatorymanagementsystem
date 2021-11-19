@@ -4,7 +4,7 @@ import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
 import { useGetReceptionCards } from 'hooks/reception';
 import { useSetRecoilState } from 'recoil';
-import { countries, generic, users, globalList } from 'state/atoms';
+import { countries, generic, users, globalList, logs } from 'state/atoms';
 import homeHandler from 'helpers/users';
 import Sidebar from './sidebar';
 import Aside from './aside';
@@ -20,6 +20,7 @@ const Layout = () => {
   const setGeneric = useSetRecoilState(generic);
   const setListUsers = useSetRecoilState(users);
   const setGlobalList = useSetRecoilState(globalList);
+  const setLogs = useSetRecoilState(logs);
 
   const { data, execute } = useGetUsers();
   const { data: dataEntry, execute: executeEntry } = useGetReceptionCards();
@@ -44,6 +45,9 @@ const Layout = () => {
   }, [countriesList, genericList, setCountries, setGeneric]);
 
   useLayoutEffect(() => {
+    const collaboratorsLogs = [];
+    const entriesLogs = [];
+
     if (data && genericList && countriesList) {
       homeHandler.buildUserList(data, countriesList, genericList, setListUsers);
     }
@@ -53,10 +57,22 @@ const Layout = () => {
       const receptionCardsData = Object.values(dataEntry);
 
       const collaborators = collaboratorsData.map?.((user) => {
+        if (user?.lastModification) {
+          user.lastModification.forEach((log) =>
+            collaboratorsLogs.push({ ...log, name: user.name }),
+          );
+        }
+
         return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
       });
 
       const entries = receptionCardsData?.map?.((entry) => {
+        if (entry?.lastModification) {
+          entry.lastModification.forEach((log) => {
+            entriesLogs.push({ ...log, name: entry.name });
+          });
+        }
+
         return {
           id: entry.id,
           name: entry.name,
@@ -65,13 +81,26 @@ const Layout = () => {
       });
 
       setGlobalList([...collaborators, ...entries]);
+      setLogs({
+        collaborators: collaboratorsLogs,
+        entries: entriesLogs,
+      });
     } else if (data) {
       const collaboratorsData = Object.values(data);
       const collaborators = collaboratorsData.map?.((user) => {
+        if (user?.lastModification) {
+          user.lastModification.forEach((log) =>
+            collaboratorsLogs.push({ ...log, name: user.name }),
+          );
+        }
+
         return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
       });
 
       setGlobalList(collaborators);
+      setLogs({
+        collaborators: collaboratorsLogs,
+      });
     }
   }, [
     data,
@@ -80,6 +109,7 @@ const Layout = () => {
     genericList,
     setListUsers,
     setGlobalList,
+    setLogs,
   ]);
 
   return (

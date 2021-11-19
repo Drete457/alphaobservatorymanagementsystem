@@ -1,13 +1,13 @@
-import homeHandler from 'helpers/users';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { users } from 'state/atoms';
+import { logs } from 'state/atoms';
+import homeHandler from 'helpers/users';
 
 const ViewLogs = ({ match }) => {
-  console.log(match);
   const [t] = useTranslation();
-  const { logs } = useRecoilValue(users);
-  const logsArraySort = Array.from(logs).sort((val1, val2) =>
+  const { collaborators, entries } = useRecoilValue(logs);
+  const logsToUse = match.path === '/entries' ? entries : collaborators;
+  const logsArraySort = Array.from(logsToUse).sort((val1, val2) =>
     homeHandler.sortList(val1, val2, 'date'),
   );
   const logsArraySortReverse = logsArraySort.reverse();
@@ -21,9 +21,11 @@ const ViewLogs = ({ match }) => {
       <main>
         <ol className="text-center">
           {logsArraySortReverse.map((log, index) => (
-            <li
-              key={index}
-            >{`Collaborator: ${log.name} was modified by ${log.email} on date ${log.date}`}</li>
+            <li key={index}>
+              {match.path === '/entries'
+                ? `Entry: ${log.name} was modified by ${log.email} on date ${log.date}`
+                : `Collaborator: ${log.name} was modified by ${log.email} on date ${log.date}`}
+            </li>
           ))}
         </ol>
       </main>

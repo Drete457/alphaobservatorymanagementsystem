@@ -3,7 +3,6 @@ import userHandler from 'helpers/user';
 import sortList from './sort-list';
 
 const buildUserList = (data, countriesList, genericList, setListUsers) => {
-  const logsArray = [];
   const arrayData = Object.values(data);
   const sortedList = arrayData.sort((user1, user2) =>
     sortList(user1, user2, 'name'),
@@ -137,12 +136,6 @@ const buildUserList = (data, countriesList, genericList, setListUsers) => {
       user.employment = employmentName;
     }
 
-    if (user?.lastModification) {
-      user.lastModification.forEach((log) =>
-        logsArray.push({ ...log, name: user.name }),
-      );
-    }
-
     if (user?.typeSurvey) {
       const typeSurvey = genericList.survey.find(
         (value) => value.id === user?.typeSurvey,
@@ -160,7 +153,6 @@ const buildUserList = (data, countriesList, genericList, setListUsers) => {
     const obj = {
       usersDataInfo: fillArrayData,
       usersWithFollowers: usersListSort,
-      logs: logsArray,
     };
 
     setListUsers(obj);

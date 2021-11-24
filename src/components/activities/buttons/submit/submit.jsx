@@ -45,37 +45,25 @@ const Submit = ({
         const findUserOnTheActivityList = newActivity.list.find(
           (value) => value === user.id,
         );
-        let alphaCafe = 0;
-        let surveySession = 0;
         let wasChange = false;
+
+        //TODO: Build new formula for base ambit
+        if (false) {
+          //verify the baseambit per user
+          const { wasChange: change, value } = activitiesHandler.baseAmbit(
+            newUser,
+            alphaCafeArray,
+            surveySessionArray,
+            newActivity.date,
+          );
+
+          newUser.baseAmbit = value;
+          wasChange = change;
+        }
 
         if (findUserOnTheActivityList && !newUser?.firstActivity) {
           newUser.firstActivity = newActivity.date;
           wasChange = true;
-        }
-
-        alphaCafeArray.forEach((value) => {
-          if (value.list.indexOf(user.id) !== -1) {
-            alphaCafe++;
-          }
-        });
-
-        surveySessionArray.forEach((value) => {
-          if (value.list.indexOf(user.id) !== -1) {
-            surveySession++;
-          }
-        });
-
-        if (newUser?.baseAmbit === '') {
-          if (alphaCafe >= 3 && surveySession >= 3) {
-            newUser.baseAmbit = newActivity.date;
-            wasChange = true;
-          }
-        } else {
-          if (alphaCafe < 3 || surveySession < 3) {
-            newUser.baseAmbit = '';
-            wasChange = true;
-          }
         }
 
         if (wasChange) {

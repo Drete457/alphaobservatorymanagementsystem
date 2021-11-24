@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 
 async function getFirebaseClient() {
   const config = {
@@ -13,7 +14,8 @@ async function getFirebaseClient() {
   };
 
   const firebase = initializeApp(config);
-
+  const analytics = getAnalytics(firebase);
+  console.log('analytics', analytics);
   return firebase;
 }
 

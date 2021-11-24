@@ -12,6 +12,7 @@ import calendarToShow, {
   weeksBetweenDates,
 } from './old-newest-activities';
 import exportToExcel from './exportToExcel';
+import baseAmbit from './base-ambit';
 
 const activitiesHandler = {
   activityInputHandler,
@@ -25,6 +26,7 @@ const activitiesHandler = {
   addDaysFormat,
   subtractDaysFormat,
   weeksBetweenDates,
+  baseAmbit,
 };
 
 export default activitiesHandler;

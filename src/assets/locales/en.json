@@ -200,6 +200,12 @@
       "activities": {
         "title": "Number of Activities"
       },
+      "activitiesSurvey": {
+        "title": "Number of Survey Session"
+      },
+      "activitiesAlpha": {
+        "title": "Number of Alpha Cafe"
+      },
       "groupAge": {
         "title": "Group Age"
       },

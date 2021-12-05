@@ -30,7 +30,6 @@ yarn start
 - CoreUi
 - eslint-react-hooks
 - React Select
-- React-Avatar
 - React-Grid-Layout
 - FireBase SDK
 - Export From Json

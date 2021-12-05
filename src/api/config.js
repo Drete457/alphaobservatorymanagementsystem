@@ -14,8 +14,9 @@ async function getFirebaseClient() {
   };
 
   const firebase = initializeApp(config);
-  const analytics = getAnalytics(firebase);
-  console.log('analytics', analytics);
+  //start analytics
+  getAnalytics(firebase);
+
   return firebase;
 }
 

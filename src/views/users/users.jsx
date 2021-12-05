@@ -15,8 +15,8 @@ const Users = () => {
   const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
   const genericList = useRecoilValue(generic);
-  const { usersDataInfo } = useRecoilValue(users);
-
+  //const { usersDataInfo } = useRecoilValue(users);
+  const usersDataInfo = [];
   //start the clock
   if (globalHour === '') {
     homeHandler.minuteUpdate(setGlobalHour);

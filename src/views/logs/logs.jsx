@@ -1,12 +1,22 @@
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { logs } from 'state/atoms';
+import { users } from 'state/atoms';
 import homeHandler from 'helpers/users';
 
 const ViewLogs = ({ match }) => {
   const [t] = useTranslation();
-  const { collaborators, entries } = useRecoilValue(logs);
-  const logsToUse = match.path === '/entries' ? entries : collaborators;
+  const { collaborators, entries } = useRecoilValue(users);
+  const data = match.path === '/entries' ? entries : collaborators;
+
+  const logsToUse = [];
+  data.forEach((user) => {
+    if (user?.lastModification) {
+      user.lastModification.forEach((log) =>
+        logsToUse.push({ ...log, name: user.name }),
+      );
+    }
+  });
+
   const logsArraySort = Array.from(logsToUse).sort((val1, val2) =>
     homeHandler.sortList(val1, val2, 'date'),
   );

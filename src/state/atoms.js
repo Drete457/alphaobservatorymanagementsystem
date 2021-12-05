@@ -39,8 +39,3 @@ export const intervalIdClean = atom({
   key: 'intervalIdClean',
   default: 0,
 });
-
-export const logs = atom({
-  key: 'logs',
-  default: {},
-});

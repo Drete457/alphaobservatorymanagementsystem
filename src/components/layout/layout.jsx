@@ -4,7 +4,7 @@ import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
 import { useGetReceptionCards } from 'hooks/reception';
 import { useSetRecoilState } from 'recoil';
-import { countries, generic, users, globalList, logs } from 'state/atoms';
+import { countries, generic, users, globalList } from 'state/atoms';
 import homeHandler from 'helpers/users';
 import Sidebar from './sidebar';
 import Aside from './aside';
@@ -20,7 +20,6 @@ const Layout = () => {
   const setGeneric = useSetRecoilState(generic);
   const setListUsers = useSetRecoilState(users);
   const setGlobalList = useSetRecoilState(globalList);
-  const setLogs = useSetRecoilState(logs);
 
   const { data, execute } = useGetUsers();
   const { data: dataEntry, execute: executeEntry } = useGetReceptionCards();
@@ -45,72 +44,33 @@ const Layout = () => {
   }, [countriesList, genericList, setCountries, setGeneric]);
 
   useLayoutEffect(() => {
-    const collaboratorsLogs = [];
-    const entriesLogs = [];
+    const collaboratorsData = data ? Object.values(data) : [];
+    const collaboratorsSort = collaboratorsData.sort((value1, value2) =>
+      homeHandler.sortList(value1, value2, 'name'),
+    );
+    const receptionCardsData = dataEntry ? Object.values(dataEntry) : [];
+    const receptionCardsSort = receptionCardsData.sort((value1, value2) =>
+      homeHandler.sortList(value1, value2, 'name'),
+    );
 
-    if (data && genericList && countriesList) {
-      homeHandler.buildUserList(data, countriesList, genericList, setListUsers);
-    }
+    const collaborators = collaboratorsSort.map?.((user) => {
+      return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
+    });
 
-    if (data && dataEntry) {
-      const collaboratorsData = Object.values(data);
-      const receptionCardsData = Object.values(dataEntry);
+    const entries = receptionCardsSort?.map?.((entry) => {
+      return {
+        id: entry.id,
+        name: entry.name,
+        link: `/reception/reception_edit/${entry.id}`,
+      };
+    });
 
-      const collaborators = collaboratorsData.map?.((user) => {
-        if (user?.lastModification) {
-          user.lastModification.forEach((log) =>
-            collaboratorsLogs.push({ ...log, name: user.name }),
-          );
-        }
-
-        return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
-      });
-
-      const entries = receptionCardsData?.map?.((entry) => {
-        if (entry?.lastModification) {
-          entry.lastModification.forEach((log) => {
-            entriesLogs.push({ ...log, name: entry.name });
-          });
-        }
-
-        return {
-          id: entry.id,
-          name: entry.name,
-          link: `/reception/reception_edit/${entry.id}`,
-        };
-      });
-
-      setGlobalList([...collaborators, ...entries]);
-      setLogs({
-        collaborators: collaboratorsLogs,
-        entries: entriesLogs,
-      });
-    } else if (data) {
-      const collaboratorsData = Object.values(data);
-      const collaborators = collaboratorsData.map?.((user) => {
-        if (user?.lastModification) {
-          user.lastModification.forEach((log) =>
-            collaboratorsLogs.push({ ...log, name: user.name }),
-          );
-        }
-
-        return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
-      });
-
-      setGlobalList(collaborators);
-      setLogs({
-        collaborators: collaboratorsLogs,
-      });
-    }
-  }, [
-    data,
-    dataEntry,
-    countriesList,
-    genericList,
-    setListUsers,
-    setGlobalList,
-    setLogs,
-  ]);
+    setGlobalList([...collaborators, ...entries]);
+    setListUsers({
+      collaborators: collaboratorsData,
+      entries: receptionCardsData,
+    });
+  }, [data, dataEntry, setGlobalList, setListUsers]);
 
   return (
     <div className="c-app c-classic-layout">

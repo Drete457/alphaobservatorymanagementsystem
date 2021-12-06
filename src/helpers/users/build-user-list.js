@@ -1,24 +1,20 @@
 import homeHandler from '.';
 import userHandler from 'helpers/user';
-import sortList from './sort-list';
 
-const buildUserList = (data, countriesList, genericList, setListUsers) => {
-  const arrayData = Object.values(data);
-  const sortedList = arrayData.sort((user1, user2) =>
-    sortList(user1, user2, 'name'),
-  );
+const buildUserList = (
+  collaborators,
+  collaboratoresWithFollowers,
+  countriesList,
+  genericList,
+  setListUsers,
+) => {
+  const arrayData = [...collaborators];
 
-  const usersList = homeHandler.buildUsersListFilter(data);
-  const usersListSort = usersList.sort((user1, user2) =>
-    sortList(user1, user2, 'name'),
-  );
-  usersListSort.unshift({ id: '1', name: 'None' });
-
-  const fillArrayData = sortedList?.map((value) => {
+  const fillArrayData = arrayData?.map((value) => {
     let user = { ...value };
 
     if (user.followed) {
-      const followedBy = usersListSort.find(
+      const followedBy = collaboratoresWithFollowers.find(
         (value) => value.id === user.followed,
       )?.name;
 
@@ -99,7 +95,7 @@ const buildUserList = (data, countriesList, genericList, setListUsers) => {
     }
 
     if (user.contacted) {
-      let contactBy = usersList.find(
+      let contactBy = collaboratoresWithFollowers.find(
         (value) => value.id === user.contacted,
       )?.name;
 
@@ -149,14 +145,7 @@ const buildUserList = (data, countriesList, genericList, setListUsers) => {
     return user;
   });
 
-  if (usersList.length > 0) {
-    const obj = {
-      usersDataInfo: fillArrayData,
-      usersWithFollowers: usersListSort,
-    };
-
-    setListUsers(obj);
-  }
+  setListUsers(fillArrayData);
 };
 
 export default buildUserList;

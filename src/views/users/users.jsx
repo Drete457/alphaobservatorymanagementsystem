@@ -2,7 +2,7 @@ import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { generic, users, intervalIdClean } from 'state/atoms';
+import { countries, generic, users, intervalIdClean } from 'state/atoms';
 import homeHandler from 'helpers/users';
 import Button from 'components/button';
 import DataTable from 'components/users';
@@ -10,17 +10,31 @@ import DataTable from 'components/users';
 const Users = () => {
   const [t] = useTranslation();
   const history = useHistory();
+  const [usersDataInfo, setUsersDataInfo] = useState([]);
   const [hasClean, setHasClean] = useState(false);
   const [globalHour, setGlobalHour] = useState('');
   const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
+  const { collaborators, usersWithFollowers } = useRecoilValue(users);
+  const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  //const { usersDataInfo } = useRecoilValue(users);
-  const usersDataInfo = [];
+
   //start the clock
   if (globalHour === '') {
     homeHandler.minuteUpdate(setGlobalHour);
   }
+
+  useLayoutEffect(() => {
+    if (collaborators && countriesList && genericList) {
+      homeHandler.buildUserList(
+        collaborators,
+        usersWithFollowers,
+        countriesList,
+        genericList,
+        setUsersDataInfo,
+      );
+    }
+  }, [collaborators, usersWithFollowers, countriesList, genericList]);
 
   useLayoutEffect(() => {
     if (!hasClean) {

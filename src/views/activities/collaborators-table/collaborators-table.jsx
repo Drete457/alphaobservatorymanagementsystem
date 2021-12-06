@@ -1,19 +1,55 @@
 import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useRecoilValue } from 'recoil';
+import { users, countries, generic } from 'state/atoms';
 import { useGetActivities } from 'hooks/activities';
 import DataTable from 'components/activities/colaboratos-table';
 import ErrorInfo from 'components/error';
 import Button from 'components/button';
 import activitiesHandler from 'helpers/activities';
+import homeHandler from 'helpers/users';
 
 const CollaboratorsTable = () => {
   const [t] = useTranslation();
+  const [usersDataInfo, setUsersDataInfo] = useState(null);
   const [list, setList] = useState([]);
+  const [fields, setFields] = useState([]);
+
   const { isLoading, error, data, execute } = useGetActivities();
+
+  const { collaborators, usersWithFollowers } = useRecoilValue(users);
+  const countriesList = useRecoilValue(countries);
+  const genericList = useRecoilValue(generic);
 
   useLayoutEffect(() => {
     execute();
   }, [execute]);
+
+  useLayoutEffect(() => {
+    if (collaborators && countriesList && genericList) {
+      homeHandler.buildUserList(
+        collaborators,
+        usersWithFollowers,
+        countriesList,
+        genericList,
+        setUsersDataInfo,
+      );
+    }
+  }, [collaborators, usersWithFollowers, countriesList, genericList]);
+
+  useLayoutEffect(() => {
+    if (data && usersDataInfo) {
+      const { fieldsToTable, usersToTable } = activitiesHandler.generateFields(
+        data,
+        usersDataInfo,
+        t,
+        genericList?.activitiesType,
+      );
+
+      setFields(fieldsToTable);
+      setList(usersToTable);
+    }
+  }, [data, t, usersDataInfo, genericList]);
 
   return (
     <>
@@ -36,12 +72,7 @@ const CollaboratorsTable = () => {
               />
             </nav>
             <hr />
-            <DataTable
-              activities={data}
-              isLoading={isLoading}
-              list={list}
-              setList={setList}
-            />
+            <DataTable fields={fields} list={list} isLoading={isLoading} />
           </main>
         </>
       )}

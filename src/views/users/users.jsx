@@ -16,6 +16,7 @@ const Users = () => {
   const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
   const { collaborators, usersWithFollowers } = useRecoilValue(users);
+
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
 

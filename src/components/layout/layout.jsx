@@ -35,28 +35,37 @@ const Layout = () => {
 
   useLayoutEffect(() => {
     execute();
-    executeEntry();
-    executeCountries();
-    executeGeneric();
-  }, [execute, executeEntry, executeCountries, executeGeneric]);
+  }, [execute]);
 
   useLayoutEffect(() => {
     if (data && !promiseResolved.collaboratos) {
       setPromiseResolved({ ...promiseResolved, collaboratos: true });
+      executeEntry();
     }
 
     if (dataEntry && !promiseResolved.reception) {
       setPromiseResolved({ ...promiseResolved, reception: true });
+      executeCountries();
     }
 
     if (countriesList && !promiseResolved.countries) {
       setPromiseResolved({ ...promiseResolved, countries: true });
+      executeGeneric();
     }
 
     if (genericList && !promiseResolved.generic) {
       setPromiseResolved({ ...promiseResolved, generic: true });
     }
-  }, [data, dataEntry, countriesList, genericList, promiseResolved]);
+  }, [
+    data,
+    dataEntry,
+    countriesList,
+    genericList,
+    promiseResolved,
+    executeEntry,
+    executeCountries,
+    executeGeneric,
+  ]);
 
   useLayoutEffect(() => {
     const resultArray = Object.values(promiseResolved);

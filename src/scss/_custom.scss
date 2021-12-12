@@ -60,5 +60,20 @@ button {
 }
 
 .c-sidebar .c-sidebar-nav-dropdown.c-show .c-sidebar-nav-link:focus {
-  background-color: $borderColor;
+  background: linear-gradient(-45deg, #545454, #434343, #000000, #434343, #545454);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+

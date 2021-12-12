@@ -53,6 +53,19 @@ const useNavigation = (t) => {
     },
     {
       _tag: 'CSidebarNavDropdown',
+      name: 'Ambit',
+      route: '/ambit',
+      _children: [
+        {
+          _tag: 'CSidebarNavItem',
+          name: 'Base Ambit',
+          to: '',
+          icon: 'cil-group',
+        },
+      ],
+    },
+    {
+      _tag: 'CSidebarNavDropdown',
       name: t('sidebar.administration.title'),
       route: '/administration',
       _children: [

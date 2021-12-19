@@ -33,7 +33,7 @@ const UserRegistration = () => {
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
   const { usersWithFollowers: usersList } = useRecoilValue(users);
-
+  console.log(genericList?.cardTypes);
   useLayoutEffect(() => {
     if (user.name) {
       const result = userHandler.validName(user?.name, usersList);
@@ -101,7 +101,7 @@ const UserRegistration = () => {
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}
-              cardsTypes={genericList?.cardTypes}
+              cardsTypes={userHandler.cardType(genericList?.cardTypes)}
               userList={usersList}
             />
           )}

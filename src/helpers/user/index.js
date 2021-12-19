@@ -15,6 +15,7 @@ import screenOrientation from '../user/screen-orientation';
 import validName from './validName';
 import contactByFilter from './contactbyfilter';
 import firstLetterUppercaseOnArray from './first-letter-uppercase';
+import cardType from './card-type';
 
 const userHandler = {
   userFormat,
@@ -32,6 +33,7 @@ const userHandler = {
   validName,
   contactByFilter,
   firstLetterUppercaseOnArray,
+  cardType,
 };
 
 export default userHandler;

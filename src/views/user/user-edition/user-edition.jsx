@@ -106,7 +106,7 @@ const UserEdition = ({ match }) => {
               user={user}
               setUser={setUser}
               errorMsg={errorMsg}
-              cardsTypes={genericList?.cardTypes}
+              cardsTypes={userHandler.cardType(genericList?.cardTypes)}
               userList={usersList}
             />
           )}

@@ -14,6 +14,7 @@ import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
 import View from 'components/user/buttons/view';
 import homeHandler from 'helpers/users';
+import userHandler from 'helpers/user';
 
 const CardsView = ({ match }) => {
   const [t] = useTranslation();
@@ -25,7 +26,7 @@ const CardsView = ({ match }) => {
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const { usersDataInfo: dataUserList } = useRecoilValue(users);
+  const { usersWithFollowers: dataUserList } = useRecoilValue(users);
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
 
@@ -81,7 +82,7 @@ const CardsView = ({ match }) => {
             <UserCards
               user={user}
               userList={dataUserList}
-              cardsTypes={genericList?.cardTypes}
+              cardsTypes={userHandler.cardType(genericList?.cardTypes)}
             />
           )}
           {active === 3 && <ProfilePage user={user} />}

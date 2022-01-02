@@ -1,14 +1,12 @@
 import { useState, useCallback } from 'react';
-import { fb } from 'api';
-import { ref } from 'components/user';
+import { getDatabase, ref, child, remove } from 'firebase/database';
+import { ref as reference } from 'components/user';
 
-export const deleteUsers = async (user, setData) => {
-  const firebase = await fb();
-  await firebase
-    .database()
-    .ref(ref + user.name)
-    .remove()
-    .then(() => setData(true));
+export const deleteUser = async (id, setData) => {
+  const database = getDatabase();
+  const dbRef = ref(database);
+
+  await remove(child(dbRef, reference + id)).then(() => setData(true));
 };
 
 const useDeleteUsers = () => {
@@ -16,10 +14,10 @@ const useDeleteUsers = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
-  const execute = async (user) => {
+  const execute = async (id) => {
     try {
       setIsLoading(true);
-      deleteUsers(user, setData);
+      deleteUser(id, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);

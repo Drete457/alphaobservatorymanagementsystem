@@ -1,15 +1,26 @@
 import { memo } from 'react';
 import { CSidebar, CSidebarClose } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { asideShow, users, user } from 'state/atoms';
 import { useHistory } from 'react-router-dom';
-import { asideShow } from 'state/atoms';
 import Button from 'components/button';
+import homeHandler from 'helpers/users';
 
 const Aside = () => {
   const [isAsideShow, setAsideShow] = useRecoilState(asideShow);
   const [t] = useTranslation();
   const history = useHistory();
+  let hashCompare = '';
+
+  const { collaborators } = useRecoilValue(users);
+  const isUser = useRecoilValue(user);
+
+  if (collaborators) {
+    hashCompare = Array.from(collaborators).find(
+      (item) => item.hashcode,
+    ).hashcode;
+  }
 
   return (
     <CSidebar
@@ -26,12 +37,16 @@ const Aside = () => {
         <div className="nav nav-tabs">
           <div className="nav-item">
             <div className="nav-link">{t('sidebar.aside.title')}</div>
-            <hr />
-            <Button
-              name={t('btn.table-import.button')}
-              onClick={() => history.push(`/table_import`)}
-              className="button-font-weight"
-            />
+            {homeHandler.hashCode(isUser?.email).toString() === hashCompare && (
+              <>
+                <hr />
+                <Button
+                  name={t('btn.table-import.button')}
+                  onClick={() => history.push(`/table_import`)}
+                  className="button-font-weight"
+                />
+              </>
+            )}
             <hr />
             <Button
               name={t('btn.logs.collaborators')}

@@ -38,8 +38,6 @@ const filter = (list, valueToSearch) => {
 };
 
 const TableImport = () => {
-  //TODO: Delete the moment security is done
-  const securityIsDone = process.env.REACT_APP_IS_SECURITY_DONE === 'true';
   const [t] = useTranslation();
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
@@ -135,12 +133,10 @@ const TableImport = () => {
                 });
               }}
             />
-            {securityIsDone && (
-              <Button
-                name={t('btn.table-import.button-import')}
-                onClick={onButtonClick}
-              />
-            )}
+            <Button
+              name={t('btn.table-import.button-import')}
+              onClick={onButtonClick}
+            />
           </div>
         )}
 

@@ -17,12 +17,6 @@ import View from 'components/user/buttons/view';
 import homeHandler from 'helpers/users';
 import userHandler from 'helpers/user';
 
-const hashCode = (s) =>
-  s.split('').reduce((a, b) => {
-    a = (a << 5) - a + b.charCodeAt(0);
-    return a & a;
-  }, 0);
-
 const CardsView = ({ match }) => {
   const [t] = useTranslation();
   const history = useHistory();
@@ -89,7 +83,7 @@ const CardsView = ({ match }) => {
         <ErrorInfo error={error} />
       ) : user && dataUserList && countriesList && genericList ? (
         <>
-          {hashCode(isUser?.email).toString() === hashCompare && (
+          {homeHandler.hashCode(isUser?.email).toString() === hashCompare && (
             <button
               onClick={() => deleteUserExecute(user.id)}
               className="eject"

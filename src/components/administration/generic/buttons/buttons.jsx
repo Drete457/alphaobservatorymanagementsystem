@@ -19,8 +19,6 @@ const Buttons = ({
   wasModified,
   setWasModified,
 }) => {
-  //TODO: Delete the moment security is done
-  const securityIsDone = process.env.REACT_APP_IS_SECURITY_DONE === 'true';
   const [t] = useTranslation();
 
   const { data, execute } = usePostGeneric();
@@ -33,7 +31,7 @@ const Buttons = ({
 
   return (
     <>
-      {!isEdit[type] && securityIsDone && (
+      {!isEdit[type] && (
         <div className="user-submit-buttons">
           <Button
             name={t('btn.create-edit.edit')}

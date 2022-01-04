@@ -41,6 +41,12 @@ const Aside = () => {
               <>
                 <hr />
                 <Button
+                  name={t('btn.errors.button')}
+                  onClick={() => history.push(`/errors`)}
+                  className="button-font-weight"
+                />
+                <hr />
+                <Button
                   name={t('btn.table-import.button')}
                   onClick={() => history.push(`/table_import`)}
                   className="button-font-weight"

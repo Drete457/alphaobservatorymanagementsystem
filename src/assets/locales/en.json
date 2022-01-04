@@ -87,6 +87,9 @@
       "button": "Import Collaborators Table",
       "button-import": "Import Table"
     },
+    "errors": {
+      "button": "View Logs Errors"
+    },
     "logs": {
       "collaborators": "View Logs Collaborators",
       "entries": "View Logs Entries"
@@ -479,6 +482,9 @@
     },
     "logs": {
       "title": "View Logs"
+    },
+    "errorslogs": {
+      "title": "View Errors Logs"
     }
   },
   "dates": {

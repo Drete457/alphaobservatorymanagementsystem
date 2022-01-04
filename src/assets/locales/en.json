@@ -206,6 +206,9 @@
       "activitiesAlpha": {
         "title": "Number of Alpha Cafe"
       },
+      "activitiesDirectCommunication": {
+        "title": "Number of Direct Communication"
+      },
       "groupAge": {
         "title": "Group Age"
       },

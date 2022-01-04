@@ -18,6 +18,7 @@ const exportToExcel = (data, t) => {
     newUser.Number_Of_Activities = currentUser.numberOfActivities;
     newUser.Survey_Session = currentUser.numberSurveyActivities;
     newUser.Alpha_Cafe = currentUser.numberAlphaActivities;
+    newUser.Direct_Communication = currentUser.numberDirectCommunication;
 
     delete currentUser.id;
     delete currentUser.name;
@@ -25,6 +26,7 @@ const exportToExcel = (data, t) => {
     delete currentUser.numberOfActivities;
     delete currentUser.numberSurveyActivities;
     delete currentUser.numberAlphaActivities;
+    delete currentUser.numberDirectCommunication;
     delete currentUser.country;
     delete currentUser.socialInfo;
     delete currentUser.firstActivity;

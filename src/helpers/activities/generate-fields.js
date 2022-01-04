@@ -23,6 +23,7 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
   newUsersList.forEach((user, index) => {
     let numberSurveyActivities = 0;
     let numberAlphaActivities = 0;
+    let numberDirectCommunication = 0;
 
     const userActivitiesArray = activities.filter((activity) =>
       activity.list.find((userId) => userId === user.id),
@@ -48,11 +49,20 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
       ) {
         numberAlphaActivities++;
       }
+
+      if (
+        activity.type ===
+        '68bfc3947dde-e0dd5abb-2a0ec68f-825f0c3e-620131ab5c2df458'
+      ) {
+        numberDirectCommunication++;
+      }
     });
 
     newUsersList[index]['numberOfActivities'] = userActivitiesArray.length;
     newUsersList[index]['numberSurveyActivities'] = numberSurveyActivities;
     newUsersList[index]['numberAlphaActivities'] = numberAlphaActivities;
+    newUsersList[index]['numberDirectCommunication'] =
+      numberDirectCommunication;
   });
 
   //have the final fields the table will show
@@ -85,6 +95,10 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
       {
         key: 'numberAlphaActivities',
         label: t('user.fields.activitiesAlpha.title'),
+      },
+      {
+        key: 'numberDirectCommunication',
+        label: t('user.fields.activitiesDirectCommunication.title'),
       },
 
       ...finalFields.reverse(),

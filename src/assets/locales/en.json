@@ -7,13 +7,13 @@
       "users": {
         "title": "Collaborators",
         "children": {
-          "table": "Table"
+          "table": "Collaborators Table"
         }
       },
       "activities": {
         "title": "Activities",
         "children": {
-          "table": "Table",
+          "table": "Activities Table",
           "user": "Collaborators Activities"
         }
       }

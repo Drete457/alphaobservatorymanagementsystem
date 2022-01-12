@@ -93,6 +93,11 @@
     "logs": {
       "collaborators": "View Logs Collaborators",
       "entries": "View Logs Entries"
+    },
+    "rightClickMenu": {
+      "refresh": "Refresh Page",
+      "copy": "Copy",
+      "paste": "Paste"
     }
   },
   "user": {

@@ -49,7 +49,8 @@ const ContextMenu = () => {
                 elementMouseIsOver.tagName === 'TEXTAREA'
               ) {
                 navigator.clipboard.readText().then((text) => {
-                  elementMouseIsOver.innerText = text;
+                  console.log(text);
+                  elementMouseIsOver.value = text;
                 });
               }
             }}

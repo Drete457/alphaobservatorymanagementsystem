@@ -185,6 +185,7 @@ button {
 
 .menu {
   background-color: $lineColor;
+  border: 0.1rem solid transparent;
   border-radius: 1rem;
   box-shadow: 0 0 1.2rem 0 $borderColor;
   font-size: large;
@@ -196,14 +197,17 @@ button {
   height: auto;
   width: auto;
   opacity: 1;
-  transition: opacity 0.6s linear;
+  transition: all 0.6s linear;
   z-index: 1050;
 
   .select{
-    text-align: center;
-    &:hover {
-      background-color: $active;
-      color: $lineColor;
+  text-align: center;
+
+  &:hover {
+    background-color: $active;
+    color: $lineColor;
     }
   }
 }
+
+

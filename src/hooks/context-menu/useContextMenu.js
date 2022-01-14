@@ -5,6 +5,9 @@ const useContextMenu = () => {
   const [yPos, setYPos] = useState('0px');
   const [showMenu, setShowMenu] = useState(false);
 
+  //verify if  the user is using mobile device
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
   const handleContextMenu = useCallback(
     (e) => {
       e.preventDefault();
@@ -21,13 +24,22 @@ const useContextMenu = () => {
   }, [showMenu]);
 
   useEffect(() => {
-    document.addEventListener('click', handleClick);
-    document.addEventListener('contextmenu', handleContextMenu);
-    return () => {
+    const result =
+      /android/i.test(userAgent) ||
+      (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream);
+
+    if (!result) {
       document.addEventListener('click', handleClick);
-      document.removeEventListener('contextmenu', handleContextMenu);
+      document.addEventListener('contextmenu', handleContextMenu);
+    }
+
+    return () => {
+      if (!result) {
+        document.addEventListener('click', handleClick);
+        document.removeEventListener('contextmenu', handleContextMenu);
+      }
     };
-  });
+  }, [handleContextMenu, handleClick, userAgent]);
 
   return { xPos, yPos, showMenu };
 };

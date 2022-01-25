@@ -74,11 +74,11 @@ const Submit = ({
         }
 
         if (wasChange) {
-          // postUser(newUser);
+          postUser(newUser);
         }
       });
 
-      //history.push(`/activities/activities_table`);
+      history.push(`/activities/activities_table`);
     }
   }, [
     newActivity,

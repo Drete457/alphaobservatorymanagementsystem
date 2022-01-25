@@ -25,6 +25,9 @@ const Submit = ({
     useGetLast30DaysActivities();
   const { data: usersData, execute: getUsers } = useGetUsers();
   const { execute: postUser } = usePostUser();
+  const isAlphaCafeActivity =
+    newActivity?.type ===
+    'b6fddec71394-0fc4f603-af3b986f-026fa186-b0f57c47439ac15c';
 
   useEffect(() => {
     if (data && usersData && activitiesData) {
@@ -60,18 +63,22 @@ const Submit = ({
           newUser.baseAmbit = value;
           wasChange = change;
         }
-
-        if (findUserOnTheActivityList && !newUser?.firstActivity) {
+        //TODO: only alpha cafe can be the first activity
+        if (
+          findUserOnTheActivityList &&
+          !newUser?.firstActivity &&
+          isAlphaCafeActivity
+        ) {
           newUser.firstActivity = newActivity.date;
           wasChange = true;
         }
 
         if (wasChange) {
-          postUser(newUser);
+          // postUser(newUser);
         }
       });
 
-      history.push(`/activities/activities_table`);
+      //history.push(`/activities/activities_table`);
     }
   }, [
     newActivity,
@@ -81,6 +88,7 @@ const Submit = ({
     postUser,
     history,
     setWasModified,
+    isAlphaCafeActivity,
   ]);
 
   useEffect(() => {

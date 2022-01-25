@@ -81,6 +81,10 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
         label: t('dates.fields.name'),
       },
       {
+        key: 'firstActivity',
+        label: t('user.fields.firstActivity.title'),
+      },
+      {
         key: 'followed',
         label: t('user.fields.followed.title'),
       },

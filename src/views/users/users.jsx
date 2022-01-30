@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
@@ -17,6 +17,7 @@ const Users = () => {
   const [registeredNumber, setRegisteredNumber] = useState(0);
   const [tableToExcel, setTabletoExcel] = useState({});
   const [isDynamicTable, setDynamicTable] = useState(false);
+  const gridRef = useRef(null);
 
   const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
@@ -98,9 +99,11 @@ const Users = () => {
         <hr />
 
         {isDynamicTable ? (
-          <div className="ag-theme-alpine" style={{ height: '35vw' }}>
-            <DynamicGrid data={usersDataInfo} />
-          </div>
+          <>
+            <div className="ag-theme-alpine" style={{ height: '35vw' }}>
+              <DynamicGrid data={usersDataInfo} />
+            </div>
+          </>
         ) : (
           <DataTable
             users={usersDataInfo}

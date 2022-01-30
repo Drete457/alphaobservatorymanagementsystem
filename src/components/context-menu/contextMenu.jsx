@@ -1,8 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useContextMenu } from 'hooks/context-menu';
-import useNavigation from 'components/layout/sidebar/navigation';
 import { useCopy } from 'hooks/context-menu';
+import useNavigation from 'components/layout/sidebar/navigation';
 
 const ContextMenu = () => {
   const history = useHistory();

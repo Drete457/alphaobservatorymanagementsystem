@@ -27,6 +27,7 @@ const DynamicGrid = ({ data, fieldsTable }) => {
         columnDefs={columnDefs}
         rowData={data}
         pagination={true}
+        getRowNodeId={(val) => console.log(val)}
       ></AgGridReact>
     </>
   );

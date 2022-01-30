@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { countries, generic, users, intervalIdClean } from 'state/atoms';
+import { DynamicGrid } from 'helpers/dynamic-table';
 import homeHandler from 'helpers/users';
 import Button from 'components/button';
 import DataTable from 'components/users';
@@ -15,6 +16,7 @@ const Users = () => {
   const [globalHour, setGlobalHour] = useState('');
   const [registeredNumber, setRegisteredNumber] = useState(0);
   const [tableToExcel, setTabletoExcel] = useState({});
+  const [isDynamicTable, setDynamicTable] = useState(false);
 
   const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
@@ -63,8 +65,22 @@ const Users = () => {
       <main>
         <hr />
         <nav className="users-nav h3">
-          {t('pages.users.numberUsers') + ': ' + registeredNumber}
+          {!isDynamicTable &&
+            t('pages.users.numberUsers') + ': ' + registeredNumber}
           <div className="users-button">
+            {isDynamicTable ? (
+              <Button
+                name={t('btn.dynamic.false')}
+                onClick={() => setDynamicTable(false)}
+                className="button-font-weight"
+              />
+            ) : (
+              <Button
+                name={t('btn.dynamic.true')}
+                onClick={() => setDynamicTable(true)}
+                className="button-font-weight"
+              />
+            )}
             <Button
               name={t('btn.create.excel')}
               onClick={() =>
@@ -81,12 +97,18 @@ const Users = () => {
         </nav>
         <hr />
 
-        <DataTable
-          users={usersDataInfo}
-          globalHour={globalHour}
-          setRegisteredNumber={setRegisteredNumber}
-          setTabletoExcel={setTabletoExcel}
-        />
+        {isDynamicTable ? (
+          <div className="ag-theme-alpine" style={{ height: '35vw' }}>
+            <DynamicGrid data={usersDataInfo} />
+          </div>
+        ) : (
+          <DataTable
+            users={usersDataInfo}
+            globalHour={globalHour}
+            setRegisteredNumber={setRegisteredNumber}
+            setTabletoExcel={setTabletoExcel}
+          />
+        )}
       </main>
     </>
   );

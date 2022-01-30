@@ -4,7 +4,12 @@ import { useHistory } from 'react-router-dom';
 import homeHandler from 'helpers/users';
 import CIcon from '@coreui/icons-react';
 
-const DataTable = ({ users, globalHour }) => {
+const DataTable = ({
+  users,
+  globalHour,
+  setRegisteredNumber,
+  setTabletoExcel,
+}) => {
   const [t] = useTranslation();
   const history = useHistory();
 
@@ -27,6 +32,11 @@ const DataTable = ({ users, globalHour }) => {
       itemsPerPageSelect
       itemsPerPage={25}
       pagination={true}
+      onFilteredItemsChange={(val) => {
+        setTabletoExcel(val);
+        setRegisteredNumber(val.length);
+      }}
+      onColumnFilterChange={(val) => console.log('new column filter:', val)}
       noItemsViewSlot={
         <div className="text-center my-5">
           <h2>

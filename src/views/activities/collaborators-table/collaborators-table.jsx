@@ -14,6 +14,8 @@ const CollaboratorsTable = () => {
   const [usersDataInfo, setUsersDataInfo] = useState(null);
   const [list, setList] = useState([]);
   const [fields, setFields] = useState([]);
+  const [registeredNumber, setRegisteredNumber] = useState(0);
+  const [tableToExcel, setTabletoExcel] = useState({});
 
   const { isLoading, error, data, execute } = useGetActivities();
 
@@ -64,15 +66,23 @@ const CollaboratorsTable = () => {
           <main>
             <hr />
             <nav className="activity-nav h3">
-              {t('pages.activities.collaborators-table-title')}
+              {t('pages.activities.collaborators-table-title') +
+                ': ' +
+                registeredNumber}
               <Button
                 name={t('btn.create.excel')}
-                onClick={() => activitiesHandler.exportToExcel(list, t)}
+                onClick={() => activitiesHandler.exportToExcel(tableToExcel, t)}
                 className="activity-button"
               />
             </nav>
             <hr />
-            <DataTable fields={fields} list={list} isLoading={isLoading} />
+            <DataTable
+              fields={fields}
+              list={list}
+              isLoading={isLoading}
+              setRegisteredNumber={setRegisteredNumber}
+              setTabletoExcel={setTabletoExcel}
+            />
           </main>
         </>
       )}

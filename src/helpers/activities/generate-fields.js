@@ -110,7 +110,7 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
 
     usersToTable: newUsersList,
   };
-  console.log(obj);
+
   return obj;
 };
 

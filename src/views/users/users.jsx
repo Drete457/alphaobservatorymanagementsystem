@@ -13,6 +13,9 @@ const Users = () => {
   const [usersDataInfo, setUsersDataInfo] = useState([]);
   const [hasClean, setHasClean] = useState(false);
   const [globalHour, setGlobalHour] = useState('');
+  const [registeredNumber, setRegisteredNumber] = useState(0);
+  const [tableToExcel, setTabletoExcel] = useState({});
+
   const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
 
   const { collaborators, usersWithFollowers } = useRecoilValue(users);
@@ -60,12 +63,12 @@ const Users = () => {
       <main>
         <hr />
         <nav className="users-nav h3">
-          {t('pages.users.numberUsers') + ': ' + usersDataInfo?.length}
+          {t('pages.users.numberUsers') + ': ' + registeredNumber}
           <div className="users-button">
             <Button
               name={t('btn.create.excel')}
               onClick={() =>
-                homeHandler.exportToExcel(usersDataInfo, genericList)
+                homeHandler.exportToExcel(tableToExcel, genericList)
               }
               className="button-font-weight"
             />
@@ -78,7 +81,12 @@ const Users = () => {
         </nav>
         <hr />
 
-        <DataTable users={usersDataInfo} globalHour={globalHour} />
+        <DataTable
+          users={usersDataInfo}
+          globalHour={globalHour}
+          setRegisteredNumber={setRegisteredNumber}
+          setTabletoExcel={setTabletoExcel}
+        />
       </main>
     </>
   );

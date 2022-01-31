@@ -2,20 +2,6 @@ import { CDataTable } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 import CIcon from '@coreui/icons-react';
 
-const collaboratorsWithActivities = (list) => {
-  const newUserWithActivities = [];
-
-  if (list.length > 0) {
-    list.forEach?.((user) => {
-      if (user.numberOfActivities !== 0) {
-        newUserWithActivities.push(user);
-      }
-    });
-  }
-
-  return newUserWithActivities;
-};
-
 const DataTable = ({
   fields,
   list,
@@ -28,7 +14,7 @@ const DataTable = ({
   return (
     <CDataTable
       addTableClasses="users-table"
-      items={collaboratorsWithActivities(list)}
+      items={list}
       fields={fields}
       columnFilter
       tableFilter

@@ -34,6 +34,16 @@ const CollaboratorsTable = () => {
     return newArray;
   };
 
+  const updateDynamicTableRegisteredNumber = () => {
+    const newArray = [];
+
+    if (gridApi) {
+      gridApi.forEachNodeAfterFilterAndSort((node) => newArray.push(node.data));
+
+      setRegisteredNumber(newArray.length);
+    }
+  };
+
   useLayoutEffect(() => {
     execute();
   }, [execute]);
@@ -60,7 +70,9 @@ const CollaboratorsTable = () => {
       );
 
       setFields(fieldsToTable);
-      setList(usersToTable);
+      const newList =
+        activitiesHandler.collaboratorsWithActivities(usersToTable);
+      setList(newList);
     }
   }, [data, t, usersDataInfo, genericList]);
 
@@ -77,10 +89,9 @@ const CollaboratorsTable = () => {
           <main>
             <hr />
             <nav className="activity-nav h3">
-              {!isDynamicTable &&
-                t('pages.activities.collaborators-table-title') +
-                  ': ' +
-                  registeredNumber}
+              {t('pages.activities.collaborators-table-title') +
+                ': ' +
+                registeredNumber}
               <div className="users-button">
                 {isDynamicTable ? (
                   <Button
@@ -110,11 +121,14 @@ const CollaboratorsTable = () => {
             <hr />
 
             {isDynamicTable ? (
-              <div className="ag-theme-alpine" style={{ height: '35vw' }}>
+              <div className="ag-theme-alpine" style={{ height: '50vw' }}>
                 <DynamicGrid
                   data={list}
                   fieldsTable={fields}
                   setGridApi={setGridApi}
+                  updateDynamicTableRegisteredNumber={
+                    updateDynamicTableRegisteredNumber
+                  }
                 />
               </div>
             ) : (

@@ -38,6 +38,16 @@ const Users = () => {
     return newArray;
   };
 
+  const updateDynamicTableRegisteredNumber = () => {
+    const newArray = [];
+
+    if (gridApi) {
+      gridApi.forEachNodeAfterFilterAndSort((node) => newArray.push(node.data));
+
+      setRegisteredNumber(newArray.length);
+    }
+  };
+
   useLayoutEffect(() => {
     if (collaborators && countriesList && genericList) {
       homeHandler.buildUserList(
@@ -73,8 +83,7 @@ const Users = () => {
       <main>
         <hr />
         <nav className="users-nav h3">
-          {!isDynamicTable &&
-            t('pages.users.numberUsers') + ': ' + registeredNumber}
+          {t('pages.users.numberUsers') + ': ' + registeredNumber}
           <div className="users-button">
             {isDynamicTable ? (
               <Button
@@ -109,8 +118,14 @@ const Users = () => {
 
         {isDynamicTable ? (
           <>
-            <div className="ag-theme-alpine" style={{ height: '35vw' }}>
-              <DynamicGrid data={usersDataInfo} setGridApi={setGridApi} />
+            <div className="ag-theme-alpine" style={{ height: '50vw' }}>
+              <DynamicGrid
+                data={usersDataInfo}
+                setGridApi={setGridApi}
+                updateDynamicTableRegisteredNumber={
+                  updateDynamicTableRegisteredNumber
+                }
+              />
             </div>
           </>
         ) : (

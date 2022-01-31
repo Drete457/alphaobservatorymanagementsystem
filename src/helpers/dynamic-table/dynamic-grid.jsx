@@ -13,11 +13,16 @@ LicenseManager.setLicenseKey(process.env.REACT_APP_AG_LICENSE);
 const DynamicGrid = ({ data, fieldsTable, setGridApi }) => {
   const [t] = useTranslation();
   const fields = homeHandler.fields(t);
-  const columnDefs = Array.from(fieldsTable || fields).map((field) => {
-    return {
-      headerName: field.label,
-      field: field.key,
-    };
+  const columnDefs = [];
+
+  //generate columns for the dynamic table
+  Array.from(fieldsTable || fields).forEach((field) => {
+    if (field.key !== 'timezone') {
+      columnDefs.push({
+        headerName: field.label,
+        field: field.key,
+      });
+    }
   });
 
   const onGridReady = (params) => {
@@ -34,6 +39,7 @@ const DynamicGrid = ({ data, fieldsTable, setGridApi }) => {
         columnDefs={columnDefs}
         pagination={true}
         onGridReady={onGridReady}
+        animateRows={true}
         rowData={data}
       ></AgGridReact>
     </>

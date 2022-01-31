@@ -8,9 +8,9 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 import { LicenseManager } from 'ag-grid-enterprise';
-LicenseManager.setLicenseKey('true');
+LicenseManager.setLicenseKey(process.env.REACT_APP_AG_LICENSE);
 
-const DynamicGrid = ({ data, fieldsTable }) => {
+const DynamicGrid = ({ data, fieldsTable, setGridApi }) => {
   const [t] = useTranslation();
   const fields = homeHandler.fields(t);
   const columnDefs = Array.from(fieldsTable || fields).map((field) => {
@@ -20,14 +20,21 @@ const DynamicGrid = ({ data, fieldsTable }) => {
     };
   });
 
+  const onGridReady = (params) => {
+    setGridApi(params.api);
+
+    const updateData = () => params.api.setRowData(data.slice(0, data.length));
+    updateData();
+  };
+
   return (
     <>
       <AgGridReact
         defaultColDef={{ sortable: true, filter: true }}
         columnDefs={columnDefs}
-        rowData={data}
         pagination={true}
-        getRowNodeId={(val) => console.log(val)}
+        onGridReady={onGridReady}
+        rowData={data}
       ></AgGridReact>
     </>
   );

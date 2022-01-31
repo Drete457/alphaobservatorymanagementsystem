@@ -122,7 +122,7 @@ const Layout = () => {
 
   return (
     <>
-      {/* //TODO: change how the contextmenu work in the dynamictable <ContextMenu /> */}
+      {false && <ContextMenu />}
       <div className="c-app c-classic-layout">
         <Sidebar />
         <Aside />

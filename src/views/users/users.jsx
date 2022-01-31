@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useRef } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
@@ -17,10 +17,9 @@ const Users = () => {
   const [registeredNumber, setRegisteredNumber] = useState(0);
   const [tableToExcel, setTabletoExcel] = useState({});
   const [isDynamicTable, setDynamicTable] = useState(false);
-  const gridRef = useRef(null);
+  const [gridApi, setGridApi] = useState(null);
 
   const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
-
   const { collaborators, usersWithFollowers } = useRecoilValue(users);
 
   const countriesList = useRecoilValue(countries);
@@ -30,6 +29,14 @@ const Users = () => {
   if (globalHour === '') {
     homeHandler.minuteUpdate(setGlobalHour);
   }
+
+  const onBtForEachLeafNode = () => {
+    const newArray = [];
+
+    gridApi.forEachNodeAfterFilterAndSort((node) => newArray.push(node.data));
+
+    return newArray;
+  };
 
   useLayoutEffect(() => {
     if (collaborators && countriesList && genericList) {
@@ -85,7 +92,9 @@ const Users = () => {
             <Button
               name={t('btn.create.excel')}
               onClick={() =>
-                homeHandler.exportToExcel(tableToExcel, genericList)
+                homeHandler.exportToExcel(
+                  isDynamicTable ? onBtForEachLeafNode() : tableToExcel,
+                )
               }
               className="button-font-weight"
             />
@@ -101,7 +110,7 @@ const Users = () => {
         {isDynamicTable ? (
           <>
             <div className="ag-theme-alpine" style={{ height: '35vw' }}>
-              <DynamicGrid data={usersDataInfo} />
+              <DynamicGrid data={usersDataInfo} setGridApi={setGridApi} />
             </div>
           </>
         ) : (

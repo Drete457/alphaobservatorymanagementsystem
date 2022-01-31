@@ -18,12 +18,21 @@ const CollaboratorsTable = () => {
   const [registeredNumber, setRegisteredNumber] = useState(0);
   const [tableToExcel, setTabletoExcel] = useState({});
   const [isDynamicTable, setDynamicTable] = useState(false);
+  const [gridApi, setGridApi] = useState(null);
 
   const { isLoading, error, data, execute } = useGetActivities();
 
   const { collaborators, usersWithFollowers } = useRecoilValue(users);
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
+
+  const onBtForEachLeafNode = () => {
+    const newArray = [];
+
+    gridApi.forEachNodeAfterFilterAndSort((node) => newArray.push(node.data));
+
+    return newArray;
+  };
 
   useLayoutEffect(() => {
     execute();
@@ -89,7 +98,10 @@ const CollaboratorsTable = () => {
                 <Button
                   name={t('btn.create.excel')}
                   onClick={() =>
-                    activitiesHandler.exportToExcel(tableToExcel, t)
+                    activitiesHandler.exportToExcel(
+                      isDynamicTable ? onBtForEachLeafNode() : tableToExcel,
+                      t,
+                    )
                   }
                   className="activity-button"
                 />
@@ -99,7 +111,11 @@ const CollaboratorsTable = () => {
 
             {isDynamicTable ? (
               <div className="ag-theme-alpine" style={{ height: '35vw' }}>
-                <DynamicGrid data={list} fieldsTable={fields} />
+                <DynamicGrid
+                  data={list}
+                  fieldsTable={fields}
+                  setGridApi={setGridApi}
+                />
               </div>
             ) : (
               <DataTable

@@ -7,7 +7,7 @@ const download = (data) => {
   exportFromJSON({ data, fileName, exportType });
 };
 
-const exportToExcel = (data, generic) => {
+const exportToExcel = (data) => {
   const newData = data.map((user) => {
     const newUser = {};
 

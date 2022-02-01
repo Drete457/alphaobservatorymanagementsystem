@@ -70,9 +70,7 @@ const CollaboratorsTable = () => {
       );
 
       setFields(fieldsToTable);
-      const newList =
-        activitiesHandler.collaboratorsWithActivities(usersToTable);
-      setList(newList);
+      setList(usersToTable);
     }
   }, [data, t, usersDataInfo, genericList]);
 
@@ -134,7 +132,7 @@ const CollaboratorsTable = () => {
             ) : (
               <DataTable
                 fields={fields}
-                list={list}
+                list={activitiesHandler.collaboratorsWithActivities(list)}
                 isLoading={isLoading}
                 setRegisteredNumber={setRegisteredNumber}
                 setTabletoExcel={setTabletoExcel}

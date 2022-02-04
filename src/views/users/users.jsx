@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { countries, generic, users, intervalIdClean } from 'state/atoms';
+import { DynamicGrid } from 'helpers/dynamic-table';
 import homeHandler from 'helpers/users';
 import Button from 'components/button';
 import DataTable from 'components/users';
@@ -13,8 +14,12 @@ const Users = () => {
   const [usersDataInfo, setUsersDataInfo] = useState([]);
   const [hasClean, setHasClean] = useState(false);
   const [globalHour, setGlobalHour] = useState('');
-  const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
+  const [registeredNumber, setRegisteredNumber] = useState(0);
+  const [tableToExcel, setTabletoExcel] = useState({});
+  const [isDynamicTable, setDynamicTable] = useState(false);
+  const [gridApi, setGridApi] = useState(null);
 
+  const [intervalId, setIntervalId] = useRecoilState(intervalIdClean);
   const { collaborators, usersWithFollowers } = useRecoilValue(users);
 
   const countriesList = useRecoilValue(countries);
@@ -24,6 +29,24 @@ const Users = () => {
   if (globalHour === '') {
     homeHandler.minuteUpdate(setGlobalHour);
   }
+
+  const onBtForEachLeafNode = () => {
+    const newArray = [];
+
+    gridApi.forEachNodeAfterFilterAndSort((node) => newArray.push(node.data));
+
+    return newArray;
+  };
+
+  const updateDynamicTableRegisteredNumber = () => {
+    const newArray = [];
+
+    if (gridApi) {
+      gridApi.forEachNodeAfterFilterAndSort((node) => newArray.push(node.data));
+
+      setRegisteredNumber(newArray.length);
+    }
+  };
 
   useLayoutEffect(() => {
     if (collaborators && countriesList && genericList) {
@@ -60,12 +83,27 @@ const Users = () => {
       <main>
         <hr />
         <nav className="users-nav h3">
-          {t('pages.users.numberUsers') + ': ' + usersDataInfo?.length}
+          {t('pages.users.numberUsers') + ': ' + registeredNumber}
           <div className="users-button">
+            {isDynamicTable ? (
+              <Button
+                name={t('btn.dynamic.false')}
+                onClick={() => setDynamicTable(false)}
+                className="button-font-weight"
+              />
+            ) : (
+              <Button
+                name={t('btn.dynamic.true')}
+                onClick={() => setDynamicTable(true)}
+                className="button-font-weight"
+              />
+            )}
             <Button
               name={t('btn.create.excel')}
               onClick={() =>
-                homeHandler.exportToExcel(usersDataInfo, genericList)
+                homeHandler.exportToExcel(
+                  isDynamicTable ? onBtForEachLeafNode() : tableToExcel,
+                )
               }
               className="button-font-weight"
             />
@@ -78,7 +116,26 @@ const Users = () => {
         </nav>
         <hr />
 
-        <DataTable users={usersDataInfo} globalHour={globalHour} />
+        {isDynamicTable ? (
+          <>
+            <div className="ag-theme-alpine" style={{ height: '50vw' }}>
+              <DynamicGrid
+                data={usersDataInfo}
+                setGridApi={setGridApi}
+                updateDynamicTableRegisteredNumber={
+                  updateDynamicTableRegisteredNumber
+                }
+              />
+            </div>
+          </>
+        ) : (
+          <DataTable
+            users={usersDataInfo}
+            globalHour={globalHour}
+            setRegisteredNumber={setRegisteredNumber}
+            setTabletoExcel={setTabletoExcel}
+          />
+        )}
       </main>
     </>
   );

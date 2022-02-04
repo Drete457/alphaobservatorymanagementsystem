@@ -157,10 +157,15 @@ const EditActivity = ({ match }) => {
                 </div>
               )}
 
-              {activity?.list?.map((activityInfo) => {
-                const participant = usersList.find(
+              {activity?.list?.map((activityInfo, index) => {
+                let participant = usersList.find(
                   (user) => user.id === activityInfo,
                 );
+
+                if (!participant) {
+                  participant = { name: '', id: index };
+                }
+
                 return (
                   <div className="activity-input" key={participant.id}>
                     {haveExtra ? (

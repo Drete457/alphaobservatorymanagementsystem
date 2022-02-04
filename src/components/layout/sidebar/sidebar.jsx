@@ -1,5 +1,6 @@
 import { memo } from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { sidebarShow, users, user } from 'state/atoms';
 import {
   CCreateElement,
   CSidebar,
@@ -10,8 +11,7 @@ import {
   CSidebarNavItem,
 } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
-
-import { sidebarShow } from 'state/atoms';
+import homeHandler from 'helpers/users';
 
 // sidebar nav config
 import useNavigation from './navigation';
@@ -19,6 +19,19 @@ import useNavigation from './navigation';
 const Sidebar = () => {
   const [isSidebarShow, setIsSidebarShow] = useRecoilState(sidebarShow);
   const [t] = useTranslation();
+
+  let hashPass = '';
+
+  const { collaborators } = useRecoilValue(users);
+  const isUser = useRecoilValue(user);
+
+  if (collaborators) {
+    const hashCompare = Array.from(collaborators).find(
+      (item) => item.hashcode,
+    ).hashcode;
+
+    hashPass = homeHandler.hashCode(isUser?.email).toString() === hashCompare;
+  }
 
   return (
     <CSidebar
@@ -29,7 +42,7 @@ const Sidebar = () => {
       <CSidebarNav>
         <CSidebarNavTitle>Dashboard</CSidebarNavTitle>
         <CCreateElement
-          items={useNavigation(t)}
+          items={useNavigation(t, hashPass)}
           components={{
             CSidebarNavDivider,
             CSidebarNavDropdown,

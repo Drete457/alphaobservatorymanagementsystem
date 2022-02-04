@@ -10,6 +10,7 @@ import Sidebar from './sidebar';
 import Aside from './aside';
 import Header from './header';
 import Content from './content';
+import ContextMenu from 'components/context-menu';
 
 const Layout = () => {
   //delete the remain of cards positions on localStorage
@@ -120,16 +121,19 @@ const Layout = () => {
   ]);
 
   return (
-    <div className="c-app c-classic-layout">
-      <Sidebar />
-      <Aside />
-      <div className="c-wrapper">
-        <Header />
-        <div className="c-body">
-          <Content />
+    <>
+      {false && <ContextMenu />}
+      <div className="c-app c-classic-layout">
+        <Sidebar />
+        <Aside />
+        <div className="c-wrapper">
+          <Header />
+          <div className="c-body">
+            <Content />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

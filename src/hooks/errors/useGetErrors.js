@@ -1,23 +1,26 @@
 import { useState, useCallback } from 'react';
-import { getDatabase, ref, child, remove } from 'firebase/database';
-import { ref as reference } from 'components/user';
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { error as reference } from 'components/user';
 
-export const deleteUser = async (id, setData) => {
+export const getErrors = async (set) => {
   const database = getDatabase();
-  const dbRef = ref(database);
+  const dbRef = ref(database, reference);
 
-  await remove(child(dbRef, reference + id)).then(() => setData(true));
+  onValue(dbRef, (snapshot) => {
+    const data = snapshot.val();
+    set(data);
+  });
 };
 
-const useDeleteUsers = () => {
+const useGetErrors = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
-  const execute = async (id) => {
+  const execute = async () => {
     try {
       setIsLoading(true);
-      deleteUser(id, setData);
+      getErrors(setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);
@@ -33,4 +36,4 @@ const useDeleteUsers = () => {
   };
 };
 
-export default useDeleteUsers;
+export default useGetErrors;

@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect } from 'react';
-import { useGetUser } from 'hooks/users';
+import { useGetUser, useDeleteUser } from 'hooks/users';
 import {
   UserViewer,
   UserSocial,
@@ -7,27 +7,40 @@ import {
   ProfilePage,
 } from 'components/user/view/user-view';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { countries, generic, users } from 'state/atoms';
+import { countries, generic, users, user as loginUser } from 'state/atoms';
 import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Tabs from 'components/user/tabs';
 import View from 'components/user/buttons/view';
 import homeHandler from 'helpers/users';
+import userHandler from 'helpers/user';
 
 const CardsView = ({ match }) => {
   const [t] = useTranslation();
+  const history = useHistory();
   const [user, setUser] = useState(null);
   const [active, setActive] = useState(0);
   const [error, setError] = useState(null);
   const [hour, setHour] = useState('');
   const [timeZone, setTimeZone] = useState('');
+  let hashCompare = '';
 
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  const { usersDataInfo: dataUserList } = useRecoilValue(users);
+  const { usersWithFollowers: dataUserList, collaborators } =
+    useRecoilValue(users);
+  const isUser = useRecoilValue(loginUser);
+
+  if (collaborators) {
+    hashCompare = Array.from(collaborators).find(
+      (item) => item.hashcode,
+    ).hashcode;
+  }
 
   const { isLoading, error: errorServer, data, execute } = useGetUser();
+  const { data: dataDeleteUser, execute: deleteUserExecute } = useDeleteUser();
 
   useLayoutEffect(() => {
     const userID = match.params.id;
@@ -58,12 +71,30 @@ const CardsView = ({ match }) => {
     }
   }, [user?.country, countriesList]);
 
+  useLayoutEffect(() => {
+    if (dataDeleteUser) {
+      history.push(`/`);
+    }
+  }, [dataDeleteUser, history]);
+
   return (
     <>
       {error ? (
         <ErrorInfo error={error} />
       ) : user && dataUserList && countriesList && genericList ? (
         <>
+          {homeHandler.hashCode(isUser?.email).toString() === hashCompare && (
+            <button
+              onClick={() => deleteUserExecute(user.id)}
+              className="eject"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Eject
+            </button>
+          )}
           <Tabs active={active} setActive={setActive} />
           <View user={user} active={active} hour={hour} timeZone={timeZone} />
           {active === 0 && (
@@ -81,7 +112,7 @@ const CardsView = ({ match }) => {
             <UserCards
               user={user}
               userList={dataUserList}
-              cardsTypes={genericList?.cardTypes}
+              cardsTypes={userHandler.cardType(genericList?.cardTypes)}
             />
           )}
           {active === 3 && <ProfilePage user={user} />}

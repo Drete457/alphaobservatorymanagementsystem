@@ -7,13 +7,13 @@
       "users": {
         "title": "Collaborators",
         "children": {
-          "table": "Table"
+          "table": "Collaborators Table"
         }
       },
       "activities": {
         "title": "Activities",
         "children": {
-          "table": "Table",
+          "table": "Activities Table",
           "user": "Collaborators Activities"
         }
       }
@@ -87,9 +87,21 @@
       "button": "Import Collaborators Table",
       "button-import": "Import Table"
     },
+    "errors": {
+      "button": "View Logs Errors"
+    },
     "logs": {
       "collaborators": "View Logs Collaborators",
       "entries": "View Logs Entries"
+    },
+    "rightClickMenu": {
+      "refresh": "Refresh Page",
+      "copy": "Copy",
+      "paste": "Paste"
+    },
+    "dynamic": {
+      "true": "Dynamic Table",
+      "false": "Static Table"
     }
   },
   "user": {
@@ -205,6 +217,9 @@
       },
       "activitiesAlpha": {
         "title": "Number of Alpha Cafe"
+      },
+      "activitiesDirectCommunication": {
+        "title": "Number of Direct Communication"
       },
       "groupAge": {
         "title": "Group Age"
@@ -476,6 +491,9 @@
     },
     "logs": {
       "title": "View Logs"
+    },
+    "errorslogs": {
+      "title": "View Errors Logs"
     }
   },
   "dates": {

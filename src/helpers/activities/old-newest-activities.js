@@ -77,49 +77,42 @@ const calendarToShow = (activities, t) => {
     dates.push({
       key: first,
       label: `${t('dates.week.sunday')} ${convertAndRemoveYear(first)}`,
-      filter: false,
     });
 
     const second = addDaysFormat(currentDate, 1);
     dates.push({
       key: second,
       label: `${t('dates.week.monday')} ${convertAndRemoveYear(second)}`,
-      filter: false,
     });
 
     const third = addDaysFormat(currentDate, 2);
     dates.push({
       key: third,
       label: `${t('dates.week.tuesday')} ${convertAndRemoveYear(third)}`,
-      filter: false,
     });
 
     const fourth = addDaysFormat(currentDate, 3);
     dates.push({
       key: fourth,
       label: `${t('dates.week.wednesday')} ${convertAndRemoveYear(fourth)}`,
-      filter: false,
     });
 
     const fifth = addDaysFormat(currentDate, 4);
     dates.push({
       key: fifth,
       label: `${t('dates.week.thursday')} ${convertAndRemoveYear(fifth)}`,
-      filter: false,
     });
 
     const sixth = addDaysFormat(currentDate, 5);
     dates.push({
       key: sixth,
       label: `${t('dates.week.friday')} ${convertAndRemoveYear(sixth)}`,
-      filter: false,
     });
 
     const seventh = addDaysFormat(currentDate, 6);
     dates.push({
       key: seventh,
       label: `${t('dates.week.saturday')} ${convertAndRemoveYear(seventh)}`,
-      filter: false,
     });
 
     currentDate = addDays(currentDate, 7);

@@ -23,6 +23,7 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
   newUsersList.forEach((user, index) => {
     let numberSurveyActivities = 0;
     let numberAlphaActivities = 0;
+    let numberDirectCommunication = 0;
 
     const userActivitiesArray = activities.filter((activity) =>
       activity.list.find((userId) => userId === user.id),
@@ -48,11 +49,20 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
       ) {
         numberAlphaActivities++;
       }
+
+      if (
+        activity.type ===
+        '68bfc3947dde-e0dd5abb-2a0ec68f-825f0c3e-620131ab5c2df458'
+      ) {
+        numberDirectCommunication++;
+      }
     });
 
     newUsersList[index]['numberOfActivities'] = userActivitiesArray.length;
     newUsersList[index]['numberSurveyActivities'] = numberSurveyActivities;
     newUsersList[index]['numberAlphaActivities'] = numberAlphaActivities;
+    newUsersList[index]['numberDirectCommunication'] =
+      numberDirectCommunication;
   });
 
   //have the final fields the table will show
@@ -71,6 +81,14 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
         label: t('dates.fields.name'),
       },
       {
+        key: 'contacted',
+        label: t('user.fields.contacted.title'),
+      },
+      {
+        key: 'firstActivity',
+        label: t('user.fields.firstActivity.title'),
+      },
+      {
         key: 'followed',
         label: t('user.fields.followed.title'),
       },
@@ -86,8 +104,73 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
         key: 'numberAlphaActivities',
         label: t('user.fields.activitiesAlpha.title'),
       },
+      {
+        key: 'numberDirectCommunication',
+        label: t('user.fields.activitiesDirectCommunication.title'),
+      },
 
       ...finalFields.reverse(),
+
+      {
+        key: 'country',
+        label: t('user.fields.country.title'),
+      },
+      {
+        key: 'timezone',
+        label: t('user.fields.hour.title'),
+      },
+      {
+        key: 'socialInfo',
+        label: t('user.fields.social.title'),
+      },
+      {
+        key: 'training',
+        label: t('user.fields.training.title'),
+      },
+      {
+        key: 'personality',
+        label: t('user.fields.personality.title'),
+      },
+      {
+        key: 'second',
+        label: t('user.fields.second.title'),
+      },
+      {
+        key: 'reservation',
+        label: t('user.fields.cards.reservation'),
+      },
+      {
+        key: 'introductionOption',
+        label: t('user.fields.introduction.option.title'),
+      },
+      {
+        key: 'cardsInfo',
+        label: t('user.fields.cards.title'),
+      },
+      {
+        key: 'baseAmbit',
+        label: t('user.fields.ambit.entry'),
+      },
+      {
+        key: 'invitationAlphaCafe',
+        label: t('user.fields.invitationAlphaCafe.title'),
+      },
+      {
+        key: 'gender',
+        label: t('user.fields.gender.title'),
+      },
+      {
+        key: 'groupAge',
+        label: t('user.fields.groupAge.title'),
+      },
+      {
+        key: 'employment',
+        label: t('user.fields.employment.title'),
+      },
+      {
+        key: 'typeSurvey',
+        label: t('user.fields.survey.type.title'),
+      },
     ],
 
     usersToTable: newUsersList,

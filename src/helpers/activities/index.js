@@ -14,6 +14,7 @@ import calendarToShow, {
 import exportToExcel from './exportToExcel';
 import baseAmbit from './base-ambit';
 import generateFields from './generate-fields';
+import collaboratorsWithActivities from './collaborators-with-activities';
 
 const activitiesHandler = {
   activityInputHandler,
@@ -29,6 +30,7 @@ const activitiesHandler = {
   weeksBetweenDates,
   baseAmbit,
   generateFields,
+  collaboratorsWithActivities,
 };
 
 export default activitiesHandler;

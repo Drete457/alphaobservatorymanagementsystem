@@ -41,7 +41,11 @@ const ViewActivity = ({ match }) => {
         (activity) => activity.id === data.type,
       );
       const userListNames = data?.list.map((userId) => {
-        const participant = usersList.find((user) => user.id === userId);
+        let participant = usersList.find((user) => user.id === userId);
+
+        if (!participant) {
+          participant = { name: '' };
+        }
 
         return ' ' + participant.name;
       });
@@ -100,9 +104,11 @@ const ViewActivity = ({ match }) => {
               )}
 
               {activity?.list?.map((userId, index) => {
-                const participant = usersList.find(
-                  (user) => user.id === userId,
-                );
+                let participant = usersList.find((user) => user.id === userId);
+
+                if (!participant) {
+                  participant = { name: '', id: index * 1500 };
+                }
 
                 return (
                   <div className="activity-input" key={participant.id}>

@@ -12,19 +12,23 @@ const exportToExcel = (data, t) => {
   const newData = data.map((user) => {
     const newUser = {};
     const currentUser = { ...user };
-
+    console.log(currentUser);
     newUser.Name = currentUser.name;
+    newUser.ContactBy = currentUser.contacted;
     newUser.Followed = currentUser.followed;
     newUser.Number_Of_Activities = currentUser.numberOfActivities;
     newUser.Survey_Session = currentUser.numberSurveyActivities;
     newUser.Alpha_Cafe = currentUser.numberAlphaActivities;
+    newUser.Direct_Communication = currentUser.numberDirectCommunication;
 
     delete currentUser.id;
     delete currentUser.name;
+    delete currentUser.contacted;
     delete currentUser.followed;
     delete currentUser.numberOfActivities;
     delete currentUser.numberSurveyActivities;
     delete currentUser.numberAlphaActivities;
+    delete currentUser.numberDirectCommunication;
     delete currentUser.country;
     delete currentUser.socialInfo;
     delete currentUser.firstActivity;

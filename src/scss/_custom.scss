@@ -1,10 +1,10 @@
 // Here you can add other styles
 .border {
-    border: 0;
+  border: 0;
 }
 
 .maintenance-title {
-   text-align: center;
+  text-align: center;
 }
 
 //center the image in the build page
@@ -20,42 +20,194 @@
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 button {
-    text-transform: uppercase;
-    margin: 0 1rem;
+  text-transform: uppercase;
+  margin: 0 1rem;
 }
 
 .title {
-    margin: 1rem 2rem;
+  margin: 1rem 2rem;
 }
 
 //card page
 .profile-button {
-    display: flex;
-    justify-content: flex-end;
-    margin: 1rem;
-    font-size: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+  font-size: 1rem;
 }
 
 //images of the user
 .profile-page-image {
-    border-radius: 50%;
-    width: 10rem;
-    margin-left: 2rem;
+  border-radius: 50%;
+  width: 10rem;
+  margin-left: 2rem;
 }
 
 .header-nav-dropdown-menu-picture {
-    border-radius: 50%;
-    max-width: 2.25rem;
-    margin-right: 2rem;
+  border-radius: 50%;
+  max-width: 2.25rem;
+  margin-right: 2rem;
 }
 
 .generic-main {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
+
+.c-sidebar .c-sidebar-nav-dropdown.c-show .c-sidebar-nav-link:focus {
+  background: linear-gradient(-45deg, #545454, #434343, #000000, #434343, #545454);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.eject {
+  border: 0.1rem solid $borderColor;
+  border-radius: 0.1rem;
+  color: $show;
+  display: flex;
+  filter: hue-rotate(0deg);
+  font-family: "Roboto", sans-serif;
+  margin-left: auto;
+  padding: 1rem 3rem;
+  overflow: hidden;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s linear;
+
+  &:hover {
+    background-color: $active;
+    border: 0.1rem solid transparent;
+    color: $lineColor;
+    span {
+      display: block;
+      position: absolute;
+
+      &:nth-child(1) {
+        animation: animate1 1s linear infinite;
+        filter: hue-rotate(0deg);
+        background: linear-gradient(90deg, transparent, $borderColorHover);
+        left: 0;
+        height: 0.2rem;
+        width: 100%;
+        top: 0;
+      }
+      @keyframes animate1 {
+        0% {
+          left: -100%;
+        }
+        50%,
+        100% {
+          left: 100%;
+        }
+      }
+
+      &:nth-child(2) {
+        filter: hue-rotate(60deg);
+        top: -100%;
+        right: 0;
+        width: 0.2rem;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, $borderColorHover);
+        animation: animate2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+
+      @keyframes animate2 {
+        0% {
+          top: -100%;
+        }
+        50%,
+        100% {
+          top: 100%;
+        }
+      }
+      &:nth-child(3) {
+        filter: hue-rotate(120deg);
+        bottom: 0;
+        right: 0;
+        width: 100%;
+
+        background: linear-gradient(270deg, transparent, $borderColorHover);
+        animation: animate3 1s linear infinite;
+        animation-delay: 0.5s;
+      }
+      @keyframes animate3 {
+        0% {
+          right: -100%;
+          height: 0.2rem;
+        }
+        50%,
+        100% {
+          height: 0.2rem;
+          right: 100%;
+        }
+      }
+
+      &:nth-child(4) {
+        filter: hue-rotate(300deg);
+        bottom: -100%;
+        left: 0;
+        width: 0.2rem;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, $borderColorHover);
+        animation: animate4 1s linear infinite;
+        animation-delay: 0.75s;
+      }
+      @keyframes animate4 {
+        0% {
+          bottom: -100%;
+        }
+        50%,
+        100% {
+          bottom: 100%;
+        }
+      }
+    }
+  }
+}
+
+.menu {
+  background-color: $lineColor;
+  border: 0.1rem solid transparent;
+  border-radius: 1rem;
+  box-shadow: 0 0 1.2rem 0 $borderColor;
+  font-size: large;
+  list-style: none;
+  margin: 0 0 0 0;
+  padding: 0.5rem 0 0.5rem 0;
+  /* use absolute positioning  */
+  position: absolute;
+  height: auto;
+  width: auto;
+  opacity: 1;
+  transition: all 0.6s linear;
+  z-index: 1050;
+
+  .select{
+  text-align: center;
+
+  &:hover {
+    background-color: $active;
+    color: $lineColor;
+    }
+  }
+}
+
 

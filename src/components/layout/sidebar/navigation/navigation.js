@@ -1,4 +1,4 @@
-const useNavigation = (t) => {
+const useNavigation = (t, hashPass) => {
   const array = [
     {
       _tag: 'CSidebarNavDropdown',
@@ -53,6 +53,22 @@ const useNavigation = (t) => {
     },
     {
       _tag: 'CSidebarNavDropdown',
+      name: 'Ambit',
+      route: '/ambit',
+      _children: [
+        {
+          _tag: 'CSidebarNavItem',
+          name: 'Base Ambit',
+          to: '',
+          icon: 'cil-group',
+        },
+      ],
+    },
+  ];
+
+  if (hashPass) {
+    const obj = {
+      _tag: 'CSidebarNavDropdown',
       name: t('sidebar.administration.title'),
       route: '/administration',
       _children: [
@@ -85,8 +101,10 @@ const useNavigation = (t) => {
           ],
         },
       ],
-    },
-  ];
+    };
+
+    array.push(obj);
+  }
 
   return array;
 };

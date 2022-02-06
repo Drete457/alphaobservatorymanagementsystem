@@ -25,6 +25,7 @@ const RepectionRegistration = lazy(() =>
 const RepectionEdit = lazy(() => import('views/reception/reception-edit'));
 const RepectionView = lazy(() => import('views/reception/reception-view'));
 const ErrorsLogs = lazy(() => import('views/errors'));
+const Ambit = lazy(() => import('views/ambit'));
 
 const routes = [
   { path: '/', exact: true, name: 'Alpha', component: Home },
@@ -143,6 +144,17 @@ const routes = [
     exact: true,
     name: 'View',
     component: RepectionView,
+  },
+  {
+    path: '/ambit',
+    exact: true,
+    name: 'Ambit',
+  },
+  {
+    path: '/ambit/base_ambit',
+    exact: true,
+    name: 'Base Ambit',
+    component: Ambit,
   },
 ];
 

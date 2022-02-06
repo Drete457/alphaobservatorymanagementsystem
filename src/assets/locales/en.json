@@ -39,6 +39,12 @@
           "manage": "Manage Generic Information"
         }
       }
+    },
+    "ambit": {
+      "title": "Ambit",
+      "children": {
+        "manage": "Manage Ambit"
+      }
     }
   },
   "btn": {

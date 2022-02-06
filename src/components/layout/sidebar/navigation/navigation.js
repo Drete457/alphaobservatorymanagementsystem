@@ -53,14 +53,14 @@ const useNavigation = (t, hashPass) => {
     },
     {
       _tag: 'CSidebarNavDropdown',
-      name: 'Ambit',
+      name: t('sidebar.ambit.title'),
       route: '/ambit',
       _children: [
         {
           _tag: 'CSidebarNavItem',
-          name: 'Base Ambit',
-          to: '',
-          icon: 'cil-group',
+          name: t('sidebar.ambit.children.manage'),
+          to: '/ambit/base_ambit',
+          icon: 'cil-stream',
         },
       ],
     },

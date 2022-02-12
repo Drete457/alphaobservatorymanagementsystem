@@ -6,9 +6,11 @@ const Ambit = () => {
   return (
     <>
       <header>
-        <h1 className="title">{t('pages.constrution')}</h1>
+        <h1 className="title">{t('pages.ambit.title')}</h1>
       </header>
-      <main></main>
+      <main>
+        <h3 className="m-5">{t('pages.ambit.no-autorized')}</h3>
+      </main>
     </>
   );
 };

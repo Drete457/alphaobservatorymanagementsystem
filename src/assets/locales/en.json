@@ -500,6 +500,10 @@
     },
     "errorslogs": {
       "title": "View Errors Logs"
+    },
+    "ambit": {
+      "title": "Ambit",
+      "no-autorized": "You are not authorized to access this page"
     }
   },
   "dates": {

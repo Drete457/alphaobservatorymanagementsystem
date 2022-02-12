@@ -12,7 +12,7 @@ const exportToExcel = (data, t) => {
   const newData = data.map((user) => {
     const newUser = {};
     const currentUser = { ...user };
-    console.log(currentUser);
+
     newUser.Name = currentUser.name;
     newUser.ContactBy = currentUser.contacted;
     newUser.Followed = currentUser.followed;

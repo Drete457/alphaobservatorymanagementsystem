@@ -120,7 +120,7 @@ const Users = () => {
           <>
             <div className="ag-theme-alpine" style={{ height: '50vw' }}>
               <DynamicGrid
-                data={usersDataInfo}
+                data={homeHandler.buildDataDynamicTable(usersDataInfo)}
                 setGridApi={setGridApi}
                 updateDynamicTableRegisteredNumber={
                   updateDynamicTableRegisteredNumber

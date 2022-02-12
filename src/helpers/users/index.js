@@ -7,6 +7,7 @@ import sortList from './sort-list';
 import mainTableSortList from './main-table-sort-list';
 import minuteUpdate from './minute-update';
 import hashCode from './hashcode';
+import buildDataDynamicTable from './build-data-dynamic-table';
 
 const homeHandler = {
   fields,
@@ -18,6 +19,7 @@ const homeHandler = {
   mainTableSortList,
   minuteUpdate,
   hashCode,
+  buildDataDynamicTable,
 };
 
 export { default as buildLogin } from './build-login';

@@ -32,16 +32,6 @@ const Submit = ({
   useEffect(() => {
     if (data && usersData && activitiesData) {
       const usersListArray = Object.values(usersData);
-      const alphaCafeArray = activitiesData.filter(
-        (activity) =>
-          activity.type ===
-          'b6fddec71394-0fc4f603-af3b986f-026fa186-b0f57c47439ac15c',
-      );
-      const surveySessionArray = activitiesData.filter(
-        (activity) =>
-          activity.type ===
-          '5fe99008264a-cdda524c-2f527cde-f32714c5-5382d15fe52bd910',
-      );
 
       usersListArray.forEach?.((user) => {
         const newUser = { ...user };
@@ -50,20 +40,7 @@ const Submit = ({
         );
         let wasChange = false;
 
-        //TODO: Build new formula for base ambit
-        if (false) {
-          //verify the baseambit per user
-          const { wasChange: change, value } = activitiesHandler.baseAmbit(
-            newUser,
-            alphaCafeArray,
-            surveySessionArray,
-            newActivity.date,
-          );
-
-          newUser.baseAmbit = value;
-          wasChange = change;
-        }
-        //TODO: only alpha cafe can be the first activity
+        //only alpha cafe can be the first activity
         if (
           findUserOnTheActivityList &&
           !newUser?.firstActivity &&

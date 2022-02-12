@@ -20,12 +20,25 @@ const DynamicGrid = ({
   const fields = homeHandler.fields(t);
   const columnDefs = [];
 
+  const blanks = (params) => {
+    const value = params.value;
+
+    if (value === ' ') {
+      return t('user.fields.empty.title');
+    }
+
+    return value;
+  };
+
   //generate columns for the dynamic table
   Array.from(fieldsTable || fields).forEach((field) => {
     if (field.key !== 'timezone') {
       columnDefs.push({
         headerName: field.label,
         field: field.key,
+        filterParams: {
+          valueFormatter: blanks,
+        },
       });
     }
   });
@@ -46,7 +59,10 @@ const DynamicGrid = ({
   return (
     <>
       <AgGridReact
-        defaultColDef={{ sortable: true, filter: true }}
+        defaultColDef={{
+          sortable: true,
+          filter: true,
+        }}
         columnDefs={columnDefs}
         pagination={true}
         onGridReady={onGridReady}

@@ -32,7 +32,6 @@ const DataTable = ({
         setTabletoExcel(val);
         setRegisteredNumber(val.length);
       }}
-      //onColumnFilterChange={(val) => console.log('new column filter:', val)}
       noItemsViewSlot={
         <div className="text-center my-5">
           <h2>

@@ -253,6 +253,9 @@
       },
       "createDate": {
         "title": "Contact Alpha"
+      },
+      "empty": {
+        "title": "Empty"
       }
     }
   },

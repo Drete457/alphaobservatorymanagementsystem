@@ -69,8 +69,20 @@ const CollaboratorsTable = () => {
         genericList?.activitiesType,
       );
 
+      const usersWithOutEmptyStrings = usersToTable?.map((user) => {
+        const newUser = { ...user };
+
+        for (const key in newUser) {
+          if (newUser[key] === '') {
+            newUser[key] = ' ';
+          }
+        }
+
+        return newUser;
+      });
+
       setFields(fieldsToTable);
-      setList(usersToTable);
+      setList(usersWithOutEmptyStrings);
     }
   }, [data, t, usersDataInfo, genericList]);
 

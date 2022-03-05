@@ -11,13 +11,13 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSetRecoilState } from 'recoil';
 import { user } from 'state/atoms';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
 import userConstrutor from 'helpers/login';
 
 const onSubmit = async (setUser, setError) => {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
-  signInWithPopup(auth, provider)
+  signInWithRedirect(auth, provider)
     .then((result) => {
       const googleUser = result.user;
       const userInfo = userConstrutor(googleUser);

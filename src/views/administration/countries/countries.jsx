@@ -42,12 +42,14 @@ const Countries = () => {
           country: country.country,
           gmt: country.gmt,
           id: country.id,
+          timezone: country.timezone,
         });
 
         newCountriesArrayOriginal.push({
           country: country.country,
           gmt: country.gmt,
           id: country.id,
+          timeZone: country.timeZone,
         });
       });
 

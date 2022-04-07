@@ -64,6 +64,7 @@ const Buttons = ({
                     country: country.country.trim(),
                     gmt: country.gmt,
                     id: country.id,
+                    timezone: country.timezone,
                   });
                 });
 
@@ -96,6 +97,7 @@ const Buttons = ({
                   country: country.country,
                   gmt: country.gmt,
                   id: country.id,
+                  timezone: country.timezone,
                 });
               });
 
@@ -127,6 +129,7 @@ const Buttons = ({
                   country: country.country,
                   gmt: country.gmt,
                   id: country.id,
+                  timezone: country.timezone,
                 });
               });
 
@@ -157,6 +160,7 @@ const Buttons = ({
                   country: country.country,
                   gmt: country.gmt,
                   id: country.id,
+                  timezone: country.timezone,
                 });
               });
 

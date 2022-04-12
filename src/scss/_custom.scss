@@ -60,9 +60,9 @@ button {
 }
 
 .c-sidebar .c-sidebar-nav-dropdown.c-show .c-sidebar-nav-link:focus {
-  background: linear-gradient(-45deg, #545454, #434343, #000000, #434343, #545454);
-	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
+  background: linear-gradient(269deg, #0ab78b, #05578e, #86059b);
+  background-size: 600% 600%;
+	animation: gradient 14s ease infinite;
 }
 
 @keyframes gradient {

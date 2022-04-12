@@ -49,7 +49,7 @@ const Countries = () => {
           country: country.country,
           gmt: country.gmt,
           id: country.id,
-          timeZone: country.timeZone,
+          timezone: country.timezone,
         });
       });
 
@@ -117,11 +117,11 @@ const Countries = () => {
                           />
 
                           <InputField
-                            title={t('countries.gmt.title')}
-                            name="gmt"
+                            title={t('countries.timezone.title')}
+                            name="timezone"
                             type="text"
-                            value={country?.gmt}
-                            errorMsg={errorCountries[index]?.gmt}
+                            value={country?.timezone}
+                            errorMsg={errorCountries[index]?.timezone}
                             className="country-input-format"
                             disabled
                           />
@@ -157,12 +157,12 @@ const Countries = () => {
                           disabled={!isEdit}
                         />
                         <InputField
-                          title={t('countries.gmt.title')}
-                          name="gmt"
+                          title={t('countries.timezone.title')}
+                          name="timezone"
                           type="text"
-                          placeholder={t('countries.gmt.placeholder')}
-                          value={country?.gmt}
-                          errorMsg={errorCountries[index]?.gmt}
+                          placeholder={t('countries.timezone.placeholder')}
+                          value={country?.timezone}
+                          errorMsg={errorCountries[index]?.timezone}
                           onChange={(event) => {
                             countriesHandler.inputHandler(
                               event,

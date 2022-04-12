@@ -293,10 +293,10 @@
       "placeholder": "Write The Name Of The Country",
       "error": "Need To Write The Name Of The Country"
     },
-    "gmt": {
-      "title": "GMT",
-      "placeholder": "Write The GMT of The Country",
-      "error": "Need To Write The GMT ex: +01:00"
+    "timezone": {
+      "title": "TimeZone",
+      "placeholder": "Write The TimeZone of The Country",
+      "error": "Need To Write The TimeZone ex: Asia/Tehran"
     }
   },
   "login": {

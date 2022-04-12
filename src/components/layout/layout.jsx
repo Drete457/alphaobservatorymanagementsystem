@@ -4,6 +4,7 @@ import { useGetGeneric } from 'hooks/generic';
 import { useGetUsers } from 'hooks/users';
 import { useGetReceptionCards } from 'hooks/reception';
 import { useSetRecoilState } from 'recoil';
+import moment from 'moment-timezone';
 import { countries, generic, users, globalList } from 'state/atoms';
 import homeHandler from 'helpers/users';
 import Sidebar from './sidebar';
@@ -103,7 +104,15 @@ const Layout = () => {
         usersWithFollowers: collaboratorsWithFollowers,
       };
 
-      setCountries(countriesList);
+      const date = new Date().toISOString().split('T')[0];
+      const newCountriesList = countriesList.map((country) => {
+        return {
+          ...country,
+          gmt: moment(date).tz(country.timezone).format('Z'),
+        };
+      });
+
+      setCountries(newCountriesList);
       setGeneric(genericList);
       setGlobalList([...collaborators, ...entries]);
       setListUsers(obj);

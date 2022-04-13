@@ -131,7 +131,7 @@ const CollaboratorsTable = () => {
             <hr />
 
             {isDynamicTable ? (
-              <div className="ag-theme-alpine" style={{ height: '50vw' }}>
+              <div className="ag-theme-alpine-dark" style={{ height: '50vw' }}>
                 <DynamicGrid
                   data={list}
                   fieldsTable={fields}

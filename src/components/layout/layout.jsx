@@ -132,7 +132,7 @@ const Layout = () => {
   return (
     <>
       {false && <ContextMenu />}
-      <div className="c-app c-classic-layout">
+      <div className="c-app c-classic-layout c-dark-theme">
         <Sidebar />
         <Aside />
         <div className="c-wrapper">

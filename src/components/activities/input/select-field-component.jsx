@@ -32,6 +32,7 @@ const SelectFieldComponent = ({
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
+      background: 'rgba(255, 255, 255, 0.05)',
       borderColor: state.isFocused ? '#2f4246' : '#2f4246',
       boxShadow: state.isFocused
         ? '0 0 0 0.2rem rgba(0, 0, 139, 1)'
@@ -40,12 +41,30 @@ const SelectFieldComponent = ({
     option: (provided, state) => ({
       ...provided,
       background: state.isDisabled
-        ? null
+        ? 'null'
         : state.isSelected
-        ? '#5f5996'
+        ? '#000985'
         : state.isFocused
-        ? '#89d6f5'
+        ? '#4D58FF'
         : null,
+    }),
+    singleValue: (styles) => ({
+      ...styles,
+      color: '#ffffff',
+    }),
+    menuList: (base) => ({
+      ...base,
+      // kill the white space on first and last option
+      padding: 0,
+    }),
+    menu: (base) => ({
+      ...base,
+      // override border radius to match the box
+      borderRadius: 0,
+      // kill the gap
+      marginTop: 0,
+      background: 'rgba(50, 50, 50, 1)',
+      color: '#ffffff',
     }),
     multiValue: (styles) => {
       return {

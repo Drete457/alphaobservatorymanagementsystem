@@ -5,7 +5,7 @@ import homeHandler from 'helpers/users';
 
 import 'ag-grid-enterprise';
 import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine-dark.css';
 
 import { LicenseManager } from 'ag-grid-enterprise';
 LicenseManager.setLicenseKey(process.env.REACT_APP_AG_LICENSE);
@@ -57,20 +57,18 @@ const DynamicGrid = ({
   }, [setGridApi]);
 
   return (
-    <>
-      <AgGridReact
-        defaultColDef={{
-          sortable: true,
-          filter: true,
-        }}
-        columnDefs={columnDefs}
-        pagination={true}
-        onGridReady={onGridReady}
-        animateRows={true}
-        rowData={data}
-        onModelUpdated={updateDynamicTableRegisteredNumber}
-      ></AgGridReact>
-    </>
+    <AgGridReact
+      defaultColDef={{
+        sortable: true,
+        filter: true,
+      }}
+      columnDefs={columnDefs}
+      pagination={true}
+      onGridReady={onGridReady}
+      animateRows={true}
+      rowData={data}
+      onModelUpdated={updateDynamicTableRegisteredNumber}
+    ></AgGridReact>
   );
 };
 

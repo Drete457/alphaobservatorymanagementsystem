@@ -51,7 +51,7 @@ const Login = () => {
   const setUser = useSetRecoilState(user);
 
   return (
-    <div className="c-app c-default-layout flex-row align-items-center">
+    <div className="c-app c-classic-layout c-dark-theme flex-row align-items-center">
       <CContainer>
         <CRow className="d-flex justify-content-center">
           <CCard className="p-4">

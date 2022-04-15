@@ -10,6 +10,7 @@ import ErrorInfo from 'components/error';
 import Loading from 'components/loading';
 import Submit from 'components/activities/buttons/submit';
 import activitiesHandler from 'helpers/activities';
+import filterOlderActivities from 'helpers/activities/filter-old-activities';
 
 const EditActivity = ({ match }) => {
   const history = useHistory();
@@ -111,7 +112,7 @@ const EditActivity = ({ match }) => {
                     setErrorActivity({});
                     setWasModified(true);
                   }}
-                  options={activitiesType}
+                  options={filterOlderActivities(activitiesType)}
                   className="activity-input-format"
                 />
 

@@ -82,6 +82,10 @@ const SelectFieldComponent = ({
         color: '#ffffff',
       },
     }),
+    input: (base) => ({
+      ...base,
+      color: '#ffffff',
+    }),
   };
 
   const [current, setCurrent] = useState(null);

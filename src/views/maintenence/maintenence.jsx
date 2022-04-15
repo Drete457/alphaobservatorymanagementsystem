@@ -18,7 +18,7 @@ const Maintenence = () => {
   const [t] = useTranslation();
 
   return (
-    <div className="c-app c-default-layout flex-row align-items-center">
+    <div className="c-app c-default-layout c-dark-theme flex-row align-items-center">
       <CContainer>
         <CRow className="d-flex justify-content-center">
           <CCol md="8">

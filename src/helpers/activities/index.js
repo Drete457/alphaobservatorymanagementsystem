@@ -15,6 +15,7 @@ import exportToExcel from './exportToExcel';
 import baseAmbit from './base-ambit';
 import generateFields from './generate-fields';
 import collaboratorsWithActivities from './collaborators-with-activities';
+import filterOlderActivities from './filter-old-activities';
 
 const activitiesHandler = {
   activityInputHandler,
@@ -31,6 +32,7 @@ const activitiesHandler = {
   baseAmbit,
   generateFields,
   collaboratorsWithActivities,
+  filterOlderActivities,
 };
 
 export default activitiesHandler;

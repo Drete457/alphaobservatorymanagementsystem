@@ -10,6 +10,7 @@ import ErrorInfo from 'components/error';
 import Submit from 'components/activities/buttons/submit';
 import dateGenerator from 'helpers/date-generator';
 import uniqueId from 'helpers/id-generator';
+import filterOlderActivities from 'helpers/activities/filter-old-activities';
 
 const NewActivity = () => {
   const history = useHistory();
@@ -96,7 +97,7 @@ const NewActivity = () => {
                     setErrorActivity({});
                     setWasModified(true);
                   }}
-                  options={activitiesType}
+                  options={filterOlderActivities(activitiesType)}
                   className="activity-input-format"
                 />
 

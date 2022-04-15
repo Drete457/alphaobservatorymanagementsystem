@@ -40,6 +40,10 @@ const customStyles = {
     background: 'rgba(50, 50, 50, 1)',
     color: '#ffffff',
   }),
+  input: (base) => ({
+    ...base,
+    color: '#ffffff',
+  }),
 };
 
 const createList = (options) => {

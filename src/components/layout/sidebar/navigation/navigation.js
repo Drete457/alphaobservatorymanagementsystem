@@ -32,7 +32,8 @@ const useNavigation = (t, hashPass) => {
         },
       ],
     },
-    {
+    //reception
+    /*   {
       _tag: 'CSidebarNavDropdown',
       name: t('sidebar.reception.title'),
       route: '/reception',
@@ -50,7 +51,7 @@ const useNavigation = (t, hashPass) => {
           icon: 'cil-voice-over-record',
         },
       ],
-    },
+    }, */
     {
       _tag: 'CSidebarNavDropdown',
       name: t('sidebar.ambit.title'),

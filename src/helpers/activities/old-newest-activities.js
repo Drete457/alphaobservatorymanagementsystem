@@ -65,8 +65,9 @@ const calendarToShow = (activities, t) => {
 
   let currentDate = new Date(oldActivity);
   const endDate = new Date(newestActivity);
-  //the endday is always the next dauy after the newest activity
-  endDate.setDate(endDate.getDate() + 1);
+
+  //the endday is always two day after the newest activity
+  endDate.setDate(endDate.getDate() + 2);
 
   while (currentDate <= endDate) {
     if (currentDate.getDay() > 0) {

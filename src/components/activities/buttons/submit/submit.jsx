@@ -31,7 +31,9 @@ const Submit = ({
     newActivity?.type ===
       '793122e47b9f-3e40a79d-a5b8baa7-45b05f2d-5850660056e1be88' ||
     newActivity?.type ===
-      'be8cd5bc9904-5c74cd34-e3480132-2b2cb338-9730677337fca7cd';
+      'be8cd5bc9904-5c74cd34-e3480132-2b2cb338-9730677337fca7cd' ||
+    newActivity?.type ===
+      'a7ac3113b917-df69f80d-2178772f-0b73565e-ec0dce91be7e8c2d';
 
   useEffect(() => {
     if (data && usersData && activitiesData) {

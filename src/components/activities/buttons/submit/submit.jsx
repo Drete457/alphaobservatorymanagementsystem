@@ -27,7 +27,11 @@ const Submit = ({
   const { execute: postUser } = usePostUser();
   const isAlphaCafeActivity =
     newActivity?.type ===
-    'b6fddec71394-0fc4f603-af3b986f-026fa186-b0f57c47439ac15c';
+      'b6fddec71394-0fc4f603-af3b986f-026fa186-b0f57c47439ac15c' ||
+    newActivity?.type ===
+      '793122e47b9f-3e40a79d-a5b8baa7-45b05f2d-5850660056e1be88' ||
+    newActivity?.type ===
+      'be8cd5bc9904-5c74cd34-e3480132-2b2cb338-9730677337fca7cd';
 
   useEffect(() => {
     if (data && usersData && activitiesData) {

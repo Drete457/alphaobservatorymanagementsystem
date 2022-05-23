@@ -7,6 +7,7 @@ export const getActivities = async (setData) => {
   const callCollection = collection(database, reference);
   const snapshot = await getDocs(callCollection);
   const newActivitiesArray = [];
+  console.log(snapshot);
 
   snapshot?.forEach((doc) => {
     const activity = doc.data();

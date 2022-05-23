@@ -45,14 +45,20 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
 
       if (
         activity.type ===
-        'b6fddec71394-0fc4f603-af3b986f-026fa186-b0f57c47439ac15c'
+          'b6fddec71394-0fc4f603-af3b986f-026fa186-b0f57c47439ac15c' ||
+        activity.type ===
+          '793122e47b9f-3e40a79d-a5b8baa7-45b05f2d-5850660056e1be88' ||
+        activity.type ===
+          'be8cd5bc9904-5c74cd34-e3480132-2b2cb338-9730677337fca7cd'
       ) {
         numberAlphaActivities++;
       }
 
       if (
         activity.type ===
-        '68bfc3947dde-e0dd5abb-2a0ec68f-825f0c3e-620131ab5c2df458'
+          '68bfc3947dde-e0dd5abb-2a0ec68f-825f0c3e-620131ab5c2df458' ||
+        activity.type ===
+          'a3f33467f9e2-9f5f41d1-ade45059-670a07fe-1081efe10b3934be'
       ) {
         numberDirectCommunication++;
       }

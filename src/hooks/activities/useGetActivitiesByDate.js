@@ -1,11 +1,22 @@
 import { useState, useCallback } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from 'firebase/firestore';
 import { ref as reference } from 'components/activities';
 
-export const getActivities = async (setData) => {
+export const getActivitiesByDate = async (startDate, endDate, setData) => {
   const database = getFirestore();
   const callCollection = collection(database, reference);
-  const snapshot = await getDocs(callCollection);
+  const queryFormat = query(
+    callCollection,
+    where('date', '>=', startDate),
+    where('date', '<=', endDate),
+  );
+  const snapshot = await getDocs(queryFormat);
   const newActivitiesArray = [];
 
   snapshot?.forEach((doc) => {
@@ -23,18 +34,18 @@ export const getActivities = async (setData) => {
   setData(newActivitiesArray);
 };
 
-const useGetActivaties = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const useGetActivitiesByDate = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const execute = async () => {
+  const execute = async (startDate, endDate) => {
     try {
       setIsLoading(true);
-      getActivities(setData);
-      setIsLoading(false);
+      getActivitiesByDate(startDate, endDate, setData);
     } catch (e) {
       setError(e);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -47,4 +58,4 @@ const useGetActivaties = () => {
   };
 };
 
-export default useGetActivaties;
+export default useGetActivitiesByDate;

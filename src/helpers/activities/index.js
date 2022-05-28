@@ -16,6 +16,7 @@ import baseAmbit from './base-ambit';
 import generateFields from './generate-fields';
 import collaboratorsWithActivities from './collaborators-with-activities';
 import filterOlderActivities from './filter-old-activities';
+import filterUserByDate from './filter-user-by-date';
 
 const activitiesHandler = {
   activityInputHandler,
@@ -33,6 +34,7 @@ const activitiesHandler = {
   generateFields,
   collaboratorsWithActivities,
   filterOlderActivities,
+  filterUserByDate,
 };
 
 export default activitiesHandler;

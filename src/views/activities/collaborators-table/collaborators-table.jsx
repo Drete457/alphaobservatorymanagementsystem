@@ -2,9 +2,10 @@ import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { users, countries, generic } from 'state/atoms';
-import { useGetActivities } from 'hooks/activities';
+import { useGetActivities, useGetActivitiesByDate } from 'hooks/activities';
 import { DynamicGrid } from 'helpers/dynamic-table';
 import DataTable from 'components/activities/colaboratos-table';
+import { useDatePicker } from 'components/activities/date-picker';
 import ErrorInfo from 'components/error';
 import Button from 'components/button';
 import activitiesHandler from 'helpers/activities';
@@ -21,11 +22,18 @@ const CollaboratorsTable = () => {
   const [gridApi, setGridApi] = useState(null);
 
   const { isLoading, error, data, execute } = useGetActivities();
+  const {
+    isLoading: isLoadingByDate,
+    error: errorByDate,
+    data: dataByDate,
+    execute: executeByDate,
+  } = useGetActivitiesByDate();
 
   const { collaborators, usersWithFollowers } = useRecoilValue(users);
+  const { beginDate, endDate, renderDatePicker: DatePicker } = useDatePicker();
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-
+  console.log(dataByDate);
   const onBtForEachLeafNode = () => {
     const newArray = [];
 
@@ -45,6 +53,10 @@ const CollaboratorsTable = () => {
   };
 
   useLayoutEffect(() => {
+    if ((beginDate, endDate)) executeByDate(beginDate, endDate);
+  }, [beginDate, endDate, executeByDate]);
+
+  useLayoutEffect(() => {
     execute();
   }, [execute]);
 
@@ -61,9 +73,11 @@ const CollaboratorsTable = () => {
   }, [collaborators, usersWithFollowers, countriesList, genericList]);
 
   useLayoutEffect(() => {
-    if (data && usersDataInfo) {
+    if ((data && usersDataInfo) || (dataByDate && usersDataInfo)) {
+      const dataToShow = beginDate && endDate ? dataByDate : data;
+
       const { fieldsToTable, usersToTable } = activitiesHandler.generateFields(
-        data,
+        dataToShow,
         usersDataInfo,
         t,
         genericList?.activitiesType,
@@ -84,16 +98,18 @@ const CollaboratorsTable = () => {
       setFields(fieldsToTable);
       setList(usersWithOutEmptyStrings);
     }
-  }, [data, t, usersDataInfo, genericList]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, t, usersDataInfo, genericList, dataByDate]);
 
   return (
     <>
-      {error ? (
-        <ErrorInfo error={error} />
+      {error || errorByDate ? (
+        <ErrorInfo error={error || errorByDate} />
       ) : (
         <>
-          <header>
+          <header className="d-flex justify-content-between align-items-center">
             <h1 className="title">{t('pages.activities.title')}</h1>
+            <DatePicker />
           </header>
 
           <main>
@@ -145,7 +161,7 @@ const CollaboratorsTable = () => {
               <DataTable
                 fields={fields}
                 list={activitiesHandler.collaboratorsWithActivities(list)}
-                isLoading={isLoading}
+                isLoading={isLoading || isLoadingByDate}
                 setRegisteredNumber={setRegisteredNumber}
                 setTabletoExcel={setTabletoExcel}
               />

@@ -5,7 +5,7 @@ import { users, countries, generic } from 'state/atoms';
 import { useGetActivities, useGetActivitiesByDate } from 'hooks/activities';
 import { DynamicGrid } from 'helpers/dynamic-table';
 import DataTable from 'components/activities/colaboratos-table';
-import { useDatePicker } from 'components/activities/date-picker';
+import { DatePicker } from 'components/activities/date-picker';
 import ErrorInfo from 'components/error';
 import Button from 'components/button';
 import activitiesHandler from 'helpers/activities';
@@ -20,6 +20,8 @@ const CollaboratorsTable = () => {
   const [tableToExcel, setTabletoExcel] = useState({});
   const [isDynamicTable, setDynamicTable] = useState(false);
   const [gridApi, setGridApi] = useState(null);
+  const [beginDate, setBeginDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   const { isLoading, error, data, execute } = useGetActivities();
   const {
@@ -30,10 +32,10 @@ const CollaboratorsTable = () => {
   } = useGetActivitiesByDate();
 
   const { collaborators, usersWithFollowers } = useRecoilValue(users);
-  const { beginDate, endDate, renderDatePicker: DatePicker } = useDatePicker();
+
   const countriesList = useRecoilValue(countries);
   const genericList = useRecoilValue(generic);
-  console.log(dataByDate);
+
   const onBtForEachLeafNode = () => {
     const newArray = [];
 
@@ -109,7 +111,12 @@ const CollaboratorsTable = () => {
         <>
           <header className="d-flex justify-content-between align-items-center">
             <h1 className="title">{t('pages.activities.title')}</h1>
-            <DatePicker />
+            <DatePicker
+              beginDate={beginDate}
+              setBeginDate={setBeginDate}
+              endDate={endDate}
+              setEndDate={setEndDate}
+            />
           </header>
 
           <main>

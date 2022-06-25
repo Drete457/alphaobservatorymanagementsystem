@@ -30,7 +30,7 @@ const DataTable = ({
       sorter
       responsive
       itemsPerPageSelect
-      itemsPerPage={25}
+      itemsPerPage={15}
       pagination={true}
       onFilteredItemsChange={(val) => {
         setTabletoExcel(val);

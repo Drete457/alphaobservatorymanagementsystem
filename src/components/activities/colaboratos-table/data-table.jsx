@@ -25,7 +25,7 @@ const DataTable = ({
       size="sm"
       responsive
       itemsPerPageSelect
-      itemsPerPage={25}
+      itemsPerPage={15}
       pagination={true}
       isLoading={isLoading}
       onFilteredItemsChange={(val) => {

@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import { memo, useEffect } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { useTranslation } from 'react-i18next';
@@ -19,6 +20,7 @@ const DynamicGrid = ({
   const [t] = useTranslation();
   const fields = homeHandler.fields(t);
   const columnDefs = [];
+  let mutationObserver = MutationObserver;
 
   const blanks = (params) => {
     const value = params.value;
@@ -44,6 +46,74 @@ const DynamicGrid = ({
   });
 
   const onGridReady = (params) => {
+    // css class selectors
+    const headerSelector = '.ag-header';
+    const scrollSelector = '.ag-body-horizontal-scroll';
+    const scrollViewportSelector = '.ag-body-horizontal-scroll-viewport';
+    const scrollContainerSelector = '.ag-body-horizontal-scroll-container';
+
+    // get scrollbar elements
+    const scrollElement = document.querySelector(scrollSelector);
+    const scrollViewportElement = document.querySelector(
+      scrollViewportSelector,
+    );
+    const scrollContainerElement = document.querySelector(
+      scrollContainerSelector,
+    );
+
+    // create scrollbar clones
+    const cloneElement = scrollElement.cloneNode(true);
+    const cloneViewportElement = cloneElement.querySelector(
+      scrollViewportSelector,
+    );
+    const cloneContainerElement = cloneElement.querySelector(
+      scrollContainerSelector,
+    );
+
+    // insert scrollbar clone
+    const headerElement = document.querySelector(headerSelector);
+    headerElement.insertAdjacentElement('afterend', cloneElement);
+
+    // add event listeners to keep scroll position synchronized
+    scrollViewportElement.addEventListener('scroll', () =>
+      cloneViewportElement.scrollTo({ left: scrollViewportElement.scrollLeft }),
+    );
+    cloneViewportElement.addEventListener('scroll', () =>
+      scrollViewportElement.scrollTo({ left: cloneViewportElement.scrollLeft }),
+    );
+
+    // create a mutation observer to keep scroll size synchronized
+    mutationObserver = new MutationObserver((mutationList) => {
+      for (const mutation of mutationList) {
+        switch (mutation.target) {
+          case scrollElement:
+            cloneElement.setAttribute(
+              'style',
+              scrollElement.getAttribute('style'),
+            );
+            break;
+          case scrollViewportElement:
+            cloneViewportElement.setAttribute(
+              'style',
+              scrollViewportElement.getAttribute('style'),
+            );
+            break;
+          case scrollContainerElement:
+            cloneContainerElement.setAttribute(
+              'style',
+              scrollContainerElement.getAttribute('style'),
+            );
+            break;
+        }
+      }
+    });
+
+    // start observing the scroll elements for `style` attribute changes
+    mutationObserver.observe(scrollElement, {
+      attributeFilter: ['style'],
+      subtree: true,
+    });
+
     setGridApi(params.api);
 
     const updateData = () => params.api.setRowData(data.slice(0, data.length));
@@ -68,6 +138,7 @@ const DynamicGrid = ({
       animateRows={true}
       rowData={data}
       onModelUpdated={updateDynamicTableRegisteredNumber}
+      alwaysShowHorizontalScroll={true}
     ></AgGridReact>
   );
 };

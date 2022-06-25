@@ -33,7 +33,9 @@ const Submit = ({
     newActivity?.type ===
       'be8cd5bc9904-5c74cd34-e3480132-2b2cb338-9730677337fca7cd' ||
     newActivity?.type ===
-      'a7ac3113b917-df69f80d-2178772f-0b73565e-ec0dce91be7e8c2d';
+      'a7ac3113b917-df69f80d-2178772f-0b73565e-ec0dce91be7e8c2d' ||
+    newActivity?.type ===
+      '8aded34d939e-89723401-a98ee567-8f6cf686-17cde00f92b08b84';
 
   useEffect(() => {
     if (data && usersData && activitiesData) {
@@ -54,6 +56,7 @@ const Submit = ({
         ) {
           newUser.firstActivity = newActivity.date;
           wasChange = true;
+          console.log('first activity');
         }
 
         if (wasChange) {

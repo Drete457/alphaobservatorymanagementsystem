@@ -221,11 +221,14 @@
       "activitiesSurvey": {
         "title": "Number of Survey Session"
       },
+      "thematicActivities": {
+        "title": "Number of Thematic Activities"
+      },
       "activitiesAlpha": {
         "title": "Number of Alpha Cafe"
       },
       "activitiesDirectCommunication": {
-        "title": "Number of Meeting Basic/Adherent"
+        "title": "Number of Base Meeting"
       },
       "groupAge": {
         "title": "Group Age"

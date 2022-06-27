@@ -73,6 +73,8 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
     newUsersList[index]['numberAlphaActivities'] = numberAlphaActivities;
     newUsersList[index]['numberDirectCommunication'] =
       numberDirectCommunication;
+    newUsersList[index]['numberOfThematicActivities'] =
+      numberAlphaActivities + numberDirectCommunication;
   });
 
   //have the final fields the table will show
@@ -105,6 +107,10 @@ const generateFields = (activities, usersDataInfo, t, activitiesType) => {
       {
         key: 'numberOfActivities',
         label: t('user.fields.activities.title'),
+      },
+      {
+        key: 'numberOfThematicActivities',
+        label: t('user.fields.thematicActivities.title'),
       },
       {
         key: 'numberSurveyActivities',

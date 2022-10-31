@@ -374,11 +374,12 @@
       }
     },
     "maintenance": {
-      "title": "The Site Is Undergoing Maintenance"
+      "title": "The Site Is Undergoing Maintenance",
+      "close": "Project was been closed"
     },
     "notfound": {
       "lost": "Look like you're lost",
-      "page": "The Page you are looking is not avaible right now!"
+      "page": "The Page you are looking is not available right now!"
     },
     "home": {
       "title": "Alpha Observatory Calendar",

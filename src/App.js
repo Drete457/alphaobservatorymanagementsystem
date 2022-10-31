@@ -20,7 +20,7 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   const [isSafariDesktop, setIsSafariDesktop] = useState(false);
-
+  console.log('aaaaa');
   useLayoutEffect(() => {
     const startFirebase = async () => {
       await buildLogin(setIsUser);

@@ -27,7 +27,7 @@ startFirebase();
 setTimeout(refreshPage, 3000 * 60 * 60 * 12);
 
 //use this if you need to have big fix and the site has to be offline
-const isUpdating = false;
+const isUpdating = true;
 const image = localStorage.getItem('offline');
 
 if (!image) {

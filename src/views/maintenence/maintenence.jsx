@@ -27,7 +27,8 @@ const Maintenence = () => {
                 <CCardBody md="12" className="d-flex justify-content-center">
                   <CCol>
                     <h1 className="maintenance-title">
-                      {t('pages.maintenance.close')}
+                      {t('pages.maintenance.title')}
+                      {/* {t('pages.maintenance.close')} */}
                     </h1>
                     <img
                       src={maintenanceImg}

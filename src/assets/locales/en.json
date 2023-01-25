@@ -204,9 +204,9 @@
           "error": "Missing The Friend Link"
         },
         "type": {
-          "title": "Survey Type*",
-          "placeholder": "Choose The Survey Type Of The Collaborator",
-          "error": "Missing The Survey Type"
+          "title": "Contact Type*",
+          "placeholder": "Choose The Contact Type Of The Collaborator",
+          "error": "Missing The Contact Type"
         }
       },
       "ambit": {

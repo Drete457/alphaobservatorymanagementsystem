@@ -17,7 +17,7 @@ const UserRegister = ({
   const countriesNames = countriesList?.map((country) => {
     return { id: country.id, name: userHandler.countryNameAndGmt(country) };
   });
-  const reservation = user?.cards?.find?.((card) => card.reservation);
+  //const reservation = user?.cards?.find?.((card) => card.reservation);
 
   return (
     <>
@@ -94,7 +94,7 @@ const UserRegister = ({
           </div>
 
           <div className="user-input">
-            <SelectFieldComponent
+            {/*     <SelectFieldComponent
               title={t('user.fields.personality.title')}
               name="personality"
               placeholder={t('user.fields.personality.placeholder')}
@@ -111,7 +111,7 @@ const UserRegister = ({
               }}
               options={genericList?.personality}
               className="user-input-format"
-            />
+            /> */}
 
             <SelectFieldComponent
               title={t('user.fields.gender.title')}
@@ -126,10 +126,29 @@ const UserRegister = ({
               options={genericList?.gender}
               className="user-input-format"
             />
+
+            <SelectFieldComponent
+              title={t('user.fields.employment.title')}
+              name="employment"
+              placeholder={t('user.fields.employment.placeholder')}
+              value={user?.employment}
+              errorMsg={errorMsg?.employment}
+              onChange={(value) => {
+                userHandler.userSelectHandler(
+                  'employment',
+                  value,
+                  setUser,
+                  user,
+                );
+                setWasModified(true);
+              }}
+              options={genericList?.ocupation}
+              className="user-input-format"
+            />
           </div>
 
           <div className="user-input">
-            <InputField
+            {/*    <InputField
               title={t('user.fields.training.title')}
               name="training"
               placeholder={t('user.fields.training.placeholder')}
@@ -138,7 +157,7 @@ const UserRegister = ({
               errorMsg={errorMsg?.training}
               className="user-input-format"
               disabled
-            />
+            /> */}
 
             <InputField
               title={t('user.fields.firstActivity.title')}
@@ -153,9 +172,28 @@ const UserRegister = ({
               }}
               className="user-input-format"
             />
+
+            <SelectFieldComponent
+              title={t('user.fields.survey.type.title')}
+              name="typeSurvey"
+              placeholder={t('user.fields.survey.type.placeholder')}
+              value={user?.typeSurvey}
+              errorMsg={errorMsg?.typeSurvey}
+              onChange={(value) => {
+                userHandler.userSelectHandler(
+                  'typeSurvey',
+                  value,
+                  setUser,
+                  user,
+                );
+                setWasModified(true);
+              }}
+              options={genericList?.survey}
+              className="user-input-format"
+            />
           </div>
 
-          <div className="user-input">
+          {/*  <div className="user-input">
             <InputField
               title={t('user.fields.survey.link.title')}
               name="surveyLink"
@@ -183,9 +221,9 @@ const UserRegister = ({
               }}
               className="user-input-format"
             />
-          </div>
+          </div> */}
 
-          <div className="user-input">
+          {/*   <div className="user-input">
             <InputField
               title={t('user.fields.survey.face.title')}
               name="surveyFace"
@@ -213,38 +251,19 @@ const UserRegister = ({
               }}
               className="user-input-format"
             />
-          </div>
+          </div> */}
 
           <div className="user-input">
-            <InputField
+            {/*  <InputField
               title={t('user.fields.cards.reservation')}
               name="reservation"
               type="date"
               value={reservation ? reservation.reservation : ''}
               className="user-input-format"
               disabled
-            />
-
-            <SelectFieldComponent
-              title={t('user.fields.survey.type.title')}
-              name="typeSurvey"
-              placeholder={t('user.fields.survey.type.placeholder')}
-              value={user?.typeSurvey}
-              errorMsg={errorMsg?.typeSurvey}
-              onChange={(value) => {
-                userHandler.userSelectHandler(
-                  'typeSurvey',
-                  value,
-                  setUser,
-                  user,
-                );
-                setWasModified(true);
-              }}
-              options={genericList?.survey}
-              className="user-input-format"
-            />
+            /> */}
           </div>
-
+          {/*
           <div className="user-input">
             <SelectFieldComponent
               title={t('user.fields.introduction.option.title')}
@@ -275,28 +294,10 @@ const UserRegister = ({
               className="user-input-format"
               disabled
             />
-          </div>
+          </div> */}
 
           <div className="user-input">
-            <SelectFieldComponent
-              title={t('user.fields.employment.title')}
-              name="employment"
-              placeholder={t('user.fields.employment.placeholder')}
-              value={user?.employment}
-              errorMsg={errorMsg?.employment}
-              onChange={(value) => {
-                userHandler.userSelectHandler(
-                  'employment',
-                  value,
-                  setUser,
-                  user,
-                );
-                setWasModified(true);
-              }}
-              options={genericList?.ocupation}
-              className="user-input-format"
-            />
-
+            {/*
             <InputField
               title={t('user.fields.second.title')}
               name="second"
@@ -306,11 +307,11 @@ const UserRegister = ({
               errorMsg={errorMsg?.second}
               className="user-input-format"
               disabled
-            />
+            /> */}
           </div>
 
           <div className="user-input">
-            <InputField
+            {/*  <InputField
               title={t('user.fields.ambit.title')}
               name="baseAmbit"
               type="date"
@@ -331,7 +332,7 @@ const UserRegister = ({
               errorMsg={errorMsg?.invitationAlphaCafe}
               className="user-input-format"
               disabled
-            />
+            /> */}
 
             <div className="user-input">
               <SelectFieldComponent
@@ -353,7 +354,7 @@ const UserRegister = ({
                 className="user-input-format"
               />
 
-              <InputField
+              {/*   <InputField
                 title={t('user.fields.community.title')}
                 name="community"
                 placeholder={t('user.fields.community.placeholder')}
@@ -365,7 +366,7 @@ const UserRegister = ({
                   setWasModified(true);
                 }}
                 className="user-input-format"
-              />
+              /> */}
             </div>
           </div>
         </CForm>

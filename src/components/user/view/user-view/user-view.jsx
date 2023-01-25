@@ -17,13 +17,13 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
   const birthyear = genericList.years.find(
     (birthyear) => birthyear.id === user.birthyear,
   );
-  const suitable = genericList.options.find(
+  /*   const suitable = genericList.options.find(
     (options) => options.id === user.introductionOption,
   );
   const personality = genericList.personality.find(
     (options) => options.id === user.personality,
   );
-  const reservation = user?.cards?.find?.((card) => card.reservation);
+  const reservation = user?.cards?.find?.((card) => card.reservation);*/
   const typeSurvey = genericList.survey.find(
     (options) => options.id === user?.typeSurvey,
   );
@@ -77,14 +77,14 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
           </div>
 
           <div className="user-input">
-            <InputField
+            {/*   <InputField
               title={t('user.fields.personality.title')}
               name="personality"
               type="text"
               value={personality?.name}
               className="user-input-format"
               disabled
-            />
+            /> */}
 
             <InputField
               title={t('user.fields.gender.title')}
@@ -94,17 +94,26 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
+
+            <InputField
+              title={t('user.fields.employment.title')}
+              name="employment"
+              type="text"
+              value={employment?.name}
+              className="user-input-format"
+              disabled
+            />
           </div>
 
           <div className="user-input">
-            <InputField
+            {/*   <InputField
               title={t('user.fields.training.title')}
               name="training"
               type="date"
               value={user?.training}
               className="user-input-format"
               disabled
-            />
+            /> */}
 
             <InputField
               title={t('user.fields.firstActivity.title')}
@@ -114,9 +123,18 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
+
+            <InputField
+              title={t('user.fields.survey.type.title')}
+              name="typeSurvey"
+              type="date"
+              value={typeSurvey?.name}
+              className="user-input-format"
+              disabled
+            />
           </div>
 
-          <div className="user-input">
+          {/* <div className="user-input">
             <InputField
               title={t('user.fields.survey.link.title')}
               name="surveyLink"
@@ -134,9 +152,9 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
-          </div>
+          </div> */}
 
-          <div className="user-input">
+          {/*           <div className="user-input">
             <InputField
               title={t('user.fields.survey.face.title')}
               name="surveyFace"
@@ -154,29 +172,20 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
-          </div>
+          </div> */}
 
           <div className="user-input">
-            <InputField
+            {/*     <InputField
               title={t('user.fields.cards.reservation')}
               name="reservation"
               type="text"
               value={reservation ? reservation.reservation : ''}
               className="user-input-format"
               disabled
-            />
-
-            <InputField
-              title={t('user.fields.survey.type.title')}
-              name="typeSurvey"
-              type="date"
-              value={typeSurvey?.name}
-              className="user-input-format"
-              disabled
-            />
+            /> */}
           </div>
 
-          <div className="user-input">
+          {/*  <div className="user-input">
             <InputField
               title={t('user.fields.introduction.option.title')}
               name="introductionOption"
@@ -194,28 +203,28 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
-          </div>
+          </div> */}
 
           <div className="user-input">
             <InputField
-              title={t('user.fields.employment.title')}
-              name="employment"
+              title={t('user.fields.birthyear.title')}
+              name="birthyear"
               type="text"
-              value={employment?.name}
+              value={birthyear?.name}
               className="user-input-format"
               disabled
             />
 
-            <InputField
+            {/*   <InputField
               title={t('user.fields.second.title')}
               name="second"
               type="date"
               value={user?.second}
               className="user-input-format"
               disabled
-            />
+            /> */}
           </div>
-
+          {/*
           <div className="user-input">
             <InputField
               title={t('user.fields.ambit.title')}
@@ -234,26 +243,17 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
-          </div>
+          </div> */}
 
           <div className="user-input">
-            <InputField
-              title={t('user.fields.birthyear.title')}
-              name="birthyear"
-              type="text"
-              value={birthyear?.name}
-              className="user-input-format"
-              disabled
-            />
-
-            <InputField
+            {/* <InputField
               title={t('user.fields.community.title')}
               name="community"
               type="date"
               value={user?.community}
               className="user-input-format"
               disabled
-            />
+            /> */}
           </div>
         </CForm>
       </main>

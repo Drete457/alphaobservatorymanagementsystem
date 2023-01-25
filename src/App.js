@@ -6,7 +6,7 @@ import { user } from 'state/atoms';
 import { buildLogin } from 'helpers/users';
 import Loading from 'components/loading';
 import NoInternet from 'views/offline';
-import ErrorBoundry from 'components/error-boundary';
+import ErrorBoundary from 'components/error-boundary';
 import './i18n';
 import './scss/style.scss';
 
@@ -48,7 +48,7 @@ const App = () => {
     if (isDesktop) {
       //defect if is safari
       const isSafari = navigator.userAgent.indexOf('Safari') > -1;
-      //chrome brownser on MacOs came with Safari word to
+      //chrome browser on MacOs came with Safari word to
       const isChrome = navigator.userAgent.indexOf('Chrome') > -1;
 
       if (isSafari) {
@@ -79,9 +79,9 @@ const App = () => {
                 render={() => {
                   return isAuthenticated ? (
                     <CFade>
-                      <ErrorBoundry>
+                      <ErrorBoundary>
                         <Layout />
-                      </ErrorBoundry>
+                      </ErrorBoundary>
                     </CFade>
                   ) : (
                     <CFade>

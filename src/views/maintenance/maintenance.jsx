@@ -14,7 +14,7 @@ const refreshPage = () => {
   window.location.reload();
 };
 
-const Maintenence = () => {
+const Maintenance = () => {
   const [t] = useTranslation();
 
   return (
@@ -54,4 +54,4 @@ const Maintenence = () => {
   );
 };
 
-export default Maintenence;
+export default Maintenance;

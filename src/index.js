@@ -7,11 +7,11 @@ import { fb } from 'api/config';
 import { noInternetImg } from 'assets/images';
 import { icons } from './assets/icons';
 import { RecoilRoot } from 'recoil';
-import Maintenance from 'views/maintenence';
+import Maintenance from 'views/maintenance';
 
 React.icons = icons;
 
-//iniciate firebase sdk
+//initiate firebase sdk
 const startFirebase = async () => {
   await fb();
 };
@@ -31,7 +31,7 @@ const isUpdating = false;
 const image = localStorage.getItem('offline');
 
 if (!image) {
-  //converte the imagem em string to be safe on localStorage
+  //converted the image em string to be safe on localStorage
   let xhr = new XMLHttpRequest();
   xhr.open('GET', noInternetImg, true);
   xhr.responseType = 'blob';

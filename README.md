@@ -19,14 +19,14 @@ yarn
 yarn start
 ```
 
-## Tecnologies
+## Technologies
 
 - Vanilla Javascript
 - Reactjs
 - React Router
 - Nodejs
 - React Recoil
-- Bootscrap
+- Bootstrap
 - CoreUi
 - eslint-react-hooks
 - React Select

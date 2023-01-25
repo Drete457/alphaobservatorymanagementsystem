@@ -4,7 +4,7 @@ const Home = lazy(() => import('views/home'));
 const Build = lazy(() => import('views/build'));
 const Users = lazy(() => import('views/users'));
 const MyProfile = lazy(() => import('views/my-profile'));
-const UserRegistraion = lazy(() => import('views/user/user-registration'));
+const UserRegistration = lazy(() => import('views/user/user-registration'));
 const UserEdition = lazy(() => import('views/user/user-edition'));
 const UserView = lazy(() => import('views/user/user-view'));
 const CardsView = lazy(() => import('views/user/cards'));
@@ -19,11 +19,11 @@ const TableImport = lazy(() => import('views/table-import'));
 const Countries = lazy(() => import('views/administration/countries'));
 const Generic = lazy(() => import('views/administration/generic'));
 const Logs = lazy(() => import('views/logs'));
-const RepectionRegistration = lazy(() =>
+const ReceptionRegistration = lazy(() =>
   import('views/reception/reception-registration'),
 );
-const RepectionEdit = lazy(() => import('views/reception/reception-edit'));
-const RepectionView = lazy(() => import('views/reception/reception-view'));
+const ReceptionEdit = lazy(() => import('views/reception/reception-edit'));
+const ReceptionView = lazy(() => import('views/reception/reception-view'));
 const ErrorsLogs = lazy(() => import('views/errors'));
 const Ambit = lazy(() => import('views/ambit'));
 
@@ -42,7 +42,7 @@ const routes = [
     path: '/user/new_user',
     exact: true,
     name: 'Collaborator Registration',
-    component: UserRegistraion,
+    component: UserRegistration,
   },
   {
     path: '/user/edition/:page/:id',
@@ -131,19 +131,19 @@ const routes = [
     path: '/reception/reception_registration',
     exact: true,
     name: 'Registration',
-    component: RepectionRegistration,
+    component: ReceptionRegistration,
   },
   {
     path: '/reception/reception_edit/:id',
     exact: true,
     name: 'Edition',
-    component: RepectionEdit,
+    component: ReceptionEdit,
   },
   {
     path: '/reception/view',
     exact: true,
     name: 'View',
-    component: RepectionView,
+    component: ReceptionView,
   },
   {
     path: '/ambit',

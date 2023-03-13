@@ -13,7 +13,7 @@ export const getSocial = async (set) => {
 const useGetGeneric = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
 
   const execute = async () => {
     try {

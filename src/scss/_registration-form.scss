@@ -1,0 +1,23 @@
+.background {
+  background-color: #e5e5f7;
+  padding: auto;
+  height: 100vh;
+}
+
+.title-registration {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  text-align: center;
+  padding: 1rem;
+}
+
+.input-registration {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.input-margin {
+  margin: auto;
+}

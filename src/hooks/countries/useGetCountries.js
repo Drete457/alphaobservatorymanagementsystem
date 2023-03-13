@@ -13,7 +13,7 @@ export const getCountries = async (set) => {
 const useGetCountries = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   const execute = async () => {
     try {

@@ -15,7 +15,7 @@ export const getUsers = async (set) => {
 const useGetUsers = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   const execute = async () => {
     try {

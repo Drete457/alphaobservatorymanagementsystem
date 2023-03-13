@@ -14,13 +14,14 @@ import './scss/style.scss';
 const Layout = lazy(() => import('./components/layout'));
 const Login = lazy(() => import('./views/login'));
 const Safari = lazy(() => import('./views/safari-browser'));
+const RegistrationForm = lazy(() => import('./views/registration-form'));
 
 const App = () => {
   const [isUser, setIsUser] = useRecoilState(user);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   const [isSafariDesktop, setIsSafariDesktop] = useState(false);
-  console.log('aaaaa');
+
   useLayoutEffect(() => {
     const startFirebase = async () => {
       await buildLogin(setIsUser);
@@ -30,9 +31,7 @@ const App = () => {
   }, [setIsUser]);
 
   useLayoutEffect(() => {
-    if (isUser) {
-      setIsAuthenticated(true);
-    }
+    if (isUser) setIsAuthenticated(true);
   }, [isUser]);
 
   useLayoutEffect(() => {
@@ -69,10 +68,22 @@ const App = () => {
     <>
       <HashRouter>
         <Suspense fallback={<Loading />}>
-          {isSafariDesktop ? (
-            <Safari />
-          ) : (
-            <Switch>
+          <Switch>
+            <Route
+              path="/registration-form"
+              name="Registration Form"
+              exact
+              render={() => (
+                <CFade>
+                  <ErrorBoundary>
+                    <RegistrationForm />
+                  </ErrorBoundary>
+                </CFade>
+              )}
+            />
+            {isSafariDesktop ? (
+              <Safari />
+            ) : (
               <Route
                 path="/"
                 name="Home"
@@ -90,10 +101,11 @@ const App = () => {
                   );
                 }}
               />
-            </Switch>
-          )}
+            )}
+          </Switch>
         </Suspense>
       </HashRouter>
+
       {!isOnline && <NoInternet />}
     </>
   );

@@ -27,7 +27,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
   const typeSurvey = genericList.survey.find(
     (options) => options.id === user?.typeSurvey,
   );
-
+  console.log('user', user);
   return (
     <>
       <header>
@@ -214,6 +214,17 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               className="user-input-format"
               disabled
             />
+
+            {user?.contactYouRegistrationForm && (
+              <InputField
+                title={t('user.fields.contactYouRegistrationForm.title')}
+                name="contactYouRegistrationForm"
+                type="text"
+                value={user?.contactYouRegistrationForm}
+                className="user-input-format"
+                disabled
+              />
+            )}
 
             {/*   <InputField
               title={t('user.fields.second.title')}

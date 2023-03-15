@@ -54,7 +54,7 @@
       "google-button": "Google Account"
     },
     "home": {
-      "calendar-button": "Open SpreadSheat Calendar"
+      "calendar-button": "Open SpreadSheet Calendar"
     },
     "view": "View",
     "create": {
@@ -168,7 +168,7 @@
       },
       "introduction": {
         "option": {
-          "title": "Suitable Introductive Meeting",
+          "title": "Suitable Introduction Meeting",
           "placeholder": "Choose If The Collaborator Is Suitable"
         },
         "date": {
@@ -256,6 +256,9 @@
       },
       "createDate": {
         "title": "Contact Alpha"
+      },
+      "contactYouRegistrationForm": {
+        "title": "Contact You Registration Form"
       },
       "empty": {
         "title": "Empty"

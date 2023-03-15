@@ -131,8 +131,23 @@ const RegistrationForm = () => {
                 required
               />
 
+              <InputField
+                title="Who contacted you?* / ¿Quién te contactó?*"
+                name="contactYouRegistrationForm"
+                placeholder="Who contacted you / Persona que te contacto"
+                type="text"
+                value={user?.contactYouRegistrationForm}
+                errorMsg={errorMsg?.contactYouRegistrationForm}
+                onChange={(event) => {
+                  userHandler.userInputHandler(event, setUser, user);
+                  setWasModified(true);
+                }}
+                className="input-registration"
+                required
+              />
+
               <SelectFieldComponent
-                title="Birth Year* / Nacimiento sí*"
+                title="Birth Year* / Fecha de nacimiento*"
                 name="birthyear"
                 placeholder="Select your birth year / Seleccione su año de nacimiento"
                 value={user?.birthyear}

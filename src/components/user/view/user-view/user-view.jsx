@@ -27,7 +27,7 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
   const typeSurvey = genericList.survey.find(
     (options) => options.id === user?.typeSurvey,
   );
-  console.log('user', user);
+
   return (
     <>
       <header>

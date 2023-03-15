@@ -11,6 +11,7 @@ const InputField = ({
   className,
   disabled,
   validName,
+  required,
 }) => {
   const isInvalid = errorMsg ? true : false;
 
@@ -37,6 +38,7 @@ const InputField = ({
           }}
           value={value}
           className="input-style"
+          required={required}
         />
       )}
       {isInvalid && <p className="user-input-error">{errorMsg}</p>}

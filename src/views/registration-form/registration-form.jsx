@@ -1,19 +1,51 @@
 import { useState, useLayoutEffect } from 'react';
+import { useRecoilValue } from 'recoil';
 import { Prompt } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { CButton } from '@coreui/react';
+import moment from 'moment-timezone';
 import { InputField, SelectFieldComponent } from 'components/registration-form';
+import Loading from 'components/loading';
 import ErrorInfo from 'components/error';
-import Submit from 'components/user/buttons/submit';
 import userHandler from 'helpers/user';
 import uniqueId from 'helpers/id-generator';
-import homeHandler from 'helpers/users';
-import { useGetUsers } from 'hooks/users';
-import { useGetCountries } from 'hooks/countries';
-import { useGetGeneric } from 'hooks/generic';
-import moment from 'moment-timezone';
+import dateGenerator from 'helpers/date-generator';
+import { usePostUser } from 'hooks/users';
+import { user as userInfo } from 'state/atoms';
+import registrationData from 'assets/registration-form-data.json';
 
 sessionStorage.removeItem('cardsPosition');
 localStorage.removeItem('cardsPosition');
+
+const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
+  if (!userHandler.validation(user, setErrorMsg, t)) {
+    setWasModified(false);
+
+    //put the position of the cards in the user before sending them to the back-end
+    user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
+    sessionStorage.removeItem('cardsPosition');
+
+    //delete all spaces after and before the name
+    user.name = user.name.trim();
+
+    //convert all first letter of every word to uppercase
+    user.name = userHandler.firstLetterUppercaseOnArray(user.name);
+
+    if (!user?.createDate) {
+      user.createDate = dateGenerator();
+      user.createUser = '';
+    }
+
+    if (!user?.lastModification) {
+      user.lastModification = [];
+    }
+
+    user.firstActivity = dateGenerator();
+
+    //send the user information for the backend
+    execute(user);
+  }
+};
 
 const RegistrationForm = () => {
   const [t] = useTranslation();
@@ -24,39 +56,15 @@ const RegistrationForm = () => {
   const [wasModified, setWasModified] = useState(false);
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
-  const [validName, setValidName] = useState(false);
-  const [hour, setHour] = useState('');
-  const [timeZone, setTimeZone] = useState('');
   const [countries, setCountries] = useState([]);
   const [generic, setGeneric] = useState({});
-  const [collaboratorsList, setCollaboratorsList] = useState([]);
-
-  const { data: usersListData, execute } = useGetUsers();
-  const { data: countriesListData, execute: executeCountries } =
-    useGetCountries();
-  const { data: genericListData, execute: executeGeneric } = useGetGeneric();
+  const isUser = useRecoilValue(userInfo);
+  const { isLoading, error: errorPost, data, execute } = usePostUser();
 
   useLayoutEffect(() => {
-    execute();
-    executeCountries();
-    executeGeneric();
-  }, [execute, executeCountries, executeGeneric]);
-
-  useLayoutEffect(() => {
-    if (Object.keys(usersListData).length > 0 && countriesListData.length > 0) {
-      const collaboratorsData = usersListData
-        ? Object.values(usersListData)
-        : [];
-      const collaboratorsSort = collaboratorsData.sort((value1, value2) =>
-        homeHandler.sortList(value1, value2, 'name'),
-      );
-
-      const collaborators = collaboratorsSort.map?.((user) => {
-        return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
-      });
-
+    if (registrationData.countries.length > 0) {
       const date = new Date().toISOString().split('T')[0];
-      const newCountriesList = countriesListData.map((country) => {
+      const newCountriesList = registrationData.countries.map((country) => {
         return {
           id: country.id,
           name: country.country,
@@ -66,61 +74,38 @@ const RegistrationForm = () => {
       });
 
       setCountries(newCountriesList);
-      setCollaboratorsList(collaborators);
     }
-  }, [
-    setCountries,
-    setGeneric,
-    usersListData,
-    countriesListData,
-    genericListData,
-  ]);
+  }, [setCountries, setGeneric]);
 
   useLayoutEffect(() => {
-    if (genericListData) setGeneric(genericListData);
-  }, [genericListData]);
+    if (registrationData.generic) setGeneric(registrationData.generic);
+  }, []);
 
   useLayoutEffect(() => {
-    if (user.name) {
-      const result = userHandler.validName(user?.name, collaboratorsList);
-
-      setErrorMsg(!result === false ? { name: true } : { name: false });
-
-      setValidName(!result);
-    }
-  }, [user.name, collaboratorsList]);
+    if (data) window.location.href = 'https://www.alphaobservatory.org/';
+  }, [data, user]);
 
   useLayoutEffect(() => {
-    if (user.country) {
-      const zone = countries.find(
-        (country) => country.id === user.country,
-      )?.timezone;
+    if (errorPost) setError(errorPost);
+  }, [errorPost, setError]);
 
-      homeHandler.minuteUpdate(setHour);
-      setTimeZone(zone);
-    }
-  }, [user.country, countries]);
-  console.log(user);
   return (
     <>
       {error ? (
         <ErrorInfo error={error} />
       ) : (
-        <form className="background">
+        <form
+          className="background"
+          onSubmit={(e) => {
+            e.preventDefault();
+
+            submit(user, setErrorMsg, t, execute, setWasModified, isUser);
+          }}
+        >
           <Prompt
             when={wasModified}
             message={() => t('pages.user.leaving-the-page')}
           />
-
-          {/*    <Submit
-            user={user}
-            setErrorMsg={setErrorMsg}
-            setError={setError}
-            setWasModified={setWasModified}
-            validName={validName}
-            hour={hour}
-            timeZone={timeZone}
-          /> */}
 
           <header>
             <h1 className="title-registration">
@@ -132,7 +117,7 @@ const RegistrationForm = () => {
           <main>
             <div className="input-margin">
               <InputField
-                title="Name / Nombre"
+                title="Name* / Nombre*"
                 name="name"
                 placeholder="Write your name / Escribe tu nombre"
                 type="text"
@@ -143,11 +128,11 @@ const RegistrationForm = () => {
                   setWasModified(true);
                 }}
                 className="input-registration"
-                validName={validName}
+                required
               />
 
               <SelectFieldComponent
-                title="Birth Year / Nacimiento sí"
+                title="Birth Year* / Nacimiento sí*"
                 name="birthyear"
                 placeholder="Select your birth year / Seleccione su año de nacimiento"
                 value={user?.birthyear}
@@ -163,31 +148,13 @@ const RegistrationForm = () => {
                 }}
                 options={generic.years ?? []}
                 className="input-registration"
+                required
               />
             </div>
 
             <div className="input-margin">
               <SelectFieldComponent
-                title="Who invited you to Alpha Observatory? / Quién te invitó a Alpha Observatory?"
-                name="contacted"
-                placeholder="Who contacted you / Quem te contatou"
-                value={user?.contacted}
-                errorMsg={errorMsg?.contacted}
-                onChange={(value) => {
-                  userHandler.userSelectHandler(
-                    'contacted',
-                    value,
-                    setUser,
-                    user,
-                  );
-                  setWasModified(true);
-                }}
-                options={userHandler.contactByFilter(collaboratorsList)}
-                className="input-registration"
-              />
-
-              <SelectFieldComponent
-                title="Country / País"
+                title="Country* / País*"
                 name="country"
                 placeholder="Select your country / Seleccione su país"
                 value={user?.country}
@@ -203,6 +170,7 @@ const RegistrationForm = () => {
                 }}
                 options={countries}
                 className="input-registration"
+                required
               />
             </div>
 
@@ -222,7 +190,7 @@ const RegistrationForm = () => {
               />
 
               <SelectFieldComponent
-                title="Employment / Empleo"
+                title="Employment* / Empleo*"
                 name="employment"
                 placeholder="Select your employment / Seleccione su empleo"
                 value={user?.employment}
@@ -238,6 +206,7 @@ const RegistrationForm = () => {
                 }}
                 options={generic.ocupation ?? []}
                 className="input-registration"
+                required
               />
             </div>
 
@@ -278,6 +247,7 @@ const RegistrationForm = () => {
                 options={generic.socialmedia ?? []}
                 className="input-registration"
                 isMulti={true}
+                required
               />
             </div>
 
@@ -305,9 +275,21 @@ const RegistrationForm = () => {
                     );
                   }}
                   className="input-registration"
+                  required
                 />
               );
             })}
+            <div className="user-submit-buttons">
+              <CButton
+                type="submit"
+                color="primary"
+                size="xl"
+                disabled={isLoading}
+              >
+                Submit / Entregar
+              </CButton>
+            </div>
+            {isLoading && <Loading />}
           </main>
         </form>
       )}

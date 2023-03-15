@@ -26,6 +26,7 @@ const SelectFieldComponent = ({
   className,
   isMulti,
   isSearchable,
+  required,
 }) => {
   const [current, setCurrent] = useState(null);
   const optionList = createList(options);
@@ -60,6 +61,7 @@ const SelectFieldComponent = ({
         isMulti={isMulti}
         isSearchable={isSearchable}
         isClearable={true}
+        required={required}
       />
       {isInvalid && <p className="user-input-error">{errorMsg}</p>}
     </div>

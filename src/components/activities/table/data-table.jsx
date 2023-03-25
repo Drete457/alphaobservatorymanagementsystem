@@ -54,7 +54,7 @@ const DataTable = ({ activities, isLoading }) => {
       size="sm"
       responsive
       itemsPerPageSelect
-      itemsPerPage={25}
+      itemsPerPage={100}
       pagination={true}
       isLoading={isLoading}
       noItemsViewSlot={

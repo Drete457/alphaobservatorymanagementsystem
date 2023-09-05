@@ -49,6 +49,8 @@ const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
 
 const RegistrationForm = () => {
   const [t] = useTranslation();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [user, setUser] = useState({
     ...userHandler.userFormat,
     id: uniqueId(),
@@ -82,7 +84,7 @@ const RegistrationForm = () => {
   }, []);
 
   useLayoutEffect(() => {
-    if (data) window.location.href = 'https://www.alphaobservatory.org/';
+    if (data) window.location.href = 'https://alphacommunityworld.org/';
   }, [data, user]);
 
   useLayoutEffect(() => {
@@ -98,7 +100,7 @@ const RegistrationForm = () => {
           className="background"
           onSubmit={(e) => {
             e.preventDefault();
-
+            user.name = `${firstName} ${lastName}`;
             submit(user, setErrorMsg, t, execute, setWasModified, isUser);
           }}
         >
@@ -116,20 +118,43 @@ const RegistrationForm = () => {
 
           <main>
             <div className="input-margin">
-              <InputField
-                title="Name* / Nombre*"
-                name="name"
-                placeholder="Write your name / Escribe tu nombre"
-                type="text"
-                value={user?.name}
-                errorMsg={errorMsg?.name}
-                onChange={(event) => {
-                  userHandler.userInputHandler(event, setUser, user);
-                  setWasModified(true);
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
-                className="input-registration"
-                required
-              />
+              >
+                <InputField
+                  title="First Name* / Primerizo Nombre*"
+                  name="name"
+                  placeholder="Write your first name / Escribe tu primerizo nombre"
+                  type="text"
+                  value={firstName}
+                  errorMsg={errorMsg?.name}
+                  onChange={(event) => {
+                    setFirstName(event.target.value);
+                    setWasModified(true);
+                  }}
+                  className="user-input-format"
+                  required
+                />
+
+                <InputField
+                  title="Surname* / Apellido*"
+                  name="name"
+                  placeholder="Write your surname / Escribe tu Apellido"
+                  type="text"
+                  value={lastName}
+                  errorMsg={errorMsg?.name}
+                  onChange={(event) => {
+                    setLastName(event.target.value);
+                    setWasModified(true);
+                  }}
+                  className="user-input-format"
+                  required
+                />
+              </div>
 
               <InputField
                 title="Who contacted you?* / ¿Quién te contactó?*"
@@ -276,7 +301,7 @@ const RegistrationForm = () => {
                   key={socialMedia.id}
                   title={socialMedia.name}
                   name={socialMedia.id}
-                  placeholder="Write your social media / Escribe tu red social"
+                  placeholder="Type your mobile number or username / Escribe tu número de móvil o nombre de usuario"
                   type="text"
                   value={social.name}
                   errorMsg={!social.name ? errorMsg?.socialInfo : ''}

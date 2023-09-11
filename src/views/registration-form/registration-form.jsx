@@ -84,7 +84,12 @@ const RegistrationForm = () => {
   }, []);
 
   useLayoutEffect(() => {
-    if (data) window.location.href = 'https://alphacommunityworld.org/';
+    if (data) {
+      setTimeout(
+        () => (window.location.href = 'https://alphacommunityworld.org/'),
+        3000,
+      );
+    }
   }, [data, user]);
 
   useLayoutEffect(() => {

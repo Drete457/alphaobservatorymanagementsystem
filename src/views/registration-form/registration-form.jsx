@@ -111,8 +111,8 @@ const RegistrationForm = () => {
 
           <header>
             <h1 className="title-registration">
-              Welcome to Alpha Observatory Registration Form / Formulario de
-              Registro del Observatorio Alfa
+              Welcome to Alpha Community Registration Form / Formulario de
+              Registro del Alpha Community
             </h1>
           </header>
 

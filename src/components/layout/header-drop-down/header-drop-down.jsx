@@ -21,7 +21,7 @@ const HeaderAccountDropdown = ({ logOut }) => {
       const speakUserName = new SpeechSynthesisUtterance();
       speakUserName.lang = 'en';
       speakUserName.volume = 0.5;
-      speakUserName.text = `Wellcome to the Alpha Observatory Management System, ${isUser.name}`;
+      speakUserName.text = `Welcome to the Alpha Community Management System, ${isUser.name}`;
       window.speechSynthesis.speak(speakUserName);
     }
   }, [isUser]); */

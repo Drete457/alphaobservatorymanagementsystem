@@ -1,6 +1,6 @@
-# Reactjs Alpha Observatory Management System
+# Reactjs Alpha Community Management System
 
-Responsive website for the Alpha Observatory project
+Responsive website for the Alpha Community project
 
 ## Description
 

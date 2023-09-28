@@ -62,6 +62,7 @@ const RegistrationForm = () => {
   const [generic, setGeneric] = useState({});
   const isUser = useRecoilValue(userInfo);
   const { isLoading, error: errorPost, data, execute } = usePostUser();
+  console.log('user', isLoading, errorPost, data);
 
   useLayoutEffect(() => {
     if (registrationData.countries.length > 0) {
@@ -328,7 +329,8 @@ const RegistrationForm = () => {
                 size="xl"
                 disabled={isLoading}
               >
-                Submit / Entregar
+                {!isLoading && 'Submit / Entregar'}
+                {isLoading && 'Submitting / Entregando'}
               </CButton>
             </div>
             {isLoading && <Loading />}

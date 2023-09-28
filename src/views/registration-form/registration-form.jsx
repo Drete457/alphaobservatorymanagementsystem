@@ -62,7 +62,6 @@ const RegistrationForm = () => {
   const [generic, setGeneric] = useState({});
   const isUser = useRecoilValue(userInfo);
   const { isLoading, error: errorPost, data, execute } = usePostUser();
-  console.log('user', isLoading, errorPost, data);
 
   useLayoutEffect(() => {
     if (registrationData.countries.length > 0) {

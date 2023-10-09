@@ -102,7 +102,6 @@ const RegistrationForm = () => {
           className="background"
           onSubmit={(e) => {
             e.preventDefault();
-            user.name = `${firstName} ${lastName}`;
             submit(user, setErrorMsg, t, execute, setWasModified, isUser);
           }}
         >
@@ -136,6 +135,10 @@ const RegistrationForm = () => {
                   errorMsg={errorMsg?.name}
                   onChange={(event) => {
                     setFirstName(event.target.value);
+                    setUser({
+                      ...user,
+                      name: `${event.target.value} ${lastName}`,
+                    });
                     setWasModified(true);
                   }}
                   className="user-input-format"
@@ -151,6 +154,10 @@ const RegistrationForm = () => {
                   errorMsg={errorMsg?.name}
                   onChange={(event) => {
                     setLastName(event.target.value);
+                    setUser({
+                      ...user,
+                      name: `${firstName} ${event.target.value}`,
+                    });
                     setWasModified(true);
                   }}
                   className="user-input-format"

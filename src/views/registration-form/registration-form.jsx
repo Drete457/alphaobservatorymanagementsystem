@@ -18,33 +18,34 @@ sessionStorage.removeItem('cardsPosition');
 localStorage.removeItem('cardsPosition');
 
 const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
-  if (!userHandler.validation(user, setErrorMsg, t)) {
-    setWasModified(false);
+  //no longer needed to validated the user, using the normal form validation
+  // if (!userHandler.validation(user, setErrorMsg, t)) {
+  // setWasModified(false);
 
-    //put the position of the cards in the user before sending them to the back-end
-    user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
-    sessionStorage.removeItem('cardsPosition');
+  //put the position of the cards in the user before sending them to the back-end
+  user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
+  sessionStorage.removeItem('cardsPosition');
 
-    //delete all spaces after and before the name
-    user.name = user.name.trim();
+  //delete all spaces after and before the name
+  user.name = user.name.trim();
 
-    //convert all first letter of every word to uppercase
-    user.name = userHandler.firstLetterUppercaseOnArray(user.name);
+  //convert all first letter of every word to uppercase
+  user.name = userHandler.firstLetterUppercaseOnArray(user.name);
 
-    if (!user?.createDate) {
-      user.createDate = dateGenerator();
-      user.createUser = '';
-    }
-
-    if (!user?.lastModification) {
-      user.lastModification = [];
-    }
-
-    user.firstActivity = dateGenerator();
-
-    //send the user information for the backend
-    execute(user);
+  if (!user?.createDate) {
+    user.createDate = dateGenerator();
+    user.createUser = '';
   }
+
+  if (!user?.lastModification) {
+    user.lastModification = [];
+  }
+
+  user.firstActivity = dateGenerator();
+
+  //send the user information for the backend
+  execute(user);
+  // }
 };
 
 const RegistrationForm = () => {
@@ -132,7 +133,6 @@ const RegistrationForm = () => {
                   placeholder="Write your first name / Escribe tu primerizo nombre"
                   type="text"
                   value={firstName}
-                  errorMsg={errorMsg?.name}
                   onChange={(event) => {
                     setFirstName(event.target.value);
                     setUser({
@@ -151,7 +151,6 @@ const RegistrationForm = () => {
                   placeholder="Write your surname / Escribe tu Apellido"
                   type="text"
                   value={lastName}
-                  errorMsg={errorMsg?.name}
                   onChange={(event) => {
                     setLastName(event.target.value);
                     setUser({
@@ -171,7 +170,6 @@ const RegistrationForm = () => {
                 placeholder="Who contacted you / Persona que te contacto"
                 type="text"
                 value={user?.contactYouRegistrationForm}
-                errorMsg={errorMsg?.contactYouRegistrationForm}
                 onChange={(event) => {
                   userHandler.userInputHandler(event, setUser, user);
                   setWasModified(true);
@@ -185,7 +183,6 @@ const RegistrationForm = () => {
                 name="birthyear"
                 placeholder="Select your birth year / Seleccione su año de nacimiento"
                 value={user?.birthyear}
-                errorMsg={errorMsg?.birthyear}
                 onChange={(value) => {
                   userHandler.userSelectHandler(
                     'birthyear',
@@ -207,7 +204,6 @@ const RegistrationForm = () => {
                 name="country"
                 placeholder="Select your country / Seleccione su país"
                 value={user?.country}
-                errorMsg={errorMsg?.country}
                 onChange={(value) => {
                   userHandler.userSelectHandler(
                     'country',
@@ -229,7 +225,6 @@ const RegistrationForm = () => {
                 name="gender"
                 placeholder="Select your gender / Seleccione su género"
                 value={user?.gender}
-                errorMsg={errorMsg?.gender}
                 onChange={(value) => {
                   userHandler.userSelectHandler('gender', value, setUser, user);
                   setWasModified(true);
@@ -243,7 +238,6 @@ const RegistrationForm = () => {
                 name="employment"
                 placeholder="Select your employment / Seleccione su empleo"
                 value={user?.employment}
-                errorMsg={errorMsg?.employment}
                 onChange={(value) => {
                   userHandler.userSelectHandler(
                     'employment',
@@ -265,7 +259,6 @@ const RegistrationForm = () => {
                 name="typeSurvey"
                 placeholder="Select your answer / Seleccione su respuesta"
                 value={user?.typeSurvey}
-                errorMsg={errorMsg?.typeSurvey}
                 onChange={(value) => {
                   userHandler.userSelectHandler(
                     'typeSurvey',
@@ -313,7 +306,6 @@ const RegistrationForm = () => {
                   placeholder="Type your mobile number or username / Escribe tu número de móvil o nombre de usuario"
                   type="text"
                   value={social.name}
-                  errorMsg={!social.name ? errorMsg?.socialInfo : ''}
                   onChange={(event) => {
                     userHandler.userSocialInfoHandler(
                       'socialInfo',
@@ -328,6 +320,7 @@ const RegistrationForm = () => {
                 />
               );
             })}
+
             <div className="user-submit-buttons">
               <CButton
                 type="submit"

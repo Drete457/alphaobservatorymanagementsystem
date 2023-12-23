@@ -71,7 +71,6 @@
     "ag-grid-community": "^26.2.1",
     "ag-grid-enterprise": "^26.2.1",
     "ag-grid-react": "^26.2.0",
-    "caniuse-lite": "^1.0.30001571",
     "export-from-json": "^1.4.1",
     "firebase": "^9.4.0",
     "firebase-tools": "^11.24.1",

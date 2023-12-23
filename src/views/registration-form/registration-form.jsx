@@ -18,7 +18,7 @@ sessionStorage.removeItem('cardsPosition');
 localStorage.removeItem('cardsPosition');
 
 const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
-  //no longer needed to validated the user, using the normal form validation
+  // disable the verification javascript and will only be using the html form validation
   // if (!userHandler.validation(user, setErrorMsg, t)) {
   // setWasModified(false);
 
@@ -45,7 +45,7 @@ const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
 
   //send the user information for the backend
   execute(user);
-  // }
+  //}
 };
 
 const RegistrationForm = () => {

@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { getDatabase, ref, child, set } from 'firebase/database';
 import { ref as reference } from 'components/user';
 
-export const postUsers = async (user, setData, setError, setIsLoading) => {
+const postUsers = async (user, setData, setError, setIsLoading) => {
   const database = getDatabase();
   const dbRef = ref(database);
   await set(child(dbRef, reference + user.id), user)

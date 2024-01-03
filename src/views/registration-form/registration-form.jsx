@@ -57,6 +57,7 @@ const RegistrationForm = () => {
     id: uniqueId(),
   });
   const [wasModified, setWasModified] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [errorMsg, setErrorMsg] = useState({ ...userHandler.userFormat });
   const [error, setError] = useState(null);
   const [countries, setCountries] = useState([]);
@@ -99,13 +100,7 @@ const RegistrationForm = () => {
       {error ? (
         <ErrorInfo error={error} />
       ) : (
-        <form
-          className="background"
-          onSubmit={(e) => {
-            e.preventDefault();
-            submit(user, setErrorMsg, t, execute, setWasModified, isUser);
-          }}
-        >
+        <form className="background" onSubmit={(e) => e.preventDefault()}>
           <Prompt
             when={wasModified}
             message={() => t('pages.user.leaving-the-page')}
@@ -194,7 +189,6 @@ const RegistrationForm = () => {
                 }}
                 options={generic.years ?? []}
                 className="input-registration"
-                required
               />
             </div>
 
@@ -270,6 +264,7 @@ const RegistrationForm = () => {
                 }}
                 options={generic.survey ?? []}
                 className="input-registration"
+                required
               />
 
               <SelectFieldComponent
@@ -316,22 +311,31 @@ const RegistrationForm = () => {
                     );
                   }}
                   className="input-registration"
-                  required
                 />
               );
             })}
 
-            <div className="user-submit-buttons">
-              <CButton
-                type="submit"
-                color="primary"
-                size="xl"
-                disabled={isLoading}
-              >
-                {!isLoading && 'Submit / Entregar'}
-                {isLoading && 'Submitting / Entregando'}
-              </CButton>
-            </div>
+            {!isLoading && (
+              <div className="user-submit-buttons">
+                <CButton
+                  type="submit"
+                  color="primary"
+                  size="xl"
+                  onClick={() =>
+                    submit(
+                      user,
+                      setErrorMsg,
+                      t,
+                      execute,
+                      setWasModified,
+                      isUser,
+                    )
+                  }
+                >
+                  Submit / Entregar
+                </CButton>
+              </div>
+            )}
             {isLoading && <Loading />}
           </main>
         </form>

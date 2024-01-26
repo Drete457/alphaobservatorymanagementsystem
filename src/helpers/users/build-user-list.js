@@ -10,12 +10,12 @@ const buildUserList = (
 ) => {
   const arrayData = [...collaborators];
 
-  const fillArrayData = arrayData?.map((value) => {
+  const fillArrayData = arrayData?.map?.((value) => {
     let user = { ...value };
 
     if (user.followed) {
-      const followedBy = collaboratoresWithFollowers.find(
-        (value) => value.id === user.followed,
+      const followedBy = collaboratoresWithFollowers?.find?.(
+        (value) => value.id === user?.followed,
       )?.name;
 
       user.followed = followedBy;
@@ -23,8 +23,8 @@ const buildUserList = (
 
     user.timezone = '';
     if (user.country) {
-      const countryName = countriesList.find(
-        (country) => country.id === user.country,
+      const countryName = countriesList?.find?.(
+        (country) => country.id === user?.country,
       );
 
       user.timezone = countryName?.timezone;
@@ -33,7 +33,7 @@ const buildUserList = (
 
     if (user?.social && user?.socialInfo) {
       const contactList = user.social.map((userSocial) => {
-        const socialName = genericList?.socialmedia.find(
+        const socialName = genericList?.socialmedia?.find?.(
           (social) => social.id === userSocial,
         );
 
@@ -51,7 +51,7 @@ const buildUserList = (
     }
 
     if (user.personality) {
-      const personalityName = genericList?.personality.find(
+      const personalityName = genericList?.personality?.find?.(
         (value) => value.id === user.personality,
       )?.name;
 
@@ -59,8 +59,8 @@ const buildUserList = (
     }
 
     if (user.introductionOption) {
-      const introductionOption = genericList?.options.find(
-        (value) => value.id === user.introductionOption,
+      const introductionOption = genericList?.options?.find?.(
+        (value) => value.id === user?.introductionOption,
       )?.name;
 
       user.introductionOption = introductionOption;
@@ -70,12 +70,12 @@ const buildUserList = (
     user.reservation = '';
     if (user.cards) {
       const cardsNamesArray = user.cards.map((card) => {
-        const cardInfo = genericList?.cardTypes.find(
-          (value) => value.id === card.id,
+        const cardInfo = genericList?.cardTypes?.find?.(
+          (value) => value.id === card?.id,
         );
 
         if ('reservation' in card) {
-          user.reservation = card.reservation;
+          user.reservation = card?.reservation;
         }
 
         return cardInfo?.name;
@@ -83,7 +83,7 @@ const buildUserList = (
 
       user.cardsInfo = cardsNamesArray.join(', ');
 
-      delete user.cards;
+      delete user?.cards;
     }
 
     if (user?.cardsPosition) {
@@ -95,8 +95,8 @@ const buildUserList = (
     }
 
     if (user.contacted) {
-      let contactBy = collaboratoresWithFollowers.find(
-        (value) => value.id === user.contacted,
+      let contactBy = collaboratoresWithFollowers?.find?.(
+        (value) => value.id === user?.contacted,
       )?.name;
 
       if (contactBy === 'None') {
@@ -107,33 +107,33 @@ const buildUserList = (
     }
 
     if (user.gender) {
-      const profileName = genericList?.gender.find(
-        (value) => value.id === user.gender,
+      const profileName = genericList?.gender?.find?.(
+        (value) => value.id === user?.gender,
       )?.name;
 
       user.gender = profileName;
     }
 
     if (user.birthyear) {
-      const year = genericList?.years.find(
-        (year) => year.id === user.birthyear,
+      const year = genericList?.years?.find?.(
+        (year) => year.id === user?.birthyear,
       );
-      user.birthyear = year.name;
-      user.groupAge = homeHandler.groupAge(year.name, genericList?.groupAge);
+      user.birthyear = year?.name;
+      user.groupAge = homeHandler.groupAge(year?.name, genericList?.groupAge);
     } else {
       user.groupAge = '';
     }
 
     if (user.employment) {
-      const employmentName = genericList?.ocupation.find(
-        (value) => value.id === user.employment,
+      const employmentName = genericList?.ocupation?.find?.(
+        (value) => value.id === user?.employment,
       )?.name;
 
       user.employment = employmentName;
     }
 
     if (user?.typeSurvey) {
-      const typeSurvey = genericList.survey.find(
+      const typeSurvey = genericList?.survey?.find?.(
         (value) => value.id === user?.typeSurvey,
       )?.name;
 

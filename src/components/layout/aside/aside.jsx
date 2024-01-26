@@ -17,9 +17,9 @@ const Aside = () => {
   const isUser = useRecoilValue(user);
 
   if (collaborators) {
-    hashCompare = Array.from(collaborators).find(
+    hashCompare = Array.from(collaborators)?.find?.(
       (item) => item.hashcode,
-    ).hashcode;
+    )?.hashcode;
   }
 
   return (

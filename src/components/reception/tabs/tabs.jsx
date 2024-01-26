@@ -21,12 +21,12 @@ const Tabs = ({ active, setActive }) => {
               {' ' + t('pages.user.tabs.social')}
             </CNavLink>
           </CNavItem>
-          <CNavItem>
+          {/*   <CNavItem>
             <CNavLink>
               <CIcon name="cil-contact" />
               {' ' + t('pages.user.tabs.profile')}
             </CNavLink>
-          </CNavItem>
+          </CNavItem> */}
         </CNav>
       </CTabs>
     </>

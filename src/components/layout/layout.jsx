@@ -72,17 +72,17 @@ const Layout = () => {
   useLayoutEffect(() => {
     const resultArray = Object.values(promiseResolved);
 
-    if (resultArray.every((item) => item === true)) {
+    if (resultArray?.every?.((item) => item === true)) {
       const collaboratorsData = data ? Object.values(data) : [];
       const collaboratorsSort = collaboratorsData.sort((value1, value2) =>
         homeHandler.sortList(value1, value2, 'name'),
       );
       const receptionCardsData = dataEntry ? Object.values(dataEntry) : [];
-      const receptionCardsSort = receptionCardsData.sort((value1, value2) =>
+      const receptionCardsSort = receptionCardsData?.sort?.((value1, value2) =>
         homeHandler.sortList(value1, value2, 'name'),
       );
 
-      const collaborators = collaboratorsSort.map?.((user) => {
+      const collaborators = collaboratorsSort?.map?.((user) => {
         return { id: user.id, name: user.name, link: `/user/view/${user.id}` };
       });
 
@@ -96,7 +96,7 @@ const Layout = () => {
 
       const collaboratorsWithFollowers =
         homeHandler.buildUsersListFilter(collaboratorsSort);
-      collaboratorsWithFollowers.unshift({ id: '1', name: 'None' });
+      collaboratorsWithFollowers?.unshift?.({ id: '1', name: 'None' });
 
       const obj = {
         collaborators: collaboratorsData,
@@ -105,7 +105,7 @@ const Layout = () => {
       };
 
       const date = new Date().toISOString().split('T')[0];
-      const newCountriesList = countriesList.map((country) => {
+      const newCountriesList = countriesList?.map?.((country) => {
         return {
           ...country,
           gmt: moment(date).tz(country.timezone).format('Z'),

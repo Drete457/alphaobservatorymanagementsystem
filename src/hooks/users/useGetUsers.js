@@ -7,8 +7,12 @@ export const getUsers = async (set) => {
   const dbRef = ref(database, reference);
 
   onValue(dbRef, (snapshot) => {
-    const data = snapshot.val();
-    set(data);
+    if (snapshot.val() !== null) {
+      const data = snapshot.val();
+      set(data);
+    } else {
+      set([]);
+    }
   });
 };
 
@@ -20,7 +24,7 @@ const useGetUsers = () => {
   const execute = async () => {
     try {
       setIsLoading(true);
-      getUsers(setData);
+      await getUsers(setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);

@@ -7,7 +7,9 @@ export const getCountries = async (set) => {
   const dbRef = ref(database);
   const response = await get(child(dbRef, reference));
 
-  set(response.val());
+  if (response.val() !== null) {
+    set(response.val());
+  }
 };
 
 const useGetCountries = () => {
@@ -18,7 +20,7 @@ const useGetCountries = () => {
   const execute = async () => {
     try {
       setIsLoading(true);
-      getCountries(setData);
+      await getCountries(setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);

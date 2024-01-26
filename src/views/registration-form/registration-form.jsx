@@ -10,9 +10,9 @@ import ErrorInfo from 'components/error';
 import userHandler from 'helpers/user';
 import uniqueId from 'helpers/id-generator';
 import dateGenerator from 'helpers/date-generator';
-import { usePostUser } from 'hooks/users';
 import { user as userInfo } from 'state/atoms';
 import registrationData from 'assets/registration-form-data.json';
+import { usePostReceptionCard } from 'hooks/reception';
 
 sessionStorage.removeItem('cardsPosition');
 localStorage.removeItem('cardsPosition');
@@ -30,7 +30,7 @@ const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
   user.name = user.name.trim();
 
   //convert all first letter of every word to uppercase
-  user.name = userHandler.firstLetterUppercaseOnArray(user.name);
+  // user.name = userHandler.firstLetterUppercaseOnArray(user.name);
 
   if (!user?.createDate) {
     user.createDate = dateGenerator();
@@ -63,7 +63,7 @@ const RegistrationForm = () => {
   const [countries, setCountries] = useState([]);
   const [generic, setGeneric] = useState({});
   const isUser = useRecoilValue(userInfo);
-  const { isLoading, error: errorPost, data, execute } = usePostUser();
+  const { isLoading, error: errorPost, data, execute } = usePostReceptionCard();
 
   useLayoutEffect(() => {
     if (registrationData.countries.length > 0) {
@@ -155,7 +155,6 @@ const RegistrationForm = () => {
                     setWasModified(true);
                   }}
                   className="user-input-format"
-                  required
                 />
               </div>
 
@@ -170,7 +169,6 @@ const RegistrationForm = () => {
                   setWasModified(true);
                 }}
                 className="input-registration"
-                required
               />
 
               <SelectFieldComponent
@@ -209,7 +207,6 @@ const RegistrationForm = () => {
                 }}
                 options={countries}
                 className="input-registration"
-                required
               />
             </div>
 
@@ -243,7 +240,6 @@ const RegistrationForm = () => {
                 }}
                 options={generic.ocupation ?? []}
                 className="input-registration"
-                required
               />
             </div>
 
@@ -264,7 +260,6 @@ const RegistrationForm = () => {
                 }}
                 options={generic.survey ?? []}
                 className="input-registration"
-                required
               />
 
               <SelectFieldComponent
@@ -284,7 +279,6 @@ const RegistrationForm = () => {
                 options={generic.socialmedia ?? []}
                 className="input-registration"
                 isMulti={true}
-                required
               />
             </div>
 

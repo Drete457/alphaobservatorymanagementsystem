@@ -1,13 +1,13 @@
 {
   "name": "alpha-observatory-management-system",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "private": false,
   "description": "Alpha Community Management System",
   "author": {
     "name": "Filipe Mota",
     "github": "https://github.com/Drete457"
   },
-  "copyright": "Copyright 2020 - 2023 CEO NADA",
+  "copyright": "Copyright 2020 - 2024 CEO NADA",
   "repository": {
     "type": "git",
     "url": "https://github.com/Drete457/alphaobservatorymanagementsystem.git"
@@ -78,7 +78,7 @@
     "moment-timezone": "^0.5.35",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-grid-layout": "^1.3.0",
+    "react-grid-layout": "^1.4.4",
     "react-i18next": "^11.14.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^4.0.3",
@@ -88,6 +88,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/runtime": "^7.24.5",
     "babel-core": "^6.26.3",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",

@@ -23,8 +23,8 @@ const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
   // setWasModified(false);
 
   //put the position of the cards in the user before sending them to the back-end
-  user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
-  sessionStorage.removeItem('cardsPosition');
+  // user.cardsPosition = JSON.parse(sessionStorage.getItem('cardsPosition'));
+  // sessionStorage.removeItem('cardsPosition');
 
   //delete all spaces after and before the name
   user.name = user.name.trim();
@@ -32,15 +32,16 @@ const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
   //convert all first letter of every word to uppercase
   // user.name = userHandler.firstLetterUppercaseOnArray(user.name);
 
-  if (!user?.createDate) {
-    user.createDate = dateGenerator();
-    user.createUser = '';
-  }
+  /*   if (!user?.createDate) {
+      user.createDate = dateGenerator();
+      user.createUser = '';
+    } */
 
-  if (!user?.lastModification) {
-    user.lastModification = [];
-  }
-
+  /*   if (!user?.lastModification) {
+      user.lastModification = [];
+    } */
+  user.createDate = dateGenerator();
+  user.createUser = '';
   user.firstActivity = dateGenerator();
 
   //send the user information for the backend

@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
@@ -70,47 +70,49 @@ const UserCards = ({ user, setUser, errorMsg, cardsTypes, userList }) => {
           {user?.cards && rotation ? (
             <div className="device-rotation" />
           ) : (
-            <ResponsiveGridLayout
-              className="layout"
-              layouts={cardsPositions}
-              onLayoutChange={(layout, layouts) =>
-                userHandler.updateCardsPosition(layouts['xl'], cardsPositions)
-              }
-              breakpoints={breakPoints}
-              cols={{ xl: 3 }}
-              isResizable={false}
-              measureBeforeMount={false}
-              draggableHandle={'.card-header'}
-              isDraggable={isDraggable}
-            >
-              {cardArray?.map((card, index) => {
-                const cardBasicInfo = cardsTypes.find(
-                  (cardInfo) => cardInfo.id === card.id,
-                );
+            <Suspense>
+              <ResponsiveGridLayout
+                className="layout"
+                layouts={cardsPositions}
+                onLayoutChange={(layout, layouts) =>
+                  userHandler.updateCardsPosition(layouts['xl'], cardsPositions)
+                }
+                breakpoints={breakPoints}
+                cols={{ xl: 3 }}
+                isResizable={false}
+                measureBeforeMount={false}
+                draggableHandle={'.card-header'}
+                isDraggable={isDraggable}
+              >
+                {cardArray?.map((card, index) => {
+                  const cardBasicInfo = cardsTypes.find(
+                    (cardInfo) => cardInfo.id === card.id,
+                  );
 
-                return (
-                  <CCard key={index + ''} accentColor="primary">
-                    <span
-                      style={{
-                        background: cardBasicInfo?.color,
-                      }}
-                      className="card-header-banner-color"
-                    ></span>
-                    <Card
-                      t={t}
-                      card={card}
-                      cardBasicInfo={cardBasicInfo}
-                      index={index}
-                      cardArray={cardArray}
-                      setCardsArray={setCardsArray}
-                      cardsTypes={cardsTypes}
-                      errorMsg={errorMsg}
-                      userList={userList}
-                    />
-                  </CCard>
-                );
-              })}
-            </ResponsiveGridLayout>
+                  return (
+                    <CCard key={index + ''} accentColor="primary">
+                      <span
+                        style={{
+                          background: cardBasicInfo?.color,
+                        }}
+                        className="card-header-banner-color"
+                      ></span>
+                      <Card
+                        t={t}
+                        card={card}
+                        cardBasicInfo={cardBasicInfo}
+                        index={index}
+                        cardArray={cardArray}
+                        setCardsArray={setCardsArray}
+                        cardsTypes={cardsTypes}
+                        errorMsg={errorMsg}
+                        userList={userList}
+                      />
+                    </CCard>
+                  );
+                })}
+              </ResponsiveGridLayout>
+            </Suspense>
           )}
         </CForm>
       </main>

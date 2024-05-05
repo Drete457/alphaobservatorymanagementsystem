@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CForm, CCard } from '@coreui/react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
@@ -44,42 +44,44 @@ const UserCards = ({ user, userList, cardsTypes }) => {
           {user?.cards && rotation ? (
             <div className="device-rotation" />
           ) : (
-            <ResponsiveGridLayout
-              className="layout"
-              layouts={cardsPositions}
-              breakpoints={breakPoints}
-              cols={{ xl: 3 }}
-              isResizable={false}
-              measureBeforeMount={false}
-              isDraggable={false}
-            >
-              {rotation ? (
-                <div className="device-rotation" />
-              ) : (
-                user?.cards?.map((card, index) => {
-                  const cardBasicInfo = cardsTypes.find(
-                    (cardInfo) => cardInfo.id === card.id,
-                  );
+            <Suspense>
+              <ResponsiveGridLayout
+                className="layout"
+                layouts={cardsPositions}
+                breakpoints={breakPoints}
+                cols={{ xl: 3 }}
+                isResizable={false}
+                measureBeforeMount={false}
+                isDraggable={false}
+              >
+                {rotation ? (
+                  <div className="device-rotation" />
+                ) : (
+                  user?.cards?.map((card, index) => {
+                    const cardBasicInfo = cardsTypes.find(
+                      (cardInfo) => cardInfo.id === card.id,
+                    );
 
-                  return (
-                    <CCard key={index + ''} accentColor="primary">
-                      <span
-                        style={{
-                          background: cardBasicInfo?.color,
-                        }}
-                        className="card-header-banner-color"
-                      ></span>
-                      <Card
-                        card={card}
-                        userList={userList}
-                        cardBasicInfo={cardBasicInfo}
-                        t={t}
-                      />
-                    </CCard>
-                  );
-                })
-              )}
-            </ResponsiveGridLayout>
+                    return (
+                      <CCard key={index + ''} accentColor="primary">
+                        <span
+                          style={{
+                            background: cardBasicInfo?.color,
+                          }}
+                          className="card-header-banner-color"
+                        ></span>
+                        <Card
+                          card={card}
+                          userList={userList}
+                          cardBasicInfo={cardBasicInfo}
+                          t={t}
+                        />
+                      </CCard>
+                    );
+                  })
+                )}
+              </ResponsiveGridLayout>
+            </Suspense>
           )}
         </CForm>
       </main>

@@ -123,7 +123,8 @@
       },
       "country": {
         "title": "Country*",
-        "placeholder": "Choose The Country Of The Collaborator"
+        "placeholder": "Choose The Country Of The Collaborator",
+        "error": "You need to fill your country"
       },
       "hour": {
         "title": "Local Hour"

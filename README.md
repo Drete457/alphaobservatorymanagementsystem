@@ -1,39 +1,8 @@
-# Reactjs Alpha Observatory Management System
+# React + Vite
 
-Responsive website for the Alpha Observatory project
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Description
+Currently, two official plugins are available:
 
-Management system for the project [AlphaObservatory](https://www.alphaobservatory.org/en/ "AlphaObservatory")
-
-## Description
-Visit the website: https://managementsystemalpha.vercel.app/
-
-## Cloning the Repository
-With Git and Node.js installed on your machine, choose location and clone repository, use this commands:
-
-```
-git clone https://github.com/Drete457/alphaobservatorymanagementsystem.git
-cd alphaobservatorymanagementsystem
-yarn
-yarn start
-```
-
-## Technologies
-
-- Vanilla Javascript
-- Reactjs
-- React Router
-- Nodejs
-- React Recoil
-- Bootstrap
-- CoreUi
-- eslint-react-hooks
-- React Select
-- React-Grid-Layout
-- FireBase SDK
-- Export From Json
-- AG-Grid
-
-## License
-MIT License
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

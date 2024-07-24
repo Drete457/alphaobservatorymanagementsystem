@@ -56,7 +56,6 @@ const Submit = ({
         ) {
           newUser.firstActivity = newActivity.date;
           wasChange = true;
-          console.log('first activity');
         }
 
         if (wasChange) {

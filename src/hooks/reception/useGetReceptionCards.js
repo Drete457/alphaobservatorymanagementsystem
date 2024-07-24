@@ -9,8 +9,6 @@ export const getReceptionCards = async (set) => {
   onValue(dbRef, (snapshot) => {
     if (snapshot.val() !== null) {
       set(snapshot.val());
-    } else {
-      set({});
     }
   });
 };
@@ -18,12 +16,12 @@ export const getReceptionCards = async (set) => {
 const useGetReceptionCards = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
 
   const execute = async () => {
     try {
       setIsLoading(true);
-      getReceptionCards(setData);
+      await getReceptionCards(setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);

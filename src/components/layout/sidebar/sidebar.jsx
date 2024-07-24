@@ -26,9 +26,9 @@ const Sidebar = () => {
   const isUser = useRecoilValue(user);
 
   if (collaborators) {
-    const hashCompare = Array.from(collaborators).find(
-      (item) => item.hashcode,
-    ).hashcode;
+    const hashCompare = Array.from(collaborators)?.find?.(
+      (item) => item?.hashcode,
+    )?.hashcode;
 
     hashPass = homeHandler.hashCode(isUser?.email).toString() === hashCompare;
   }

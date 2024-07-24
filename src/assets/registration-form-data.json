@@ -1,0 +1,1756 @@
+{
+  "countries": [
+    {
+      "country": "Afghanistan",
+      "gmt": "+04:30",
+      "id": "37082cd67237-6229c5f5-dc2edc37-37aab3b1-af8e6345d8777db9",
+      "timezone": "Asia/Kabul"
+    },
+    {
+      "country": "Albania",
+      "gmt": "+01:00",
+      "id": "dae6e3df0116-58011b0a-c006c3f7-fde6f08f-ec80b9e843d80b94",
+      "timezone": "Europe/Tirane"
+    },
+    {
+      "country": "Algeria",
+      "gmt": "+01:00",
+      "id": "cf8197aeaff1-3d1e5214-04986821-3102b4ec-b36aa85409740003",
+      "timezone": "Africa/Algiers"
+    },
+    {
+      "country": "American Samoa (USA)",
+      "gmt": "−11:00",
+      "id": "4b1585dbc417-573547d9-1fa958cc-2f4d8ab6-214b06eaa8963e8f",
+      "timezone": "Pacific/Pago_Pago"
+    },
+    {
+      "country": "Andorra",
+      "gmt": "+01:00",
+      "id": "18e6cde8739d-8ea4b097-9a61774d-c16c5cdd-ac0a3863f1616807",
+      "timezone": "Europe/Andorra"
+    },
+    {
+      "country": "Angola",
+      "gmt": "+01:00",
+      "id": "ea0f31dc9a6c-07d2b8ba-8351b720-28f8da2c-8162d9d3e565b815",
+      "timezone": "Africa/Luanda"
+    },
+    {
+      "country": "Argentina",
+      "gmt": "−03:00",
+      "id": "4e3fb960669d-aabc422c-c204e0e3-04d69892-b1cd669ed59115a4",
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    {
+      "country": "Armenia",
+      "gmt": "+04:00",
+      "id": "39b46cf1f138-2283803f-f7320b52-680fd0d1-fe86015b387fa9c9",
+      "timezone": "Asia/Yerevan"
+    },
+    {
+      "country": "Aruba (Netherlands)",
+      "gmt": "−04:00",
+      "id": "f6d3df6863ee-b446f046-02c82af5-6d0a02bf-68a33b6f8dcd88af",
+      "timezone": "America/Aruba"
+    },
+    {
+      "country": "Australia",
+      "gmt": "+10:00",
+      "id": "fc1125b4a526-4f314693-f975a92e-f8c8257f-53070e336454db83",
+      "timezone": "Australia/Brisbane"
+    },
+    {
+      "country": "Australia, Lord Howe Island (New South Wales)",
+      "gmt": "+10:30",
+      "id": "fe67c2f197ec-9dd70dd2-d58be6e6-394e10ed-d3da9b7b8be4651e",
+      "timezone": "Australia/Lord_Howe"
+    },
+    {
+      "country": "Austria",
+      "gmt": "+01:00",
+      "id": "bfdc25c19cc7-dd29e0af-e3bb5f20-ed6b9341-a47a55965bbf0b5f",
+      "timezone": "Europe/Vienna"
+    },
+    {
+      "country": "Azerbaijan",
+      "gmt": "+04:00",
+      "id": "3ac326fba9df-38d61b41-4674a800-f07aa163-b2d29991a2d8caeb",
+      "timezone": "Asia/Baku"
+    },
+    {
+      "country": "Bahamas",
+      "gmt": "−05:00",
+      "id": "c8d86faa9344-9ac6438c-808c929c-7b6a8966-6febb60df21a5735",
+      "timezone": "America/Nassau"
+    },
+    {
+      "country": "Bahrain",
+      "gmt": "+03:00",
+      "id": "3207bcd915a8-9ccbb28f-d73e6925-a2ee3a71-2348a521561d5ef5",
+      "timezone": "Asia/Bahrain"
+    },
+    {
+      "country": "Bangladesh",
+      "gmt": "+06:00",
+      "id": "d3edcf57cac4-8f08defe-ceb11f0c-42e4f348-c5e94161c26e5bd6",
+      "timezone": "Asia/Dhaka"
+    },
+    {
+      "country": "Barbados",
+      "gmt": "−04:00",
+      "id": "1561bfb5326d-db9da3d6-1d91fad6-596950b6-873d851401aca1f6",
+      "timezone": "America/Barbados"
+    },
+    {
+      "country": "Belarus",
+      "gmt": "+03:00",
+      "id": "8c9f68ec3727-b7d9abb4-5744d13b-1496f5ba-3c1d0afdafa5a08a",
+      "timezone": "Europe/Minsk"
+    },
+    {
+      "country": "Belgium",
+      "gmt": "+01:00",
+      "id": "5b806e88a497-67f957f2-26dea049-86357a21-1d1d89e975e32d02",
+      "timezone": "Europe/Brussels"
+    },
+    {
+      "country": "Belize",
+      "gmt": "−06:00",
+      "id": "ec85256d396f-ad1e8098-b84c0c76-3478e977-d08142bbc7b8c70b",
+      "timezone": "America/Belize"
+    },
+    {
+      "country": "Benin",
+      "gmt": "+01:00",
+      "id": "da84aa37585a-99d78ad0-055a4448-52e82a90-8a94261bee3f4dd5",
+      "timezone": "Africa/Porto-Novo"
+    },
+    {
+      "country": "Bhutan",
+      "gmt": "+06:00",
+      "id": "e6d49f49cd2a-6656a70a-6b0f7cb3-633bf475-2d681acf902d4e6e",
+      "timezone": "Asia/Thimphu"
+    },
+    {
+      "country": "Bolivia",
+      "gmt": "−04:00",
+      "id": "e05b59081f26-c0f939ba-93c2bf88-d135cfa1-5f7f108467a73b39",
+      "timezone": "America/La_Paz"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "gmt": "+01:00",
+      "id": "09d5fa8e772a-8deaa304-7e307037-4a66ede9-a2a238ad0ea2d5cc",
+      "timezone": "Europe/Sarajevo"
+    },
+    {
+      "country": "Botswana",
+      "gmt": "+02:00",
+      "id": "a7267fd3ba7e-20bf73ce-dabc7602-320cc157-9a1f9a54184dddec",
+      "timezone": "Africa/Gaborone"
+    },
+    {
+      "country": "Brazil, Rio de Janeiro, Sao Paulo",
+      "gmt": "−03:00",
+      "id": "8bfca8e18ab2-c447a731-87c7d4e1-157ddd47-a95d34588284b38a",
+      "timezone": "America/Araguaina"
+    },
+    {
+      "country": "Brazil, Mato Grosso do Sul, Mato Grosso",
+      "gmt": "−04:00",
+      "id": "dfcef365bf2b-ff74041f-2a0c6bb9-5990a3d6-b2e870dcd514d160",
+      "timezone": "America/Boa_Vista"
+    },
+    {
+      "country": "Brunei",
+      "gmt": "+08:00",
+      "id": "88c2cc2e7fe5-505aaea8-9b1c98fd-3091aff9-9c133371adedd37d",
+      "timezone": "Asia/Brunei"
+    },
+    {
+      "country": "Bulgaria",
+      "gmt": "+02:00",
+      "id": "e69f0bb12ec6-b7c6b023-bb32a844-7f4fd118-88d29d5f0d9dd480",
+      "timezone": "Europe/Sofia"
+    },
+    {
+      "country": "Burkina Faso",
+      "gmt": "±00:00",
+      "id": "b9b6a0f7dade-1c819218-82158191-4f8710e4-8c0f486c82b69702",
+      "timezone": "Africa/Ouagadougou"
+    },
+    {
+      "country": "Burundi",
+      "gmt": "+02:00",
+      "id": "7354101640e4-fa58e4c8-c171c67a-3c69117c-7de2035bd1297fc1",
+      "timezone": "Africa/Bujumbura"
+    },
+    {
+      "country": "Cabo Verde",
+      "gmt": "−01:00",
+      "id": "e8a6a892109c-7a6f2f9b-ca1ebd09-de87e73b-3a9061372dc3f6b5",
+      "timezone": "Atlantic/Cape_Verde"
+    },
+    {
+      "country": "Cambodia",
+      "gmt": "+07:00",
+      "id": "1889206a128f-a482ec59-83727762-d06c879e-aa63f32e00b2e93a",
+      "timezone": "Asia/Phnom_Penh"
+    },
+    {
+      "country": "Cameroon",
+      "gmt": "+01:00",
+      "id": "894eae70eecf-7f6e5381-1069cf5d-cdde30e1-230a2c4b1a234284",
+      "timezone": "Africa/Douala"
+    },
+    {
+      "country": "Canada",
+      "gmt": "−04:00",
+      "id": "7cf3264f4a9c-ee847616-085e7c02-e1cbbdff-fc0bc8c2f8f6714e",
+      "timezone": "America/Blanc-Sablon"
+    },
+    {
+      "country": "Canary Islands",
+      "gmt": "±00:00",
+      "id": "1e339285eba9-552b6ca3-fc0af4f4-af2be9b2-5a45acb302ebd355",
+      "timezone": "Atlantic/Canary"
+    },
+    {
+      "country": "Central African Republic",
+      "gmt": "+01:00",
+      "id": "1249e63d5ed0-1b0b6cce-1dc61923-dc3fa17e-7639f22cdc402138",
+      "timezone": "Africa/Bangui"
+    },
+    {
+      "country": "Chad",
+      "gmt": "+01:00",
+      "id": "220d808343de-e4a0396f-c6ffbc5e-7b8e0d57-fc7c8cdd4633cbe6",
+      "timezone": "Africa/Ndjamena"
+    },
+    {
+      "country": "Chile",
+      "gmt": "−04:00",
+      "id": "179c1b31aa52-5d2fa9ac-ef60ad31-637090dd-592aa62e88cb2b2e",
+      "timezone": "America/Santiago"
+    },
+    {
+      "country": "China",
+      "gmt": "+08:00",
+      "id": "76ca85c555ac-b826645e-814d5743-33ff6c01-cf1d0c0642bc13e1",
+      "timezone": "Asia/Shanghai"
+    },
+    {
+      "country": "Colombia",
+      "gmt": "−05:00",
+      "id": "89c9e7ff2511-e94fcd66-b840de2d-f6b7fa32-2a0b4cc530dea18a",
+      "timezone": "America/Bogota"
+    },
+    {
+      "country": "Comoros",
+      "gmt": "+03:00",
+      "id": "84946b04122b-81c8c3d2-883c89c0-f6b7ace4-f6865a7f3efa7d05",
+      "timezone": "Indian/Comoro"
+    },
+    {
+      "country": "Republic of the Congo",
+      "gmt": "+01:00",
+      "id": "0b04c088356e-17440d07-989da312-9e0c9ba3-c5a7c65ca1a4f768",
+      "timezone": "Africa/Brazzaville"
+    },
+    {
+      "country": "Costa Rica",
+      "gmt": "−06:00",
+      "id": "c6f3bdc98259-d0a39398-7ad5b4ad-fd0a2698-0da2d57e35d7eab2",
+      "timezone": "America/Costa_Rica"
+    },
+    {
+      "country": "Cote d'Ivoire",
+      "gmt": "±00:00",
+      "id": "cab4261bd914-068d3ec2-0fa61823-af68dc2e-14bffcb55d04cf38",
+      "timezone": "Africa/Abidjan"
+    },
+    {
+      "country": "Croatia",
+      "gmt": "+01:00",
+      "id": "9b330f9ce1d5-0b94104d-33635343-907eded8-0e21d36a639cd9c4",
+      "timezone": "Europe/Zagreb"
+    },
+    {
+      "country": "Cuba",
+      "gmt": "−05:00",
+      "id": "6a95162493c8-3ede6064-0faa1fd5-b4f0a89e-8e7041b3cd31bdab",
+      "timezone": "America/Havana"
+    },
+    {
+      "country": "Cyprus",
+      "gmt": "+02:00",
+      "id": "86db3cb0b52e-2a4b384b-ee9f4d05-3bfeaeca-0b6d6b7c236f309e",
+      "timezone": "Asia/Famagusta"
+    },
+    {
+      "country": "Czech Republic",
+      "gmt": "+01:00",
+      "id": "59fada21e131-1077bce3-17d0476b-044707ae-8af8b94f336c3898",
+      "timezone": "Europe/Warsaw"
+    },
+    {
+      "country": "Denmark",
+      "gmt": "+01:00",
+      "id": "6fb4e262b59a-bb986ca5-5f2b58fc-d74439b3-69681c6977387391",
+      "timezone": "Europe/Copenhagen"
+    },
+    {
+      "country": "Djibouti",
+      "gmt": "+03:00",
+      "id": "2e47dc1a09e7-dd90d043-dba52e86-c164c473-92b5e126ab6a37c3",
+      "timezone": "Africa/Djibouti"
+    },
+    {
+      "country": "Dominica",
+      "gmt": "−04:00",
+      "id": "9691e15857f6-d752dbad-68e7ed69-6ebdda0e-7e8f28e7380f06b5",
+      "timezone": "America/Dominica"
+    },
+    {
+      "country": "Dominican Republic",
+      "gmt": "−04:00",
+      "id": "c1f35c7a9401-f61e3273-2b79befb-575fe65f-8c95ecf3568f0a93",
+      "timezone": "America/Santo_Domingo"
+    },
+    {
+      "country": "Ecuador",
+      "gmt": "−05:00",
+      "id": "02843b1a8c7c-5c596887-22fb590a-fc0b3ec3-e6038b8264c842e0",
+      "timezone": "America/Guayaquil"
+    },
+    {
+      "country": "Egypt",
+      "gmt": "+02:00",
+      "id": "b596a99e396f-d74a288a-eb7168a5-54cc1cd9-24ba2d47c084c484",
+      "timezone": "Africa/Cairo"
+    },
+    {
+      "country": "El Salvador",
+      "gmt": "−06:00",
+      "id": "b0d9b9cbb529-277500a2-7a4aabdb-4dc1e3db-fbdd5ad59fa91819",
+      "timezone": "America/El_Salvador"
+    },
+    {
+      "country": "Equatorial Guinea",
+      "gmt": "+01:00",
+      "id": "a70974fe1be7-3edb74f0-0e98384a-cd65f0c9-6f30935f79ac38ec",
+      "timezone": "Africa/Malabo"
+    },
+    {
+      "country": "Eritrea",
+      "gmt": "+03:00",
+      "id": "5f540d4d14d5-ae1338bf-adac4ecd-499fd99a-5c94cd05c65b273a",
+      "timezone": "Africa/Asmara"
+    },
+    {
+      "country": "Estonia",
+      "gmt": "+02:00",
+      "id": "9850dec29502-845c5792-45bbb8c1-82ad08ae-d4586aca6dd5b55c",
+      "timezone": "Europe/Tallinn"
+    },
+    {
+      "country": "Ethiopia",
+      "gmt": "+03:00",
+      "id": "757d59ff729d-e06057b2-f78ac51a-904b6dde-e9c01e24b6db8b59",
+      "timezone": "Africa/Addis_Ababa"
+    },
+    {
+      "country": "Falkland Islands (UK)",
+      "gmt": "−03:00",
+      "id": "f1e4d262ba7c-9a6e2514-a4e01db0-f4d7c4f0-3a55ad5483b55272",
+      "timezone": "Atlantic/Stanley"
+    },
+    {
+      "country": "Fiji",
+      "gmt": "+12:00",
+      "id": "817c8bf05145-e835d21f-4612076e-1b08b8d3-595fb87e37e5fdad",
+      "timezone": "Pacific/Fiji"
+    },
+    {
+      "country": "Finland",
+      "gmt": "+02:00",
+      "id": "ebda3b99a603-990cf62d-405eaadc-f02f52e6-fddae6353c02a59c",
+      "timezone": "Europe/Helsinki"
+    },
+    {
+      "country": "France",
+      "gmt": "+01:00",
+      "id": "0cd499c842d0-0008c045-9dc2925e-90ddd456-52342f319cc7478a",
+      "timezone": "Europe/Paris"
+    },
+    {
+      "country": "Gabon",
+      "gmt": "+01:00",
+      "id": "c2ffcaaa94c2-e2e27a07-4d6aba4a-2a1bfed6-b68037bb788dd431",
+      "timezone": "Africa/Libreville"
+    },
+    {
+      "country": "Gambia",
+      "gmt": "±00:00",
+      "id": "5394660d78e0-3900d21c-deac8f27-80d977a9-e0ad234991f53456",
+      "timezone": "Africa/Banjul"
+    },
+    {
+      "country": "Georgia",
+      "gmt": "+04:00",
+      "id": "70fad91e87cd-ed897953-dbcc572f-10b701fd-49f2e3823a32843f",
+      "timezone": "Asia/Tbilisi"
+    },
+    {
+      "country": "Germany",
+      "gmt": "+01:00",
+      "id": "2436e9177969-432cb988-42289b43-11e14493-ae4ca8c6b92ef660",
+      "timezone": "Europe/Berlin"
+    },
+    {
+      "country": "Ghana",
+      "gmt": "±00:00",
+      "id": "ff2d2bf38e6c-20dc717c-8dfac275-0b1856fd-d5cdea152d486b67",
+      "timezone": "Africa/Accra"
+    },
+    {
+      "country": "Greece",
+      "gmt": "+02:00",
+      "id": "534abae2671b-94506dc2-62306cb2-5cf55366-4f2e6e1aeb4772bf",
+      "timezone": "Europe/Athens"
+    },
+    {
+      "country": "Grenada",
+      "gmt": "−04:00",
+      "id": "94e5c23561b6-796d716d-e4043937-519dcfe7-214cf21415b1ae07",
+      "timezone": "America/Grenada"
+    },
+    {
+      "country": "Guam (USA)",
+      "gmt": "+10:00",
+      "id": "5db2bd956374-5d6a0304-1062030a-2e0baee6-b7923d140d3a54a8",
+      "timezone": "Pacific/Guam"
+    },
+    {
+      "country": "Guatemala",
+      "gmt": "−06:00",
+      "id": "4ca89ee8c84c-86b3e829-b84a2007-4bc9c653-38c5e0ec2639f82a",
+      "timezone": "America/Guatemala"
+    },
+    {
+      "country": "Guinea",
+      "gmt": "±00:00",
+      "id": "dd70ac2155c3-1b486f1f-a1e2195e-2822efd9-09d32ed8d3052593",
+      "timezone": "Africa/Conakry"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "gmt": "±00:00",
+      "id": "c643418f0552-0931419f-e28951c8-a16c0a07-fd0b195cfdf6b828",
+      "timezone": "Africa/Bissau"
+    },
+    {
+      "country": "Guyana",
+      "gmt": "−04:00",
+      "id": "0b57455b9d14-08933453-fe0f600b-4fc42d1e-7366ecf763e8f505",
+      "timezone": "America/Guyana"
+    },
+    {
+      "country": "Haiti",
+      "gmt": "−05:00",
+      "id": "86137afb73ad-39e188e2-c4aad502-3a102222-db2cb7421140c8d8",
+      "timezone": "America/Port-au-Prince"
+    },
+    {
+      "country": "Honduras",
+      "gmt": "−06:00",
+      "id": "e3b83607fd38-2aa3c1fc-acb8586b-69a00c39-a5f3474d60a7bc73",
+      "timezone": "America/Tegucigalpa"
+    },
+    {
+      "country": "Hong Kong (China)",
+      "gmt": "+08:00",
+      "id": "baa0f4046dc4-b46f0eb6-0fce6494-b6a9eb39-27e3a0be3566e7ea",
+      "timezone": "Asia/Hong_Kong"
+    },
+    {
+      "country": "Hungary",
+      "gmt": "+01:00",
+      "id": "ae420d4f1cea-58b51d88-30495b96-311c6ff3-bd73ac0324ac4dec",
+      "timezone": "Europe/Budapest"
+    },
+    {
+      "country": "Iceland",
+      "gmt": "±00:00",
+      "id": "3ab81b5299b0-a5f907d1-fe7b886e-99b52331-9ce06ab35cd97674",
+      "timezone": "Atlantic/Reykjavik"
+    },
+    {
+      "country": "India",
+      "gmt": "+05:30",
+      "id": "4d44eb872fbc-03a1694a-f196b4cc-752a20c6-bcaf4730e78ffb17",
+      "timezone": "Asia/Kolkata"
+    },
+    {
+      "country": "Indonesia, Central Indonesia",
+      "gmt": "+08:00",
+      "id": "6d8d01364960-d549c9b4-f49e4820-eba74644-f0d5b2a4e049af3a",
+      "timezone": "Asia/Makassar"
+    },
+    {
+      "country": "Indonesia, Eastern Indonesia",
+      "gmt": "+09:00",
+      "id": "fb15e5a63a6d-9a49e5ed-ae30e62c-492d712f-e6c62d6901bf226b",
+      "timezone": "Asia/Jayapura"
+    },
+    {
+      "country": "Indonesia, Jakarta - Western Indonesia ",
+      "gmt": "+07:00",
+      "id": "51dcf69a0e29-bce0085d-f61d90a1-66fa4dfa-48de50674f7bca7f",
+      "timezone": "Asia/Jakarta"
+    },
+    {
+      "country": "Iran",
+      "gmt": "+03:30",
+      "id": "457cc4937b09-a14f81c7-9dcc8a12-2f2274d6-5336d1c893f894f5",
+      "timezone": "Asia/Tehran"
+    },
+    {
+      "country": "Iraq",
+      "gmt": "+03:00",
+      "id": "d4a15a5d3b45-63694458-0d944ae0-da3780b6-531af7715c0e4c40",
+      "timezone": "Asia/Baghdad"
+    },
+    {
+      "country": "Ireland",
+      "gmt": "±00:00",
+      "id": "ec724db1990d-33484caa-52b5c77d-2f852dcc-efab7541ce206065",
+      "timezone": "Europe/Dublin"
+    },
+    {
+      "country": "Israel",
+      "gmt": "+02:00",
+      "id": "ae68b93b96f4-665d7413-3f2e64f7-61a03f0f-e874b6deaffeb612",
+      "timezone": "Asia/Jerusalem"
+    },
+    {
+      "country": "Italy",
+      "gmt": "+01:00",
+      "id": "6af1f4decb7a-ad0c487b-8cf8042b-82ea2cae-0050ec7e29a91dee",
+      "timezone": "Europe/Rome"
+    },
+    {
+      "country": "Jamaica",
+      "gmt": "−05:00",
+      "id": "cadae77454af-b23a84ff-bdc70e3e-f317e564-0386df55e61c54dc",
+      "timezone": "America/Jamaica"
+    },
+    {
+      "country": "Japan",
+      "gmt": "+09:00",
+      "id": "7c314b5317c9-2eda5eff-6acb2860-b93b92dc-adbf326081af8979",
+      "timezone": "Asia/Tokyo"
+    },
+    {
+      "country": "Jordan",
+      "gmt": "+02:00",
+      "id": "06477d6a7dc1-285e4233-02e21163-ae5a1061-b661409560ada4b6",
+      "timezone": "Asia/Amman"
+    },
+    {
+      "country": "Kazakhstan, eastern part",
+      "gmt": "+06:00",
+      "id": "1cfd247de4cf-f9bbc3ab-c3c9f65b-a235e823-a3e975cbe6936405",
+      "timezone": "Asia/Almaty"
+    },
+    {
+      "country": "Kazakhstan, western part",
+      "gmt": "+05:00",
+      "id": "2234b991dc4b-b7b2210b-a9a85b42-8253c239-132e59c9fe07cf40",
+      "timezone": "Asia/Aqtau"
+    },
+    {
+      "country": "Kenya",
+      "gmt": "+03:00",
+      "id": "dbec1fcb2bb5-b165a4b9-7537ac13-345aa1cd-8d68557d1d6bc0cd",
+      "timezone": "Africa/Nairobi"
+    },
+    {
+      "country": "Kiribati, Gilbert Islands",
+      "gmt": "+12:00",
+      "id": "dd73a56b9759-62df1249-7223364d-c29e29ac-a5bee29b62f2d6d2",
+      "timezone": "Pacific/Tarawa"
+    },
+    {
+      "country": "Kiribati, Line Islands",
+      "gmt": "+14:00",
+      "id": "7bd5ec75beb5-789802d0-b118342f-db764c4b-5084e1b1d6de8258",
+      "timezone": "Pacific/Kiritimati"
+    },
+    {
+      "country": "Kiribati, Phoenix Islands",
+      "gmt": "+13:00",
+      "id": "673276085c50-bd092222-e0c3d2f5-475d3c3c-90bba51f8f7dc20f",
+      "timezone": "Pacific/Enderbury"
+    },
+    {
+      "country": "Kosovo",
+      "gmt": "+01:00",
+      "id": "6de040641d70-e4a90386-d4d29671-c09ab580-4b11d5e2d596af37",
+      "timezone": "Europe/Belgrade"
+    },
+    {
+      "country": "Kuwait",
+      "gmt": "+03:00",
+      "id": "45143f8c17cd-d1d06cc1-02962815-d5513cb1-846d5b8176ebf13c",
+      "timezone": "Asia/Kuwait"
+    },
+    {
+      "country": "Kyrgyzstan",
+      "gmt": "+06:00",
+      "id": "dc1f8a8a276e-486cc032-87f7bf72-10cbc051-bea358cf6ce2a7fb",
+      "timezone": "Asia/Bishkek"
+    },
+    {
+      "country": "Laos",
+      "gmt": "+07:00",
+      "id": "ad739254f186-08f2bbcb-ea11e6e8-f36ccc2e-50ac397cd8465aeb",
+      "timezone": "Asia/Vientiane"
+    },
+    {
+      "country": "Latvia",
+      "gmt": "+02:00",
+      "id": "090416112c46-fb532228-fbd7f525-2e8224f1-94cde2239fdb66f9",
+      "timezone": "Europe/Riga"
+    },
+    {
+      "country": "Lebanon",
+      "gmt": "+02:00",
+      "id": "9f6d645d3579-788d4e87-71e51ee1-73b42e04-7b8594b1f1e1e442",
+      "timezone": "Asia/Beirut"
+    },
+    {
+      "country": "Lesotho",
+      "gmt": "+02:00",
+      "id": "f7ad1af4bdad-329837dd-f91d0533-1a7449c0-26d7b5ca5bc9a97e",
+      "timezone": "Africa/Maseru"
+    },
+    {
+      "country": "Liberia",
+      "gmt": "±00:00",
+      "id": "152a8e662584-bc939cb5-cb4e858c-34c3ff4c-f8a65799843f8381",
+      "timezone": "Africa/Monrovia"
+    },
+    {
+      "country": "Libya",
+      "gmt": "+02:00",
+      "id": "ca8ee65f49d0-c68abb77-bffa506f-62757d36-a9df318860b9818f",
+      "timezone": "Africa/Tripoli"
+    },
+    {
+      "country": "Liechtenstein",
+      "gmt": "+01:00",
+      "id": "220da4df3647-bc90efef-1dac9687-4343a804-d92a4a7638a3c27d",
+      "timezone": "Europe/Vaduz"
+    },
+    {
+      "country": "Lithuania",
+      "gmt": "+02:00",
+      "id": "fb690d304bf9-430723a2-1b32de90-48db8c64-8b5d16cdadf5dd42",
+      "timezone": "Europe/Vilnius"
+    },
+    {
+      "country": "Luxembourg",
+      "gmt": "+01:00",
+      "id": "73c1976870a2-1f7b9880-71cc4eef-954e380f-23176adf7132be67",
+      "timezone": "Europe/Luxembourg"
+    },
+    {
+      "country": "Macau (China)",
+      "gmt": "+08:00",
+      "id": "58564fc7db4f-a85587c2-790f706a-dbe0ec97-64fc97e007d967ed",
+      "timezone": "Asia/Macau"
+    },
+    {
+      "country": "Madagascar",
+      "gmt": "+03:00",
+      "id": "10bf18d0fa81-1df2d467-2022c279-70b90fe4-a9c19af0f80ddd60",
+      "timezone": "Indian/Antananarivo"
+    },
+    {
+      "country": "Malawi",
+      "gmt": "+02:00",
+      "id": "cb09f8b5d0b1-d62ac332-9c10773d-f4736a2f-f7a9813b6115b241",
+      "timezone": "Africa/Blantyre"
+    },
+    {
+      "country": "Malaysia",
+      "gmt": "+08:00",
+      "id": "d0461e93beb8-c2c0bfce-9531e53a-0ac051da-4b14d4e96d62f647",
+      "timezone": "Asia/Kuala_Lumpur"
+    },
+    {
+      "country": "Maldives",
+      "gmt": "+05:00",
+      "id": "1033a5b3a672-e2c9d645-22a52fe8-d1998380-78afef84a3443dd1",
+      "timezone": "Indian/Maldives"
+    },
+    {
+      "country": "Mali",
+      "gmt": "±00:00",
+      "id": "f9e89e5b9f48-0ebc9c52-683339c6-f190eb42-38bd4067fcd36632",
+      "timezone": "Africa/Bamako"
+    },
+    {
+      "country": "Malta",
+      "gmt": "+01:00",
+      "id": "7c7af5f08e61-4468fe75-6cc05b33-06300006-434b5365dab19831",
+      "timezone": "Europe/Malta"
+    },
+    {
+      "country": "Marshall Islands",
+      "gmt": "+12:00",
+      "id": "ae8816ffb7f5-4d3992bb-0c5d5209-534a2e59-0a3c2c5cfaabdc7d",
+      "timezone": "Pacific/Kwajalein"
+    },
+    {
+      "country": "Mauritania",
+      "gmt": "±00:00",
+      "id": "6c6de454aeab-33ccbb4d-a4da4622-0981a0b4-d8e8a0e79ba9bb75",
+      "timezone": "Africa/Nouakchott"
+    },
+    {
+      "country": "Mauritius",
+      "gmt": "+04:00",
+      "id": "082499ec9dca-05778ccf-e515372e-b1f9901a-305cccef5702e7ab",
+      "timezone": "Indian/Mauritius"
+    },
+    {
+      "country": "Mexico, Baja California Sur, Chihuahua, Nayarit, Sinaloa",
+      "gmt": "−07:00",
+      "id": "7814f937f4df-4ada874f-3abf2dd9-ed47c8b5-e6e03a78be6bfcd5",
+      "timezone": "America/Chihuahua"
+    },
+    {
+      "country": "Mexico, Mexico City",
+      "gmt": "−06:00",
+      "id": "bf179df63714-1e58cb2f-9defca24-42e0c761-7cee5fc097149f89",
+      "timezone": "America/Bahia_Banderas"
+    },
+    {
+      "country": "Mexico, Baja California North",
+      "gmt": "−08:00",
+      "id": "cf2f4a47f515-6e4a5b7a-d3fe5b8a-9d60c3f8-53db6d932e089a74",
+      "timezone": "America/Tijuana"
+    },
+    {
+      "country": "Micronesia, States of Chuuk and Yap",
+      "gmt": "+10:00",
+      "id": "1c340e7212ae-33047cc1-b97a28e9-da02e27c-5b9a53a56ab0077c",
+      "timezone": "Pacific/Chuuk"
+    },
+    {
+      "country": "Micronesia, States of Kosrae and Pohnpei",
+      "gmt": "+11:00",
+      "id": "572c3c518941-4eb92ced-b52e6d44-3725ac40-1459eb4cd0db2dec",
+      "timezone": "Pacific/Kosrae"
+    },
+    {
+      "country": "Moldova",
+      "gmt": "+02:00",
+      "id": "4d10ce082139-a7343336-4429fc36-183895a7-828fbb8614d05d8f",
+      "timezone": "Europe/Chisinau"
+    },
+    {
+      "country": "Monaco",
+      "gmt": "+01:00",
+      "id": "51744955dd35-a0dcda4c-706b505a-6f39cd9e-be17b8dae988881f",
+      "timezone": "Europe/Monaco"
+    },
+    {
+      "country": "Mongolia",
+      "gmt": "+08:00",
+      "id": "2d9cc6f16b11-fc4d8508-7c68bb74-190588e8-7218438ede6e5383",
+      "timezone": "Asia/Choibalsan"
+    },
+    {
+      "country": "Montenegro",
+      "gmt": "+01:00",
+      "id": "a5a9bbe79d03-b2029212-6e77ed00-eb52de2a-ea5668f0d3fc0c74",
+      "timezone": "Europe/Podgorica"
+    },
+    {
+      "country": "Morocco",
+      "gmt": "+01:00",
+      "id": "224212a4d063-7ed59209-71f5d35d-5e086aeb-7c95826b56220c29",
+      "timezone": "Africa/Casablanca"
+    },
+    {
+      "country": "Mozambique",
+      "gmt": "+02:00",
+      "id": "64bff7e1b812-9733e0c3-3dabbf89-a631a837-87f4b4f3c1246020",
+      "timezone": "Africa/Maputo"
+    },
+    {
+      "country": "Myanmar",
+      "gmt": "+06:30",
+      "id": "1a1065798931-073ff21f-122579f2-de4d2544-5753ca07fb50ed8a",
+      "timezone": "Asia/Yangon"
+    },
+    {
+      "country": "Namibia",
+      "gmt": "+02:00",
+      "id": "ffd1316afe11-79fbbc2e-85d34c2c-0b6b4eea-e95e158785b7cc7e",
+      "timezone": "Africa/Windhoek"
+    },
+    {
+      "country": "Nauru",
+      "gmt": "+12:00",
+      "id": "ea8b6fdd4a11-47ff774b-81d4f24a-7dfa5099-af1bb309e4bd6b5b",
+      "timezone": "Pacific/Nauru"
+    },
+    {
+      "country": "Nepal",
+      "gmt": "+05:45",
+      "id": "c958898b87bc-7bff7e45-89857222-4ea7101f-ae55ed8765011b04",
+      "timezone": "Asia/Kathmandu"
+    },
+    {
+      "country": "Netherlands",
+      "gmt": "+01:00",
+      "id": "2e03f4695126-219b4143-4b0e77dd-5cd01aba-bedad4b87998ed3f",
+      "timezone": "Europe/Amsterdam"
+    },
+    {
+      "country": "New Zealand",
+      "gmt": "+12:00",
+      "id": "a420672994b3-ee58975d-d02b9c7b-51c6cb7a-7ab61d97003fd8ba",
+      "timezone": "Pacific/Auckland"
+    },
+    {
+      "country": "Nicaragua",
+      "gmt": "−06:00",
+      "id": "4aeb53acc4b0-dbb8e3fd-f8c3b758-6a0121e4-7b77247706ec01f3",
+      "timezone": "America/Managua"
+    },
+    {
+      "country": "Niger",
+      "gmt": "+01:00",
+      "id": "196fcaab8d18-886e0a93-1ff2a870-ca3b3526-415d0f5e21a9e7da",
+      "timezone": "Africa/Niamey"
+    },
+    {
+      "country": "Nigeria",
+      "gmt": "+01:00",
+      "id": "a0d011a5ad4d-2017de5c-d60fa09a-7bd1c6b8-997428c3a0a781dd",
+      "timezone": "Africa/Lagos"
+    },
+    {
+      "country": "North Korea",
+      "gmt": "+09:00",
+      "id": "56ee183a602b-aa3afd43-e23f9900-48a5dde1-f9cebc294511b1c4",
+      "timezone": "Asia/Pyongyang"
+    },
+    {
+      "country": "North Macedonia (Formerly Macedonia)",
+      "gmt": "+01:00",
+      "id": "831b2ac9e591-464f849c-c86b9dc3-11815978-97b47b0a0e79fc0b",
+      "timezone": "Europe/Skopje"
+    },
+    {
+      "country": "Northern Mariana Islands (USA)",
+      "gmt": "+10:00",
+      "id": "34614e106528-0d69a4a8-0d4c3e06-2e9e32b0-15545253ba28d1ea",
+      "timezone": "Pacific/Saipan"
+    },
+    {
+      "country": "Norway",
+      "gmt": "+01:00",
+      "id": "a225751f671d-6ee2e28e-6d4a516c-65e60e76-06bf61a80f8c8a00",
+      "timezone": "Europe/Oslo"
+    },
+    {
+      "country": "Oman",
+      "gmt": "+04:00",
+      "id": "b43278e9a4c6-a25b1b57-1ecda319-7c972d95-f56a9b21406a11f7",
+      "timezone": "Asia/Muscat"
+    },
+    {
+      "country": "Pakistan",
+      "gmt": "+05:00",
+      "id": "e25034897bfd-1ab0981d-4c19a946-c63cf770-66c55fd0ada77725",
+      "timezone": "Asia/Karachi"
+    },
+    {
+      "country": "Palau",
+      "gmt": "+09:00",
+      "id": "081bf7cb260f-0606431d-901418b0-09dbee3f-0f67057ec66bbc36",
+      "timezone": "Pacific/Palau"
+    },
+    {
+      "country": "Palestine",
+      "gmt": "+02:00",
+      "id": "0fb46c125c39-e2e963b0-afb549d5-fa3b335f-2288b5b73e5333c4",
+      "timezone": "Asia/Gaza"
+    },
+    {
+      "country": "Panama",
+      "gmt": "−05:00",
+      "id": "cf19e36771bb-be1341b0-92a05af4-5afa7024-df3c272fb7d373b2",
+      "timezone": "America/Panama"
+    },
+    {
+      "country": "Papua New Guinea",
+      "gmt": "+10:00",
+      "id": "f4980b445896-91d237da-5eb319a3-91f25f31-e97e6daf465822ea",
+      "timezone": "Pacific/Port_Moresby"
+    },
+    {
+      "country": "Papua New Guinea, Bougainville Island",
+      "gmt": "+11:00",
+      "id": "ddc793f943ed-0ec492b4-ffe7f196-eda9ab64-02b787d11b386dd0",
+      "timezone": "Pacific/Bougainville"
+    },
+    {
+      "country": "Paraguay",
+      "gmt": "−04:00",
+      "id": "22ba6bc2dded-b024dbff-0982effb-c6f4ae37-67bf90ee33ef65b6",
+      "timezone": "America/Asuncion"
+    },
+    {
+      "country": "Peru",
+      "gmt": "−05:00",
+      "id": "546c752153ea-e0448444-4642b0b7-8705e3b8-d055840d39c22517",
+      "timezone": "America/Lima"
+    },
+    {
+      "country": "Philippines",
+      "gmt": "+08:00",
+      "id": "13832350f57e-32d0f253-d0e1df1c-3ba54b20-3a674f76cbd02909",
+      "timezone": "Asia/Manila"
+    },
+    {
+      "country": "Poland",
+      "gmt": "+01:00",
+      "id": "e701084806f8-6855fae9-f4bf1392-acd6df53-75322baa03ef05f8",
+      "timezone": "Europe/Warsaw"
+    },
+    {
+      "country": "Portugal",
+      "gmt": "±00:00",
+      "id": "802d9482f2c1-7463ac93-12a4ff76-8774c5b7-843701fe558c5337",
+      "timezone": "Europe/Lisbon"
+    },
+    {
+      "country": "Puerto Rico",
+      "gmt": "−04:00",
+      "id": "e7e6960b9490-33a95ac9-0e5ff25f-b435125d-704b725903e72fbe",
+      "timezone": "America/Puerto_Rico"
+    },
+    {
+      "country": "Qatar",
+      "gmt": "+03:00",
+      "id": "d3304cee2294-5b600dc5-09018b32-22e133a6-e32a94aca63ef3f3",
+      "timezone": "Asia/Qatar"
+    },
+    {
+      "country": "Romania",
+      "gmt": "+02:00",
+      "id": "5e504e5d9c5e-5089baf4-84b19609-e5fd1400-a1ea93cfde15e4c5",
+      "timezone": "Europe/Bucharest"
+    },
+    {
+      "country": "Russia - Moscow",
+      "gmt": "+03:00",
+      "id": "06cc6c382f93-19147edc-34ac67cd-239e5348-9919275b2206de1b",
+      "timezone": "Europe/Moscow"
+    },
+    {
+      "country": "Rwanda",
+      "gmt": "+02:00",
+      "id": "d36e62362ccd-1529d297-dd0ca39b-fae30630-ce977ee6a2f5919d",
+      "timezone": "Africa/Kigali"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "gmt": "−04:00",
+      "id": "841db2d9d525-6d823344-4c3f61c6-a783707a-968c90e0e43096a4",
+      "timezone": "America/St_Kitts"
+    },
+    {
+      "country": "Saint Lucia",
+      "gmt": "−04:00",
+      "id": "c8e6eb40e470-7c13fb5d-d1ceb07d-10828f72-a1f4b1165314668c",
+      "timezone": "America/St_Lucia"
+    },
+    {
+      "country": "Saint Vincent and The Grenadines",
+      "gmt": "−04:00",
+      "id": "1b38a7587570-262dda86-95210b27-e867a19f-102c63b19842d2bd",
+      "timezone": "America/St_Vincent"
+    },
+    {
+      "country": "Samoa",
+      "gmt": "+13:00",
+      "id": "9e1fe5e1c7d4-6a6e54a6-b323ef43-a2f65645-4da504129e53d463",
+      "timezone": "Pacific/Apia"
+    },
+    {
+      "country": "Sao Tome and Principe",
+      "gmt": "±00:00",
+      "id": "40b0a3345040-058e74bf-b9888c2d-93f25123-50101285bf83a4f4",
+      "timezone": "Africa/Sao_Tome"
+    },
+    {
+      "country": "Saudi Arabia",
+      "gmt": "+03:00",
+      "id": "45658cc275a0-b2adee69-46718ea0-7374e109-20b6ae0cf0ceeae6",
+      "timezone": "Asia/Riyadh"
+    },
+    {
+      "country": "Senegal",
+      "gmt": "±00:00",
+      "id": "a9ada6c6d1e8-e03f02e4-bb49f2f6-cb330006-e6ac0fde9f5d095c",
+      "timezone": "Africa/Dakar"
+    },
+    {
+      "country": "Serbia",
+      "gmt": "+01:00",
+      "id": "fe09c48c14b8-7bca91d2-5b886ee1-86e3c87b-ad716c1bff3fe57a",
+      "timezone": "Europe/Belgrade"
+    },
+    {
+      "country": "Seychelles",
+      "gmt": "+04:00",
+      "id": "b416aeeedb14-6c60bbdd-dd49ca85-90e66810-fbe7e9c2ecb4c149",
+      "timezone": "Indian/Mahe"
+    },
+    {
+      "country": "Sierra Leone",
+      "gmt": "±00:00",
+      "id": "a97b77c28080-c5e49e77-f595aaba-a1a56865-91e2e061616b3d33",
+      "timezone": "Africa/Freetown"
+    },
+    {
+      "country": "Singapore",
+      "gmt": "+08:00",
+      "id": "b850faeeab27-923072ac-e6c6c445-5ad063a1-8b0e833051c93990",
+      "timezone": "Asia/Singapore"
+    },
+    {
+      "country": "Slovakia",
+      "gmt": "+01:00",
+      "id": "fc6027a14bcc-51ce6011-bf712b69-b8439c1a-d09fa5d4f4d0b14b",
+      "timezone": "Europe/Bratislava"
+    },
+    {
+      "country": "Slovenia",
+      "gmt": "+01:00",
+      "id": "abf7e10a3ba2-ff3b7361-0f30725b-f31c149e-e80ee799cc1efaa7",
+      "timezone": "Europe/Ljubljana"
+    },
+    {
+      "country": "Solomon Islands",
+      "gmt": "+11:00",
+      "id": "ba75ba975936-51c18959-732dfd8d-56482d47-5791252fa0c425b8",
+      "timezone": "Pacific/Guadalcanal"
+    },
+    {
+      "country": "Somalia",
+      "gmt": "+03:00",
+      "id": "73a643eb5552-3f3285fb-c8d56673-2847c267-c62d7e99a90c779d",
+      "timezone": "Africa/Mogadishu"
+    },
+    {
+      "country": "South Africa",
+      "gmt": "+02:00",
+      "id": "4e76c1ad964f-d518b300-6652ac4a-4dd8ac71-f846f21862537eb3",
+      "timezone": "Africa/Johannesburg"
+    },
+    {
+      "country": "South Korea",
+      "gmt": "+09:00",
+      "id": "acc13285bc5d-58fa6aaf-d58ca292-185a06ae-ea936fa058859d40",
+      "timezone": "Asia/Seoul"
+    },
+    {
+      "country": "South Sudan",
+      "gmt": "+02:00",
+      "id": "94ef9d5a3f4b-7bc917ea-2b64a01f-ae0e227c-fc71d73efbd85f17",
+      "timezone": "Africa/Juba"
+    },
+    {
+      "country": "Spain",
+      "gmt": "+01:00",
+      "id": "ba3afdf1afeb-daca6c80-6415a543-3a1a21be-52f43216cc848899",
+      "timezone": "Europe/Madrid"
+    },
+    {
+      "country": "Sri Lanka",
+      "gmt": "+05:30",
+      "id": "a4f4221f0dc7-60175834-bc9dab42-d73fa215-291e6106b6c1e52e",
+      "timezone": "Asia/Colombo"
+    },
+    {
+      "country": "Sudan",
+      "gmt": "+02:00",
+      "id": "445ab09ab845-9218d385-4eb5f444-d1112a5f-04d3e5640c9dbae4",
+      "timezone": "Africa/Khartoum"
+    },
+    {
+      "country": "Suriname",
+      "gmt": "−03:00",
+      "id": "6fbbec7221e0-87a00870-36582fa6-59a9f26a-be5fd6baa11a454a",
+      "timezone": "America/Paramaribo"
+    },
+    {
+      "country": "Sweden",
+      "gmt": "+01:00",
+      "id": "f67236a45503-59a780ea-5f5e393d-a16ff198-8af37c767fcbeebf",
+      "timezone": "Europe/Stockholm"
+    },
+    {
+      "country": "Switzerland",
+      "gmt": "+01:00",
+      "id": "939010cdfddf-87f8e9d8-e3ec3039-aa6d83e2-5a6f9091e944d732",
+      "timezone": "Europe/Zurich"
+    },
+    {
+      "country": "Syria",
+      "gmt": "+02:00",
+      "id": "707b9d5d65a1-6b4ee207-8c22103f-fb44b2e8-1e58f368ea8ee079",
+      "timezone": "Asia/Damascus"
+    },
+    {
+      "country": "Taiwan",
+      "gmt": "+08:00",
+      "id": "c21a8c273c06-9bc4c0b6-3a59c364-f98a2377-bdb1bfc6bbf4d3dd",
+      "timezone": "Asia/Taipei"
+    },
+    {
+      "country": "Tajikistan",
+      "gmt": "+05:00",
+      "id": "3b27ed81c99f-3652172e-8128a150-7434246a-ac89156069e322f7",
+      "timezone": "Asia/Dushanbe"
+    },
+    {
+      "country": "Tanzania",
+      "gmt": "+03:00",
+      "id": "5c146126dae0-a3416aa2-2e804ee7-79ea50a4-1601c153dabb4543",
+      "timezone": "Africa/Dar_es_Salaam"
+    },
+    {
+      "country": "Thailand",
+      "gmt": "+07:00",
+      "id": "2d64a72915fa-5f0b2192-e4b6b1af-bf49e6c5-1eba6209b62803c3",
+      "timezone": "Asia/Bangkok"
+    },
+    {
+      "country": "Timor-Leste",
+      "gmt": "+09:00",
+      "id": "dfa6580e86be-99f7cc98-08d6f757-85a9daac-583d266409c312de",
+      "timezone": "Asia/Dili"
+    },
+    {
+      "country": "Togo",
+      "gmt": "±00:00",
+      "id": "40ff94e4e7a8-95d8dae3-006a9669-944b89d0-f954e205f766ee35",
+      "timezone": "Africa/Lome"
+    },
+    {
+      "country": "Tonga",
+      "gmt": "+13:00",
+      "id": "1506abea5ae5-6737760b-0421f245-6cb0af25-a765ec397cf0dcea",
+      "timezone": "Pacific/Tongatapu"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "gmt": "−04:00",
+      "id": "bbee3b763ccf-09162b73-3c11178b-8a80adc1-ab8be5734d660558",
+      "timezone": "America/Port_of_Spain"
+    },
+    {
+      "country": "Tunisia",
+      "gmt": "+01:00",
+      "id": "b83722030bef-831cff58-012c3a8f-2ac97d53-4bc8f44e748d0cf0",
+      "timezone": "Africa/Tunis"
+    },
+    {
+      "country": "Turkey",
+      "gmt": "+03:00",
+      "id": "ad8e613c3612-45baffa3-c3c6a660-5b776e62-b874f30ce8682d05",
+      "timezone": "Europe/Istanbul"
+    },
+    {
+      "country": "Turkmenistan",
+      "gmt": "+05:00",
+      "id": "db17779d434a-2a451e25-31bbd4ba-ae50c8af-9cccafa5a91a9273",
+      "timezone": "Asia/Ashgabat"
+    },
+    {
+      "country": "Tuvalu",
+      "gmt": "+12:00",
+      "id": "b46a07f7276d-8f2c8e0e-d6e5aa8c-64701760-ef43d1b1d751c209",
+      "timezone": "Pacific/Funafuti"
+    },
+    {
+      "country": "Uganda",
+      "gmt": "+03:00",
+      "id": "1f2a7c868beb-fb14d97f-7ea9b82d-b1ee863c-5e4d622d21306c34",
+      "timezone": "Africa/Kampala"
+    },
+    {
+      "country": "Ukraine",
+      "gmt": "+02:00",
+      "id": "dfe83695a5bd-7271b1df-2350be4f-f1a0d787-42f2862c5941ca62",
+      "timezone": "Europe/Kiev"
+    },
+    {
+      "country": "United Arab Emirates",
+      "gmt": "+04:00",
+      "id": "4321279cc464-3eca3982-918a64f5-efbdbd66-8bb36a9713b52890",
+      "timezone": "Asia/Dubai"
+    },
+    {
+      "country": "United Kingdom",
+      "gmt": "±00:00",
+      "id": "0b14d320ccb1-002e9865-83a16f82-25f28056-1df5d89a2f957e28",
+      "timezone": "Europe/London"
+    },
+    {
+      "country": "Uruguay",
+      "gmt": "−03:00",
+      "id": "2d4dd47bc9d4-2ad4a662-f25b688f-5f31fe64-f7875b8a333fbf2d",
+      "timezone": "America/Montevideo"
+    },
+    {
+      "country": "US Virgin Islands (USA)",
+      "gmt": "−04:00",
+      "id": "1de011b025d4-f5f1f7fb-6b52905c-b2a90ccc-a4d5120e46a98ae1",
+      "timezone": "America/St_Thomas"
+    },
+    {
+      "country": "Usa - Alaska Time",
+      "gmt": "-09:00",
+      "id": "4f380eb28407-cf309279-c2b1f2c7-d057bed5-c4e015812f81941e",
+      "timezone": "America/Anchorage"
+    },
+    {
+      "country": "Usa - Central Time",
+      "gmt": "-06:00",
+      "id": "b81f7cb6658d-e4f01306-54625a3f-7d79c758-4261992b38cea9f9",
+      "timezone": "America/North_Dakota/Center"
+    },
+    {
+      "country": "Usa - Chamorro Time",
+      "gmt": "-10:00",
+      "id": "5e3c6252cc98-f8cf9447-41b65d02-8eecab69-70bc7ce20f10bdc1",
+      "timezone": "America/Adak"
+    },
+    {
+      "country": "Usa - Eastern Time",
+      "gmt": "-05:00",
+      "id": "5e333e4f7200-bbf02de5-ec3937be-7b74e958-e4530cf37a00fcd7",
+      "timezone": "America/Detroit"
+    },
+    {
+      "country": "Usa - Hawaii Time",
+      "gmt": "-10:00",
+      "id": "5df43e2c9522-91d5b6b8-8e53db03-7e0213f6-731db9e4e0d2b526",
+      "timezone": "Pacific/Honolulu"
+    },
+    {
+      "country": "Usa - Mountain Time",
+      "gmt": "-07:00",
+      "id": "eb3e7da4c2aa-aab05224-5b2a0aba-8085dd27-4b34d2ce40baebf1",
+      "timezone": "America/Boise"
+    },
+    {
+      "country": "Usa - Pacific Time",
+      "gmt": "-08:00",
+      "id": "e70a71339743-5a82864c-0972ed66-23461ede-ba697146f731e36d",
+      "timezone": "America/Los_Angeles"
+    },
+    {
+      "country": "Uzbekistan",
+      "gmt": "+05:00",
+      "id": "939b060f46b9-3cbf459d-3d14c256-9d4a1fdd-05aabc93690c6bc0",
+      "timezone": "Asia/Samarkand"
+    },
+    {
+      "country": "Vanuatu",
+      "gmt": "+11:00",
+      "id": "6b9d5d7073bb-6d52ed2b-84504ed6-722ad7b2-4cb94a4905c77916",
+      "timezone": "Pacific/Efate"
+    },
+    {
+      "country": "Venezuela",
+      "gmt": "−04:00",
+      "id": "d3a46c5c57bf-4e3287da-6f6794e8-ff6b2566-c0b41e5c70821db2",
+      "timezone": "America/Caracas"
+    },
+    {
+      "country": "Vietnam",
+      "gmt": "+07:00",
+      "id": "be2fc75e02c5-314a0d58-8bbf468f-114a723d-ac0245edc4d5ff33",
+      "timezone": "Asia/Ho_Chi_Minh"
+    },
+    {
+      "country": "Wake Island (USA)",
+      "gmt": "+12:00",
+      "id": "0cc339bd611e-27889974-c5f5c865-1bf1e362-9a54e7ec1da2b0e5",
+      "timezone": "Pacific/Wake"
+    },
+    {
+      "country": "Yemen",
+      "gmt": "+03:00",
+      "id": "be41d65b1536-002289d9-514955c9-317c24fd-6ba718c4a80938b5",
+      "timezone": "Asia/Aden"
+    },
+    {
+      "country": "Zambia",
+      "gmt": "+02:00",
+      "id": "b1424b2e9abd-3e1dd0c0-bd112908-f00ca58b-5447877f6edbf64b",
+      "timezone": "Africa/Lusaka"
+    },
+    {
+      "country": "Zimbabwe",
+      "gmt": "+02:00",
+      "id": "5ecec68560bf-385a54bf-468284b0-590a04ce-ee4093f7f5aba76c",
+      "timezone": "Africa/Harare"
+    }
+  ],
+  "generic": {
+    "gender": [
+      {
+        "id": "82021d2f4a23-174912fb-6588d8d8-344881d3-4a073cd36693f79a",
+        "name": "Male / Masculino"
+      },
+      {
+        "id": "71adaf0f91a8-0c58b062-bd2e5afb-d96ae008-df87e4378d2d3d7b",
+        "name": "Female / Femenina"
+      },
+      {
+        "id": "8fbcff56c50c-02c235c0-49abe182-b3a4244c-d86e7f2ff565935f",
+        "name": "Non-binary / No binario"
+      }
+    ],
+    "ocupation": [
+      {
+        "id": "20a95e150d0c-fd702d50-3b1c6556-6f94f80d-73c4eef5e1d39a93",
+        "name": "Artisan / Artesano"
+      },
+      {
+        "id": "bd4fdbbe1cf5-11e751fb-67145ed8-beac04ee-7a96a0fb23a8b446",
+        "name": "Employed / Empleado"
+      },
+      {
+        "id": "c57d4daf22a1-bd81840b-f9ba1d67-e9514e31-da4d798e878c5b20",
+        "name": "Entrepreneur / Emprendedor"
+      },
+      {
+        "id": "91c73e1a03f1-ef9d3211-cf9847b1-6027a5db-97c5508c411d27d4",
+        "name": "Freelancer / Freelance"
+      },
+      {
+        "id": "5fa92d48dc43-60283a18-885f44c7-0b53ce4f-433b464c89bf9566",
+        "name": "HouseKeeper / Empleada domestica"
+      },
+      {
+        "id": "47fc71d1681c-cefef410-ecc474e7-6a2669b3-150c3b585676472f",
+        "name": "Manager / Gerente"
+      },
+      {
+        "id": "79f8236febbf-8339a0d7-d628205b-331a05a9-7c99d21a2acb8cb6",
+        "name": "Merchant / Comerciante"
+      },
+      {
+        "id": "d310bc5921c3-e0702760-45f2e94d-03699f8e-3a0932593e8268aa",
+        "name": "Self-Employed / Autonomo"
+      },
+      {
+        "id": "a896330803d9-82d17144-e48def2f-b4771e21-7ecf8d36ac837811",
+        "name": "Student / Estudiante"
+      },
+      {
+        "id": "59666289268a-9fca3167-88c94b4a-5fa45b85-50708667b9eaa562",
+        "name": "Unemployed / Desempleado"
+      },
+      {
+        "id": "7f2d9ce5f9ae-0fbf85e7-01632b43-b0034805-61c793796c1bf963",
+        "name": "Worker / Trabajador"
+      },
+      {
+        "id": "95cfd120eee5-2558de53-f4e02dc7-1259b20b-b6059bd276768692",
+        "name": "Other / Otro"
+      }
+    ],
+    "socialmedia": [
+      {
+        "id": "cd6dc5808920-cecae2a0-c3fcbb1b-b3652871-bf3df6a6a7ad32b2",
+        "name": "Facebook"
+      },
+      {
+        "id": "d97d3831e6d4-8fd65aa6-87132d4e-b6295fc1-913e05e858f691fe",
+        "name": "Instagram"
+      },
+      {
+        "id": "7fbb004cb478-fcedc95a-c127fb4b-114db980-c64750d8447b35fc",
+        "name": "Telegram"
+      },
+      {
+        "id": "b7716f7d3bee-3be3ec93-361985b0-ed8a51a7-15a5cd963fd165a4",
+        "name": "TikTok"
+      },
+      {
+        "id": "200e381357d8-0a6360ab-d3b8c379-ea13108d-e318115a52551092",
+        "name": "WeChat"
+      },
+      {
+        "id": "6345c737183c-acb0eeee-fce83545-17ea3095-b1a4a7624e2eeeca",
+        "name": "Whatsapp"
+      }
+    ],
+    "survey": [
+      {
+        "id": "dfb8d4be7229-4199ea6b-2d2f8180-56b6d109-08c0e4d2d66faef0",
+        "name": "Online / En linea"
+      },
+      {
+        "id": "16db3722ff55-bfb37f41-c03a228a-8833f60b-eb36973963c606b7",
+        "name": "Face To Face / En persona"
+      },
+      {
+        "id": "62e06ddfd666-4c01db84-19ac1961-4b7f59c6-ad8d9c5a7450a41e",
+        "name": "Friend / Amigo"
+      }
+    ],
+    "years": [
+      {
+        "id": "0b662580529a-09b03617-e1f9eaf2-46e993ee-ab913b7287fadaa7",
+        "name": "1940"
+      },
+      {
+        "id": "a8bd8f3bc5a5-18b688a2-7dbe6099-9fca5e35-6c670b9f75f72a80",
+        "name": "1941"
+      },
+      {
+        "id": "a2996ad42cd6-5cc8427b-6f1b6d63-ee92d33b-2b0998e61277dced",
+        "name": "1942"
+      },
+      {
+        "id": "365a1e91f59a-f6a36976-4149057a-1b02e4fc-dbc6984838e4f052",
+        "name": "1943"
+      },
+      {
+        "id": "d989eabc5242-9472100b-7fe7626c-a24e0900-6a5495413b43492f",
+        "name": "1944"
+      },
+      {
+        "id": "d4c547ec5ef0-1e7a7a3a-e45a0bed-c60269e5-7e9e45dd9446c5a5",
+        "name": "1945"
+      },
+      {
+        "id": "feba3c569faa-b07f28e2-7fd2d63c-22911926-65463fa8badeb7ee",
+        "name": "1946"
+      },
+      {
+        "id": "4e9673004ad6-9c51fcfa-fcf92fa7-57a2f652-e354c001932dba4a",
+        "name": "1947"
+      },
+      {
+        "id": "bf8c00867db4-3a691c83-27df5896-aaa905d8-4f69d2eee938bc0d",
+        "name": "1948"
+      },
+      {
+        "id": "9a652859cf85-7ed536f7-abceac44-f12bf735-26c687c33a94cd7f",
+        "name": "1949"
+      },
+      {
+        "id": "fda5b8e77034-0be8d4ea-b01a35b6-efe56261-593f0db416535d3f",
+        "name": "1950"
+      },
+      {
+        "id": "a93a2ab1598b-81de58cb-eba0a34d-c5be47b5-f4b41826f50e425f",
+        "name": "1951"
+      },
+      {
+        "id": "dd37941446b7-f6ff4ef5-a40a8f76-a083613c-0e8f22680a39e644",
+        "name": "1952"
+      },
+      {
+        "id": "8534a41ff53b-fb450fb3-2fe8531b-c8af6873-ed38b6e0b9fd7a78",
+        "name": "1953"
+      },
+      {
+        "id": "e5350ee807fa-1022f13d-5308a73a-27ce1206-e31582b8487d9070",
+        "name": "1954"
+      },
+      {
+        "id": "9714f82593d1-109994c0-72ab070e-93ccf5d8-f3ae9aff5daf84dc",
+        "name": "1955"
+      },
+      {
+        "id": "28097f02d6ce-2ed18c11-9a1ee4ac-6571d77d-65d7f764399e99d3",
+        "name": "1956"
+      },
+      {
+        "id": "488b8761907a-e422ccc2-4ebcfd2d-13d20053-6a736f68504f032f",
+        "name": "1957"
+      },
+      {
+        "id": "e081f9b6c8a8-799909c8-f79aa02d-e49a7754-7e10752c1d6151ee",
+        "name": "1958"
+      },
+      {
+        "id": "4dd47fd05c3f-23c69413-a4bcc821-a7465a62-da685dd5fe7355dc",
+        "name": "1959"
+      },
+      {
+        "id": "67d7f226a2ab-a013d7a9-fdf30df5-8d76265c-91033f0407dbb6db",
+        "name": "1960"
+      },
+      {
+        "id": "ad851ca7801a-48a314fd-e8b888ae-caea57ff-479b0751e4652363",
+        "name": "1961"
+      },
+      {
+        "id": "641262dcd552-98f120bc-4c63441f-d36fa266-77dcf2bca13ea356",
+        "name": "1962"
+      },
+      {
+        "id": "dbf83fb62a9f-23c78831-b29451dc-acab8e2e-fa45e799d791af45",
+        "name": "1963"
+      },
+      {
+        "id": "b712d55751aa-e36e7d15-2c97022a-ddfa6ead-9eb1e76dbff367bc",
+        "name": "1964"
+      },
+      {
+        "id": "be63d0285bfa-4b3b4d59-c0910c26-663993f6-1d8673f19b28a13e",
+        "name": "1965"
+      },
+      {
+        "id": "8f979c3a64dd-f91c6067-59c88a33-3962859f-0c04958081cdeef4",
+        "name": "1966"
+      },
+      {
+        "id": "4224111b5931-882a6255-51183195-4fbce064-d67459a85faeeca5",
+        "name": "1967"
+      },
+      {
+        "id": "49763da10fd3-bfd5c79c-c4cf59f7-8d611090-020c1c2723f23863",
+        "name": "1968"
+      },
+      {
+        "id": "af3386dd5066-be71e8dd-67312dac-65028c0a-b816d3d80f2cc17d",
+        "name": "1969"
+      },
+      {
+        "id": "83452e2caf42-4415b0fd-7ba7d772-547ce68d-914a1e93f10c3948",
+        "name": "1970"
+      },
+      {
+        "id": "bb25fdb437fd-6d4006b3-fc544eb3-c512d7ff-fe36a14f9c138b79",
+        "name": "1971"
+      },
+      {
+        "id": "a486c37713f1-702af308-1b48bc89-8efa9de3-99b84a622cad1681",
+        "name": "1972"
+      },
+      {
+        "id": "9790d8858a58-55efaea4-6ac71b25-977ffcc2-6d7c9e760404621b",
+        "name": "1973"
+      },
+      {
+        "id": "15d2ff7e11cd-c0c6cddb-9dc80b98-53cbd3c9-aabe676074e8a54d",
+        "name": "1974"
+      },
+      {
+        "id": "d43578f57e9c-dc496bf4-9db9c3e9-8aa33dd8-1e281fbf70525c7c",
+        "name": "1975"
+      },
+      {
+        "id": "749282891a1c-e85e4992-f7978715-649d2b62-4bc77d7762d881a1",
+        "name": "1976"
+      },
+      {
+        "id": "41f9e011b3c1-b5ac2aa8-0b21d133-ebf065f7-f970611b21441996",
+        "name": "1977"
+      },
+      {
+        "id": "9b645e9d36b4-a6856b92-50169ece-cd2d3fa6-26aec00f05a7d6c3",
+        "name": "1978"
+      },
+      {
+        "id": "9042dd88c971-cc576f04-e12dfbfd-fc9ac08f-2e1cf13ceac4d1c0",
+        "name": "1979"
+      },
+      {
+        "id": "3b0bf216b5b0-1cbc97f0-93b7ad4a-12af35a7-7bed5b6a1fcdfec4",
+        "name": "1980"
+      },
+      {
+        "id": "05c3aad14682-ea39a342-18d4bd7c-355bf7ad-53f5ac597d27a168",
+        "name": "1981"
+      },
+      {
+        "id": "37645e4b6b32-a38ab673-cbc71f0e-5f78aa10-d11f468214e51bad",
+        "name": "1982"
+      },
+      {
+        "id": "b74ba4709eca-6115707e-3330d13c-3705bc67-54d69183d111e497",
+        "name": "1983"
+      },
+      {
+        "id": "ba522cbc68e2-59895c6a-1cfeb00b-9c2a8cb7-86b252ac084d7bff",
+        "name": "1984"
+      },
+      {
+        "id": "609c746de7ee-ac356992-57ae664f-ed045988-fdf5d784743a84fd",
+        "name": "1985"
+      },
+      {
+        "id": "dc29c3ee8a19-d8874189-73407d49-29ff0c7b-88a2cb6b0dcbb0ad",
+        "name": "1986"
+      },
+      {
+        "id": "72123feb61d7-7a9de725-dfc4e994-592af173-5011949cc49d9f36",
+        "name": "1987"
+      },
+      {
+        "id": "e009d7e224f5-e741dae5-dde94c8e-1c84044e-3a49e4d04a6f0e3d",
+        "name": "1988"
+      },
+      {
+        "id": "a460adc30a8f-fe43eadb-725a8fd3-e1669edf-84c64222103ebc54",
+        "name": "1989"
+      },
+      {
+        "id": "e13d7c22667b-32ecbd10-0e69eb92-fcf48d7c-6da00ac5e1433593",
+        "name": "1990"
+      },
+      {
+        "id": "af755f33df72-f9def9f4-5dd0178e-b26e5fd1-e22e763071b67e10",
+        "name": "1991"
+      },
+      {
+        "id": "d67007fcdae9-6a90cd4d-e219a9f3-5bdd3fcc-731724f5b7269f75",
+        "name": "1992"
+      },
+      {
+        "id": "164577ecb100-b1582e30-cc872048-b91cfe68-fc3a6f4bd0e71d79",
+        "name": "1993"
+      },
+      {
+        "id": "5366667a56db-3e23adfc-624dca98-77ca0b0f-3e506a9a31dade3a",
+        "name": "1994"
+      },
+      {
+        "id": "f8efca7608af-a96514ee-d2aecfcb-1f26ae2d-583529e28dfd581d",
+        "name": "1995"
+      },
+      {
+        "id": "680d95a9d899-5834410d-f8bbbbab-ca24bf81-d371db8d5eb3a9d3",
+        "name": "1996"
+      },
+      {
+        "id": "c90aa3123ece-ce41b985-65aa5813-afea7b1b-1a8ec191f6d104a3",
+        "name": "1997"
+      },
+      {
+        "id": "b55580ea6202-91219a13-1f46d9bb-f53ca2f6-ee2bf591f068ed03",
+        "name": "1998"
+      },
+      {
+        "id": "b64a4d36df4a-b4099e49-490d2127-26f0e112-08b7854ad00feb74",
+        "name": "1999"
+      },
+      {
+        "id": "c4b73ad30ea7-00f9c849-580eb95f-b7197798-e5acc43d8898f4a2",
+        "name": "2000"
+      },
+      {
+        "id": "fd651acdda80-86fe9e5b-cf97f83f-a2c70a29-d592722d45d54be2",
+        "name": "2001"
+      },
+      {
+        "id": "f231089d0048-dfa84e81-f4006038-61cac914-5e92d7e01e450aa2",
+        "name": "2002"
+      },
+      {
+        "id": "92037e245c66-2c2a2803-f1f0cc3a-6f7c51e6-b68211d78da75137",
+        "name": "2003"
+      },
+      {
+        "id": "f981586493e3-30d7d70d-7322604d-411ff769-40a237eca33579b1",
+        "name": "2004"
+      },
+      {
+        "id": "60a3914d0e5b-c2680500-9918cdb8-9a4709b7-658034835ebf980a",
+        "name": "2005"
+      },
+      {
+        "id": "41383428788c-d3bc3919-a20196d3-5c7ce06c-1da52709208717b6",
+        "name": "2006"
+      },
+      {
+        "id": "63e7f6309bc9-379d8709-72a4f262-ededaa85-f7b42e17aaa489cb",
+        "name": "2007"
+      },
+      {
+        "id": "5f5d51e09546-46a2e0df-1f07e474-f99c9cb3-8bb40607095804e9",
+        "name": "2008"
+      },
+      {
+        "id": "f070366a0b2d-bc44f579-91bf4380-4049141c-669e9f3c635368da",
+        "name": "2009"
+      },
+      {
+        "id": "f18f380196da-00d6b696-673d4f01-0b8ed693-006d57a1f0fe4a65",
+        "name": "2010"
+      },
+      {
+        "id": "23b8c631f3a6-35eb50f5-88564c10-82072270-011f41d7860a0260",
+        "name": "2011"
+      },
+      {
+        "id": "1c152d47074b-64eab88c-493b66c3-ab87d7f7-1396edc47908ed5c",
+        "name": "2012"
+      },
+      {
+        "id": "f043febe4f61-034c8c31-0ce32057-d8855812-8e504c38b4e3f2fa",
+        "name": "2013"
+      },
+      {
+        "id": "d6724a564a7e-f656865b-c16760c8-9a709cd2-4299d02555d19ec1",
+        "name": "2014"
+      },
+      {
+        "id": "0a724805269f-f3e81e54-5ae72985-986c4fb1-8702f280103d9abb",
+        "name": "2015"
+      },
+      {
+        "id": "45d8cd67934b-26ebfa05-c41efe04-ea22ea8e-7975b23acd92c5e7",
+        "name": "2016"
+      },
+      {
+        "id": "a93c2e5daced-90780595-f11653cd-5f3b8228-8ad7ac4d0e9fb777",
+        "name": "2017"
+      },
+      {
+        "id": "79aeabcf3f06-e3c9fbcc-c21dbe8a-97bfeb93-d9ec2c1af04ce548",
+        "name": "2018"
+      },
+      {
+        "id": "db962af8e868-42626399-bae51bb9-89488519-22fc20011e37e706",
+        "name": "2019"
+      },
+      {
+        "id": "d385c40a5307-f1901b0a-ee4c90f5-082817a1-4be6f92a3e3faf9b",
+        "name": "2020"
+      }
+    ]
+  }
+}

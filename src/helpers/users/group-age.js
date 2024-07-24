@@ -1,4 +1,6 @@
 const groupChoose = (age, groupAge) => {
+  if (groupAge === undefined) return '';
+
   let index = 0;
   let text = '';
 
@@ -22,7 +24,7 @@ const groupChoose = (age, groupAge) => {
     index = 8;
   }
 
-  text = groupAge[index]?.name;
+  text = groupAge[index]?.name || '';
   return text;
 };
 

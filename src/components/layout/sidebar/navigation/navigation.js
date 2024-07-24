@@ -33,7 +33,7 @@ const useNavigation = (t, hashPass) => {
       ],
     },
     //reception
-    /*   {
+    {
       _tag: 'CSidebarNavDropdown',
       name: t('sidebar.reception.title'),
       route: '/reception',
@@ -44,15 +44,15 @@ const useNavigation = (t, hashPass) => {
           to: '/reception/view',
           icon: 'cil-view-quilt',
         },
-        {
+        /*   {
           _tag: 'CSidebarNavItem',
           name: t('sidebar.reception.children.registration'),
           to: '/reception/reception_registration',
           icon: 'cil-voice-over-record',
-        },
+        }, */
       ],
-    }, */
-    {
+    },
+    /*  {
       _tag: 'CSidebarNavDropdown',
       name: t('sidebar.ambit.title'),
       route: '/ambit',
@@ -64,7 +64,7 @@ const useNavigation = (t, hashPass) => {
           icon: 'cil-stream',
         },
       ],
-    },
+    }, */
   ];
 
   if (hashPass) {

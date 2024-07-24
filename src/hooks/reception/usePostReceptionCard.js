@@ -13,12 +13,12 @@ export const postReceptionCard = async (receptionCard, setData) => {
 const usePostReceptionCard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(false);
 
   const execute = async (receptionCard) => {
     try {
       setIsLoading(true);
-      postReceptionCard(receptionCard, setData);
+      await postReceptionCard(receptionCard, setData);
       setIsLoading(false);
     } catch (e) {
       setError(e);

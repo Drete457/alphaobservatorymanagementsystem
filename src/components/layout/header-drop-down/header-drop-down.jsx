@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -16,16 +15,16 @@ const HeaderAccountDropdown = ({ logOut }) => {
   const history = useHistory();
   const isUser = useRecoilValue(user);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     if (isUser) {
       //Wellcome the User
       const speakUserName = new SpeechSynthesisUtterance();
       speakUserName.lang = 'en';
       speakUserName.volume = 0.5;
-      speakUserName.text = `Wellcome to the Alpha Observatory Management System, ${isUser.name}`;
+      speakUserName.text = `Welcome to the Alpha Community Management System, ${isUser.name}`;
       window.speechSynthesis.speak(speakUserName);
     }
-  }, [isUser]);
+  }, [isUser]); */
 
   return (
     <>

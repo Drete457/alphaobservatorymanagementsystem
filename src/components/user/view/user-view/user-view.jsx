@@ -215,6 +215,17 @@ const UserViewer = ({ user, countriesList, genericList, userList }) => {
               disabled
             />
 
+            {user?.contactYouRegistrationForm && (
+              <InputField
+                title={t('user.fields.contactYouRegistrationForm.title')}
+                name="contactYouRegistrationForm"
+                type="text"
+                value={user?.contactYouRegistrationForm}
+                className="user-input-format"
+                disabled
+              />
+            )}
+
             {/*   <InputField
               title={t('user.fields.second.title')}
               name="second"

@@ -2,12 +2,12 @@
   "name": "alpha_observatory_management_system",
   "version": "0.1.1",
   "private": false,
-  "description": "Alpha Observatory Management System",
+  "description": "Alpha Community Management System",
   "author": {
     "name": "Filipe Mota",
     "github": "https://github.com/Drete457"
   },
-  "copyright": "Copyright 2020 - 2022 CEO NADA",
+  "copyright": "Copyright 2020 - 2024 CEO NADA",
   "repository": {
     "type": "git",
     "url": "https://github.com/Drete457/alphaobservatorymanagementsystem.git"
@@ -30,6 +30,7 @@
     "ag-grid-react": "^26.2.0",
     "export-from-json": "^1.4.1",
     "firebase": "^9.4.0",
+    "firebase-tools": "^11.24.1",
     "i18next": "^21.4.2",
     "moment-timezone": "^0.5.35",
     "react": "^18.2.0",

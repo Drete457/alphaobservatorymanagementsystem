@@ -6,7 +6,7 @@ const firstLetterUppercaseOnArray = (name) => {
   array.forEach((word, index) => {
     word.toLowerCase();
 
-    let wordFirstWord = word[0].toUpperCase() + word.substring(1);
+    let wordFirstWord = word[0]?.toUpperCase?.() + word?.substring(1);
 
     if (index < array.length - 1) {
       wordFirstWord += ' ';

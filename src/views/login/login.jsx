@@ -11,12 +11,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSetRecoilState } from 'recoil';
 import { user } from 'state/atoms';
-import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithRedirect,
-  signInWithPopup,
-} from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import userConstrutor from 'helpers/login';
 
 const onSubmit = async (setUser, setError) => {

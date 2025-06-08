@@ -160,9 +160,9 @@ const RegistrationForm = () => {
               </div>
 
               <InputField
-                title="Who contacted you?* / ¿Quién te contactó?*"
+                title="Who invited you to this meeting?/¿Quién te invitó a esta reunión?*"
                 name="contactYouRegistrationForm"
-                placeholder="Who contacted you / Persona que te contacto"
+                placeholder="Who invited you / Persona que te invitó"
                 type="text"
                 value={user?.contactYouRegistrationForm}
                 onChange={(event) => {
@@ -225,7 +225,7 @@ const RegistrationForm = () => {
                 className="input-registration"
               />
 
-              <SelectFieldComponent
+              {/*  <SelectFieldComponent
                 title="Employment* / Empleo*"
                 name="employment"
                 placeholder="Select your employment / Seleccione su empleo"
@@ -241,11 +241,11 @@ const RegistrationForm = () => {
                 }}
                 options={generic.ocupation ?? []}
                 className="input-registration"
-              />
+              /> */}
             </div>
 
             <div className="input-margin">
-              <SelectFieldComponent
+              {/*   <SelectFieldComponent
                 title="How did you hear about us? / ¿Cómo se enteró de nosotros?"
                 name="typeSurvey"
                 placeholder="Select your answer / Seleccione su respuesta"
@@ -261,7 +261,7 @@ const RegistrationForm = () => {
                 }}
                 options={generic.survey ?? []}
                 className="input-registration"
-              />
+              /> */}
 
               <SelectFieldComponent
                 title="Choose your social media / Elige tu red social"

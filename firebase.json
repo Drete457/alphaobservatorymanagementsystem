@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "managementsystem-f4618",
     "public": "dist",
     "ignore": [
       "firebase.json",

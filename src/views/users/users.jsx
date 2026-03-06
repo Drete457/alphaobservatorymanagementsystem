@@ -110,7 +110,7 @@ const Users = () => {
             <Button
               name={t('btn.create.cvs')}
               onClick={() =>
-                activitiesHandler.exportToCSV(
+                homeHandler.exportToCSV(
                   isDynamicTable ? onBtForEachLeafNode() : tableToExcel,
                   t,
                 )

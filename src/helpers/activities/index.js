@@ -12,7 +12,7 @@ import calendarToShow, {
   weeksBetweenDates,
 } from './old-newest-activities';
 import exportToExcel from './exportToExcel';
-import exportToCSV from './exportToCVS';
+import exportToCSV from './exportToCSV';
 import baseAmbit from './base-ambit';
 import generateFields from './generate-fields';
 import collaboratorsWithActivities from './collaborators-with-activities';

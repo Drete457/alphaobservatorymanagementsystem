@@ -3,6 +3,7 @@ import groupAge from './group-age';
 import buildUserList from './build-user-list';
 import buildUsersListFilter from './build-users-list-filter';
 import exportToExcel from './exportToExcel';
+import exportToCSV from './exportToCSV';
 import sortList from './sort-list';
 import mainTableSortList from './main-table-sort-list';
 import minuteUpdate from './minute-update';
@@ -15,6 +16,7 @@ const homeHandler = {
   buildUserList,
   buildUsersListFilter,
   exportToExcel,
+  exportToCSV,
   sortList,
   mainTableSortList,
   minuteUpdate,

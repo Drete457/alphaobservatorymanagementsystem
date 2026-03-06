@@ -9,7 +9,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine-dark.css';
 
 import { LicenseManager } from 'ag-grid-enterprise';
-LicenseManager.setLicenseKey(process.env.REACT_APP_AG_LICENSE);
+LicenseManager.setLicenseKey(import.meta.env.VITE_APP_AG_LICENSE);
 
 const DynamicGrid = ({
   data,

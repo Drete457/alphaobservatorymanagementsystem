@@ -15,7 +15,6 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import userConstrutor from 'helpers/login';
 
 const onSubmit = async (setUser, setError) => {
-  console.log('onSubmit');
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
   signInWithPopup(auth, provider)

@@ -149,6 +149,16 @@ const CollaboratorsTable = () => {
                   }
                   className="activity-button"
                 />
+                <Button
+                  name={t('btn.create.cvs')}
+                  onClick={() =>
+                    activitiesHandler.exportToCSV(
+                      isDynamicTable ? onBtForEachLeafNode() : tableToExcel,
+                      t,
+                    )
+                  }
+                  className="activity-button"
+                />
               </div>
             </nav>
             <hr />

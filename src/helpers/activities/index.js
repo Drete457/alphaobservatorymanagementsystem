@@ -12,6 +12,7 @@ import calendarToShow, {
   weeksBetweenDates,
 } from './old-newest-activities';
 import exportToExcel from './exportToExcel';
+import exportToCSV from './exportToCVS';
 import baseAmbit from './base-ambit';
 import generateFields from './generate-fields';
 import collaboratorsWithActivities from './collaborators-with-activities';
@@ -27,6 +28,7 @@ const activitiesHandler = {
   validateActivities,
   calendarToShow,
   exportToExcel,
+  exportToCSV,
   addDaysFormat,
   subtractDaysFormat,
   weeksBetweenDates,

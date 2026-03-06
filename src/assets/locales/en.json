@@ -60,7 +60,8 @@
     "create": {
       "user": "Create New Collaborator",
       "activities": "Create New Activities",
-      "excel": "Export To Excel"
+      "excel": "Export To Excel",
+      "cvs": "Export To CVS"
     },
     "create-edit": {
       "submit": "Submit",

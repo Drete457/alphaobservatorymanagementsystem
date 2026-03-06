@@ -228,42 +228,43 @@ const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
                   options={generic.gender ?? []}
                   className="input-registration"
                 />
+              </div>
 
-            <div className="input-margin">
-              <SelectFieldComponent
-                title="Country* / País*"
-                name="country"
-                placeholder="Select your country / Seleccione su país"
-                value={user?.country}
-                onChange={(value) => {
-                  userHandler.userSelectHandler(
-                    'country',
-                    value,
-                    setUser,
-                    user,
-                  );
-                  setWasModified(true);
-                }}
-                options={countries}
-                className="input-registration"
-              />
-            </div>
+              <div className="input-margin">
+                <SelectFieldComponent
+                  title="Country* / País*"
+                  name="country"
+                  placeholder="Select your country / Seleccione su país"
+                  value={user?.country}
+                  onChange={(value) => {
+                    userHandler.userSelectHandler(
+                      'country',
+                      value,
+                      setUser,
+                      user,
+                    );
+                    setWasModified(true);
+                  }}
+                  options={countries}
+                  className="input-registration"
+                />
+              </div>
 
-            <div className="input-margin">
-              <SelectFieldComponent
-                title="Gender / Género"
-                name="gender"
-                placeholder="Select your gender / Seleccione su género"
-                value={user?.gender}
-                onChange={(value) => {
-                  userHandler.userSelectHandler('gender', value, setUser, user);
-                  setWasModified(true);
-                }}
-                options={generic.gender ?? []}
-                className="input-registration"
-              />
+              <div className="input-margin">
+                <SelectFieldComponent
+                  title="Gender / Género"
+                  name="gender"
+                  placeholder="Select your gender / Seleccione su género"
+                  value={user?.gender}
+                  onChange={(value) => {
+                    userHandler.userSelectHandler('gender', value, setUser, user);
+                    setWasModified(true);
+                  }}
+                  options={generic.gender ?? []}
+                  className="input-registration"
+                />
 
-              {/*  <SelectFieldComponent
+                {/*  <SelectFieldComponent
                 title="Employment* / Empleo*"
                 name="employment"
                 placeholder="Select your employment / Seleccione su empleo"
@@ -280,10 +281,10 @@ const submit = (user, setErrorMsg, t, execute, setWasModified, isUser) => {
                 options={generic.ocupation ?? []}
                 className="input-registration"
               /> */}
-            </div>
+              </div>
 
-            <div className="input-margin">
-              {/*   <SelectFieldComponent
+              <div className="input-margin">
+                {/*   <SelectFieldComponent
                 title="How did you hear about us? / ¿Cómo se enteró de nosotros?"
                 name="typeSurvey"
                 placeholder="Select your answer / Seleccione su respuesta"

@@ -108,6 +108,16 @@ const Users = () => {
               className="button-font-weight"
             />
             <Button
+              name={t('btn.create.cvs')}
+              onClick={() =>
+                activitiesHandler.exportToCSV(
+                  isDynamicTable ? onBtForEachLeafNode() : tableToExcel,
+                  t,
+                )
+              }
+              className="activity-button"
+            />
+            <Button
               name={t('btn.create.user')}
               onClick={() => history.push(`/user/new_user`)}
               className="button-font-weight"

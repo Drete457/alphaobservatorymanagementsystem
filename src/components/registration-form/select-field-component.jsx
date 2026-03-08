@@ -33,6 +33,11 @@ const SelectFieldComponent = ({
   const isInvalid = errorMsg ? true : false;
 
   useLayoutEffect(() => {
+    if (!value || (Array.isArray(value) && value.length === 0)) {
+      setCurrent(isMulti ? [] : null);
+      return;
+    }
+
     if (value && !isMulti) {
       const valueFormat = createValue(value, options);
       setCurrent(valueFormat);
@@ -55,7 +60,12 @@ const SelectFieldComponent = ({
         autoComplete="off"
         onChange={(event) => {
           setCurrent(event);
-          event ? onChange(event) : onChange({ label: '', value: '' });
+          if (event) {
+            onChange(event);
+            return;
+          }
+
+          onChange(isMulti ? [] : { label: '', value: '' });
         }}
         className="select-style"
         isMulti={isMulti}

@@ -18,9 +18,21 @@ const userSelectHandler = (key, value, setUser, user) => {
   userHandler(key, userSelect, setUser, user);
 };
 
-const userSocialInfoAdd = (setUser, user) => {
-  let userSocialInfo = user.social?.map((social) => {
-    const alreadyHave = Array.from(user.socialInfo).find(
+const normalizeSocialSelection = (value) => {
+  if (!value) {
+    return [];
+  }
+
+  const selectedValues = Array.isArray(value) ? value : [value];
+
+  return selectedValues
+    .map((currentValue) => currentValue?.value)
+    .filter(Boolean);
+};
+
+const buildSocialInfo = (socialList, currentSocialInfo = []) => {
+  return socialList.map((social) => {
+    const alreadyHave = Array.from(currentSocialInfo).find(
       (value) => value.id === social,
     );
 
@@ -30,22 +42,22 @@ const userSocialInfoAdd = (setUser, user) => {
 
     return { id: social, name: '' };
   });
-
-  userHandler('socialInfo', userSocialInfo, setUser, user);
 };
 
 const userSocialSelectHandler = (key, value, setUser, user) => {
-  const userSocial = value?.map((value) => value.value);
+  const userSocial = normalizeSocialSelection(value);
+  const userSocialInfo = buildSocialInfo(userSocial, user.socialInfo || []);
 
-  userHandler(key, userSocial, setUser, user);
-
-  user.social = userSocial;
-  userSocialInfoAdd(setUser, user);
+  setUser({
+    ...user,
+    [key]: userSocial,
+    socialInfo: userSocialInfo,
+  });
 };
 
 const userSocialInfoHandler = (key, event, setUser, user, index) => {
   const name = event.target.value;
-  let socialInfoArray = Array.from(user.socialInfo);
+  let socialInfoArray = Array.from(user.socialInfo || []);
 
   socialInfoArray[index] = {
     ...socialInfoArray[index],

@@ -165,7 +165,9 @@ const RegistrationForm = () => {
                   required
                 />
               </div>
+            </div>
 
+            <div className="input-margin">
               <InputField
                 title="Who invited you to this meeting?* / ¿quién te ha invitado?*"
                 name="contactYouRegistrationForm"
@@ -198,19 +200,6 @@ const RegistrationForm = () => {
               />
             </div>
 
-            <InputField
-              title="Who invited you to this meeting?/¿Quién te invitó a esta reunión?*"
-              name="contactYouRegistrationForm"
-              placeholder="Who invited you / Persona que te invitó"
-              type="text"
-              value={user?.contactYouRegistrationForm}
-              onChange={(event) => {
-                userHandler.userInputHandler(event, setUser, user);
-                setWasModified(true);
-              }}
-              className="input-registration"
-            />
-
             <div className="input-margin">
               <SelectFieldComponent
                 title="Gender / Género"
@@ -229,9 +218,7 @@ const RegistrationForm = () => {
                 options={generic.gender ?? []}
                 className="input-registration"
               />
-            </div>
 
-            <div className="input-margin">
               <SelectFieldComponent
                 title="Country* / País*"
                 name="country"
@@ -249,22 +236,10 @@ const RegistrationForm = () => {
                 options={countries}
                 className="input-registration"
               />
+
             </div>
 
             <div className="input-margin">
-              <SelectFieldComponent
-                title="Gender / Género"
-                name="gender"
-                placeholder="Select your gender / Seleccione su género"
-                value={user?.gender}
-                onChange={(value) => {
-                  userHandler.userSelectHandler('gender', value, setUser, user);
-                  setWasModified(true);
-                }}
-                options={generic.gender ?? []}
-                className="input-registration"
-              />
-
               {/*  <SelectFieldComponent
                 title="Employment* / Empleo*"
                 name="employment"
@@ -282,9 +257,7 @@ const RegistrationForm = () => {
                 options={generic.ocupation ?? []}
                 className="input-registration"
               /> */}
-            </div>
 
-            <div className="input-margin">
               {/*   <SelectFieldComponent
                 title="How did you hear about us? / ¿Cómo se enteró de nosotros?"
                 name="typeSurvey"
@@ -303,25 +276,26 @@ const RegistrationForm = () => {
                 className="input-registration"
               /> */}
 
-              <SelectFieldComponent
-                title="Your Contact/To Contacto"
-                name="social"
-                placeholder="Select your social media / Seleccione su red social"
-                value={user?.social}
-                onChange={(value) => {
-                  userHandler.userSocialSelectHandler(
-                    'social',
-                    value,
-                    setUser,
-                    user,
-                  );
-                  setWasModified(true);
-                }}
-                options={generic.socialmedia ?? []}
-                className="input-registration"
-                isMulti={true}
-              />
             </div>
+
+            <SelectFieldComponent
+              title="Your Contact/To Contacto"
+              name="social"
+              placeholder="Select your social media / Seleccione su red social"
+              value={user?.social}
+              onChange={(value) => {
+                userHandler.userSocialSelectHandler(
+                  'social',
+                  value,
+                  setUser,
+                  user,
+                );
+                setWasModified(true);
+              }}
+              options={generic.socialmedia ?? []}
+              className="input-registration"
+              isMulti={true}
+            />
 
             {Array.from(user.socialInfo)?.map?.((social, index) => {
               const socialMedia = generic.socialmedia.find(
